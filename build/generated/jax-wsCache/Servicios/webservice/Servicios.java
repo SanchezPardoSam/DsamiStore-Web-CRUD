@@ -28,6 +28,23 @@ public interface Servicios {
     /**
      * 
      * @return
+     *     returns java.util.List<webservice.Usuario>
+     * @throws Exception_Exception
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "listarUsuario", targetNamespace = "http://WebService/", className = "webservice.ListarUsuario")
+    @ResponseWrapper(localName = "listarUsuarioResponse", targetNamespace = "http://WebService/", className = "webservice.ListarUsuarioResponse")
+    @Action(input = "http://WebService/Servicios/listarUsuarioRequest", output = "http://WebService/Servicios/listarUsuarioResponse", fault = {
+        @FaultAction(className = Exception_Exception.class, value = "http://WebService/Servicios/listarUsuario/Fault/Exception")
+    })
+    public List<Usuario> listarUsuario()
+        throws Exception_Exception
+    ;
+
+    /**
+     * 
+     * @return
      *     returns java.util.List<webservice.Categoria>
      * @throws Exception_Exception
      */
@@ -39,6 +56,23 @@ public interface Servicios {
         @FaultAction(className = Exception_Exception.class, value = "http://WebService/Servicios/listar/Fault/Exception")
     })
     public List<Categoria> listar()
+        throws Exception_Exception
+    ;
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<webservice.Rol>
+     * @throws Exception_Exception
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "listarRol", targetNamespace = "http://WebService/", className = "webservice.ListarRol")
+    @ResponseWrapper(localName = "listarRolResponse", targetNamespace = "http://WebService/", className = "webservice.ListarRolResponse")
+    @Action(input = "http://WebService/Servicios/listarRolRequest", output = "http://WebService/Servicios/listarRolResponse", fault = {
+        @FaultAction(className = Exception_Exception.class, value = "http://WebService/Servicios/listarRol/Fault/Exception")
+    })
+    public List<Rol> listarRol()
         throws Exception_Exception
     ;
 

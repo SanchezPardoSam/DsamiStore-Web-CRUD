@@ -1,62 +1,56 @@
 <%-- 
     Document   : index
-    Created on : 21/06/2022, 04:58:27 PM
+    Created on : 21/06/2022, 07:00:01 PM
     Author     : aries
 --%>
 
-
-<%@page import="java.util.List"%>
-<%@page import="webservice.Categoria"%>
-<%@page import="Modelo.CategoriaService"%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <!-- CSS only -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" 
               rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <div class="container mt-4">
-            <div class="card">
-                <div class="card-header">
-                    <a class="btn btn-primary">Nueva categoria</a>
+   
+    <link rel="stylesheet" href="../../public/css/index.css">
+    <link rel="stylesheet" href="../../public/css/bootstrap.css">
+</head>
+<body>
+    <div class="navbar border-bottom">
+        <div class="container">
+            <a href="/" class="navbar-brand fw-bold">D'Sami Store</a>
+        </div>
+    </div>
+    <div class="container">
+        <form class="card mt-5 mx-auto" style="max-width: 512px;" action="../../controllers/login/index.php" method="POST">
+            <div class="card-body">
+                <div class="mt-3 mb-3">
+                    <h1 class="h4 fw-bold text-center">Inicio de sesión</h1>
                 </div>
-                <div class= "card-body">
-                    <table border=1 class="table table-hover">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Nombre</th>
-                                <th>Descripcion</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <%
-                                CategoriaService c = new CategoriaService();
-                                List<Categoria> listCat = c.listar();
-                                for (Categoria ca : listCat) {
-
-
-                            %>
-                            <tr>
-                                <td> <%= ca.getId()%></td>
-                                <td> <%= ca.getNombre()%></td>
-                                <td> <%= ca.getDescripcion()%></td>
-                                <td>
-                                      <a href="" class="btn btn-warning">Edit</a>
-                        <a href="" class="btn btn-danger">Delete</a>
-                                </td>
-
-
-                            </tr>
-                            <%}%>
-                        </tbody>
-                    </table>
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input  class="form-control" id="username" placeholder="Ingresa tu nombre de usario" required name="username">
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" id="password" placeholder="Ingresa tu contraseña" required name="password">
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Acceder</button>
                 </div>
             </div>
-    </body>
+        </form>
+    </div>
+    <footer>
+        <div class="container position-absolute bottom-0 start-50 translate-middle-x">
+            <div class="py-5">
+                <p class="text-center text-muted">© 2021 D'Sami Store</p>
+            </div>
+        </div>
+    </footer>
+   
+</body>
 </html>
