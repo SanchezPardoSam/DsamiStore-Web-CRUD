@@ -77,7 +77,7 @@
                            </div>
                            <div class="d-flex">
                                <input type="text" class="form-control me-2"
-                                      placeholder="Buscar una rol" aria-label="Recipient's username"
+                                      placeholder="Buscar un rol" aria-label="Recipient's username"
                                       aria-describedby="basic-addon2">
                                <button class="btn btn-primary" id="basic-addon2" type="button ">Buscar</button>
                            </div>
@@ -85,6 +85,33 @@
                     </div>
                 </div>
 
+                <!-- Modal para Agregar-->
+                <div class="modal fade" id="agregar" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                      <form name="form-data" action="../../controllers/roles/agregar.php" method="POST">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="staticBackdropLabel">Agregar rol</h5>
+                          <button type="button" class="btn-close p-2" data-bs-dismiss="modal" aria-label="Close">
+                          </button>
+                        </div>
+
+                        <div class="modal-body">
+                          <div>
+                            <label for="agregar-nombre" class="form-label">Nombre</label>
+                            <input type="text" class="form-control" id="agregar-nombre" name="nombre" placeholder="Agregar nombre" required autofocus>
+                          </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                          <button type="submit" class="btn btn-primary" id="btnEnviar">Aceptar</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Mostrar tabla -->
                 <div class="card">
                     <div class="table-responsive">
                             <table class="table table-borderless">
@@ -106,8 +133,66 @@
                                 <td> <%= rol.getNombre()%></td>
                                 <td>
                                     <div class="d-flex justify-content-center">
-                                    <a href="" class="btn btn-warning">Edit</a>
-                                    <a href="" class="btn btn-danger">Delete</a>
+                                        <button class="btn btn-secondary me-2" type="button" data-bs-toggle="modal" data-bs-target="#editarRol<%= rol.getCodigoRol()%>">
+                                            Editar
+                                        </button>
+
+                                            <!--ventana para Update--->
+                                        <div class="modal fade" id="editarRol<%= rol.getCodigoRol()%>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-hidden="true" aria-labelledby="editaCat">
+                                          <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content">
+                                              <div class="modal-header">
+                                                <h5 class="modal-title" id="staticBackdropLabel">Editar Rol</h5>
+                                                <button type="button" class="btn-close p-2" data-bs-dismiss="modal" aria-label="Close">
+                                                </button>
+                                              </div>
+
+                                              <form method="POST" action="../../controllers/roles/editar.php">
+                                                <input type="hidden" name="idRol" value="<%= rol.getCodigoRol()%>">
+                                                <div class="modal-body" id="cont_modal">
+                                                  <div>
+                                                    <label for="editar-nombre" class="col-form-label">Nombre</label>
+                                                    <input type="text" class="form-control" id="editar-nombre" name="nombre" value="<%= rol.getNombre()%>" placeholder="Agregar nombre" required autofocus>
+                                                  </div>
+                                                </div>
+
+                                                <div class="modal-footer">
+                                                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                                  <button type="submit" class="btn btn-primary">Aceptar</button>
+                                                </div>
+                                              </form>
+                                            </div>
+                                          </div>
+                                        </div>
+                                            
+                                        <button class="btn btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#eliminarRol<%= rol.getCodigoRol()%>">Eliminar</button>
+
+                                        <!-- Ventana modal para eliminar -->
+                                        <div class="modal fade" id="eliminarRol<%= rol.getCodigoRol()%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                          <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                              <form name="form-data" action="../../controllers/roles/eliminar.php" method="DELETE">
+                                                <div class="modal-header">
+                                                  <h5 class="modal-title" id="myModalLabel">Deseas eliminar el rol </h5>
+                                                  <button type="button" class="btn-close p-2" data-bs-dismiss="modal" aria-label="Close">
+                                                  </button>
+                                                </div>
+
+                                                <div class="modal-body">
+                                                  <input type="hidden" name="idRol" value="<%= rol.getCodigoRol()%>">
+                                                  <strong style="text-align: center !important">
+                                                    <%= rol.getNombre()%>
+                                                  </strong>
+                                                </div>
+                                                <div class="modal-footer">
+                                                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                                  <button type="submit" class="btn btn-primary btnBorrar btn-block" data-bs-dismiss="modal" id="<%= rol.getCodigoRol()%>">Borrar</button>
+                                                </div>
+                                              </form>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <!---fin ventana eliminar--->
                                     </div>
                                 </td>
                             </tr>
@@ -117,5 +202,10 @@
                     </table>
                 </div>
             </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+                crossorigin="anonymous"></script>          
     </body>
 </html>

@@ -73,9 +73,8 @@
                         </div>
                         <div class="d-flex justify-content-between align-items-center">
                            <div>
-                               <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                       data-bs-target="#agregar">Agregar
-                               </button>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                              data-bs-target="#agregar">Agregar</button>
                            </div>
                            <div class="d-flex">
                                <input type="text" class="form-control me-2"
@@ -87,12 +86,87 @@
                     </div>
                 </div>
 
+                <!-- Modal para Agregar-->
+                <div class="modal fade" id="agregar" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                      <form name="form-data" action="../../controllers/usuarios/agregar.php" method="POST">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="staticBackdropLabel">Agregar usuario</h5>
+                          <button type="button" class="btn-close p-2" data-bs-dismiss="modal" aria-label="Close">
+                          </button>
+                        </div>
+
+                        <div class="modal-body">
+                          <div class="mb-3">
+                            <label for="agregar-nombre" class="form-label">Nombre</label>
+                            <input type="text" class="form-control" id="agregar-nombre" name="nombre" placeholder="Agregar nombre" required autofocus>
+                          </div>
+
+                          <div class="mb-3">
+                            <label for="agregar-usuario" class="form-label">Usuario</label>
+                            <input type="text" class="form-control" id="agregar-usuario" name="username" placeholder="Agregar usuario" required>
+                          </div>
+
+                          <div class="mb-3">
+                            <label for="agregar-email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="agregar-email" name="email" placeholder="Agregar email" required>
+                          </div>
+
+                          <div class="mb-3">
+                            <label for="agregar-password" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" id="agregar-password" name="password" placeholder="Agregar contraseña" required>
+                          </div>
+
+                          <div class="mb-3">
+                            <label for="agregar-idRol" class="col-form-label">Rol</label>
+                            <select class="form-select" id="agregar-idRol" name="idRol" aria-label=".form-select-sm example" ">
+                            <option selected>Seleccionar rol</option>
+                              <%
+                                RolService r = new RolService();
+                                List<Rol> listRol = r.listarRol();
+                                  
+                                for (Rol rol : listRol) {
+                                %>
+
+                                <option value="<%= rol.getCodigoRol()%>"><%= rol.getNombre()%></option>
+                                <%
+                                    }
+                              %>
+                            </select>
+                          </div>
+
+                          <div>
+                            <label for="agregar-idEmpleado" class="col-form-label">Empleado</label>
+                            <select class="form-select" id="agregar-idEmpleado" name="idEmpleado" aria-label=".form-select-sm example">
+                              <option selected>Seleccionar empleado</option>
+                              <!--
+                                <?php
+                                  foreach ($empleados as $empleado) {
+                                        echo "<option " . " value=" . $empleado->id  . ">" .$empleado->nombre  . "</option>";
+                                          }
+                              ?>
+                              -->
+                            </select>
+                          </div>
+                        </div>
+
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                          <button type="submit" class="btn btn-primary" id="btnEnviar">Aceptar</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Mostrar tabla -->
                 <div class="card">
                     <div class="table-responsive">
                             <table class="table table-borderless">
                                 <thead>
                                  <tr>
-                                    <th scope="col">ID</th>
+                                    <th scope="col">N</th>
                                     <th scope="col">Usuario</th>
                                     <th scope="col">Empleado</th>
                                     <th scope="col">Rol</th>
@@ -112,8 +186,104 @@
                                       <td> <%= user.getRol().getNombre()%></td>
                                     <td>
                                             <div class="d-flex justify-content-center">
-                                                <a href="" class="btn btn-warning">Edit</a>
-                                                <a href="" class="btn btn-danger">Delete</a>
+                                                <button class="btn btn-secondary me-2" type="button" data-bs-toggle="modal" data-bs-target="#editarUsuario<%= user.getCodigoUsuario()%>">
+                                                    Editar
+                                                </button>
+
+                                                <!--ventana para Update--->
+                                                <div class="modal fade" id="editarUsuario<%= user.getCodigoUsuario()%>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-hidden="true" aria-labelledby="editaUsuario">
+                                                  <div class="modal-dialog modal-dialog-centered">
+                                                    <div class="modal-content">
+                                                      <div class="modal-header">
+                                                        <h5 class="modal-title" id="staticBackdropLabel">Editar usuario</h5>
+                                                        <button type="button" class="btn-close p-2" data-bs-dismiss="modal" aria-label="Close">
+                                                        </button>
+                                                      </div>
+
+                                                      <form method="POST" action="../../controllers/usuarios/editar.php">
+                                                        <input type="hidden" name="idUsuario" value="<?php echo $usuario->id; ?>">
+                                                        <div class="modal-body" id="cont_modal">
+                                                          <div class="mb-3">
+                                                            <label for="recipient-name" class="col-form-label">Usuario</label>
+                                                            <input type="text" name="username" class="form-control" value="<%= user.getNombreUsuario()%>" placeholder="Agregar usuario" required>
+                                                          </div>
+
+                                                          <div class="mb-3">
+                                                            <label for="editar-password" class="form-label">Contraseña</label>
+                                                            <input type="password" class="form-control" id="editar-password" name="password" value="<%= user.getClave()%>" placeholder="Agregar contraseña" required>
+                                                          </div>
+
+                                                          <div class="mb-3">
+                                                            <label for="agregar-idRol" class="col-form-label">Rol</label>
+                                                            <select class="form-select" id="agregar-idRol" name="idRol" aria-label=".form-select-sm example">
+                                                                <%
+                                                                  RolService r2 = new RolService();
+                                                                  List<Rol> listRol2 = r2.listarRol();
+
+                                                                  for (Rol rol : listRol2) {
+                                                                  %>
+
+                                                                  <option <%= user.getRol().getCodigoRol().equals(rol.getCodigoRol()) ? "selected" : "" %> value="<%= rol.getCodigoRol()%>"><%= rol.getNombre()%></option>
+                                                                  <%
+                                                                      }
+                                                                %>
+                                                            </select>
+                                                          </div>
+
+                                                          <div>
+                                                            <label for="agregar-idEmpleado" class="col-form-label">Empleado</label>
+                                                            <select class="form-select" id="agregar-idEmpleado" name="idEmpleado" aria-label=".form-select-sm example">
+                                                                <!--
+                                                                <?php
+                                                                  foreach ($empleados as $empleado) {
+                                                                    $selected = $empleado->id == $usuario->empleado->id ? "selected" : "";
+                                                                      echo "<option " . $selected . " value=" . $empleado->id  . ">" .$empleado->nombre  . "</option>";
+                                                                          }
+                                                              ?>
+                                                                -->
+                                                            </select>
+                                                          </div>
+                                                        </div>
+
+                                                        <div class="modal-footer">
+                                                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                                          <button type="submit" class="btn btn-primary">Aceptar</button>
+                                                        </div>
+                                                      </form>
+
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                                <!---fin ventana Update --->
+
+                                                <button class="btn btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#eliminarUsuario<%= user.getCodigoUsuario()%>">Eliminar</button>
+
+                                                <!-- Ventana modal para eliminar -->
+                                                <div class="modal fade" id="eliminarUsuario<%= user.getCodigoUsuario()%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                  <div class="modal-dialog modal-dialog-centered" role="document">
+                                                    <div class="modal-content">
+                                                      <form name="form-data" action="../../controllers/usuarios/eliminar.php" method="DELETE">
+                                                        <div class="modal-header">
+                                                          <h5 class="modal-title" id="myModalLabel">Deseas eliminar el Usuario</h5>
+                                                          <button type="button" class="btn-close p-2" data-bs-dismiss="modal" aria-label="Close">
+                                                          </button>
+                                                        </div>
+
+                                                        <div class="modal-body">
+                                                          <input type="hidden" name="idUsuario" value="<?php echo $usuario->id; ?>">
+                                                          <strong style="text-align: center !important">
+                                                            <%= user.getNombreUsuario()%>
+                                                          </strong>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                                          <button type="submit" class="btn btn-primary btnBorrar btn-block" data-bs-dismiss="modal" id="<%= user.getCodigoUsuario()%>">Borrar</button>
+                                                        </div>
+                                                      </form>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                                <!---fin ventana eliminar--->
                                             </div>
                                     </td>
                                 </tr>
@@ -123,5 +293,9 @@
                     </table>
                 </div>
             </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+                crossorigin="anonymous"></script>   
     </body>
 </html>
