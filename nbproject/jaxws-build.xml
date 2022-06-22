@@ -28,8 +28,8 @@
     </target>
     <target name="wsimport-client-Servicios" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/Servicios"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/Servicios" destdir="${build.generated.dir}/jax-wsCache/Servicios" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/Servicios/wsdl/localhost_8080/DsamiStore-Web/Servicios.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/DsamiStore-Web/Servicios?wsdl" xnocompile="true" xendorsed="true">
-            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/Servicios/wsdl/localhost_8080/DsamiStore-Web/Servicios.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/Servicios" destdir="${build.generated.dir}/jax-wsCache/Servicios" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/Servicios/wsdl/localhost_8080/DsamiStore-web-Service/Servicios.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/DsamiStore-web-Service/Servicios?wsdl" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/Servicios/wsdl/localhost_8080/DsamiStore-web-Service/Servicios.wsdl"/>
             <produces dir="${build.generated.dir}/jax-wsCache/Servicios"/>
         </wsimport>
         <copy todir="${build.generated.sources.dir}/jax-ws">

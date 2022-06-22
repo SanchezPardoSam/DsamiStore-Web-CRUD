@@ -10,9 +10,9 @@ import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
- * <p>Clase Java para persona complex type.
+ * <p>Java class for persona complex type.
  * 
- * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType name="persona"&gt;
@@ -65,7 +65,7 @@ public class Persona {
     protected Pais pais;
 
     /**
-     * Obtiene el valor de la propiedad apellidoMaterno.
+     * Gets the value of the apellidoMaterno property.
      * 
      * @return
      *     possible object is
@@ -77,7 +77,7 @@ public class Persona {
     }
 
     /**
-     * Define el valor de la propiedad apellidoMaterno.
+     * Sets the value of the apellidoMaterno property.
      * 
      * @param value
      *     allowed object is
@@ -89,7 +89,7 @@ public class Persona {
     }
 
     /**
-     * Obtiene el valor de la propiedad apellidoPaterno.
+     * Gets the value of the apellidoPaterno property.
      * 
      * @return
      *     possible object is
@@ -101,7 +101,7 @@ public class Persona {
     }
 
     /**
-     * Define el valor de la propiedad apellidoPaterno.
+     * Sets the value of the apellidoPaterno property.
      * 
      * @param value
      *     allowed object is
@@ -113,7 +113,7 @@ public class Persona {
     }
 
     /**
-     * Obtiene el valor de la propiedad codigoDocumento.
+     * Gets the value of the codigoDocumento property.
      * 
      * @return
      *     possible object is
@@ -125,7 +125,7 @@ public class Persona {
     }
 
     /**
-     * Define el valor de la propiedad codigoDocumento.
+     * Sets the value of the codigoDocumento property.
      * 
      * @param value
      *     allowed object is
@@ -137,7 +137,7 @@ public class Persona {
     }
 
     /**
-     * Obtiene el valor de la propiedad codigoPais.
+     * Gets the value of the codigoPais property.
      * 
      * @return
      *     possible object is
@@ -149,7 +149,7 @@ public class Persona {
     }
 
     /**
-     * Define el valor de la propiedad codigoPais.
+     * Sets the value of the codigoPais property.
      * 
      * @param value
      *     allowed object is
@@ -161,7 +161,7 @@ public class Persona {
     }
 
     /**
-     * Obtiene el valor de la propiedad codigoPersona.
+     * Gets the value of the codigoPersona property.
      * 
      * @return
      *     possible object is
@@ -173,7 +173,7 @@ public class Persona {
     }
 
     /**
-     * Define el valor de la propiedad codigoPersona.
+     * Sets the value of the codigoPersona property.
      * 
      * @param value
      *     allowed object is
@@ -185,7 +185,7 @@ public class Persona {
     }
 
     /**
-     * Obtiene el valor de la propiedad codigoUbicacion.
+     * Gets the value of the codigoUbicacion property.
      * 
      * @return
      *     possible object is
@@ -197,7 +197,7 @@ public class Persona {
     }
 
     /**
-     * Define el valor de la propiedad codigoUbicacion.
+     * Sets the value of the codigoUbicacion property.
      * 
      * @param value
      *     allowed object is
@@ -209,7 +209,7 @@ public class Persona {
     }
 
     /**
-     * Obtiene el valor de la propiedad fechaNacimiento.
+     * Gets the value of the fechaNacimiento property.
      * 
      * @return
      *     possible object is
@@ -221,7 +221,7 @@ public class Persona {
     }
 
     /**
-     * Define el valor de la propiedad fechaNacimiento.
+     * Sets the value of the fechaNacimiento property.
      * 
      * @param value
      *     allowed object is
@@ -233,7 +233,7 @@ public class Persona {
     }
 
     /**
-     * Obtiene el valor de la propiedad nombre.
+     * Gets the value of the nombre property.
      * 
      * @return
      *     possible object is
@@ -245,7 +245,7 @@ public class Persona {
     }
 
     /**
-     * Define el valor de la propiedad nombre.
+     * Sets the value of the nombre property.
      * 
      * @param value
      *     allowed object is
@@ -257,7 +257,7 @@ public class Persona {
     }
 
     /**
-     * Obtiene el valor de la propiedad pais.
+     * Gets the value of the pais property.
      * 
      * @return
      *     possible object is
@@ -269,7 +269,7 @@ public class Persona {
     }
 
     /**
-     * Define el valor de la propiedad pais.
+     * Sets the value of the pais property.
      * 
      * @param value
      *     allowed object is

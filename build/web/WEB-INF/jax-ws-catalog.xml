@@ -2,4 +2,6 @@
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
     <system systemId="http://localhost:8080/DsamiStore-Web/Servicios?wsdl" uri="wsdl/localhost_8080/DsamiStore-Web/Servicios.wsdl"/>
     <system systemId="http://localhost:8080/DsamiStore-Web/Servicios?xsd=1" uri="wsdl/localhost_8080/DsamiStore-Web/Servicios.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/DsamiStore-web-Service/Servicios?wsdl" uri="wsdl/localhost_8080/DsamiStore-web-Service/Servicios.wsdl"/>
+    <system systemId="http://localhost:8080/DsamiStore-web-Service/Servicios?xsd=1" uri="wsdl/localhost_8080/DsamiStore-web-Service/Servicios.xsd_1.xsd"/>
 </catalog>

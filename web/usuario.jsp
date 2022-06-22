@@ -21,41 +21,104 @@
         <!-- CSS only -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" 
               rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        <link rel="stylesheet" href="bootstrap.css">
         <title>JSP Page</title>
     </head>
     <body>
-        <div class="container mt-4">
-            <div class="card">
-                <div class="card-header">
-                    <a class="btn btn-primary">Nueva categoria</a>
+        <div class="app">
+            <div class="app-sidebar p-3 border-end ">
+                <a class="d-flex text-decoration-none mb-4 " href="../categorias">
+                    <h4 class="fs-4 fw-bold text-primary">D' Sami Store</h4>
+                </a>
+                <div class="nav nav-pills flex-column mb-auto">
+                    <li class='nav-item'>
+                        <a href="./categoria.jsp" class="nav-link link-dark">Categorías<a>
+                    </li>
+                    <li class='nav-item' >
+                        <a href="./rol.jsp" class="nav-link link-dark">Roles<a>
+                    </li>
+                    <li>
+                        <a href="./usuario.jsp" class="nav-link link-dark">Usuarios<a>
+                    </li>
                 </div>
-                <div class= "card-body">
-                    <table border=1 class="table table-hover">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Nombre</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <%
-                                UsuarioService u = new UsuarioService();
-                                List<Usuario> listUser = u.listarUsuario();
-                                int index = 1;
-                                for (Usuario user : listUser) {
-                            %>
-                            <tr>
-                                <td> <%= index%></td>
-                                <td> <%= user.getNombreUsuario() %></td>
-                                 <td> <%= user.getCodigoEmpleado() %></td>
-                                  <td> <%= user.getCodigoRol()%></td>
-                                <td>
-                                    <a href="" class="btn btn-warning">Edit</a>
-                                    <a href="" class="btn btn-danger">Delete</a>
-                                </td>
-                            </tr>
-                            <%index++; }
-                            %>
+            </div>
+            
+            <div class="app-content">
+                <nav class="app-navbar navbar border-bottom bg-white">
+                    <div class="container-fluid">
+                        <div></div>
+                        <div class="btn-group">
+                            <p class="d-flex align-items-center h-100 mt-2 my-2 mx-2">Perfil</p>
+                            <div class="rounded-circle overflow-hidden" style="width: 42px; height: 42px; cursor: pointer;"
+                                 data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="https://www.pngkey.com/png/full/72-729716_user-avatar-png-graphic-free-download-icon.png"
+                                     class="w-100 h-100"/>
+                            </div>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><a class="dropdown-item" href="#">Mi perfil</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Cerrar sesión</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </nav>
+
+                <div class="container px-4">
+                    <div class="py-4 bd-highlight row">
+                        <div class="title-proveedores py-2">
+                            <h2>Usuarios</h2>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                           <div>
+                               <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                       data-bs-target="#agregar">Agregar
+                               </button>
+                           </div>
+                           <div class="d-flex">
+                               <input type="text" class="form-control me-2"
+                                      placeholder="Buscar un usuario" aria-label="Recipient's username"
+                                      aria-describedby="basic-addon2">
+                               <button class="btn btn-primary" id="basic-addon2" type="button ">Buscar</button>
+                           </div>
+                       </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="table-responsive">
+                            <table class="table table-borderless">
+                                <thead>
+                                 <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Usuario</th>
+                                    <th scope="col">Empleado</th>
+                                    <th scope="col">Rol</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <%
+                                    int idx = 0;
+                                    UsuarioService u = new UsuarioService();
+                                    List<Usuario> listUser = u.listarUsuario();
+                                    for (Usuario user : listUser) {
+                                %>
+                                <tr>
+                                    <td> <%= idx+1%></td>
+                                    <td> <%= user.getNombreUsuario() %></td>
+                                     <td> <%= user.getEmpleado().getNombre()%></td>
+                                      <td> <%= user.getRol().getNombre()%></td>
+                                    <td>
+                                            <div class="d-flex justify-content-center">
+                                                <a href="" class="btn btn-warning">Edit</a>
+                                                <a href="" class="btn btn-danger">Delete</a>
+                                            </div>
+                                    </td>
+                                </tr>
+                                <%idx++; }
+                                %>
                         </tbody>
                     </table>
                 </div>

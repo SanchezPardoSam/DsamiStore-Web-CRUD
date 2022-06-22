@@ -7,9 +7,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Clase Java para usuario complex type.
+ * <p>Java class for usuario complex type.
  * 
- * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType name="usuario"&gt;
@@ -52,7 +52,7 @@ public class Usuario {
     protected Rol rol;
 
     /**
-     * Obtiene el valor de la propiedad clave.
+     * Gets the value of the clave property.
      * 
      * @return
      *     possible object is
@@ -64,7 +64,7 @@ public class Usuario {
     }
 
     /**
-     * Define el valor de la propiedad clave.
+     * Sets the value of the clave property.
      * 
      * @param value
      *     allowed object is
@@ -76,7 +76,7 @@ public class Usuario {
     }
 
     /**
-     * Obtiene el valor de la propiedad codigoEmpleado.
+     * Gets the value of the codigoEmpleado property.
      * 
      * @return
      *     possible object is
@@ -88,7 +88,7 @@ public class Usuario {
     }
 
     /**
-     * Define el valor de la propiedad codigoEmpleado.
+     * Sets the value of the codigoEmpleado property.
      * 
      * @param value
      *     allowed object is
@@ -100,7 +100,7 @@ public class Usuario {
     }
 
     /**
-     * Obtiene el valor de la propiedad codigoRol.
+     * Gets the value of the codigoRol property.
      * 
      * @return
      *     possible object is
@@ -112,7 +112,7 @@ public class Usuario {
     }
 
     /**
-     * Define el valor de la propiedad codigoRol.
+     * Sets the value of the codigoRol property.
      * 
      * @param value
      *     allowed object is
@@ -124,7 +124,7 @@ public class Usuario {
     }
 
     /**
-     * Obtiene el valor de la propiedad codigoUsuario.
+     * Gets the value of the codigoUsuario property.
      * 
      * @return
      *     possible object is
@@ -136,7 +136,7 @@ public class Usuario {
     }
 
     /**
-     * Define el valor de la propiedad codigoUsuario.
+     * Sets the value of the codigoUsuario property.
      * 
      * @param value
      *     allowed object is
@@ -148,7 +148,7 @@ public class Usuario {
     }
 
     /**
-     * Obtiene el valor de la propiedad empleado.
+     * Gets the value of the empleado property.
      * 
      * @return
      *     possible object is
@@ -160,7 +160,7 @@ public class Usuario {
     }
 
     /**
-     * Define el valor de la propiedad empleado.
+     * Sets the value of the empleado property.
      * 
      * @param value
      *     allowed object is
@@ -172,7 +172,7 @@ public class Usuario {
     }
 
     /**
-     * Obtiene el valor de la propiedad nombreUsuario.
+     * Gets the value of the nombreUsuario property.
      * 
      * @return
      *     possible object is
@@ -184,7 +184,7 @@ public class Usuario {
     }
 
     /**
-     * Define el valor de la propiedad nombreUsuario.
+     * Sets the value of the nombreUsuario property.
      * 
      * @param value
      *     allowed object is
@@ -196,7 +196,7 @@ public class Usuario {
     }
 
     /**
-     * Obtiene el valor de la propiedad rol.
+     * Gets the value of the rol property.
      * 
      * @return
      *     possible object is
@@ -208,7 +208,7 @@ public class Usuario {
     }
 
     /**
-     * Define el valor de la propiedad rol.
+     * Sets the value of the rol property.
      * 
      * @param value
      *     allowed object is

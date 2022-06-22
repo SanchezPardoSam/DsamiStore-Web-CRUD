@@ -7,9 +7,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Clase Java para distrito complex type.
+ * <p>Java class for distrito complex type.
  * 
- * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType name="distrito"&gt;
@@ -34,7 +34,7 @@ public class Distrito {
     protected Provincia provincia;
 
     /**
-     * Obtiene el valor de la propiedad provincia.
+     * Gets the value of the provincia property.
      * 
      * @return
      *     possible object is
@@ -46,7 +46,7 @@ public class Distrito {
     }
 
     /**
-     * Define el valor de la propiedad provincia.
+     * Sets the value of the provincia property.
      * 
      * @param value
      *     allowed object is
