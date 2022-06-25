@@ -5,6 +5,7 @@
  */
 package Modelo;
 
+import webservice.Categoria;
 import webservice.Exception_Exception;
 
 /**
@@ -33,6 +34,12 @@ public class CategoriaService {
         webservice.Servicios_Service service = new webservice.Servicios_Service();
         webservice.Servicios port = service.getServiciosPort();
         return port.agregarCategoria(nombre, descripcion);
+    }
+
+    public Categoria eliminar(java.lang.String id) {
+        webservice.Servicios_Service service = new webservice.Servicios_Service();
+        webservice.Servicios port = service.getServiciosPort();
+        return port.eliminar(id);
     }
 
        

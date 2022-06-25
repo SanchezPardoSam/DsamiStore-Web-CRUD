@@ -62,7 +62,11 @@ public class Controlador extends HttpServlet {
             }
             
         }
-        
+        if (accion.equals("Eliminar")) {
+            String id = request.getParameter("idCategoria");
+            categoria.eliminar(id);
+            acceso= index;
+        }       
         
        
         RequestDispatcher dispatcher = request.getRequestDispatcher(acceso);

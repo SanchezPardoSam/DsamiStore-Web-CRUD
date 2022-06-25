@@ -186,7 +186,7 @@
                                             <div class="modal fade" id="eliminarCat<%= ca.getId()%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                               <div class="modal-dialog modal-dialog-centered" role="document">
                                                 <div class="modal-content">
-                                                  <form name="form-data" action="../../controllers/categorias/eliminar.php" method="DELETE">
+                                                  <form name="form-data" action="Controlador" method="DELETE">
                                                     <div class="modal-header">
                                                       <h5 class="modal-title" id="myModalLabel">Deseas eliminar la categoria</h5>
                                                       <button type="button" class="btn-close p-2" data-bs-dismiss="modal" aria-label="Close">
@@ -201,7 +201,7 @@
                                                     </div>
                                                     <div class="modal-footer">
                                                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                                      <button type="submit" class="btn btn-primary btnBorrar btn-block" data-bs-dismiss="modal" id="<%= ca.getId()%>">Borrar</button>
+                                                      <button type="submit" class="btn btn-primary btnBorrar btn-block" data-bs-dismiss="modal" id="<%= ca.getId()%>" name="accion" value="Eliminar" >Borrar</button>
                                                     </div>
                                                   </form>
                                                 </div>
