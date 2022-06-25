@@ -22,4 +22,18 @@ public class CategoriaService {
         return port.listar();
     }
     
+
+    public String modificarCategoria(java.lang.String id, java.lang.String nombre, java.lang.String descripcion) throws Exception_Exception {
+        webservice.Servicios_Service service = new webservice.Servicios_Service();
+        webservice.Servicios port = service.getServiciosPort();
+        return port.modificarCategoria(id, nombre, descripcion);
+    }
+
+    public String agregarCategoria(java.lang.String nombre, java.lang.String descripcion) throws Exception_Exception {
+        webservice.Servicios_Service service = new webservice.Servicios_Service();
+        webservice.Servicios port = service.getServiciosPort();
+        return port.agregarCategoria(nombre, descripcion);
+    }
+
+       
 }
