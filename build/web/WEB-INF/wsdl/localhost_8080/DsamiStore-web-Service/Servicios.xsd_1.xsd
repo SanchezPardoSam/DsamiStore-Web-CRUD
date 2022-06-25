@@ -2,6 +2,10 @@
 
 <xs:element name="Exception" type="tns:Exception"/>
 
+<xs:element name="agregarCategoria" type="tns:agregarCategoria"/>
+
+<xs:element name="agregarCategoriaResponse" type="tns:agregarCategoriaResponse"/>
+
 <xs:element name="listar" type="tns:listar"/>
 
 <xs:element name="listarResponse" type="tns:listarResponse"/>
@@ -13,6 +17,30 @@
 <xs:element name="listarUsuario" type="tns:listarUsuario"/>
 
 <xs:element name="listarUsuarioResponse" type="tns:listarUsuarioResponse"/>
+
+<xs:element name="modificarCategoria" type="tns:modificarCategoria"/>
+
+<xs:element name="modificarCategoriaResponse" type="tns:modificarCategoriaResponse"/>
+
+<xs:complexType name="modificarCategoria">
+<xs:sequence>
+<xs:element name="id" type="xs:string" minOccurs="0"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+<xs:element name="descripcion" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="modificarCategoriaResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="Exception">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
 
 <xs:complexType name="listarRol">
 <xs:sequence/>
@@ -28,12 +56,6 @@
 <xs:sequence>
 <xs:element name="codigoRol" type="xs:string" minOccurs="0"/>
 <xs:element name="nombre" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="Exception">
-<xs:sequence>
-<xs:element name="message" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -141,6 +163,19 @@
 <xs:element name="descripcion" type="xs:string" minOccurs="0"/>
 <xs:element name="id" type="xs:string" minOccurs="0"/>
 <xs:element name="nombre" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="agregarCategoria">
+<xs:sequence>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+<xs:element name="descripcion" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="agregarCategoriaResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 </xs:schema>

@@ -4,20 +4,26 @@
 <xsd:import namespace="http://WebService/" schemaLocation="http://localhost:8080/DsamiStore-web-Service/Servicios?xsd=1"/>
 </xsd:schema>
 </types>
+<message name="modificarCategoria">
+<part name="parameters" element="tns:modificarCategoria"/>
+</message>
+<message name="modificarCategoriaResponse">
+<part name="parameters" element="tns:modificarCategoriaResponse"/>
+</message>
+<message name="Exception">
+<part name="fault" element="tns:Exception"/>
+</message>
+<message name="agregarCategoria">
+<part name="parameters" element="tns:agregarCategoria"/>
+</message>
+<message name="agregarCategoriaResponse">
+<part name="parameters" element="tns:agregarCategoriaResponse"/>
+</message>
 <message name="listar">
 <part name="parameters" element="tns:listar"/>
 </message>
 <message name="listarResponse">
 <part name="parameters" element="tns:listarResponse"/>
-</message>
-<message name="Exception">
-<part name="fault" element="tns:Exception"/>
-</message>
-<message name="listarRol">
-<part name="parameters" element="tns:listarRol"/>
-</message>
-<message name="listarRolResponse">
-<part name="parameters" element="tns:listarRolResponse"/>
 </message>
 <message name="listarUsuario">
 <part name="parameters" element="tns:listarUsuario"/>
@@ -25,25 +31,65 @@
 <message name="listarUsuarioResponse">
 <part name="parameters" element="tns:listarUsuarioResponse"/>
 </message>
+<message name="listarRol">
+<part name="parameters" element="tns:listarRol"/>
+</message>
+<message name="listarRolResponse">
+<part name="parameters" element="tns:listarRolResponse"/>
+</message>
 <portType name="Servicios">
+<operation name="modificarCategoria">
+<input wsam:Action="http://WebService/Servicios/modificarCategoriaRequest" message="tns:modificarCategoria"/>
+<output wsam:Action="http://WebService/Servicios/modificarCategoriaResponse" message="tns:modificarCategoriaResponse"/>
+<fault message="tns:Exception" name="Exception" wsam:Action="http://WebService/Servicios/modificarCategoria/Fault/Exception"/>
+</operation>
+<operation name="agregarCategoria">
+<input wsam:Action="http://WebService/Servicios/agregarCategoriaRequest" message="tns:agregarCategoria"/>
+<output wsam:Action="http://WebService/Servicios/agregarCategoriaResponse" message="tns:agregarCategoriaResponse"/>
+<fault message="tns:Exception" name="Exception" wsam:Action="http://WebService/Servicios/agregarCategoria/Fault/Exception"/>
+</operation>
 <operation name="listar">
 <input wsam:Action="http://WebService/Servicios/listarRequest" message="tns:listar"/>
 <output wsam:Action="http://WebService/Servicios/listarResponse" message="tns:listarResponse"/>
 <fault message="tns:Exception" name="Exception" wsam:Action="http://WebService/Servicios/listar/Fault/Exception"/>
-</operation>
-<operation name="listarRol">
-<input wsam:Action="http://WebService/Servicios/listarRolRequest" message="tns:listarRol"/>
-<output wsam:Action="http://WebService/Servicios/listarRolResponse" message="tns:listarRolResponse"/>
-<fault message="tns:Exception" name="Exception" wsam:Action="http://WebService/Servicios/listarRol/Fault/Exception"/>
 </operation>
 <operation name="listarUsuario">
 <input wsam:Action="http://WebService/Servicios/listarUsuarioRequest" message="tns:listarUsuario"/>
 <output wsam:Action="http://WebService/Servicios/listarUsuarioResponse" message="tns:listarUsuarioResponse"/>
 <fault message="tns:Exception" name="Exception" wsam:Action="http://WebService/Servicios/listarUsuario/Fault/Exception"/>
 </operation>
+<operation name="listarRol">
+<input wsam:Action="http://WebService/Servicios/listarRolRequest" message="tns:listarRol"/>
+<output wsam:Action="http://WebService/Servicios/listarRolResponse" message="tns:listarRolResponse"/>
+<fault message="tns:Exception" name="Exception" wsam:Action="http://WebService/Servicios/listarRol/Fault/Exception"/>
+</operation>
 </portType>
 <binding name="ServiciosPortBinding" type="tns:Servicios">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+<operation name="modificarCategoria">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Exception">
+<soap:fault name="Exception" use="literal"/>
+</fault>
+</operation>
+<operation name="agregarCategoria">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Exception">
+<soap:fault name="Exception" use="literal"/>
+</fault>
+</operation>
 <operation name="listar">
 <soap:operation soapAction=""/>
 <input>
@@ -56,7 +102,7 @@
 <soap:fault name="Exception" use="literal"/>
 </fault>
 </operation>
-<operation name="listarRol">
+<operation name="listarUsuario">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -68,7 +114,7 @@
 <soap:fault name="Exception" use="literal"/>
 </fault>
 </operation>
-<operation name="listarUsuario">
+<operation name="listarRol">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
