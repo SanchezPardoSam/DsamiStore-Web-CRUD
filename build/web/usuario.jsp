@@ -141,7 +141,7 @@
                               <option selected>Seleccionar empleado</option>
                                  <%
                                     EmpleadoServicio empleadoServicio = new EmpleadoServicio();
-                                    List<Empleado> empleados = empleadoServicio.listar();
+                                    List<Empleado> empleados = empleadoServicio.obtenerEmpleados();
 
                                     for (Empleado empleado : empleados) {
                                 %>

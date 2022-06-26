@@ -25,8 +25,8 @@ import javax.xml.namespace.QName;
 public class ObjectFactory {
 
     private final static QName _Exception_QNAME = new QName("http://WebService/", "Exception");
-    private final static QName _Listar_QNAME = new QName("http://WebService/", "listar");
-    private final static QName _ListarResponse_QNAME = new QName("http://WebService/", "listarResponse");
+    private final static QName _ObtenerEmpleados_QNAME = new QName("http://WebService/", "obtenerEmpleados");
+    private final static QName _ObtenerEmpleadosResponse_QNAME = new QName("http://WebService/", "obtenerEmpleadosResponse");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: webservice
@@ -44,19 +44,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Listar }
+     * Create an instance of {@link ObtenerEmpleados }
      * 
      */
-    public Listar createListar() {
-        return new Listar();
+    public ObtenerEmpleados createObtenerEmpleados() {
+        return new ObtenerEmpleados();
     }
 
     /**
-     * Create an instance of {@link ListarResponse }
+     * Create an instance of {@link ObtenerEmpleadosResponse }
      * 
      */
-    public ListarResponse createListarResponse() {
-        return new ListarResponse();
+    public ObtenerEmpleadosResponse createObtenerEmpleadosResponse() {
+        return new ObtenerEmpleadosResponse();
     }
 
     /**
@@ -133,21 +133,21 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Listar }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ObtenerEmpleados }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://WebService/", name = "listar")
-    public JAXBElement<Listar> createListar(Listar value) {
-        return new JAXBElement<Listar>(_Listar_QNAME, Listar.class, null, value);
+    @XmlElementDecl(namespace = "http://WebService/", name = "obtenerEmpleados")
+    public JAXBElement<ObtenerEmpleados> createObtenerEmpleados(ObtenerEmpleados value) {
+        return new JAXBElement<ObtenerEmpleados>(_ObtenerEmpleados_QNAME, ObtenerEmpleados.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ListarResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ObtenerEmpleadosResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://WebService/", name = "listarResponse")
-    public JAXBElement<ListarResponse> createListarResponse(ListarResponse value) {
-        return new JAXBElement<ListarResponse>(_ListarResponse_QNAME, ListarResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://WebService/", name = "obtenerEmpleadosResponse")
+    public JAXBElement<ObtenerEmpleadosResponse> createObtenerEmpleadosResponse(ObtenerEmpleadosResponse value) {
+        return new JAXBElement<ObtenerEmpleadosResponse>(_ObtenerEmpleadosResponse_QNAME, ObtenerEmpleadosResponse.class, null, value);
     }
 
 }

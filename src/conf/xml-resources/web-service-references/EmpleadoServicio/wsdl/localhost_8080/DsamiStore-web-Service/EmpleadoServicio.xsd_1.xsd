@@ -2,15 +2,15 @@
 
 <xs:element name="Exception" type="tns:Exception"/>
 
-<xs:element name="listar" type="tns:listar"/>
+<xs:element name="obtenerEmpleados" type="tns:obtenerEmpleados"/>
 
-<xs:element name="listarResponse" type="tns:listarResponse"/>
+<xs:element name="obtenerEmpleadosResponse" type="tns:obtenerEmpleadosResponse"/>
 
-<xs:complexType name="listar">
+<xs:complexType name="obtenerEmpleados">
 <xs:sequence/>
 </xs:complexType>
 
-<xs:complexType name="listarResponse">
+<xs:complexType name="obtenerEmpleadosResponse">
 <xs:sequence>
 <xs:element name="return" type="tns:empleado" minOccurs="0" maxOccurs="unbounded"/>
 </xs:sequence>

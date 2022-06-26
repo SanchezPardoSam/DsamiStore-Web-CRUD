@@ -4,25 +4,25 @@
 <xsd:import namespace="http://WebService/" schemaLocation="http://localhost:8080/DsamiStore-web-Service/EmpleadoServicio?xsd=1"/>
 </xsd:schema>
 </types>
-<message name="listar">
-<part name="parameters" element="tns:listar"/>
+<message name="obtenerEmpleados">
+<part name="parameters" element="tns:obtenerEmpleados"/>
 </message>
-<message name="listarResponse">
-<part name="parameters" element="tns:listarResponse"/>
+<message name="obtenerEmpleadosResponse">
+<part name="parameters" element="tns:obtenerEmpleadosResponse"/>
 </message>
 <message name="Exception">
 <part name="fault" element="tns:Exception"/>
 </message>
 <portType name="EmpleadoServicio">
-<operation name="listar">
-<input wsam:Action="http://WebService/EmpleadoServicio/listarRequest" message="tns:listar"/>
-<output wsam:Action="http://WebService/EmpleadoServicio/listarResponse" message="tns:listarResponse"/>
-<fault message="tns:Exception" name="Exception" wsam:Action="http://WebService/EmpleadoServicio/listar/Fault/Exception"/>
+<operation name="obtenerEmpleados">
+<input wsam:Action="http://WebService/EmpleadoServicio/obtenerEmpleadosRequest" message="tns:obtenerEmpleados"/>
+<output wsam:Action="http://WebService/EmpleadoServicio/obtenerEmpleadosResponse" message="tns:obtenerEmpleadosResponse"/>
+<fault message="tns:Exception" name="Exception" wsam:Action="http://WebService/EmpleadoServicio/obtenerEmpleados/Fault/Exception"/>
 </operation>
 </portType>
 <binding name="EmpleadoServicioPortBinding" type="tns:EmpleadoServicio">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="listar">
+<operation name="obtenerEmpleados">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

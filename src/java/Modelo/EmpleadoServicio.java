@@ -13,10 +13,10 @@ import webservice.Exception_Exception;
  */
 public class EmpleadoServicio {
 
-    public java.util.List<webservice.Empleado> listar() throws Exception_Exception {
+    public java.util.List<webservice.Empleado> obtenerEmpleados() throws Exception_Exception {
         webservice.EmpleadoServicio_Service service = new webservice.EmpleadoServicio_Service();
         webservice.EmpleadoServicio port = service.getEmpleadoServicioPort();
-        return port.listar();
+        return port.obtenerEmpleados();
     }
     
 }
