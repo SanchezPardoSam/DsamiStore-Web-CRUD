@@ -25,8 +25,14 @@ import javax.xml.namespace.QName;
 public class ObjectFactory {
 
     private final static QName _Exception_QNAME = new QName("http://WebService/", "Exception");
-    private final static QName _ObtenerEmpleados_QNAME = new QName("http://WebService/", "obtenerEmpleados");
-    private final static QName _ObtenerEmpleadosResponse_QNAME = new QName("http://WebService/", "obtenerEmpleadosResponse");
+    private final static QName _AgregarUsuario_QNAME = new QName("http://WebService/", "agregarUsuario");
+    private final static QName _AgregarUsuarioResponse_QNAME = new QName("http://WebService/", "agregarUsuarioResponse");
+    private final static QName _EditarUsuario_QNAME = new QName("http://WebService/", "editarUsuario");
+    private final static QName _EditarUsuarioResponse_QNAME = new QName("http://WebService/", "editarUsuarioResponse");
+    private final static QName _EliminarUsuario_QNAME = new QName("http://WebService/", "eliminarUsuario");
+    private final static QName _EliminarUsuarioResponse_QNAME = new QName("http://WebService/", "eliminarUsuarioResponse");
+    private final static QName _ObtenerUsuarios_QNAME = new QName("http://WebService/", "obtenerUsuarios");
+    private final static QName _ObtenerUsuariosResponse_QNAME = new QName("http://WebService/", "obtenerUsuariosResponse");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: webservice
@@ -44,19 +50,75 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ObtenerEmpleados }
+     * Create an instance of {@link AgregarUsuario }
      * 
      */
-    public ObtenerEmpleados createObtenerEmpleados() {
-        return new ObtenerEmpleados();
+    public AgregarUsuario createAgregarUsuario() {
+        return new AgregarUsuario();
     }
 
     /**
-     * Create an instance of {@link ObtenerEmpleadosResponse }
+     * Create an instance of {@link AgregarUsuarioResponse }
      * 
      */
-    public ObtenerEmpleadosResponse createObtenerEmpleadosResponse() {
-        return new ObtenerEmpleadosResponse();
+    public AgregarUsuarioResponse createAgregarUsuarioResponse() {
+        return new AgregarUsuarioResponse();
+    }
+
+    /**
+     * Create an instance of {@link EditarUsuario }
+     * 
+     */
+    public EditarUsuario createEditarUsuario() {
+        return new EditarUsuario();
+    }
+
+    /**
+     * Create an instance of {@link EditarUsuarioResponse }
+     * 
+     */
+    public EditarUsuarioResponse createEditarUsuarioResponse() {
+        return new EditarUsuarioResponse();
+    }
+
+    /**
+     * Create an instance of {@link EliminarUsuario }
+     * 
+     */
+    public EliminarUsuario createEliminarUsuario() {
+        return new EliminarUsuario();
+    }
+
+    /**
+     * Create an instance of {@link EliminarUsuarioResponse }
+     * 
+     */
+    public EliminarUsuarioResponse createEliminarUsuarioResponse() {
+        return new EliminarUsuarioResponse();
+    }
+
+    /**
+     * Create an instance of {@link ObtenerUsuarios }
+     * 
+     */
+    public ObtenerUsuarios createObtenerUsuarios() {
+        return new ObtenerUsuarios();
+    }
+
+    /**
+     * Create an instance of {@link ObtenerUsuariosResponse }
+     * 
+     */
+    public ObtenerUsuariosResponse createObtenerUsuariosResponse() {
+        return new ObtenerUsuariosResponse();
+    }
+
+    /**
+     * Create an instance of {@link Usuario }
+     * 
+     */
+    public Usuario createUsuario() {
+        return new Usuario();
     }
 
     /**
@@ -124,6 +186,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link Rol }
+     * 
+     */
+    public Rol createRol() {
+        return new Rol();
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link Exception }{@code >}}
      * 
      */
@@ -133,21 +203,75 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ObtenerEmpleados }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link AgregarUsuario }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://WebService/", name = "obtenerEmpleados")
-    public JAXBElement<ObtenerEmpleados> createObtenerEmpleados(ObtenerEmpleados value) {
-        return new JAXBElement<ObtenerEmpleados>(_ObtenerEmpleados_QNAME, ObtenerEmpleados.class, null, value);
+    @XmlElementDecl(namespace = "http://WebService/", name = "agregarUsuario")
+    public JAXBElement<AgregarUsuario> createAgregarUsuario(AgregarUsuario value) {
+        return new JAXBElement<AgregarUsuario>(_AgregarUsuario_QNAME, AgregarUsuario.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ObtenerEmpleadosResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link AgregarUsuarioResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://WebService/", name = "obtenerEmpleadosResponse")
-    public JAXBElement<ObtenerEmpleadosResponse> createObtenerEmpleadosResponse(ObtenerEmpleadosResponse value) {
-        return new JAXBElement<ObtenerEmpleadosResponse>(_ObtenerEmpleadosResponse_QNAME, ObtenerEmpleadosResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://WebService/", name = "agregarUsuarioResponse")
+    public JAXBElement<AgregarUsuarioResponse> createAgregarUsuarioResponse(AgregarUsuarioResponse value) {
+        return new JAXBElement<AgregarUsuarioResponse>(_AgregarUsuarioResponse_QNAME, AgregarUsuarioResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link EditarUsuario }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://WebService/", name = "editarUsuario")
+    public JAXBElement<EditarUsuario> createEditarUsuario(EditarUsuario value) {
+        return new JAXBElement<EditarUsuario>(_EditarUsuario_QNAME, EditarUsuario.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link EditarUsuarioResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://WebService/", name = "editarUsuarioResponse")
+    public JAXBElement<EditarUsuarioResponse> createEditarUsuarioResponse(EditarUsuarioResponse value) {
+        return new JAXBElement<EditarUsuarioResponse>(_EditarUsuarioResponse_QNAME, EditarUsuarioResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link EliminarUsuario }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://WebService/", name = "eliminarUsuario")
+    public JAXBElement<EliminarUsuario> createEliminarUsuario(EliminarUsuario value) {
+        return new JAXBElement<EliminarUsuario>(_EliminarUsuario_QNAME, EliminarUsuario.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link EliminarUsuarioResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://WebService/", name = "eliminarUsuarioResponse")
+    public JAXBElement<EliminarUsuarioResponse> createEliminarUsuarioResponse(EliminarUsuarioResponse value) {
+        return new JAXBElement<EliminarUsuarioResponse>(_EliminarUsuarioResponse_QNAME, EliminarUsuarioResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ObtenerUsuarios }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://WebService/", name = "obtenerUsuarios")
+    public JAXBElement<ObtenerUsuarios> createObtenerUsuarios(ObtenerUsuarios value) {
+        return new JAXBElement<ObtenerUsuarios>(_ObtenerUsuarios_QNAME, ObtenerUsuarios.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ObtenerUsuariosResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://WebService/", name = "obtenerUsuariosResponse")
+    public JAXBElement<ObtenerUsuariosResponse> createObtenerUsuariosResponse(ObtenerUsuariosResponse value) {
+        return new JAXBElement<ObtenerUsuariosResponse>(_ObtenerUsuariosResponse_QNAME, ObtenerUsuariosResponse.class, null, value);
     }
 
 }
