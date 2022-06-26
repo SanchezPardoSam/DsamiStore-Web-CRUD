@@ -7,9 +7,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Clase Java para rol complex type.
+ * <p>Java class for rol complex type.
  * 
- * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType name="rol"&gt;
@@ -37,7 +37,7 @@ public class Rol {
     protected String nombre;
 
     /**
-     * Obtiene el valor de la propiedad codigoRol.
+     * Gets the value of the codigoRol property.
      * 
      * @return
      *     possible object is
@@ -49,7 +49,7 @@ public class Rol {
     }
 
     /**
-     * Define el valor de la propiedad codigoRol.
+     * Sets the value of the codigoRol property.
      * 
      * @param value
      *     allowed object is
@@ -61,7 +61,7 @@ public class Rol {
     }
 
     /**
-     * Obtiene el valor de la propiedad nombre.
+     * Gets the value of the nombre property.
      * 
      * @return
      *     possible object is
@@ -73,7 +73,7 @@ public class Rol {
     }
 
     /**
-     * Define el valor de la propiedad nombre.
+     * Sets the value of the nombre property.
      * 
      * @param value
      *     allowed object is

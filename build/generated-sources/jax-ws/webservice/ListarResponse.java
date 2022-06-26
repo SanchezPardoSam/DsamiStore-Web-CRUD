@@ -10,16 +10,16 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Clase Java para listarResponse complex type.
+ * <p>Java class for listarResponse complex type.
  * 
- * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType name="listarResponse"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="return" type="{http://WebService/}categoria" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="return" type="{http://WebService/}empleado" maxOccurs="unbounded" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -35,7 +35,7 @@ import javax.xml.bind.annotation.XmlType;
 public class ListarResponse {
 
     @XmlElement(name = "return")
-    protected List<Categoria> _return;
+    protected List<Empleado> _return;
 
     /**
      * Gets the value of the return property.
@@ -55,13 +55,13 @@ public class ListarResponse {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link Categoria }
+     * {@link Empleado }
      * 
      * 
      */
-    public List<Categoria> getReturn() {
+    public List<Empleado> getReturn() {
         if (_return == null) {
-            _return = new ArrayList<Categoria>();
+            _return = new ArrayList<Empleado>();
         }
         return this._return;
     }

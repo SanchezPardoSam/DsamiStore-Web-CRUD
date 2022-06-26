@@ -42,5 +42,21 @@
         <delete dir="${build.generated.sources.dir}/jax-ws/webservice"/>
         <delete dir="${build.generated.dir}/jax-wsCache/Servicios"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-Servicios"/>
+    <target name="wsimport-client-EmpleadoServicio" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/EmpleadoServicio"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/EmpleadoServicio" destdir="${build.generated.dir}/jax-wsCache/EmpleadoServicio" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/EmpleadoServicio/wsdl/localhost_8080/DsamiStore-web-Service/EmpleadoServicio.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/DsamiStore-web-Service/EmpleadoServicio?wsdl" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/EmpleadoServicio/wsdl/localhost_8080/DsamiStore-web-Service/EmpleadoServicio.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/EmpleadoServicio"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/EmpleadoServicio">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-EmpleadoServicio" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/webservice"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/EmpleadoServicio"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-Servicios, wsimport-client-EmpleadoServicio"/>
 </project>

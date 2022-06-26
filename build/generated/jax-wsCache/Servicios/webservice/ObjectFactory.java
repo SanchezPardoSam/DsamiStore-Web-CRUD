@@ -238,12 +238,8 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Exception }{@code >}
+     * Create an instance of {@link JAXBElement }{@code <}{@link Exception }{@code >}}
      * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link Exception }{@code >}
      */
     @XmlElementDecl(namespace = "http://WebService/", name = "Exception")
     public JAXBElement<Exception> createException(Exception value) {
@@ -251,12 +247,8 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AgregarCategoria }{@code >}
+     * Create an instance of {@link JAXBElement }{@code <}{@link AgregarCategoria }{@code >}}
      * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link AgregarCategoria }{@code >}
      */
     @XmlElementDecl(namespace = "http://WebService/", name = "agregarCategoria")
     public JAXBElement<AgregarCategoria> createAgregarCategoria(AgregarCategoria value) {
@@ -264,12 +256,8 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AgregarCategoriaResponse }{@code >}
+     * Create an instance of {@link JAXBElement }{@code <}{@link AgregarCategoriaResponse }{@code >}}
      * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link AgregarCategoriaResponse }{@code >}
      */
     @XmlElementDecl(namespace = "http://WebService/", name = "agregarCategoriaResponse")
     public JAXBElement<AgregarCategoriaResponse> createAgregarCategoriaResponse(AgregarCategoriaResponse value) {
@@ -277,12 +265,8 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Eliminar }{@code >}
+     * Create an instance of {@link JAXBElement }{@code <}{@link Eliminar }{@code >}}
      * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link Eliminar }{@code >}
      */
     @XmlElementDecl(namespace = "http://WebService/", name = "eliminar")
     public JAXBElement<Eliminar> createEliminar(Eliminar value) {
@@ -290,12 +274,8 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link EliminarResponse }{@code >}
+     * Create an instance of {@link JAXBElement }{@code <}{@link EliminarResponse }{@code >}}
      * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link EliminarResponse }{@code >}
      */
     @XmlElementDecl(namespace = "http://WebService/", name = "eliminarResponse")
     public JAXBElement<EliminarResponse> createEliminarResponse(EliminarResponse value) {
@@ -303,12 +283,8 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Listar }{@code >}
+     * Create an instance of {@link JAXBElement }{@code <}{@link Listar }{@code >}}
      * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link Listar }{@code >}
      */
     @XmlElementDecl(namespace = "http://WebService/", name = "listar")
     public JAXBElement<Listar> createListar(Listar value) {
@@ -316,12 +292,8 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ListarResponse }{@code >}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ListarResponse }{@code >}}
      * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link ListarResponse }{@code >}
      */
     @XmlElementDecl(namespace = "http://WebService/", name = "listarResponse")
     public JAXBElement<ListarResponse> createListarResponse(ListarResponse value) {
@@ -329,12 +301,8 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ListarRol }{@code >}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ListarRol }{@code >}}
      * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link ListarRol }{@code >}
      */
     @XmlElementDecl(namespace = "http://WebService/", name = "listarRol")
     public JAXBElement<ListarRol> createListarRol(ListarRol value) {
@@ -342,12 +310,8 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ListarRolResponse }{@code >}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ListarRolResponse }{@code >}}
      * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link ListarRolResponse }{@code >}
      */
     @XmlElementDecl(namespace = "http://WebService/", name = "listarRolResponse")
     public JAXBElement<ListarRolResponse> createListarRolResponse(ListarRolResponse value) {
@@ -355,12 +319,8 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ListarUsuario }{@code >}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ListarUsuario }{@code >}}
      * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link ListarUsuario }{@code >}
      */
     @XmlElementDecl(namespace = "http://WebService/", name = "listarUsuario")
     public JAXBElement<ListarUsuario> createListarUsuario(ListarUsuario value) {
@@ -368,12 +328,8 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ListarUsuarioResponse }{@code >}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ListarUsuarioResponse }{@code >}}
      * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link ListarUsuarioResponse }{@code >}
      */
     @XmlElementDecl(namespace = "http://WebService/", name = "listarUsuarioResponse")
     public JAXBElement<ListarUsuarioResponse> createListarUsuarioResponse(ListarUsuarioResponse value) {
@@ -381,12 +337,8 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ModificarCategoria }{@code >}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ModificarCategoria }{@code >}}
      * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link ModificarCategoria }{@code >}
      */
     @XmlElementDecl(namespace = "http://WebService/", name = "modificarCategoria")
     public JAXBElement<ModificarCategoria> createModificarCategoria(ModificarCategoria value) {
@@ -394,12 +346,8 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ModificarCategoriaResponse }{@code >}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ModificarCategoriaResponse }{@code >}}
      * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link ModificarCategoriaResponse }{@code >}
      */
     @XmlElementDecl(namespace = "http://WebService/", name = "modificarCategoriaResponse")
     public JAXBElement<ModificarCategoriaResponse> createModificarCategoriaResponse(ModificarCategoriaResponse value) {

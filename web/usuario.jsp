@@ -5,13 +5,13 @@
 --%>
 
 
-<%@page import="webservice.Usuario"%>
-<%@page import="Modelo.UsuarioService"%>
-<%@page import="webservice.Rol"%>
-<%@page import="Modelo.RolService"%>
 <%@page import="java.util.List"%>
-<%@page import="webservice.Categoria"%>
-<%@page import="Modelo.CategoriaService"%>
+<%@page import="webservice.Usuario"%>
+<%@page import="webservice.Rol"%>
+<%@page import="webservice.Empleado"%>
+<%@page import="Modelo.UsuarioService"%>
+<%@page import="Modelo.RolService"%>
+<%@page import="Modelo.EmpleadoServicio"%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -122,17 +122,16 @@
                             <label for="agregar-idRol" class="col-form-label">Rol</label>
                             <select class="form-select" id="agregar-idRol" name="idRol" aria-label=".form-select-sm example" ">
                             <option selected>Seleccionar rol</option>
-                              <%
-                                RolService r = new RolService();
-                                List<Rol> listRol = r.listarRol();
-                                  
-                                for (Rol rol : listRol) {
-                                %>
+                                <%
+                                    RolService r = new RolService();
+                                    List<Rol> listRol = r.listarRol();
 
+                                    for (Rol rol : listRol) {
+                                %>
                                 <option value="<%= rol.getCodigoRol()%>"><%= rol.getNombre()%></option>
                                 <%
                                     }
-                              %>
+                                %>
                             </select>
                           </div>
 
@@ -140,13 +139,16 @@
                             <label for="agregar-idEmpleado" class="col-form-label">Empleado</label>
                             <select class="form-select" id="agregar-idEmpleado" name="idEmpleado" aria-label=".form-select-sm example">
                               <option selected>Seleccionar empleado</option>
-                              <!--
-                                <?php
-                                  foreach ($empleados as $empleado) {
-                                        echo "<option " . " value=" . $empleado->id  . ">" .$empleado->nombre  . "</option>";
-                                          }
-                              ?>
-                              -->
+                                 <%
+                                    EmpleadoServicio empleadoServicio = new EmpleadoServicio();
+                                    List<Empleado> empleados = empleadoServicio.listar();
+
+                                    for (Empleado empleado : empleados) {
+                                %>
+                                <option value="<%= empleado.getCodigoEmpleado()%>"><%= empleado.getNombre() + " " + empleado.getApellidoPaterno() + " " + empleado.getApellidoMaterno() %></option>
+                                <%
+                                    }
+                                %>
                             </select>
                           </div>
                         </div>
@@ -182,7 +184,7 @@
                                 <tr>
                                     <td> <%= idx+1%></td>
                                     <td> <%= user.getNombreUsuario() %></td>
-                                     <td> <%= user.getEmpleado().getNombre()%></td>
+                                     <td> <%= user.getEmpleado().getNombre() + " " + user.getEmpleado().getApellidoPaterno() + " " + user.getEmpleado().getApellidoMaterno() %></td>
                                       <td> <%= user.getRol().getNombre()%></td>
                                     <td>
                                             <div class="d-flex justify-content-center">

@@ -4,4 +4,6 @@
     <system systemId="http://localhost:8080/DsamiStore-Web/Servicios?xsd=1" uri="src/conf/xml-resources/web-service-references/Servicios/wsdl/localhost_8080/DsamiStore-Web/Servicios.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/DsamiStore-web-Service/Servicios?wsdl" uri="src/conf/xml-resources/web-service-references/Servicios/wsdl/localhost_8080/DsamiStore-web-Service/Servicios.wsdl"/>
     <system systemId="http://localhost:8080/DsamiStore-web-Service/Servicios?xsd=1" uri="src/conf/xml-resources/web-service-references/Servicios/wsdl/localhost_8080/DsamiStore-web-Service/Servicios.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/DsamiStore-web-Service/EmpleadoServicio?wsdl" uri="src/conf/xml-resources/web-service-references/EmpleadoServicio/wsdl/localhost_8080/DsamiStore-web-Service/EmpleadoServicio.wsdl"/>
+    <system systemId="http://localhost:8080/DsamiStore-web-Service/EmpleadoServicio?xsd=1" uri="src/conf/xml-resources/web-service-references/EmpleadoServicio/wsdl/localhost_8080/DsamiStore-web-Service/EmpleadoServicio.xsd_1.xsd"/>
 </catalog>
