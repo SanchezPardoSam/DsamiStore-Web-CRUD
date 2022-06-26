@@ -4,6 +4,7 @@
     Author     : aries
 --%>
 
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 
 <%@page import="java.util.List"%>
 <%@page import="webservice.Usuario"%>
@@ -72,16 +73,6 @@
                             <h2>Usuarios</h2>
                         </div>
                         <div class="d-flex justify-content-between align-items-center">
-                           <div>
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                              data-bs-target="#agregar">Agregar</button>
-                           </div>
-                           <div class="d-flex">
-                               <input type="text" class="form-control me-2"
-                                      placeholder="Buscar un usuario" aria-label="Recipient's username"
-                                      aria-describedby="basic-addon2">
-                               <button class="btn btn-primary" id="basic-addon2" type="button ">Buscar</button>
-                           </div>
                        </div>
                     </div>
 

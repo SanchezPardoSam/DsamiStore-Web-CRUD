@@ -7,6 +7,7 @@ package Servlets;
 
 import Modelo.UsuarioServicio;
 import java.io.IOException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -15,6 +16,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import webservice.Exception_Exception;
+import webservice.Usuario;
 
 /**
  *
@@ -23,7 +25,6 @@ import webservice.Exception_Exception;
 public class UsuarioControlador extends HttpServlet {
 
     UsuarioServicio usuarioNegocio = new UsuarioServicio();
-
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -47,7 +48,6 @@ public class UsuarioControlador extends HttpServlet {
 
         } else if (accion.equals("editar")) {
             String codigoUsuario = request.getParameter("codigoUsuario");
-            System.out.println("codigoUsuario: " + codigoUsuario);
             String nombreUsuario = request.getParameter("nombreUsuario");
             String clave = request.getParameter("clave");
             String codigoRol = request.getParameter("codigoRol");
@@ -60,13 +60,25 @@ public class UsuarioControlador extends HttpServlet {
 
             acceso = "usuario.jsp";
         } else if (accion.equals("eliminar")) {
+            String codigoUsuario = request.getParameter("codigoUsuario");
+
             try {
-                String codigoUsuario = request.getParameter("codigoUsuario");
                 usuarioNegocio.eliminarUsuario(codigoUsuario);
             } catch (Exception_Exception ex) {
                 Logger.getLogger(UsuarioControlador.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
+
+            acceso = "usuario.jsp";
+        } else if (accion.equals("buscar")) {
+            String valor = request.getParameter("valor");
+
+            try {
+                List<Usuario> usuarios = usuarioNegocio.buscarUsuarios(valor);
+                request.setAttribute("usuarios", usuarios);
+            } catch (Exception_Exception ex) {
+                Logger.getLogger(UsuarioControlador.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
             acceso = "usuario.jsp";
         }
 

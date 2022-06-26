@@ -41,4 +41,11 @@ public class UsuarioServicio {
         port.eliminarUsuario(codigoUsuario);
     }
 
+    public java.util.List<webservice.Usuario> buscarUsuarios(java.lang.String valor) throws Exception_Exception {
+        webservice.UsuarioServicio_Service service = new webservice.UsuarioServicio_Service();
+        webservice.UsuarioServicio port = service.getUsuarioServicioPort();
+        return port.buscarUsuarios(valor);
+    }
+
+
 }

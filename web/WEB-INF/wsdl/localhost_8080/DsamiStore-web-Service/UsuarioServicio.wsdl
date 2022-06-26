@@ -19,6 +19,12 @@
 <message name="obtenerUsuariosResponse">
 <part name="parameters" element="tns:obtenerUsuariosResponse"/>
 </message>
+<message name="buscarUsuarios">
+<part name="parameters" element="tns:buscarUsuarios"/>
+</message>
+<message name="buscarUsuariosResponse">
+<part name="parameters" element="tns:buscarUsuariosResponse"/>
+</message>
 <message name="eliminarUsuario">
 <part name="parameters" element="tns:eliminarUsuario"/>
 </message>
@@ -41,6 +47,11 @@
 <input wsam:Action="http://WebService/UsuarioServicio/obtenerUsuariosRequest" message="tns:obtenerUsuarios"/>
 <output wsam:Action="http://WebService/UsuarioServicio/obtenerUsuariosResponse" message="tns:obtenerUsuariosResponse"/>
 <fault message="tns:Exception" name="Exception" wsam:Action="http://WebService/UsuarioServicio/obtenerUsuarios/Fault/Exception"/>
+</operation>
+<operation name="buscarUsuarios">
+<input wsam:Action="http://WebService/UsuarioServicio/buscarUsuariosRequest" message="tns:buscarUsuarios"/>
+<output wsam:Action="http://WebService/UsuarioServicio/buscarUsuariosResponse" message="tns:buscarUsuariosResponse"/>
+<fault message="tns:Exception" name="Exception" wsam:Action="http://WebService/UsuarioServicio/buscarUsuarios/Fault/Exception"/>
 </operation>
 <operation name="eliminarUsuario">
 <input wsam:Action="http://WebService/UsuarioServicio/eliminarUsuarioRequest" message="tns:eliminarUsuario"/>
@@ -68,6 +79,18 @@
 </fault>
 </operation>
 <operation name="obtenerUsuarios">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Exception">
+<soap:fault name="Exception" use="literal"/>
+</fault>
+</operation>
+<operation name="buscarUsuarios">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

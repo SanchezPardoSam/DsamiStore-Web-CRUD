@@ -6,6 +6,10 @@
 
 <xs:element name="agregarUsuarioResponse" type="tns:agregarUsuarioResponse"/>
 
+<xs:element name="buscarUsuarios" type="tns:buscarUsuarios"/>
+
+<xs:element name="buscarUsuariosResponse" type="tns:buscarUsuariosResponse"/>
+
 <xs:element name="editarUsuario" type="tns:editarUsuario"/>
 
 <xs:element name="editarUsuarioResponse" type="tns:editarUsuarioResponse"/>
@@ -18,11 +22,13 @@
 
 <xs:element name="obtenerUsuariosResponse" type="tns:obtenerUsuariosResponse"/>
 
-<xs:complexType name="obtenerUsuarios">
-<xs:sequence/>
+<xs:complexType name="buscarUsuarios">
+<xs:sequence>
+<xs:element name="valor" type="xs:string" minOccurs="0"/>
+</xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="obtenerUsuariosResponse">
+<xs:complexType name="buscarUsuariosResponse">
 <xs:sequence>
 <xs:element name="return" type="tns:usuario" minOccurs="0" maxOccurs="unbounded"/>
 </xs:sequence>
@@ -117,6 +123,16 @@
 <xs:complexType name="Exception">
 <xs:sequence>
 <xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="obtenerUsuarios">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="obtenerUsuariosResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:usuario" minOccurs="0" maxOccurs="unbounded"/>
 </xs:sequence>
 </xs:complexType>
 
