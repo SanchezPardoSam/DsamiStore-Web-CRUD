@@ -28,18 +28,33 @@
     <body>
         <div class="app">
             <div class="app-sidebar p-3 border-end ">
-                <a class="d-flex text-decoration-none mb-4 " href="../categorias">
+                <a class="d-flex text-decoration-none mb-4 " href="${pageContext.request.contextPath}/categoria.jsp">
                     <h4 class="fs-4 fw-bold text-primary">D' Sami Store</h4>
                 </a>
                 <div class="nav nav-pills flex-column mb-auto">
                     <li class='nav-item'>
-                        <a href="./categoria.jsp" class="nav-link link-dark">Categorías<a>
+                        <a href="${pageContext.request.contextPath}/categoria.jsp"  class="nav-link ${pageContext.request.requestURI.endsWith('/categoria.jsp') ? 'active' : 'link-dark'}">Categorias</a>
                     </li>
                     <li class='nav-item' >
-                        <a href="./rol.jsp" class="nav-link link-dark">Roles<a>
+                        <a href="${pageContext.request.contextPath}/producto.jsp"  class="nav-link ${pageContext.request.requestURI.endsWith('/producto.jsp') ? 'active' : 'link-dark'}">Productos</a>
                     </li>
-                    <li>
-                        <a href="./usuario.jsp" class="nav-link link-dark">Usuarios<a>
+                    <li class='nav-item' >
+                        <a href="${pageContext.request.contextPath}/empleado.jsp" class="nav-link ${pageContext.request.requestURI.endsWith('/empleado.jsp') ? 'active' : 'link-dark'}">Usuarios</a>
+                    </li>
+                    <li class='nav-item' >
+                        <a href="${pageContext.request.contextPath}/proveedor.jsp"  class="nav-link ${pageContext.request.requestURI.endsWith('/proveedor.jsp') ? 'active' : 'link-dark'}">Proveedor</a>
+                    </li>
+                    <li class='nav-item' >
+                        <a href="${pageContext.request.contextPath}/usuario.jsp" class="nav-link ${pageContext.request.requestURI.endsWith('/usuario.jsp') ? 'active' : 'link-dark'}">Usuarios</a>
+                    </li>
+                    <li class='nav-item' >
+                        <a href="${pageContext.request.contextPath}/rol.jsp"  class="nav-link ${pageContext.request.requestURI.endsWith('/rol.jsp') ? 'active' : 'link-dark'}">Roles</a>
+                    </li>
+                    <li class='nav-item' >
+                        <a href="${pageContext.request.contextPath}/recepcion.jsp" class="nav-link ${pageContext.request.requestURI.endsWith('/recepcion.jsp') ? 'active' : 'link-dark'}">Recepcion</a>
+                    </li>
+                    <li class='nav-item' >
+                        <a href="${pageContext.request.contextPath}/despacho.jsp"  class="nav-link ${pageContext.request.requestURI.endsWith('/despacho.jsp') ? 'active' : 'link-dark'}">Despacho</a>
                     </li>
                 </div>
             </div>
@@ -50,20 +65,19 @@
                         <div></div>
                         <div class="btn-group">
                             <p class="d-flex align-items-center h-100 mt-2 my-2 mx-2">Perfil</p>
-                            <div class="rounded-circle overflow-hidden" style="width: 42px; height: 42px; cursor: pointer;"
-                                 data-bs-toggle="dropdown" aria-expanded="false">
+                            <div class="rounded-circle overflow-hidden" style="width: 42px; height: 42px; cursor: pointer"
+                                data-bs-toggle="dropdown" aria-expanded="false">
                                 <img src="https://www.pngkey.com/png/full/72-729716_user-avatar-png-graphic-free-download-icon.png"
-                                     class="w-100 h-100"/>
+                                    class="w-100 h-100" />
                             </div>
                             <ul class="dropdown-menu dropdown-menu-end">
                                 <li><a class="dropdown-item" href="#">Mi perfil</a></li>
                                 <li>
-                                    <hr class="dropdown-divider">
+                                    <hr class="dropdown-divider" />
                                 </li>
                                 <li><a class="dropdown-item" href="#">Cerrar sesión</a></li>
                             </ul>
                         </div>
-
                     </div>
                 </nav>
 
@@ -73,6 +87,12 @@
                             <h2>Usuarios</h2>
                         </div>
                         <div class="d-flex justify-content-between align-items-center">
+                           <div>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                              data-bs-target="#agregar">Agregar</button>
+                           </div>
+                           <div class="d-flex">
+                           </div>
                        </div>
                     </div>
 
@@ -152,6 +172,7 @@
                                         <th scope="col">Nombre de usuario</th>
                                         <th scope="col">Empleado</th>
                                         <th scope="col">Rol</th>
+                                        <th scope="col" class="text-center">Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
