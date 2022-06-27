@@ -10,9 +10,9 @@
 
 <xs:element name="eliminarResponse" type="tns:eliminarResponse"/>
 
-<xs:element name="listarCategoria" type="tns:listarCategoria"/>
+<xs:element name="listar" type="tns:listar"/>
 
-<xs:element name="listarCategoriaResponse" type="tns:listarCategoriaResponse"/>
+<xs:element name="listarResponse" type="tns:listarResponse"/>
 
 <xs:element name="listarRol" type="tns:listarRol"/>
 
@@ -46,6 +46,23 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="listarRol">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="listarRolResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:rol" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="rol">
+<xs:sequence>
+<xs:element name="codigoRol" type="xs:string" minOccurs="0"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="eliminar">
 <xs:sequence>
 <xs:element name="id" type="xs:string" minOccurs="0"/>
@@ -62,23 +79,6 @@
 <xs:sequence>
 <xs:element name="descripcion" type="xs:string" minOccurs="0"/>
 <xs:element name="id" type="xs:string" minOccurs="0"/>
-<xs:element name="nombre" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="listarRol">
-<xs:sequence/>
-</xs:complexType>
-
-<xs:complexType name="listarRolResponse">
-<xs:sequence>
-<xs:element name="return" type="tns:rol" minOccurs="0" maxOccurs="unbounded"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="rol">
-<xs:sequence>
-<xs:element name="codigoRol" type="xs:string" minOccurs="0"/>
 <xs:element name="nombre" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
@@ -172,11 +172,11 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="listarCategoria">
+<xs:complexType name="listar">
 <xs:sequence/>
 </xs:complexType>
 
-<xs:complexType name="listarCategoriaResponse">
+<xs:complexType name="listarResponse">
 <xs:sequence>
 <xs:element name="return" type="tns:categoria" minOccurs="0" maxOccurs="unbounded"/>
 </xs:sequence>

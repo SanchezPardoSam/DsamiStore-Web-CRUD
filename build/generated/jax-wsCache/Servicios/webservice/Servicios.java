@@ -29,55 +29,6 @@ public interface Servicios {
     /**
      * 
      * @return
-     *     returns java.util.List<webservice.Categoria>
-     * @throws Exception_Exception
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "listar", targetNamespace = "http://WebService/", className = "webservice.Listar")
-    @ResponseWrapper(localName = "listarResponse", targetNamespace = "http://WebService/", className = "webservice.ListarResponse")
-    @Action(input = "http://WebService/Servicios/listarRequest", output = "http://WebService/Servicios/listarResponse", fault = {
-        @FaultAction(className = Exception_Exception.class, value = "http://WebService/Servicios/listar/Fault/Exception")
-    })
-    public List<Categoria> listar()
-        throws Exception_Exception
-    ;
-
-    /**
-     * 
-     * @param id
-     * @return
-     *     returns webservice.Categoria
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "eliminar", targetNamespace = "http://WebService/", className = "webservice.Eliminar")
-    @ResponseWrapper(localName = "eliminarResponse", targetNamespace = "http://WebService/", className = "webservice.EliminarResponse")
-    @Action(input = "http://WebService/Servicios/eliminarRequest", output = "http://WebService/Servicios/eliminarResponse")
-    public Categoria eliminar(
-        @WebParam(name = "id", targetNamespace = "")
-        String id);
-
-    /**
-     * 
-     * @return
-     *     returns java.util.List<webservice.Rol>
-     * @throws Exception_Exception
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "listarRol", targetNamespace = "http://WebService/", className = "webservice.ListarRol")
-    @ResponseWrapper(localName = "listarRolResponse", targetNamespace = "http://WebService/", className = "webservice.ListarRolResponse")
-    @Action(input = "http://WebService/Servicios/listarRolRequest", output = "http://WebService/Servicios/listarRolResponse", fault = {
-        @FaultAction(className = Exception_Exception.class, value = "http://WebService/Servicios/listarRol/Fault/Exception")
-    })
-    public List<Rol> listarRol()
-        throws Exception_Exception
-    ;
-
-    /**
-     * 
-     * @return
      *     returns java.util.List<webservice.Usuario>
      * @throws Exception_Exception
      */
@@ -89,29 +40,6 @@ public interface Servicios {
         @FaultAction(className = Exception_Exception.class, value = "http://WebService/Servicios/listarUsuario/Fault/Exception")
     })
     public List<Usuario> listarUsuario()
-        throws Exception_Exception
-    ;
-
-    /**
-     * 
-     * @param descripcion
-     * @param nombre
-     * @return
-     *     returns java.lang.String
-     * @throws Exception_Exception
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "agregarCategoria", targetNamespace = "http://WebService/", className = "webservice.AgregarCategoria")
-    @ResponseWrapper(localName = "agregarCategoriaResponse", targetNamespace = "http://WebService/", className = "webservice.AgregarCategoriaResponse")
-    @Action(input = "http://WebService/Servicios/agregarCategoriaRequest", output = "http://WebService/Servicios/agregarCategoriaResponse", fault = {
-        @FaultAction(className = Exception_Exception.class, value = "http://WebService/Servicios/agregarCategoria/Fault/Exception")
-    })
-    public String agregarCategoria(
-        @WebParam(name = "nombre", targetNamespace = "")
-        String nombre,
-        @WebParam(name = "descripcion", targetNamespace = "")
-        String descripcion)
         throws Exception_Exception
     ;
 
@@ -140,5 +68,77 @@ public interface Servicios {
         String descripcion)
         throws Exception_Exception
     ;
+
+    /**
+     * 
+     * @param descripcion
+     * @param nombre
+     * @return
+     *     returns java.lang.String
+     * @throws Exception_Exception
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "agregarCategoria", targetNamespace = "http://WebService/", className = "webservice.AgregarCategoria")
+    @ResponseWrapper(localName = "agregarCategoriaResponse", targetNamespace = "http://WebService/", className = "webservice.AgregarCategoriaResponse")
+    @Action(input = "http://WebService/Servicios/agregarCategoriaRequest", output = "http://WebService/Servicios/agregarCategoriaResponse", fault = {
+        @FaultAction(className = Exception_Exception.class, value = "http://WebService/Servicios/agregarCategoria/Fault/Exception")
+    })
+    public String agregarCategoria(
+        @WebParam(name = "nombre", targetNamespace = "")
+        String nombre,
+        @WebParam(name = "descripcion", targetNamespace = "")
+        String descripcion)
+        throws Exception_Exception
+    ;
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<webservice.Rol>
+     * @throws Exception_Exception
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "listarRol", targetNamespace = "http://WebService/", className = "webservice.ListarRol")
+    @ResponseWrapper(localName = "listarRolResponse", targetNamespace = "http://WebService/", className = "webservice.ListarRolResponse")
+    @Action(input = "http://WebService/Servicios/listarRolRequest", output = "http://WebService/Servicios/listarRolResponse", fault = {
+        @FaultAction(className = Exception_Exception.class, value = "http://WebService/Servicios/listarRol/Fault/Exception")
+    })
+    public List<Rol> listarRol()
+        throws Exception_Exception
+    ;
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<webservice.Categoria>
+     * @throws Exception_Exception
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "listar", targetNamespace = "http://WebService/", className = "webservice.Listar")
+    @ResponseWrapper(localName = "listarResponse", targetNamespace = "http://WebService/", className = "webservice.ListarResponse")
+    @Action(input = "http://WebService/Servicios/listarRequest", output = "http://WebService/Servicios/listarResponse", fault = {
+        @FaultAction(className = Exception_Exception.class, value = "http://WebService/Servicios/listar/Fault/Exception")
+    })
+    public List<Categoria> listar()
+        throws Exception_Exception
+    ;
+
+    /**
+     * 
+     * @param id
+     * @return
+     *     returns webservice.Categoria
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "eliminar", targetNamespace = "http://WebService/", className = "webservice.Eliminar")
+    @ResponseWrapper(localName = "eliminarResponse", targetNamespace = "http://WebService/", className = "webservice.EliminarResponse")
+    @Action(input = "http://WebService/Servicios/eliminarRequest", output = "http://WebService/Servicios/eliminarResponse")
+    public Categoria eliminar(
+        @WebParam(name = "id", targetNamespace = "")
+        String id);
 
 }

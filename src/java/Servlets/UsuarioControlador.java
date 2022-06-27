@@ -5,6 +5,8 @@
  */
 package Servlets;
 
+import Modelo.EmpleadoServicio;
+import Modelo.RolService;
 import Modelo.UsuarioServicio;
 import java.io.IOException;
 import java.util.List;
@@ -12,77 +14,187 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import webservice.Empleado;
 import webservice.Exception_Exception;
+import webservice.Rol;
 import webservice.Usuario;
 
 /**
  *
  * @author fernandomonjav
  */
+@WebServlet("/usuarios")
 public class UsuarioControlador extends HttpServlet {
 
-    UsuarioServicio usuarioNegocio = new UsuarioServicio();
+    UsuarioServicio usuarioServicio = new UsuarioServicio();
+    RolService rolServicio = new RolService();
+    EmpleadoServicio empleadoServicio = new EmpleadoServicio();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String accion = request.getParameter("accion");
-        String acceso = "";
+        String accion = request.getParameter("accion") != null ? request.getParameter("accion") : "listar";
 
-        if (accion.equals("agregar")) {
-            String nombreUsuario = request.getParameter("nombreUsuario");
-            String clave = request.getParameter("clave");
-            String codigoRol = request.getParameter("codigoRol");
-            String codigoEmpleado = request.getParameter("codigoEmpleado");
-
-            try {
-                usuarioNegocio.agregarUsuario(nombreUsuario, clave, codigoEmpleado, codigoRol);
-            } catch (Exception_Exception ex) {
-                Logger.getLogger(UsuarioControlador.class.getName()).log(Level.SEVERE, null, ex);
+        switch (accion) {
+            case "listar":
+                listar(request, response);
+                break;
+            case "agregar": {
+                agregar(request, response);
+                break;
             }
-
-            acceso = "usuario.jsp";
-
-        } else if (accion.equals("editar")) {
-            String codigoUsuario = request.getParameter("codigoUsuario");
-            String nombreUsuario = request.getParameter("nombreUsuario");
-            String clave = request.getParameter("clave");
-            String codigoRol = request.getParameter("codigoRol");
-
-            try {
-                usuarioNegocio.editarUsuario(codigoUsuario, nombreUsuario, clave, codigoRol);
-            } catch (Exception_Exception ex) {
-                Logger.getLogger(UsuarioControlador.class.getName()).log(Level.SEVERE, null, ex);
+            case "editar": {
+                editar(request, response);
+                break;
             }
-
-            acceso = "usuario.jsp";
-        } else if (accion.equals("eliminar")) {
-            String codigoUsuario = request.getParameter("codigoUsuario");
-
-            try {
-                usuarioNegocio.eliminarUsuario(codigoUsuario);
-            } catch (Exception_Exception ex) {
-                Logger.getLogger(UsuarioControlador.class.getName()).log(Level.SEVERE, null, ex);
+            case "eliminar": {
+                eliminar(request, response);
+                break;
             }
+            case "buscar":
+                buscar(request, response);
+                break;
+            default:
+                listar(request, response);
+                break;
+        }
+    }
 
-            acceso = "usuario.jsp";
-        } else if (accion.equals("buscar")) {
-            String valor = request.getParameter("valor");
+    public void listar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        try {
+            List<Usuario> usuarios = usuarioServicio.listarUsuarios();
+            List<Rol> roles = rolServicio.listarRol();
+            List<Empleado> empleados = empleadoServicio.obtenerEmpleados();
 
-            try {
-                List<Usuario> usuarios = usuarioNegocio.buscarUsuarios(valor);
-                request.setAttribute("usuarios", usuarios);
-            } catch (Exception_Exception ex) {
-                Logger.getLogger(UsuarioControlador.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            request.setAttribute("usuarios", usuarios);
+            request.setAttribute("roles", roles);
+            request.setAttribute("empleados", empleados);
 
-            acceso = "usuario.jsp";
+        } catch (Exception_Exception ex) {
+            request.setAttribute("errorMensaje", ex.getMessage());
         }
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher(acceso);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("usuario.jsp");
+        dispatcher.forward(request, response);
+    }
+
+    public void agregar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        String nombreUsuario = request.getParameter("nombreUsuario");
+        String clave = request.getParameter("clave");
+        String codigoRol = request.getParameter("codigoRol");
+        String codigoEmpleado = request.getParameter("codigoEmpleado");
+
+        try {
+            usuarioServicio.crearUsuario(nombreUsuario, clave, codigoEmpleado, codigoRol);
+        } catch (Exception_Exception ex) {
+            request.setAttribute("agregarAlertDanger", true);
+
+            request.setAttribute("nombreUsuario", nombreUsuario);
+            request.setAttribute("codigoRol", codigoRol);
+            request.setAttribute("codigoEmpleado", codigoEmpleado);
+
+            request.setAttribute("errorMensaje", ex.getMessage());
+        }
+
+        try {
+            List<Usuario> usuarios = usuarioServicio.listarUsuarios();
+            List<Rol> roles = rolServicio.listarRol();
+            List<Empleado> empleados = empleadoServicio.obtenerEmpleados();
+
+            request.setAttribute("usuarios", usuarios);
+            request.setAttribute("roles", roles);
+            request.setAttribute("empleados", empleados);
+        } catch (Exception_Exception ex) {
+            request.setAttribute("errorMensaje", ex.getMessage());
+        }
+
+        RequestDispatcher dispatcher = request.getRequestDispatcher("usuario.jsp");
+        dispatcher.forward(request, response);
+
+    }
+
+    public void editar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        String codigoUsuario = request.getParameter("codigoUsuario");
+        String nombreUsuario = request.getParameter("nombreUsuario");
+        String clave = request.getParameter("clave");
+        String codigoRol = request.getParameter("codigoRol");
+        String codigoEmpleado = request.getParameter("codigoEmpleado");
+
+        try {
+            usuarioServicio.editarUsuario(codigoUsuario, nombreUsuario, clave, codigoRol);
+        } catch (Exception_Exception ex) {
+            request.setAttribute("editarAlertDanger", true);
+
+            request.setAttribute("codigoUsuario", codigoUsuario);
+            request.setAttribute("nombreUsuario", nombreUsuario);
+            request.setAttribute("codigoRol", codigoRol);
+            request.setAttribute("codigoEmpleado", codigoEmpleado);
+
+            request.setAttribute("errorMensaje", ex.getMessage());
+        }
+
+        try {
+            List<Usuario> usuarios = usuarioServicio.listarUsuarios();
+            List<Rol> roles = rolServicio.listarRol();
+            List<Empleado> empleados = empleadoServicio.obtenerEmpleados();
+
+            request.setAttribute("usuarios", usuarios);
+            request.setAttribute("roles", roles);
+            request.setAttribute("empleados", empleados);
+        } catch (Exception_Exception ex) {
+            request.setAttribute("errorMensaje", ex.getMessage());
+        }
+
+        RequestDispatcher dispatcher = request.getRequestDispatcher("usuario.jsp");
+        dispatcher.forward(request, response);
+    }
+
+    public void eliminar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String codigoUsuario = request.getParameter("codigoUsuario");
+
+        try {
+            usuarioServicio.eliminarUsuario(codigoUsuario);
+        } catch (Exception_Exception ex) {
+            Logger.getLogger(UsuarioControlador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        try {
+            List<Usuario> usuarios = usuarioServicio.listarUsuarios();
+            List<Rol> roles = rolServicio.listarRol();
+            List<Empleado> empleados = empleadoServicio.obtenerEmpleados();
+
+            request.setAttribute("usuarios", usuarios);
+            request.setAttribute("roles", roles);
+            request.setAttribute("empleados", empleados);
+        } catch (Exception_Exception ex) {
+            request.setAttribute("errorMensaje", ex.getMessage());
+        }
+
+        RequestDispatcher dispatcher = request.getRequestDispatcher("usuario.jsp");
+        dispatcher.forward(request, response);
+    }
+
+    public void buscar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String valor = request.getParameter("valor");
+        
+        try {
+            List<Usuario> usuarios = usuarioServicio.buscarUsuarios(valor);
+            List<Empleado> empleados = empleadoServicio.obtenerEmpleados();
+
+            request.setAttribute("valor", valor);
+            request.setAttribute("usuarios", usuarios);
+            request.setAttribute("empleados", empleados);
+        } catch (Exception_Exception ex) {
+            Logger.getLogger(UsuarioControlador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        RequestDispatcher dispatcher = request.getRequestDispatcher("usuario.jsp");
         dispatcher.forward(request, response);
     }
 

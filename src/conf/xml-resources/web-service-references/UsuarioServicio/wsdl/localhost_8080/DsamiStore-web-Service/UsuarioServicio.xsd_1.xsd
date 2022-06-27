@@ -2,13 +2,13 @@
 
 <xs:element name="Exception" type="tns:Exception"/>
 
-<xs:element name="agregarUsuario" type="tns:agregarUsuario"/>
-
-<xs:element name="agregarUsuarioResponse" type="tns:agregarUsuarioResponse"/>
-
 <xs:element name="buscarUsuarios" type="tns:buscarUsuarios"/>
 
 <xs:element name="buscarUsuariosResponse" type="tns:buscarUsuariosResponse"/>
+
+<xs:element name="crearUsuario" type="tns:crearUsuario"/>
+
+<xs:element name="crearUsuarioResponse" type="tns:crearUsuarioResponse"/>
 
 <xs:element name="editarUsuario" type="tns:editarUsuario"/>
 
@@ -18,9 +18,9 @@
 
 <xs:element name="eliminarUsuarioResponse" type="tns:eliminarUsuarioResponse"/>
 
-<xs:element name="obtenerUsuarios" type="tns:obtenerUsuarios"/>
+<xs:element name="listarUsuarios" type="tns:listarUsuarios"/>
 
-<xs:element name="obtenerUsuariosResponse" type="tns:obtenerUsuariosResponse"/>
+<xs:element name="listarUsuariosResponse" type="tns:listarUsuariosResponse"/>
 
 <xs:complexType name="buscarUsuarios">
 <xs:sequence>
@@ -126,17 +126,7 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="obtenerUsuarios">
-<xs:sequence/>
-</xs:complexType>
-
-<xs:complexType name="obtenerUsuariosResponse">
-<xs:sequence>
-<xs:element name="return" type="tns:usuario" minOccurs="0" maxOccurs="unbounded"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="agregarUsuario">
+<xs:complexType name="crearUsuario">
 <xs:sequence>
 <xs:element name="nombreUsuario" type="xs:string" minOccurs="0"/>
 <xs:element name="clave" type="xs:string" minOccurs="0"/>
@@ -145,9 +135,19 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="agregarUsuarioResponse">
+<xs:complexType name="crearUsuarioResponse">
 <xs:sequence>
 <xs:element name="return" type="tns:usuario" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarUsuarios">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="listarUsuariosResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:usuario" minOccurs="0" maxOccurs="unbounded"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -171,6 +171,8 @@
 </xs:complexType>
 
 <xs:complexType name="editarUsuarioResponse">
-<xs:sequence/>
+<xs:sequence>
+<xs:element name="return" type="tns:usuario" minOccurs="0"/>
+</xs:sequence>
 </xs:complexType>
 </xs:schema>
