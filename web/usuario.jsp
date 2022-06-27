@@ -57,18 +57,14 @@
                     <div class="container-fluid">
                         <div></div>
                         <div class="btn-group">
-                            <p class="d-flex align-items-center h-100 mt-2 my-2 mx-2">Perfil</p>
+                            <p class="d-flex align-items-center h-100 mt-2 my-2 mx-2">${usuario.getNombreUsuario()}</p>
                             <div class="rounded-circle overflow-hidden" style="width: 42px; height: 42px; cursor: pointer"
                                  data-bs-toggle="dropdown" aria-expanded="false">
                                 <img src="https://www.pngkey.com/png/full/72-729716_user-avatar-png-graphic-free-download-icon.png"
                                      class="w-100 h-100" />
                             </div>
                             <ul class="dropdown-menu dropdown-menu-end">
-                                <li><a class="dropdown-item" href="#">Mi perfil</a></li>
-                                <li>
-                                    <hr class="dropdown-divider" />
-                                </li>
-                                <li><a class="dropdown-item" href="#">Cerrar sesión</a></li>
+                                <li><a class="dropdown-item" href="${pageContext.request.contextPath}/auth?accion=salir">Cerrar sesión</a></li>
                             </ul>
                         </div>
                     </div>
@@ -83,7 +79,7 @@
                             <div>
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregar-modal">Agregar</button>
                             </div>
-                            <form action="UsuarioControlador" class="d-flex">
+                            <form action="usuarios" class="d-flex">
                                 <input type="text" name="valor" value="${valor}" placeholder="Buscar un usuario" class="form-control me-2">
                                 <button  type="submit" name="accion" value="buscar" class="btn btn-primary">Buscar</button>
                             </form>
@@ -94,7 +90,7 @@
                     <div class="modal fade" id="agregar-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
-                                <form action="UsuarioControlador">
+                                <form action="usuarios" method="POST">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="staticBackdropLabel">Agregar usuario</h5>
                                         <button type="button" class="btn-close p-2" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -119,7 +115,7 @@
                                         <div class="mb-3">
                                             <label for="agregar-codigo-rol-select" class="col-form-label">Rol</label>
                                             <select class="form-select" id="agregar-codigo-rol-select" name="codigoRol" aria-label=".form-select-sm example">
-                                                <option selected>Seleccionar rol</option>
+                                                <option value="" selected>Seleccionar rol</option>
                                                 <c:forEach var="rol" items="${roles}">
                                                     <option value="${rol.getCodigoRol()}">${rol.getNombre()}</option>
                                                 </c:forEach>
@@ -129,7 +125,7 @@
                                         <div>
                                             <label for="agregar-codigo-empleado-select" class="col-form-label">Empleado</label>
                                             <select class="form-select" id="agregar-codigo-empleado-select" name="codigoEmpleado" aria-label=".form-select-sm example">
-                                                <option selected>Seleccionar empleado</option>
+                                                <option value="" selected>Seleccionar empleado</option>
                                                 <c:forEach var="empleado" items="${empleados}">
                                                     <option value="${empleado.getCodigoEmpleado()}">${empleado.getNombre()} ${empleado.getApellidoPaterno()} ${empleado.getApellidoMaterno()}</option>
                                                 </c:forEach>
@@ -178,7 +174,7 @@
                                                                     <button type="button" class="btn-close p-2" data-bs-dismiss="modal" aria-label="Close"></button>
                                                                 </div>
 
-                                                                <form action="UsuarioControlador">
+                                                                <form action="usuarios" method="POST">
                                                                     <div class="modal-body" id="cont_modal">
                                                                         <div id="editar-alert-danger-${usuario.getCodigoUsuario()}" class="alert alert-danger alert-dismissible fade show" role="alert" style="display: none;">
                                                                             <span id="editar-alert-danger-mensaje-${usuario.getCodigoUsuario()}"></span>
@@ -298,13 +294,13 @@
 
                                                     <!---fin ventana Update --->
 
-                                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#eliminarUsuario${usuario.getCodigoUsuario()}">Eliminar</button>
+                                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#eliminar-usuario-${usuario.getCodigoUsuario()}">Eliminar</button>
 
                                                     <!-- Ventana modal para eliminar -->
-                                                    <div class="modal fade" id="eliminarUsuario${usuario.getCodigoUsuario()}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                    <div class="modal fade" id="eliminar-usuario-${usuario.getCodigoUsuario()}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                                         <div class="modal-dialog modal-dialog-centered" role="document">
                                                             <div class="modal-content">
-                                                                <form name="form-data" action="UsuarioControlador" method="DELETE">
+                                                                <form name="form-data" action="usuarios" method="POST">
                                                                     <div class="modal-header">
                                                                         <h5 class="modal-title" id="myModalLabel">Deseas eliminar el Usuario</h5>
                                                                         <button type="button" class="btn-close p-2" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -318,7 +314,7 @@
                                                                     </div>
                                                                     <div class="modal-footer">
                                                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                                                        <button type="submit" class="btn btn-primary btnBorrar btn-block" data-bs-dismiss="modal" id="${usuario.getCodigoUsuario()}" name="accion" value="eliminar" >Borrar</button>
+                                                                        <button type="submit" class="btn btn-danger btnBorrar btn-block" data-bs-dismiss="modal" id="${usuario.getCodigoUsuario()}" name="accion" value="eliminar" >Borrar</button>
                                                                     </div>
                                                                 </form>
                                                             </div>
@@ -358,10 +354,11 @@
                 let isAgregarModal = false;
 
                 agregarModalEl.addEventListener('shown.bs.modal', () => {
+                    const isError = ${agregarAlertDanger ? true : false};
 
-                    const errorMensaje = "${errorMensaje}";
 
-                    if (errorMensaje && !isAgregarModal) {
+                    if (isError && !isAgregarModal) {
+                        const errorMensaje = "${errorMensaje}";
                         const nombreUsuario = "${nombreUsuario}";
                         const codigoRol = "${codigoRol}";
                         const codigoEmpleado = "${codigoEmpleado}";

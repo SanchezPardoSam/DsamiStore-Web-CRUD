@@ -18,6 +18,10 @@
 
 <xs:element name="eliminarUsuarioResponse" type="tns:eliminarUsuarioResponse"/>
 
+<xs:element name="ingresarUsuario" type="tns:ingresarUsuario"/>
+
+<xs:element name="ingresarUsuarioResponse" type="tns:ingresarUsuarioResponse"/>
+
 <xs:element name="listarUsuarios" type="tns:listarUsuarios"/>
 
 <xs:element name="listarUsuariosResponse" type="tns:listarUsuariosResponse"/>
@@ -136,6 +140,19 @@
 </xs:complexType>
 
 <xs:complexType name="crearUsuarioResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:usuario" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ingresarUsuario">
+<xs:sequence>
+<xs:element name="nombreUsuario" type="xs:string" minOccurs="0"/>
+<xs:element name="clave" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ingresarUsuarioResponse">
 <xs:sequence>
 <xs:element name="return" type="tns:usuario" minOccurs="0"/>
 </xs:sequence>

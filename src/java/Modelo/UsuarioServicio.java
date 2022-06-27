@@ -17,6 +17,12 @@ public class UsuarioServicio {
     public UsuarioServicio() {
     }
 
+    public Usuario ingresarUsuario(java.lang.String nombreUsuario, java.lang.String clave) throws Exception_Exception {
+        webservice.UsuarioServicio_Service service = new webservice.UsuarioServicio_Service();
+        webservice.UsuarioServicio port = service.getUsuarioServicioPort();
+        return port.ingresarUsuario(nombreUsuario, clave);
+    }
+
     public java.util.List<webservice.Usuario> listarUsuarios() throws Exception_Exception {
         webservice.UsuarioServicio_Service service = new webservice.UsuarioServicio_Service();
         webservice.UsuarioServicio port = service.getUsuarioServicioPort();

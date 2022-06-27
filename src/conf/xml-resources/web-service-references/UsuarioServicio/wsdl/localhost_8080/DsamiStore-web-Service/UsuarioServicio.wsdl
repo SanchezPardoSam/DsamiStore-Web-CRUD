@@ -19,6 +19,12 @@
 <message name="crearUsuarioResponse">
 <part name="parameters" element="tns:crearUsuarioResponse"/>
 </message>
+<message name="ingresarUsuario">
+<part name="parameters" element="tns:ingresarUsuario"/>
+</message>
+<message name="ingresarUsuarioResponse">
+<part name="parameters" element="tns:ingresarUsuarioResponse"/>
+</message>
 <message name="editarUsuario">
 <part name="parameters" element="tns:editarUsuario"/>
 </message>
@@ -47,6 +53,11 @@
 <input wsam:Action="http://WebService/UsuarioServicio/crearUsuarioRequest" message="tns:crearUsuario"/>
 <output wsam:Action="http://WebService/UsuarioServicio/crearUsuarioResponse" message="tns:crearUsuarioResponse"/>
 <fault message="tns:Exception" name="Exception" wsam:Action="http://WebService/UsuarioServicio/crearUsuario/Fault/Exception"/>
+</operation>
+<operation name="ingresarUsuario">
+<input wsam:Action="http://WebService/UsuarioServicio/ingresarUsuarioRequest" message="tns:ingresarUsuario"/>
+<output wsam:Action="http://WebService/UsuarioServicio/ingresarUsuarioResponse" message="tns:ingresarUsuarioResponse"/>
+<fault message="tns:Exception" name="Exception" wsam:Action="http://WebService/UsuarioServicio/ingresarUsuario/Fault/Exception"/>
 </operation>
 <operation name="editarUsuario">
 <input wsam:Action="http://WebService/UsuarioServicio/editarUsuarioRequest" message="tns:editarUsuario"/>
@@ -79,6 +90,18 @@
 </fault>
 </operation>
 <operation name="crearUsuario">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Exception">
+<soap:fault name="Exception" use="literal"/>
+</fault>
+</operation>
+<operation name="ingresarUsuario">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

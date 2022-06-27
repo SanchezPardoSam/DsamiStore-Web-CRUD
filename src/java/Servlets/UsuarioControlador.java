@@ -39,6 +39,13 @@ public class UsuarioControlador extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         String accion = request.getParameter("accion") != null ? request.getParameter("accion") : "listar";
 
+        Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+
+        if (usuario == null) {
+            response.sendRedirect(request.getContextPath() + "/auth");
+            return;
+        }
+        
         switch (accion) {
             case "listar":
                 listar(request, response);
@@ -58,9 +65,7 @@ public class UsuarioControlador extends HttpServlet {
             case "buscar":
                 buscar(request, response);
                 break;
-            default:
-                listar(request, response);
-                break;
+   
         }
     }
 
@@ -182,18 +187,20 @@ public class UsuarioControlador extends HttpServlet {
 
     public void buscar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String valor = request.getParameter("valor");
-        
+
         try {
             List<Usuario> usuarios = usuarioServicio.buscarUsuarios(valor);
+            List<Rol> roles = rolServicio.listarRol();
             List<Empleado> empleados = empleadoServicio.obtenerEmpleados();
 
             request.setAttribute("valor", valor);
             request.setAttribute("usuarios", usuarios);
+            request.setAttribute("roles", roles);
             request.setAttribute("empleados", empleados);
         } catch (Exception_Exception ex) {
             Logger.getLogger(UsuarioControlador.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         RequestDispatcher dispatcher = request.getRequestDispatcher("usuario.jsp");
         dispatcher.forward(request, response);
     }

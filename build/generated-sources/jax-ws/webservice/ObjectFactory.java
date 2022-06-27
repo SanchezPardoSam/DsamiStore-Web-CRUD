@@ -25,18 +25,18 @@ import javax.xml.namespace.QName;
 public class ObjectFactory {
 
     private final static QName _Exception_QNAME = new QName("http://WebService/", "Exception");
-    private final static QName _AgregarCategoria_QNAME = new QName("http://WebService/", "agregarCategoria");
-    private final static QName _AgregarCategoriaResponse_QNAME = new QName("http://WebService/", "agregarCategoriaResponse");
-    private final static QName _Eliminar_QNAME = new QName("http://WebService/", "eliminar");
-    private final static QName _EliminarResponse_QNAME = new QName("http://WebService/", "eliminarResponse");
-    private final static QName _Listar_QNAME = new QName("http://WebService/", "listar");
-    private final static QName _ListarResponse_QNAME = new QName("http://WebService/", "listarResponse");
-    private final static QName _ListarRol_QNAME = new QName("http://WebService/", "listarRol");
-    private final static QName _ListarRolResponse_QNAME = new QName("http://WebService/", "listarRolResponse");
-    private final static QName _ListarUsuario_QNAME = new QName("http://WebService/", "listarUsuario");
-    private final static QName _ListarUsuarioResponse_QNAME = new QName("http://WebService/", "listarUsuarioResponse");
-    private final static QName _ModificarCategoria_QNAME = new QName("http://WebService/", "modificarCategoria");
-    private final static QName _ModificarCategoriaResponse_QNAME = new QName("http://WebService/", "modificarCategoriaResponse");
+    private final static QName _BuscarUsuarios_QNAME = new QName("http://WebService/", "buscarUsuarios");
+    private final static QName _BuscarUsuariosResponse_QNAME = new QName("http://WebService/", "buscarUsuariosResponse");
+    private final static QName _CrearUsuario_QNAME = new QName("http://WebService/", "crearUsuario");
+    private final static QName _CrearUsuarioResponse_QNAME = new QName("http://WebService/", "crearUsuarioResponse");
+    private final static QName _EditarUsuario_QNAME = new QName("http://WebService/", "editarUsuario");
+    private final static QName _EditarUsuarioResponse_QNAME = new QName("http://WebService/", "editarUsuarioResponse");
+    private final static QName _EliminarUsuario_QNAME = new QName("http://WebService/", "eliminarUsuario");
+    private final static QName _EliminarUsuarioResponse_QNAME = new QName("http://WebService/", "eliminarUsuarioResponse");
+    private final static QName _IngresarUsuario_QNAME = new QName("http://WebService/", "ingresarUsuario");
+    private final static QName _IngresarUsuarioResponse_QNAME = new QName("http://WebService/", "ingresarUsuarioResponse");
+    private final static QName _ListarUsuarios_QNAME = new QName("http://WebService/", "listarUsuarios");
+    private final static QName _ListarUsuariosResponse_QNAME = new QName("http://WebService/", "listarUsuariosResponse");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: webservice
@@ -54,115 +54,99 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link AgregarCategoria }
+     * Create an instance of {@link BuscarUsuarios }
      * 
      */
-    public AgregarCategoria createAgregarCategoria() {
-        return new AgregarCategoria();
+    public BuscarUsuarios createBuscarUsuarios() {
+        return new BuscarUsuarios();
     }
 
     /**
-     * Create an instance of {@link AgregarCategoriaResponse }
+     * Create an instance of {@link BuscarUsuariosResponse }
      * 
      */
-    public AgregarCategoriaResponse createAgregarCategoriaResponse() {
-        return new AgregarCategoriaResponse();
+    public BuscarUsuariosResponse createBuscarUsuariosResponse() {
+        return new BuscarUsuariosResponse();
     }
 
     /**
-     * Create an instance of {@link Eliminar }
+     * Create an instance of {@link CrearUsuario }
      * 
      */
-    public Eliminar createEliminar() {
-        return new Eliminar();
+    public CrearUsuario createCrearUsuario() {
+        return new CrearUsuario();
     }
 
     /**
-     * Create an instance of {@link EliminarResponse }
+     * Create an instance of {@link CrearUsuarioResponse }
      * 
      */
-    public EliminarResponse createEliminarResponse() {
-        return new EliminarResponse();
+    public CrearUsuarioResponse createCrearUsuarioResponse() {
+        return new CrearUsuarioResponse();
     }
 
     /**
-     * Create an instance of {@link Listar }
+     * Create an instance of {@link EditarUsuario }
      * 
      */
-    public Listar createListar() {
-        return new Listar();
+    public EditarUsuario createEditarUsuario() {
+        return new EditarUsuario();
     }
 
     /**
-     * Create an instance of {@link ListarResponse }
+     * Create an instance of {@link EditarUsuarioResponse }
      * 
      */
-    public ListarResponse createListarResponse() {
-        return new ListarResponse();
+    public EditarUsuarioResponse createEditarUsuarioResponse() {
+        return new EditarUsuarioResponse();
     }
 
     /**
-     * Create an instance of {@link ListarRol }
+     * Create an instance of {@link EliminarUsuario }
      * 
      */
-    public ListarRol createListarRol() {
-        return new ListarRol();
+    public EliminarUsuario createEliminarUsuario() {
+        return new EliminarUsuario();
     }
 
     /**
-     * Create an instance of {@link ListarRolResponse }
+     * Create an instance of {@link EliminarUsuarioResponse }
      * 
      */
-    public ListarRolResponse createListarRolResponse() {
-        return new ListarRolResponse();
+    public EliminarUsuarioResponse createEliminarUsuarioResponse() {
+        return new EliminarUsuarioResponse();
     }
 
     /**
-     * Create an instance of {@link ListarUsuario }
+     * Create an instance of {@link IngresarUsuario }
      * 
      */
-    public ListarUsuario createListarUsuario() {
-        return new ListarUsuario();
+    public IngresarUsuario createIngresarUsuario() {
+        return new IngresarUsuario();
     }
 
     /**
-     * Create an instance of {@link ListarUsuarioResponse }
+     * Create an instance of {@link IngresarUsuarioResponse }
      * 
      */
-    public ListarUsuarioResponse createListarUsuarioResponse() {
-        return new ListarUsuarioResponse();
+    public IngresarUsuarioResponse createIngresarUsuarioResponse() {
+        return new IngresarUsuarioResponse();
     }
 
     /**
-     * Create an instance of {@link ModificarCategoria }
+     * Create an instance of {@link ListarUsuarios }
      * 
      */
-    public ModificarCategoria createModificarCategoria() {
-        return new ModificarCategoria();
+    public ListarUsuarios createListarUsuarios() {
+        return new ListarUsuarios();
     }
 
     /**
-     * Create an instance of {@link ModificarCategoriaResponse }
+     * Create an instance of {@link ListarUsuariosResponse }
      * 
      */
-    public ModificarCategoriaResponse createModificarCategoriaResponse() {
-        return new ModificarCategoriaResponse();
-    }
-
-    /**
-     * Create an instance of {@link Rol }
-     * 
-     */
-    public Rol createRol() {
-        return new Rol();
-    }
-
-    /**
-     * Create an instance of {@link Categoria }
-     * 
-     */
-    public Categoria createCategoria() {
-        return new Categoria();
+    public ListarUsuariosResponse createListarUsuariosResponse() {
+        return new ListarUsuariosResponse();
     }
 
     /**
@@ -238,6 +222,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link Rol }
+     * 
+     */
+    public Rol createRol() {
+        return new Rol();
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link Exception }{@code >}}
      * 
      */
@@ -247,111 +239,111 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AgregarCategoria }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link BuscarUsuarios }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://WebService/", name = "agregarCategoria")
-    public JAXBElement<AgregarCategoria> createAgregarCategoria(AgregarCategoria value) {
-        return new JAXBElement<AgregarCategoria>(_AgregarCategoria_QNAME, AgregarCategoria.class, null, value);
+    @XmlElementDecl(namespace = "http://WebService/", name = "buscarUsuarios")
+    public JAXBElement<BuscarUsuarios> createBuscarUsuarios(BuscarUsuarios value) {
+        return new JAXBElement<BuscarUsuarios>(_BuscarUsuarios_QNAME, BuscarUsuarios.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AgregarCategoriaResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link BuscarUsuariosResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://WebService/", name = "agregarCategoriaResponse")
-    public JAXBElement<AgregarCategoriaResponse> createAgregarCategoriaResponse(AgregarCategoriaResponse value) {
-        return new JAXBElement<AgregarCategoriaResponse>(_AgregarCategoriaResponse_QNAME, AgregarCategoriaResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://WebService/", name = "buscarUsuariosResponse")
+    public JAXBElement<BuscarUsuariosResponse> createBuscarUsuariosResponse(BuscarUsuariosResponse value) {
+        return new JAXBElement<BuscarUsuariosResponse>(_BuscarUsuariosResponse_QNAME, BuscarUsuariosResponse.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Eliminar }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link CrearUsuario }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://WebService/", name = "eliminar")
-    public JAXBElement<Eliminar> createEliminar(Eliminar value) {
-        return new JAXBElement<Eliminar>(_Eliminar_QNAME, Eliminar.class, null, value);
+    @XmlElementDecl(namespace = "http://WebService/", name = "crearUsuario")
+    public JAXBElement<CrearUsuario> createCrearUsuario(CrearUsuario value) {
+        return new JAXBElement<CrearUsuario>(_CrearUsuario_QNAME, CrearUsuario.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link EliminarResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link CrearUsuarioResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://WebService/", name = "eliminarResponse")
-    public JAXBElement<EliminarResponse> createEliminarResponse(EliminarResponse value) {
-        return new JAXBElement<EliminarResponse>(_EliminarResponse_QNAME, EliminarResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://WebService/", name = "crearUsuarioResponse")
+    public JAXBElement<CrearUsuarioResponse> createCrearUsuarioResponse(CrearUsuarioResponse value) {
+        return new JAXBElement<CrearUsuarioResponse>(_CrearUsuarioResponse_QNAME, CrearUsuarioResponse.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Listar }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link EditarUsuario }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://WebService/", name = "listar")
-    public JAXBElement<Listar> createListar(Listar value) {
-        return new JAXBElement<Listar>(_Listar_QNAME, Listar.class, null, value);
+    @XmlElementDecl(namespace = "http://WebService/", name = "editarUsuario")
+    public JAXBElement<EditarUsuario> createEditarUsuario(EditarUsuario value) {
+        return new JAXBElement<EditarUsuario>(_EditarUsuario_QNAME, EditarUsuario.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ListarResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link EditarUsuarioResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://WebService/", name = "listarResponse")
-    public JAXBElement<ListarResponse> createListarResponse(ListarResponse value) {
-        return new JAXBElement<ListarResponse>(_ListarResponse_QNAME, ListarResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://WebService/", name = "editarUsuarioResponse")
+    public JAXBElement<EditarUsuarioResponse> createEditarUsuarioResponse(EditarUsuarioResponse value) {
+        return new JAXBElement<EditarUsuarioResponse>(_EditarUsuarioResponse_QNAME, EditarUsuarioResponse.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ListarRol }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link EliminarUsuario }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://WebService/", name = "listarRol")
-    public JAXBElement<ListarRol> createListarRol(ListarRol value) {
-        return new JAXBElement<ListarRol>(_ListarRol_QNAME, ListarRol.class, null, value);
+    @XmlElementDecl(namespace = "http://WebService/", name = "eliminarUsuario")
+    public JAXBElement<EliminarUsuario> createEliminarUsuario(EliminarUsuario value) {
+        return new JAXBElement<EliminarUsuario>(_EliminarUsuario_QNAME, EliminarUsuario.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ListarRolResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link EliminarUsuarioResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://WebService/", name = "listarRolResponse")
-    public JAXBElement<ListarRolResponse> createListarRolResponse(ListarRolResponse value) {
-        return new JAXBElement<ListarRolResponse>(_ListarRolResponse_QNAME, ListarRolResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://WebService/", name = "eliminarUsuarioResponse")
+    public JAXBElement<EliminarUsuarioResponse> createEliminarUsuarioResponse(EliminarUsuarioResponse value) {
+        return new JAXBElement<EliminarUsuarioResponse>(_EliminarUsuarioResponse_QNAME, EliminarUsuarioResponse.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ListarUsuario }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link IngresarUsuario }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://WebService/", name = "listarUsuario")
-    public JAXBElement<ListarUsuario> createListarUsuario(ListarUsuario value) {
-        return new JAXBElement<ListarUsuario>(_ListarUsuario_QNAME, ListarUsuario.class, null, value);
+    @XmlElementDecl(namespace = "http://WebService/", name = "ingresarUsuario")
+    public JAXBElement<IngresarUsuario> createIngresarUsuario(IngresarUsuario value) {
+        return new JAXBElement<IngresarUsuario>(_IngresarUsuario_QNAME, IngresarUsuario.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ListarUsuarioResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link IngresarUsuarioResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://WebService/", name = "listarUsuarioResponse")
-    public JAXBElement<ListarUsuarioResponse> createListarUsuarioResponse(ListarUsuarioResponse value) {
-        return new JAXBElement<ListarUsuarioResponse>(_ListarUsuarioResponse_QNAME, ListarUsuarioResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://WebService/", name = "ingresarUsuarioResponse")
+    public JAXBElement<IngresarUsuarioResponse> createIngresarUsuarioResponse(IngresarUsuarioResponse value) {
+        return new JAXBElement<IngresarUsuarioResponse>(_IngresarUsuarioResponse_QNAME, IngresarUsuarioResponse.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ModificarCategoria }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ListarUsuarios }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://WebService/", name = "modificarCategoria")
-    public JAXBElement<ModificarCategoria> createModificarCategoria(ModificarCategoria value) {
-        return new JAXBElement<ModificarCategoria>(_ModificarCategoria_QNAME, ModificarCategoria.class, null, value);
+    @XmlElementDecl(namespace = "http://WebService/", name = "listarUsuarios")
+    public JAXBElement<ListarUsuarios> createListarUsuarios(ListarUsuarios value) {
+        return new JAXBElement<ListarUsuarios>(_ListarUsuarios_QNAME, ListarUsuarios.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ModificarCategoriaResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ListarUsuariosResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://WebService/", name = "modificarCategoriaResponse")
-    public JAXBElement<ModificarCategoriaResponse> createModificarCategoriaResponse(ModificarCategoriaResponse value) {
-        return new JAXBElement<ModificarCategoriaResponse>(_ModificarCategoriaResponse_QNAME, ModificarCategoriaResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://WebService/", name = "listarUsuariosResponse")
+    public JAXBElement<ListarUsuariosResponse> createListarUsuariosResponse(ListarUsuariosResponse value) {
+        return new JAXBElement<ListarUsuariosResponse>(_ListarUsuariosResponse_QNAME, ListarUsuariosResponse.class, null, value);
     }
 
 }

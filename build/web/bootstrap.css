@@ -162,8 +162,8 @@ h5 {
 }
 
 .form-control:focus {
-  border-color: rgba(34, 197, 94, 0.4);
-  box-shadow: 0 0 0 0.25rem rgba(34, 197, 94, 0.4);
+  border-color: #cbd5e1;
+  box-shadow: 0 0 0 0.25rem #cbd5e1;
 }
 
 .form-control::placeholder {
