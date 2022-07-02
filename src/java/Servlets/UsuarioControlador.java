@@ -83,7 +83,7 @@ public class UsuarioControlador extends HttpServlet {
             request.setAttribute("errorMensaje", ex.getMessage());
         }
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("usuario.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("usuarios.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -118,7 +118,7 @@ public class UsuarioControlador extends HttpServlet {
             request.setAttribute("errorMensaje", ex.getMessage());
         }
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("usuario.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("usuarios.jsp");
         dispatcher.forward(request, response);
 
     }
@@ -156,7 +156,7 @@ public class UsuarioControlador extends HttpServlet {
             request.setAttribute("errorMensaje", ex.getMessage());
         }
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("usuario.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("usuarios.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -181,7 +181,7 @@ public class UsuarioControlador extends HttpServlet {
             request.setAttribute("errorMensaje", ex.getMessage());
         }
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("usuario.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("usuarios.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -201,7 +201,7 @@ public class UsuarioControlador extends HttpServlet {
             Logger.getLogger(UsuarioControlador.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("usuario.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("usuarios.jsp");
         dispatcher.forward(request, response);
     }
 

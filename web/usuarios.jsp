@@ -11,64 +11,15 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <!-- CSS only -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-        <link rel="stylesheet" href="bootstrap.css">
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+        <%@include file="/includes/head.jsp"%>
         <title>Usuarios - D'SamiStore</title>
     </head>
     <body>
         <div class="app">
-            <div class="app-sidebar p-3 border-end ">
-                <a class="d-flex text-decoration-none mb-4 " href="${pageContext.request.contextPath}/categoria.jsp">
-                    <h4 class="fs-4 fw-bold text-primary">D' Sami Store</h4>
-                </a>
-                <div class="nav nav-pills flex-column mb-auto">
-                    <li class='nav-item'>
-                        <a href="${pageContext.request.contextPath}/categoria.jsp"  class="nav-link ${pageContext.request.requestURI.endsWith('/categoria.jsp') ? 'active' : 'link-dark'}">Categorias</a>
-                    </li>
-                    <li class='nav-item' >
-                        <a href="${pageContext.request.contextPath}/producto.jsp"  class="nav-link ${pageContext.request.requestURI.endsWith('/producto.jsp') ? 'active' : 'link-dark'}">Productos</a>
-                    </li>
-                    <li class='nav-item' >
-                        <a href="${pageContext.request.contextPath}/empleado.jsp" class="nav-link ${pageContext.request.requestURI.endsWith('/empleado.jsp') ? 'active' : 'link-dark'}">Usuarios</a>
-                    </li>
-                    <li class='nav-item' >
-                        <a href="${pageContext.request.contextPath}/proveedor.jsp"  class="nav-link ${pageContext.request.requestURI.endsWith('/proveedor.jsp') ? 'active' : 'link-dark'}">Proveedor</a>
-                    </li>
-                    <li class='nav-item' >
-                        <a href="${pageContext.request.contextPath}/usuarios" class="nav-link ${pageContext.request.requestURI.endsWith('/usuarios') ? 'active' : 'link-dark'}">Usuarios</a>
-                    </li>
-                    <li class='nav-item' >
-                        <a href="${pageContext.request.contextPath}/rol.jsp"  class="nav-link ${pageContext.request.requestURI.endsWith('/rol.jsp') ? 'active' : 'link-dark'}">Roles</a>
-                    </li>
-                    <li class='nav-item' >
-                        <a href="${pageContext.request.contextPath}/recepcion.jsp" class="nav-link ${pageContext.request.requestURI.endsWith('/recepcion.jsp') ? 'active' : 'link-dark'}">Recepcion</a>
-                    </li>
-                    <li class='nav-item' >
-                        <a href="${pageContext.request.contextPath}/despacho.jsp"  class="nav-link ${pageContext.request.requestURI.endsWith('/despacho.jsp') ? 'active' : 'link-dark'}">Despacho</a>
-                    </li>
-                </div>
-            </div>
+            <%@include file="/includes/sidebar.jsp"%>
 
             <div class="app-content">
-                <nav class="app-navbar navbar border-bottom bg-white">
-                    <div class="container-fluid">
-                        <div></div>
-                        <div class="btn-group">
-                            <p class="d-flex align-items-center h-100 mt-2 my-2 mx-2">${usuario.getNombreUsuario()}</p>
-                            <div class="rounded-circle overflow-hidden" style="width: 42px; height: 42px; cursor: pointer"
-                                 data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="https://www.pngkey.com/png/full/72-729716_user-avatar-png-graphic-free-download-icon.png"
-                                     class="w-100 h-100" />
-                            </div>
-                            <ul class="dropdown-menu dropdown-menu-end">
-                                <li><a class="dropdown-item" href="${pageContext.request.contextPath}/auth?accion=salir">Cerrar sesión</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
+                <%@include file="/includes/navbar.jsp"%>
 
                 <div class="container px-4">
                     <div class="py-4 bd-highlight row">

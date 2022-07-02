@@ -32,7 +32,7 @@ public class Controlador extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    String index="categoria.jsp";
+    String index="categorias.jsp";
     String acceso="";
     CategoriaService categoria = new CategoriaService();
     
