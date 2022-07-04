@@ -31,8 +31,10 @@
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregar-modal">Agregar</button>
                             </div>
                             <form action="usuarios" class="d-flex">
-                                <input type="text" name="valor" value="${valor}" placeholder="Buscar un usuario" class="form-control me-2">
-                                <button  type="submit" name="accion" value="buscar" class="btn btn-primary">Buscar</button>
+                                <input type="hidden" name="pagina" value="${pagina}" />
+                                <input type="hidden" name="cantidad" value="${cantidad}" />
+                                <input type="search" name="q" value="${q}" placeholder="Buscar un usuario" class="form-control me-2">
+                                <button  type="submit" class="btn btn-primary">Buscar</button>
                             </form>
                         </div>
                     </div>
@@ -108,7 +110,7 @@
                                 <tbody>
                                     <c:forEach var="usuario" items="${usuarios}" varStatus="loop">
                                         <tr>
-                                            <td>${loop.index + 1}</td>
+                                            <td>${((pagina * cantidad) - cantidad + 1)  + loop.index}</td>
                                             <td>${usuario.getNombreUsuario()}</td>
                                             <td>${usuario.getEmpleado().getNombre()} ${usuario.getEmpleado().getApellidoPaterno()} ${usuario.getEmpleado().getApellidoMaterno()}</td>
                                             <td>${usuario.getRol().getNombre()}</td>
@@ -280,11 +282,46 @@
                             </table>
                         </div>
                     </div>
+
+                    <nav class="mt-2 d-flex justify-content-between align-items-center">
+                        <div>
+                            <span>Cantidad</span>
+                            <select class="form-select" onchange="cambiarCantidad(this)">
+                                <option value="5" ${cantidad == 5 ? "selected" : ""}>5</option>
+                                <option value="10" ${cantidad == 10 ? "selected" : ""}>10</option>
+                                <option value="50" ${cantidad == 50 ? "selected" : ""}>50</option>
+                            </select> 
+                        </div>
+
+                        <div>
+                            <ul class="pagination mb-0">
+                                <li class="page-item ${pagina == 1 ? "disabled" : ""}">
+                                    <a class="page-link" href="usuarios?pagina=${pagina - 1}&cantidad=${cantidad}&q=${q}">Anterior</a>
+                                </li>
+
+                                <c:forEach var="i" begin="1" end="${paginas}">
+                                    <li class="page-item ${pagina == i ? "active" : ""}">
+                                        <a class="page-link" href="usuarios?pagina=${i}&cantidad=${cantidad}&q=${q}">${i}</a>
+                                    </li>
+                                </c:forEach>
+
+                                <li class="page-item ${pagina == paginas ? "disabled" : ""}">
+                                    <a class="page-link" href="usuarios?pagina=${pagina + 1}&cantidad=${cantidad}&q=${q}">Siguiente</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
                 </div>
             </div>
         </div>
 
         <script>
+            function cambiarCantidad(event) {
+                const params = new URLSearchParams(window.location.search);
+                params.set("cantidad", event.value);
+                window.location.search = params.toString();
+            }
+
             (() => {
                 // Agregar modal
                 const agregarModalEl = document.getElementById('agregar-modal');

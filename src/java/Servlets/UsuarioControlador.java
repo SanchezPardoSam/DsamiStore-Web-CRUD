@@ -10,8 +10,6 @@ import Modelo.RolService;
 import Modelo.UsuarioServicio;
 import java.io.IOException;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -45,7 +43,30 @@ public class UsuarioControlador extends HttpServlet {
             response.sendRedirect(request.getContextPath() + "/auth");
             return;
         }
-        
+
+        try {
+            int pagina = request.getParameter("pagina") != null ? Integer.parseInt(request.getParameter("pagina")) : 1;
+            int cantidad = request.getParameter("cantidad") != null ? Integer.parseInt(request.getParameter("cantidad")) : 5;
+            String consulta = request.getParameter("q") != null ? request.getParameter("q") : "";
+
+            int paginas = usuarioServicio.buscarUsuariosPaginacionCount(consulta, cantidad);
+            List<Usuario> usuarios = usuarioServicio.buscarUsuariosPaginacion(consulta, pagina, cantidad);
+            List<Rol> roles = rolServicio.listarRol();
+            List<Empleado> empleados = empleadoServicio.obtenerEmpleados();
+
+            request.setAttribute("pagina", pagina);
+            request.setAttribute("cantidad", cantidad);
+            request.setAttribute("paginas", paginas);
+
+            request.setAttribute("q", consulta);
+
+            request.setAttribute("usuarios", usuarios);
+            request.setAttribute("roles", roles);
+            request.setAttribute("empleados", empleados);
+        } catch (Exception_Exception ex) {
+
+        }
+
         switch (accion) {
             case "listar":
                 listar(request, response);
@@ -62,27 +83,10 @@ public class UsuarioControlador extends HttpServlet {
                 eliminar(request, response);
                 break;
             }
-            case "buscar":
-                buscar(request, response);
-                break;
-   
         }
     }
 
     public void listar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        try {
-            List<Usuario> usuarios = usuarioServicio.listarUsuarios();
-            List<Rol> roles = rolServicio.listarRol();
-            List<Empleado> empleados = empleadoServicio.obtenerEmpleados();
-
-            request.setAttribute("usuarios", usuarios);
-            request.setAttribute("roles", roles);
-            request.setAttribute("empleados", empleados);
-
-        } catch (Exception_Exception ex) {
-            request.setAttribute("errorMensaje", ex.getMessage());
-        }
-
         RequestDispatcher dispatcher = request.getRequestDispatcher("usuarios.jsp");
         dispatcher.forward(request, response);
     }
@@ -96,6 +100,9 @@ public class UsuarioControlador extends HttpServlet {
 
         try {
             usuarioServicio.crearUsuario(nombreUsuario, clave, codigoEmpleado, codigoRol);
+
+            response.sendRedirect(request.getContextPath() + "/usuarios");
+
         } catch (Exception_Exception ex) {
             request.setAttribute("agregarAlertDanger", true);
 
@@ -104,22 +111,10 @@ public class UsuarioControlador extends HttpServlet {
             request.setAttribute("codigoEmpleado", codigoEmpleado);
 
             request.setAttribute("errorMensaje", ex.getMessage());
+
+            RequestDispatcher dispatcher = request.getRequestDispatcher("usuarios.jsp");
+            dispatcher.forward(request, response);
         }
-
-        try {
-            List<Usuario> usuarios = usuarioServicio.listarUsuarios();
-            List<Rol> roles = rolServicio.listarRol();
-            List<Empleado> empleados = empleadoServicio.obtenerEmpleados();
-
-            request.setAttribute("usuarios", usuarios);
-            request.setAttribute("roles", roles);
-            request.setAttribute("empleados", empleados);
-        } catch (Exception_Exception ex) {
-            request.setAttribute("errorMensaje", ex.getMessage());
-        }
-
-        RequestDispatcher dispatcher = request.getRequestDispatcher("usuarios.jsp");
-        dispatcher.forward(request, response);
 
     }
 
@@ -133,6 +128,9 @@ public class UsuarioControlador extends HttpServlet {
 
         try {
             usuarioServicio.editarUsuario(codigoUsuario, nombreUsuario, clave, codigoRol);
+
+            response.sendRedirect(request.getContextPath() + "/usuarios");
+
         } catch (Exception_Exception ex) {
             request.setAttribute("editarAlertDanger", true);
 
@@ -142,22 +140,11 @@ public class UsuarioControlador extends HttpServlet {
             request.setAttribute("codigoEmpleado", codigoEmpleado);
 
             request.setAttribute("errorMensaje", ex.getMessage());
+
+            RequestDispatcher dispatcher = request.getRequestDispatcher("usuarios.jsp");
+            dispatcher.forward(request, response);
         }
 
-        try {
-            List<Usuario> usuarios = usuarioServicio.listarUsuarios();
-            List<Rol> roles = rolServicio.listarRol();
-            List<Empleado> empleados = empleadoServicio.obtenerEmpleados();
-
-            request.setAttribute("usuarios", usuarios);
-            request.setAttribute("roles", roles);
-            request.setAttribute("empleados", empleados);
-        } catch (Exception_Exception ex) {
-            request.setAttribute("errorMensaje", ex.getMessage());
-        }
-
-        RequestDispatcher dispatcher = request.getRequestDispatcher("usuarios.jsp");
-        dispatcher.forward(request, response);
     }
 
     public void eliminar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -165,44 +152,16 @@ public class UsuarioControlador extends HttpServlet {
 
         try {
             usuarioServicio.eliminarUsuario(codigoUsuario);
-        } catch (Exception_Exception ex) {
-            Logger.getLogger(UsuarioControlador.class.getName()).log(Level.SEVERE, null, ex);
-        }
 
-        try {
-            List<Usuario> usuarios = usuarioServicio.listarUsuarios();
-            List<Rol> roles = rolServicio.listarRol();
-            List<Empleado> empleados = empleadoServicio.obtenerEmpleados();
+            response.sendRedirect(request.getContextPath() + "/usuarios");
 
-            request.setAttribute("usuarios", usuarios);
-            request.setAttribute("roles", roles);
-            request.setAttribute("empleados", empleados);
         } catch (Exception_Exception ex) {
             request.setAttribute("errorMensaje", ex.getMessage());
+
+            RequestDispatcher dispatcher = request.getRequestDispatcher("usuarios.jsp");
+            dispatcher.forward(request, response);
         }
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("usuarios.jsp");
-        dispatcher.forward(request, response);
-    }
-
-    public void buscar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String valor = request.getParameter("valor");
-
-        try {
-            List<Usuario> usuarios = usuarioServicio.buscarUsuarios(valor);
-            List<Rol> roles = rolServicio.listarRol();
-            List<Empleado> empleados = empleadoServicio.obtenerEmpleados();
-
-            request.setAttribute("valor", valor);
-            request.setAttribute("usuarios", usuarios);
-            request.setAttribute("roles", roles);
-            request.setAttribute("empleados", empleados);
-        } catch (Exception_Exception ex) {
-            Logger.getLogger(UsuarioControlador.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        RequestDispatcher dispatcher = request.getRequestDispatcher("usuarios.jsp");
-        dispatcher.forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

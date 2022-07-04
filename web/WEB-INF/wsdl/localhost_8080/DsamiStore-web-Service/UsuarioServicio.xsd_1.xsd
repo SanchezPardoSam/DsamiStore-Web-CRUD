@@ -4,6 +4,14 @@
 
 <xs:element name="buscarUsuarios" type="tns:buscarUsuarios"/>
 
+<xs:element name="buscarUsuariosPaginacion" type="tns:buscarUsuariosPaginacion"/>
+
+<xs:element name="buscarUsuariosPaginacionCount" type="tns:buscarUsuariosPaginacionCount"/>
+
+<xs:element name="buscarUsuariosPaginacionCountResponse" type="tns:buscarUsuariosPaginacionCountResponse"/>
+
+<xs:element name="buscarUsuariosPaginacionResponse" type="tns:buscarUsuariosPaginacionResponse"/>
+
 <xs:element name="buscarUsuariosResponse" type="tns:buscarUsuariosResponse"/>
 
 <xs:element name="crearUsuario" type="tns:crearUsuario"/>
@@ -23,6 +31,14 @@
 <xs:element name="ingresarUsuarioResponse" type="tns:ingresarUsuarioResponse"/>
 
 <xs:element name="listarUsuarios" type="tns:listarUsuarios"/>
+
+<xs:element name="listarUsuariosPaginacion" type="tns:listarUsuariosPaginacion"/>
+
+<xs:element name="listarUsuariosPaginacionCount" type="tns:listarUsuariosPaginacionCount"/>
+
+<xs:element name="listarUsuariosPaginacionCountResponse" type="tns:listarUsuariosPaginacionCountResponse"/>
+
+<xs:element name="listarUsuariosPaginacionResponse" type="tns:listarUsuariosPaginacionResponse"/>
 
 <xs:element name="listarUsuariosResponse" type="tns:listarUsuariosResponse"/>
 
@@ -130,6 +146,18 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="listarUsuariosPaginacionCount">
+<xs:sequence>
+<xs:element name="cantidad" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarUsuariosPaginacionCountResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="crearUsuario">
 <xs:sequence>
 <xs:element name="nombreUsuario" type="xs:string" minOccurs="0"/>
@@ -158,6 +186,33 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="buscarUsuariosPaginacion">
+<xs:sequence>
+<xs:element name="consulta" type="xs:string" minOccurs="0"/>
+<xs:element name="pagina" type="xs:int"/>
+<xs:element name="cantidad" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="buscarUsuariosPaginacionResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:usuario" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarUsuariosPaginacion">
+<xs:sequence>
+<xs:element name="pagina" type="xs:int"/>
+<xs:element name="cantidad" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarUsuariosPaginacionResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:usuario" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="listarUsuarios">
 <xs:sequence/>
 </xs:complexType>
@@ -165,6 +220,19 @@
 <xs:complexType name="listarUsuariosResponse">
 <xs:sequence>
 <xs:element name="return" type="tns:usuario" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="buscarUsuariosPaginacionCount">
+<xs:sequence>
+<xs:element name="consulta" type="xs:string" minOccurs="0"/>
+<xs:element name="cantidad" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="buscarUsuariosPaginacionCountResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
 </xs:sequence>
 </xs:complexType>
 

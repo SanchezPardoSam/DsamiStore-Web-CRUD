@@ -25,28 +25,26 @@ import javax.xml.namespace.QName;
 public class ObjectFactory {
 
     private final static QName _Exception_QNAME = new QName("http://WebService/", "Exception");
-    private final static QName _AgregarProducto_QNAME = new QName("http://WebService/", "agregarProducto");
-    private final static QName _AgregarProductoResponse_QNAME = new QName("http://WebService/", "agregarProductoResponse");
-    private final static QName _Almacen_QNAME = new QName("http://WebService/", "almacen");
-    private final static QName _BuscarProducto_QNAME = new QName("http://WebService/", "buscarProducto");
-    private final static QName _BuscarProductoResponse_QNAME = new QName("http://WebService/", "buscarProductoResponse");
-    private final static QName _EliminarProducto_QNAME = new QName("http://WebService/", "eliminarProducto");
-    private final static QName _EliminarProductoResponse_QNAME = new QName("http://WebService/", "eliminarProductoResponse");
-    private final static QName _ListarAlmacen_QNAME = new QName("http://WebService/", "listarAlmacen");
-    private final static QName _ListarAlmacenResponse_QNAME = new QName("http://WebService/", "listarAlmacenResponse");
-    private final static QName _ListarCategoria_QNAME = new QName("http://WebService/", "listarCategoria");
-    private final static QName _ListarCategoriaResponse_QNAME = new QName("http://WebService/", "listarCategoriaResponse");
-    private final static QName _ListarMarca_QNAME = new QName("http://WebService/", "listarMarca");
-    private final static QName _ListarMarcaResponse_QNAME = new QName("http://WebService/", "listarMarcaResponse");
-    private final static QName _ListarMoneda_QNAME = new QName("http://WebService/", "listarMoneda");
-    private final static QName _ListarMonedaResponse_QNAME = new QName("http://WebService/", "listarMonedaResponse");
-    private final static QName _ListarProductos_QNAME = new QName("http://WebService/", "listarProductos");
-    private final static QName _ListarProductosResponse_QNAME = new QName("http://WebService/", "listarProductosResponse");
-    private final static QName _Marca_QNAME = new QName("http://WebService/", "marca");
-    private final static QName _ModificarProducto_QNAME = new QName("http://WebService/", "modificarProducto");
-    private final static QName _ModificarProductoResponse_QNAME = new QName("http://WebService/", "modificarProductoResponse");
-    private final static QName _Moneda_QNAME = new QName("http://WebService/", "moneda");
-    private final static QName _Producto_QNAME = new QName("http://WebService/", "producto");
+    private final static QName _BuscarUsuarios_QNAME = new QName("http://WebService/", "buscarUsuarios");
+    private final static QName _BuscarUsuariosPaginacion_QNAME = new QName("http://WebService/", "buscarUsuariosPaginacion");
+    private final static QName _BuscarUsuariosPaginacionCount_QNAME = new QName("http://WebService/", "buscarUsuariosPaginacionCount");
+    private final static QName _BuscarUsuariosPaginacionCountResponse_QNAME = new QName("http://WebService/", "buscarUsuariosPaginacionCountResponse");
+    private final static QName _BuscarUsuariosPaginacionResponse_QNAME = new QName("http://WebService/", "buscarUsuariosPaginacionResponse");
+    private final static QName _BuscarUsuariosResponse_QNAME = new QName("http://WebService/", "buscarUsuariosResponse");
+    private final static QName _CrearUsuario_QNAME = new QName("http://WebService/", "crearUsuario");
+    private final static QName _CrearUsuarioResponse_QNAME = new QName("http://WebService/", "crearUsuarioResponse");
+    private final static QName _EditarUsuario_QNAME = new QName("http://WebService/", "editarUsuario");
+    private final static QName _EditarUsuarioResponse_QNAME = new QName("http://WebService/", "editarUsuarioResponse");
+    private final static QName _EliminarUsuario_QNAME = new QName("http://WebService/", "eliminarUsuario");
+    private final static QName _EliminarUsuarioResponse_QNAME = new QName("http://WebService/", "eliminarUsuarioResponse");
+    private final static QName _IngresarUsuario_QNAME = new QName("http://WebService/", "ingresarUsuario");
+    private final static QName _IngresarUsuarioResponse_QNAME = new QName("http://WebService/", "ingresarUsuarioResponse");
+    private final static QName _ListarUsuarios_QNAME = new QName("http://WebService/", "listarUsuarios");
+    private final static QName _ListarUsuariosPaginacion_QNAME = new QName("http://WebService/", "listarUsuariosPaginacion");
+    private final static QName _ListarUsuariosPaginacionCount_QNAME = new QName("http://WebService/", "listarUsuariosPaginacionCount");
+    private final static QName _ListarUsuariosPaginacionCountResponse_QNAME = new QName("http://WebService/", "listarUsuariosPaginacionCountResponse");
+    private final static QName _ListarUsuariosPaginacionResponse_QNAME = new QName("http://WebService/", "listarUsuariosPaginacionResponse");
+    private final static QName _ListarUsuariosResponse_QNAME = new QName("http://WebService/", "listarUsuariosResponse");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: webservice
@@ -64,187 +62,243 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link AgregarProducto }
+     * Create an instance of {@link BuscarUsuarios }
      * 
      */
-    public AgregarProducto createAgregarProducto() {
-        return new AgregarProducto();
+    public BuscarUsuarios createBuscarUsuarios() {
+        return new BuscarUsuarios();
     }
 
     /**
-     * Create an instance of {@link AgregarProductoResponse }
+     * Create an instance of {@link BuscarUsuariosPaginacion }
      * 
      */
-    public AgregarProductoResponse createAgregarProductoResponse() {
-        return new AgregarProductoResponse();
+    public BuscarUsuariosPaginacion createBuscarUsuariosPaginacion() {
+        return new BuscarUsuariosPaginacion();
     }
 
     /**
-     * Create an instance of {@link Almacen }
+     * Create an instance of {@link BuscarUsuariosPaginacionCount }
      * 
      */
-    public Almacen createAlmacen() {
-        return new Almacen();
+    public BuscarUsuariosPaginacionCount createBuscarUsuariosPaginacionCount() {
+        return new BuscarUsuariosPaginacionCount();
     }
 
     /**
-     * Create an instance of {@link BuscarProducto }
+     * Create an instance of {@link BuscarUsuariosPaginacionCountResponse }
      * 
      */
-    public BuscarProducto createBuscarProducto() {
-        return new BuscarProducto();
+    public BuscarUsuariosPaginacionCountResponse createBuscarUsuariosPaginacionCountResponse() {
+        return new BuscarUsuariosPaginacionCountResponse();
     }
 
     /**
-     * Create an instance of {@link BuscarProductoResponse }
+     * Create an instance of {@link BuscarUsuariosPaginacionResponse }
      * 
      */
-    public BuscarProductoResponse createBuscarProductoResponse() {
-        return new BuscarProductoResponse();
+    public BuscarUsuariosPaginacionResponse createBuscarUsuariosPaginacionResponse() {
+        return new BuscarUsuariosPaginacionResponse();
     }
 
     /**
-     * Create an instance of {@link EliminarProducto }
+     * Create an instance of {@link BuscarUsuariosResponse }
      * 
      */
-    public EliminarProducto createEliminarProducto() {
-        return new EliminarProducto();
+    public BuscarUsuariosResponse createBuscarUsuariosResponse() {
+        return new BuscarUsuariosResponse();
     }
 
     /**
-     * Create an instance of {@link EliminarProductoResponse }
+     * Create an instance of {@link CrearUsuario }
      * 
      */
-    public EliminarProductoResponse createEliminarProductoResponse() {
-        return new EliminarProductoResponse();
+    public CrearUsuario createCrearUsuario() {
+        return new CrearUsuario();
     }
 
     /**
-     * Create an instance of {@link ListarAlmacen }
+     * Create an instance of {@link CrearUsuarioResponse }
      * 
      */
-    public ListarAlmacen createListarAlmacen() {
-        return new ListarAlmacen();
+    public CrearUsuarioResponse createCrearUsuarioResponse() {
+        return new CrearUsuarioResponse();
     }
 
     /**
-     * Create an instance of {@link ListarAlmacenResponse }
+     * Create an instance of {@link EditarUsuario }
      * 
      */
-    public ListarAlmacenResponse createListarAlmacenResponse() {
-        return new ListarAlmacenResponse();
+    public EditarUsuario createEditarUsuario() {
+        return new EditarUsuario();
     }
 
     /**
-     * Create an instance of {@link ListarCategoria }
+     * Create an instance of {@link EditarUsuarioResponse }
      * 
      */
-    public ListarCategoria createListarCategoria() {
-        return new ListarCategoria();
+    public EditarUsuarioResponse createEditarUsuarioResponse() {
+        return new EditarUsuarioResponse();
     }
 
     /**
-     * Create an instance of {@link ListarCategoriaResponse }
+     * Create an instance of {@link EliminarUsuario }
      * 
      */
-    public ListarCategoriaResponse createListarCategoriaResponse() {
-        return new ListarCategoriaResponse();
+    public EliminarUsuario createEliminarUsuario() {
+        return new EliminarUsuario();
     }
 
     /**
-     * Create an instance of {@link ListarMarca }
+     * Create an instance of {@link EliminarUsuarioResponse }
      * 
      */
-    public ListarMarca createListarMarca() {
-        return new ListarMarca();
+    public EliminarUsuarioResponse createEliminarUsuarioResponse() {
+        return new EliminarUsuarioResponse();
     }
 
     /**
-     * Create an instance of {@link ListarMarcaResponse }
+     * Create an instance of {@link IngresarUsuario }
      * 
      */
-    public ListarMarcaResponse createListarMarcaResponse() {
-        return new ListarMarcaResponse();
+    public IngresarUsuario createIngresarUsuario() {
+        return new IngresarUsuario();
     }
 
     /**
-     * Create an instance of {@link ListarMoneda }
+     * Create an instance of {@link IngresarUsuarioResponse }
      * 
      */
-    public ListarMoneda createListarMoneda() {
-        return new ListarMoneda();
+    public IngresarUsuarioResponse createIngresarUsuarioResponse() {
+        return new IngresarUsuarioResponse();
     }
 
     /**
-     * Create an instance of {@link ListarMonedaResponse }
+     * Create an instance of {@link ListarUsuarios }
      * 
      */
-    public ListarMonedaResponse createListarMonedaResponse() {
-        return new ListarMonedaResponse();
+    public ListarUsuarios createListarUsuarios() {
+        return new ListarUsuarios();
     }
 
     /**
-     * Create an instance of {@link ListarProductos }
+     * Create an instance of {@link ListarUsuariosPaginacion }
      * 
      */
-    public ListarProductos createListarProductos() {
-        return new ListarProductos();
+    public ListarUsuariosPaginacion createListarUsuariosPaginacion() {
+        return new ListarUsuariosPaginacion();
     }
 
     /**
-     * Create an instance of {@link ListarProductosResponse }
+     * Create an instance of {@link ListarUsuariosPaginacionCount }
      * 
      */
-    public ListarProductosResponse createListarProductosResponse() {
-        return new ListarProductosResponse();
+    public ListarUsuariosPaginacionCount createListarUsuariosPaginacionCount() {
+        return new ListarUsuariosPaginacionCount();
     }
 
     /**
-     * Create an instance of {@link Marca }
+     * Create an instance of {@link ListarUsuariosPaginacionCountResponse }
      * 
      */
-    public Marca createMarca() {
-        return new Marca();
+    public ListarUsuariosPaginacionCountResponse createListarUsuariosPaginacionCountResponse() {
+        return new ListarUsuariosPaginacionCountResponse();
     }
 
     /**
-     * Create an instance of {@link ModificarProducto }
+     * Create an instance of {@link ListarUsuariosPaginacionResponse }
      * 
      */
-    public ModificarProducto createModificarProducto() {
-        return new ModificarProducto();
+    public ListarUsuariosPaginacionResponse createListarUsuariosPaginacionResponse() {
+        return new ListarUsuariosPaginacionResponse();
     }
 
     /**
-     * Create an instance of {@link ModificarProductoResponse }
+     * Create an instance of {@link ListarUsuariosResponse }
      * 
      */
-    public ModificarProductoResponse createModificarProductoResponse() {
-        return new ModificarProductoResponse();
+    public ListarUsuariosResponse createListarUsuariosResponse() {
+        return new ListarUsuariosResponse();
     }
 
     /**
-     * Create an instance of {@link Moneda }
+     * Create an instance of {@link Usuario }
      * 
      */
-    public Moneda createMoneda() {
-        return new Moneda();
+    public Usuario createUsuario() {
+        return new Usuario();
     }
 
     /**
-     * Create an instance of {@link Producto }
+     * Create an instance of {@link Empleado }
      * 
      */
-    public Producto createProducto() {
-        return new Producto();
+    public Empleado createEmpleado() {
+        return new Empleado();
     }
 
     /**
-     * Create an instance of {@link Categoria }
+     * Create an instance of {@link Persona }
      * 
      */
-    public Categoria createCategoria() {
-        return new Categoria();
+    public Persona createPersona() {
+        return new Persona();
+    }
+
+    /**
+     * Create an instance of {@link Distrito }
+     * 
+     */
+    public Distrito createDistrito() {
+        return new Distrito();
+    }
+
+    /**
+     * Create an instance of {@link Provincia }
+     * 
+     */
+    public Provincia createProvincia() {
+        return new Provincia();
+    }
+
+    /**
+     * Create an instance of {@link Documento }
+     * 
+     */
+    public Documento createDocumento() {
+        return new Documento();
+    }
+
+    /**
+     * Create an instance of {@link Empresa }
+     * 
+     */
+    public Empresa createEmpresa() {
+        return new Empresa();
+    }
+
+    /**
+     * Create an instance of {@link Region }
+     * 
+     */
+    public Region createRegion() {
+        return new Region();
+    }
+
+    /**
+     * Create an instance of {@link Pais }
+     * 
+     */
+    public Pais createPais() {
+        return new Pais();
+    }
+
+    /**
+     * Create an instance of {@link Rol }
+     * 
+     */
+    public Rol createRol() {
+        return new Rol();
     }
 
     /**
@@ -257,201 +311,183 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AgregarProducto }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link BuscarUsuarios }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://WebService/", name = "agregarProducto")
-    public JAXBElement<AgregarProducto> createAgregarProducto(AgregarProducto value) {
-        return new JAXBElement<AgregarProducto>(_AgregarProducto_QNAME, AgregarProducto.class, null, value);
+    @XmlElementDecl(namespace = "http://WebService/", name = "buscarUsuarios")
+    public JAXBElement<BuscarUsuarios> createBuscarUsuarios(BuscarUsuarios value) {
+        return new JAXBElement<BuscarUsuarios>(_BuscarUsuarios_QNAME, BuscarUsuarios.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AgregarProductoResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link BuscarUsuariosPaginacion }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://WebService/", name = "agregarProductoResponse")
-    public JAXBElement<AgregarProductoResponse> createAgregarProductoResponse(AgregarProductoResponse value) {
-        return new JAXBElement<AgregarProductoResponse>(_AgregarProductoResponse_QNAME, AgregarProductoResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://WebService/", name = "buscarUsuariosPaginacion")
+    public JAXBElement<BuscarUsuariosPaginacion> createBuscarUsuariosPaginacion(BuscarUsuariosPaginacion value) {
+        return new JAXBElement<BuscarUsuariosPaginacion>(_BuscarUsuariosPaginacion_QNAME, BuscarUsuariosPaginacion.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Almacen }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link BuscarUsuariosPaginacionCount }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://WebService/", name = "almacen")
-    public JAXBElement<Almacen> createAlmacen(Almacen value) {
-        return new JAXBElement<Almacen>(_Almacen_QNAME, Almacen.class, null, value);
+    @XmlElementDecl(namespace = "http://WebService/", name = "buscarUsuariosPaginacionCount")
+    public JAXBElement<BuscarUsuariosPaginacionCount> createBuscarUsuariosPaginacionCount(BuscarUsuariosPaginacionCount value) {
+        return new JAXBElement<BuscarUsuariosPaginacionCount>(_BuscarUsuariosPaginacionCount_QNAME, BuscarUsuariosPaginacionCount.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link BuscarProducto }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link BuscarUsuariosPaginacionCountResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://WebService/", name = "buscarProducto")
-    public JAXBElement<BuscarProducto> createBuscarProducto(BuscarProducto value) {
-        return new JAXBElement<BuscarProducto>(_BuscarProducto_QNAME, BuscarProducto.class, null, value);
+    @XmlElementDecl(namespace = "http://WebService/", name = "buscarUsuariosPaginacionCountResponse")
+    public JAXBElement<BuscarUsuariosPaginacionCountResponse> createBuscarUsuariosPaginacionCountResponse(BuscarUsuariosPaginacionCountResponse value) {
+        return new JAXBElement<BuscarUsuariosPaginacionCountResponse>(_BuscarUsuariosPaginacionCountResponse_QNAME, BuscarUsuariosPaginacionCountResponse.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link BuscarProductoResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link BuscarUsuariosPaginacionResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://WebService/", name = "buscarProductoResponse")
-    public JAXBElement<BuscarProductoResponse> createBuscarProductoResponse(BuscarProductoResponse value) {
-        return new JAXBElement<BuscarProductoResponse>(_BuscarProductoResponse_QNAME, BuscarProductoResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://WebService/", name = "buscarUsuariosPaginacionResponse")
+    public JAXBElement<BuscarUsuariosPaginacionResponse> createBuscarUsuariosPaginacionResponse(BuscarUsuariosPaginacionResponse value) {
+        return new JAXBElement<BuscarUsuariosPaginacionResponse>(_BuscarUsuariosPaginacionResponse_QNAME, BuscarUsuariosPaginacionResponse.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link EliminarProducto }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link BuscarUsuariosResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://WebService/", name = "eliminarProducto")
-    public JAXBElement<EliminarProducto> createEliminarProducto(EliminarProducto value) {
-        return new JAXBElement<EliminarProducto>(_EliminarProducto_QNAME, EliminarProducto.class, null, value);
+    @XmlElementDecl(namespace = "http://WebService/", name = "buscarUsuariosResponse")
+    public JAXBElement<BuscarUsuariosResponse> createBuscarUsuariosResponse(BuscarUsuariosResponse value) {
+        return new JAXBElement<BuscarUsuariosResponse>(_BuscarUsuariosResponse_QNAME, BuscarUsuariosResponse.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link EliminarProductoResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link CrearUsuario }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://WebService/", name = "eliminarProductoResponse")
-    public JAXBElement<EliminarProductoResponse> createEliminarProductoResponse(EliminarProductoResponse value) {
-        return new JAXBElement<EliminarProductoResponse>(_EliminarProductoResponse_QNAME, EliminarProductoResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://WebService/", name = "crearUsuario")
+    public JAXBElement<CrearUsuario> createCrearUsuario(CrearUsuario value) {
+        return new JAXBElement<CrearUsuario>(_CrearUsuario_QNAME, CrearUsuario.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ListarAlmacen }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link CrearUsuarioResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://WebService/", name = "listarAlmacen")
-    public JAXBElement<ListarAlmacen> createListarAlmacen(ListarAlmacen value) {
-        return new JAXBElement<ListarAlmacen>(_ListarAlmacen_QNAME, ListarAlmacen.class, null, value);
+    @XmlElementDecl(namespace = "http://WebService/", name = "crearUsuarioResponse")
+    public JAXBElement<CrearUsuarioResponse> createCrearUsuarioResponse(CrearUsuarioResponse value) {
+        return new JAXBElement<CrearUsuarioResponse>(_CrearUsuarioResponse_QNAME, CrearUsuarioResponse.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ListarAlmacenResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link EditarUsuario }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://WebService/", name = "listarAlmacenResponse")
-    public JAXBElement<ListarAlmacenResponse> createListarAlmacenResponse(ListarAlmacenResponse value) {
-        return new JAXBElement<ListarAlmacenResponse>(_ListarAlmacenResponse_QNAME, ListarAlmacenResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://WebService/", name = "editarUsuario")
+    public JAXBElement<EditarUsuario> createEditarUsuario(EditarUsuario value) {
+        return new JAXBElement<EditarUsuario>(_EditarUsuario_QNAME, EditarUsuario.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ListarCategoria }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link EditarUsuarioResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://WebService/", name = "listarCategoria")
-    public JAXBElement<ListarCategoria> createListarCategoria(ListarCategoria value) {
-        return new JAXBElement<ListarCategoria>(_ListarCategoria_QNAME, ListarCategoria.class, null, value);
+    @XmlElementDecl(namespace = "http://WebService/", name = "editarUsuarioResponse")
+    public JAXBElement<EditarUsuarioResponse> createEditarUsuarioResponse(EditarUsuarioResponse value) {
+        return new JAXBElement<EditarUsuarioResponse>(_EditarUsuarioResponse_QNAME, EditarUsuarioResponse.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ListarCategoriaResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link EliminarUsuario }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://WebService/", name = "listarCategoriaResponse")
-    public JAXBElement<ListarCategoriaResponse> createListarCategoriaResponse(ListarCategoriaResponse value) {
-        return new JAXBElement<ListarCategoriaResponse>(_ListarCategoriaResponse_QNAME, ListarCategoriaResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://WebService/", name = "eliminarUsuario")
+    public JAXBElement<EliminarUsuario> createEliminarUsuario(EliminarUsuario value) {
+        return new JAXBElement<EliminarUsuario>(_EliminarUsuario_QNAME, EliminarUsuario.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ListarMarca }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link EliminarUsuarioResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://WebService/", name = "listarMarca")
-    public JAXBElement<ListarMarca> createListarMarca(ListarMarca value) {
-        return new JAXBElement<ListarMarca>(_ListarMarca_QNAME, ListarMarca.class, null, value);
+    @XmlElementDecl(namespace = "http://WebService/", name = "eliminarUsuarioResponse")
+    public JAXBElement<EliminarUsuarioResponse> createEliminarUsuarioResponse(EliminarUsuarioResponse value) {
+        return new JAXBElement<EliminarUsuarioResponse>(_EliminarUsuarioResponse_QNAME, EliminarUsuarioResponse.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ListarMarcaResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link IngresarUsuario }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://WebService/", name = "listarMarcaResponse")
-    public JAXBElement<ListarMarcaResponse> createListarMarcaResponse(ListarMarcaResponse value) {
-        return new JAXBElement<ListarMarcaResponse>(_ListarMarcaResponse_QNAME, ListarMarcaResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://WebService/", name = "ingresarUsuario")
+    public JAXBElement<IngresarUsuario> createIngresarUsuario(IngresarUsuario value) {
+        return new JAXBElement<IngresarUsuario>(_IngresarUsuario_QNAME, IngresarUsuario.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ListarMoneda }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link IngresarUsuarioResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://WebService/", name = "listarMoneda")
-    public JAXBElement<ListarMoneda> createListarMoneda(ListarMoneda value) {
-        return new JAXBElement<ListarMoneda>(_ListarMoneda_QNAME, ListarMoneda.class, null, value);
+    @XmlElementDecl(namespace = "http://WebService/", name = "ingresarUsuarioResponse")
+    public JAXBElement<IngresarUsuarioResponse> createIngresarUsuarioResponse(IngresarUsuarioResponse value) {
+        return new JAXBElement<IngresarUsuarioResponse>(_IngresarUsuarioResponse_QNAME, IngresarUsuarioResponse.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ListarMonedaResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ListarUsuarios }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://WebService/", name = "listarMonedaResponse")
-    public JAXBElement<ListarMonedaResponse> createListarMonedaResponse(ListarMonedaResponse value) {
-        return new JAXBElement<ListarMonedaResponse>(_ListarMonedaResponse_QNAME, ListarMonedaResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://WebService/", name = "listarUsuarios")
+    public JAXBElement<ListarUsuarios> createListarUsuarios(ListarUsuarios value) {
+        return new JAXBElement<ListarUsuarios>(_ListarUsuarios_QNAME, ListarUsuarios.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ListarProductos }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ListarUsuariosPaginacion }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://WebService/", name = "listarProductos")
-    public JAXBElement<ListarProductos> createListarProductos(ListarProductos value) {
-        return new JAXBElement<ListarProductos>(_ListarProductos_QNAME, ListarProductos.class, null, value);
+    @XmlElementDecl(namespace = "http://WebService/", name = "listarUsuariosPaginacion")
+    public JAXBElement<ListarUsuariosPaginacion> createListarUsuariosPaginacion(ListarUsuariosPaginacion value) {
+        return new JAXBElement<ListarUsuariosPaginacion>(_ListarUsuariosPaginacion_QNAME, ListarUsuariosPaginacion.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ListarProductosResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ListarUsuariosPaginacionCount }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://WebService/", name = "listarProductosResponse")
-    public JAXBElement<ListarProductosResponse> createListarProductosResponse(ListarProductosResponse value) {
-        return new JAXBElement<ListarProductosResponse>(_ListarProductosResponse_QNAME, ListarProductosResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://WebService/", name = "listarUsuariosPaginacionCount")
+    public JAXBElement<ListarUsuariosPaginacionCount> createListarUsuariosPaginacionCount(ListarUsuariosPaginacionCount value) {
+        return new JAXBElement<ListarUsuariosPaginacionCount>(_ListarUsuariosPaginacionCount_QNAME, ListarUsuariosPaginacionCount.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Marca }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ListarUsuariosPaginacionCountResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://WebService/", name = "marca")
-    public JAXBElement<Marca> createMarca(Marca value) {
-        return new JAXBElement<Marca>(_Marca_QNAME, Marca.class, null, value);
+    @XmlElementDecl(namespace = "http://WebService/", name = "listarUsuariosPaginacionCountResponse")
+    public JAXBElement<ListarUsuariosPaginacionCountResponse> createListarUsuariosPaginacionCountResponse(ListarUsuariosPaginacionCountResponse value) {
+        return new JAXBElement<ListarUsuariosPaginacionCountResponse>(_ListarUsuariosPaginacionCountResponse_QNAME, ListarUsuariosPaginacionCountResponse.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ModificarProducto }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ListarUsuariosPaginacionResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://WebService/", name = "modificarProducto")
-    public JAXBElement<ModificarProducto> createModificarProducto(ModificarProducto value) {
-        return new JAXBElement<ModificarProducto>(_ModificarProducto_QNAME, ModificarProducto.class, null, value);
+    @XmlElementDecl(namespace = "http://WebService/", name = "listarUsuariosPaginacionResponse")
+    public JAXBElement<ListarUsuariosPaginacionResponse> createListarUsuariosPaginacionResponse(ListarUsuariosPaginacionResponse value) {
+        return new JAXBElement<ListarUsuariosPaginacionResponse>(_ListarUsuariosPaginacionResponse_QNAME, ListarUsuariosPaginacionResponse.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ModificarProductoResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ListarUsuariosResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://WebService/", name = "modificarProductoResponse")
-    public JAXBElement<ModificarProductoResponse> createModificarProductoResponse(ModificarProductoResponse value) {
-        return new JAXBElement<ModificarProductoResponse>(_ModificarProductoResponse_QNAME, ModificarProductoResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Moneda }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://WebService/", name = "moneda")
-    public JAXBElement<Moneda> createMoneda(Moneda value) {
-        return new JAXBElement<Moneda>(_Moneda_QNAME, Moneda.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Producto }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://WebService/", name = "producto")
-    public JAXBElement<Producto> createProducto(Producto value) {
-        return new JAXBElement<Producto>(_Producto_QNAME, Producto.class, null, value);
+    @XmlElementDecl(namespace = "http://WebService/", name = "listarUsuariosResponse")
+    public JAXBElement<ListarUsuariosResponse> createListarUsuariosResponse(ListarUsuariosResponse value) {
+        return new JAXBElement<ListarUsuariosResponse>(_ListarUsuariosResponse_QNAME, ListarUsuariosResponse.class, null, value);
     }
 
 }
