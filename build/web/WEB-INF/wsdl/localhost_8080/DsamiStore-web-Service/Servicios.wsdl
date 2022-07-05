@@ -4,15 +4,6 @@
 <xsd:import namespace="http://WebService/" schemaLocation="http://localhost:8080/DsamiStore-web-Service/Servicios?xsd=1"/>
 </xsd:schema>
 </types>
-<message name="listar">
-<part name="parameters" element="tns:listar"/>
-</message>
-<message name="listarResponse">
-<part name="parameters" element="tns:listarResponse"/>
-</message>
-<message name="Exception">
-<part name="fault" element="tns:Exception"/>
-</message>
 <message name="eliminar">
 <part name="parameters" element="tns:eliminar"/>
 </message>
@@ -24,6 +15,9 @@
 </message>
 <message name="modificarCategoriaResponse">
 <part name="parameters" element="tns:modificarCategoriaResponse"/>
+</message>
+<message name="Exception">
+<part name="fault" element="tns:Exception"/>
 </message>
 <message name="listarUsuario">
 <part name="parameters" element="tns:listarUsuario"/>
@@ -43,12 +37,13 @@
 <message name="agregarCategoriaResponse">
 <part name="parameters" element="tns:agregarCategoriaResponse"/>
 </message>
+<message name="listar">
+<part name="parameters" element="tns:listar"/>
+</message>
+<message name="listarResponse">
+<part name="parameters" element="tns:listarResponse"/>
+</message>
 <portType name="Servicios">
-<operation name="listar">
-<input wsam:Action="http://WebService/Servicios/listarRequest" message="tns:listar"/>
-<output wsam:Action="http://WebService/Servicios/listarResponse" message="tns:listarResponse"/>
-<fault message="tns:Exception" name="Exception" wsam:Action="http://WebService/Servicios/listar/Fault/Exception"/>
-</operation>
 <operation name="eliminar">
 <input wsam:Action="http://WebService/Servicios/eliminarRequest" message="tns:eliminar"/>
 <output wsam:Action="http://WebService/Servicios/eliminarResponse" message="tns:eliminarResponse"/>
@@ -73,21 +68,14 @@
 <output wsam:Action="http://WebService/Servicios/agregarCategoriaResponse" message="tns:agregarCategoriaResponse"/>
 <fault message="tns:Exception" name="Exception" wsam:Action="http://WebService/Servicios/agregarCategoria/Fault/Exception"/>
 </operation>
+<operation name="listar">
+<input wsam:Action="http://WebService/Servicios/listarRequest" message="tns:listar"/>
+<output wsam:Action="http://WebService/Servicios/listarResponse" message="tns:listarResponse"/>
+<fault message="tns:Exception" name="Exception" wsam:Action="http://WebService/Servicios/listar/Fault/Exception"/>
+</operation>
 </portType>
 <binding name="ServiciosPortBinding" type="tns:Servicios">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="listar">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-<fault name="Exception">
-<soap:fault name="Exception" use="literal"/>
-</fault>
-</operation>
 <operation name="eliminar">
 <soap:operation soapAction=""/>
 <input>
@@ -134,6 +122,18 @@
 </fault>
 </operation>
 <operation name="agregarCategoria">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Exception">
+<soap:fault name="Exception" use="literal"/>
+</fault>
+</operation>
+<operation name="listar">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

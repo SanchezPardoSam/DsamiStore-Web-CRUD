@@ -37,12 +37,14 @@ public class UsuarioControlador extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         String accion = request.getParameter("accion") != null ? request.getParameter("accion") : "listar";
 
+        /*
         Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
 
         if (usuario == null) {
             response.sendRedirect(request.getContextPath() + "/auth");
             return;
         }
+        */
 
         try {
             int pagina = request.getParameter("pagina") != null ? Integer.parseInt(request.getParameter("pagina")) : 1;
@@ -51,7 +53,7 @@ public class UsuarioControlador extends HttpServlet {
 
             int paginas = usuarioServicio.buscarUsuariosPaginacionCount(consulta, cantidad);
             List<Usuario> usuarios = usuarioServicio.buscarUsuariosPaginacion(consulta, pagina, cantidad);
-            List<Rol> roles = rolServicio.listarRol();
+            List<Rol> roles = rolServicio.listarRoles();
             List<Empleado> empleados = empleadoServicio.obtenerEmpleados();
 
             request.setAttribute("pagina", pagina);

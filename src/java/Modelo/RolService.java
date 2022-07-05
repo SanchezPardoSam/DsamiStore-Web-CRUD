@@ -16,10 +16,10 @@ public class RolService {
     public RolService() {
     }
 
-    public  java.util.List<webservice.Rol> listarRol() throws Exception_Exception {
+    public  java.util.List<webservice.Rol> listarRoles() throws Exception_Exception {
         webservice.Servicios_Service service = new webservice.Servicios_Service();
         webservice.Servicios port = service.getServiciosPort();
-        return port.listarRol();
+        return port.listarRoles();
     }
     
 }

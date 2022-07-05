@@ -13,7 +13,7 @@
             <a href="${pageContext.request.contextPath}/empleados.jsp" class="nav-link ${pageContext.request.requestURI.endsWith('/empleados.jsp') ? 'active' : 'link-dark'}">Empleados</a>
         </li>
         <li class='nav-item' >
-            <a href="${pageContext.request.contextPath}/proveedores.jsp"  class="nav-link ${pageContext.request.requestURI.endsWith('/proveedores.jsp') ? 'active' : 'link-dark'}">Proveedor</a>
+            <a href="${pageContext.request.contextPath}/proveedores"  class="nav-link ${pageContext.request.requestURI.endsWith('/proveedores.jsp') ? 'active' : 'link-dark'}">Proveedores</a>
         </li>
         <li class='nav-item' >
             <a href="${pageContext.request.contextPath}/usuarios" class="nav-link ${pageContext.request.requestURI.endsWith('/usuarios.jsp') ? 'active' : 'link-dark'}">Usuarios</a>

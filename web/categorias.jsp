@@ -91,7 +91,7 @@
                                     <%
                                        int idx = 0;
                                          CategoriaService c = new CategoriaService();
-                                        List<Categoria> listCat = c.listar();
+                                        List<Categoria> listCat = c.listarCategorias();
                                         for (Categoria ca : listCat) {
 
 

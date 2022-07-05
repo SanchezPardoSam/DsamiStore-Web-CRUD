@@ -173,19 +173,6 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="ingresarUsuario">
-<xs:sequence>
-<xs:element name="nombreUsuario" type="xs:string" minOccurs="0"/>
-<xs:element name="clave" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="ingresarUsuarioResponse">
-<xs:sequence>
-<xs:element name="return" type="tns:usuario" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
 <xs:complexType name="buscarUsuariosPaginacion">
 <xs:sequence>
 <xs:element name="consulta" type="xs:string" minOccurs="0"/>
@@ -197,6 +184,19 @@
 <xs:complexType name="buscarUsuariosPaginacionResponse">
 <xs:sequence>
 <xs:element name="return" type="tns:usuario" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ingresarUsuario">
+<xs:sequence>
+<xs:element name="nombreUsuario" type="xs:string" minOccurs="0"/>
+<xs:element name="clave" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ingresarUsuarioResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:usuario" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -213,16 +213,6 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="listarUsuarios">
-<xs:sequence/>
-</xs:complexType>
-
-<xs:complexType name="listarUsuariosResponse">
-<xs:sequence>
-<xs:element name="return" type="tns:usuario" minOccurs="0" maxOccurs="unbounded"/>
-</xs:sequence>
-</xs:complexType>
-
 <xs:complexType name="buscarUsuariosPaginacionCount">
 <xs:sequence>
 <xs:element name="consulta" type="xs:string" minOccurs="0"/>
@@ -233,6 +223,16 @@
 <xs:complexType name="buscarUsuariosPaginacionCountResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarUsuarios">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="listarUsuariosResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:usuario" minOccurs="0" maxOccurs="unbounded"/>
 </xs:sequence>
 </xs:complexType>
 

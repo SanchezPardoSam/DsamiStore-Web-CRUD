@@ -7,7 +7,6 @@ package Servlets;
 
 import Modelo.CategoriaService;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -64,7 +63,7 @@ public class Controlador extends HttpServlet {
         }
         if (accion.equals("Eliminar")) {
             String id = request.getParameter("idCategoria");
-            categoria.eliminar(id);
+            categoria.eliminarCategoria(id);
             acceso= index;
         }       
         

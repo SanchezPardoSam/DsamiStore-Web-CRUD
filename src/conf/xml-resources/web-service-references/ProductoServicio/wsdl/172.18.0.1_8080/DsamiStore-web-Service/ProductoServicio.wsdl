@@ -19,6 +19,18 @@
 <message name="eliminarProductoResponse">
 <part name="parameters" element="tns:eliminarProductoResponse"/>
 </message>
+<message name="agregarProducto">
+<part name="parameters" element="tns:agregarProducto"/>
+</message>
+<message name="agregarProductoResponse">
+<part name="parameters" element="tns:agregarProductoResponse"/>
+</message>
+<message name="listarProductos">
+<part name="parameters" element="tns:listarProductos"/>
+</message>
+<message name="listarProductosResponse">
+<part name="parameters" element="tns:listarProductosResponse"/>
+</message>
 <message name="buscarProducto">
 <part name="parameters" element="tns:buscarProducto"/>
 </message>
@@ -49,18 +61,6 @@
 <message name="listarMonedaResponse">
 <part name="parameters" element="tns:listarMonedaResponse"/>
 </message>
-<message name="listarProductos">
-<part name="parameters" element="tns:listarProductos"/>
-</message>
-<message name="listarProductosResponse">
-<part name="parameters" element="tns:listarProductosResponse"/>
-</message>
-<message name="agregarProducto">
-<part name="parameters" element="tns:agregarProducto"/>
-</message>
-<message name="agregarProductoResponse">
-<part name="parameters" element="tns:agregarProductoResponse"/>
-</message>
 <portType name="ProductoServicio">
 <operation name="modificarProducto">
 <input wsam:Action="http://WebService/ProductoServicio/modificarProductoRequest" message="tns:modificarProducto"/>
@@ -71,6 +71,16 @@
 <input wsam:Action="http://WebService/ProductoServicio/eliminarProductoRequest" message="tns:eliminarProducto"/>
 <output wsam:Action="http://WebService/ProductoServicio/eliminarProductoResponse" message="tns:eliminarProductoResponse"/>
 <fault message="tns:Exception" name="Exception" wsam:Action="http://WebService/ProductoServicio/eliminarProducto/Fault/Exception"/>
+</operation>
+<operation name="agregarProducto">
+<input wsam:Action="http://WebService/ProductoServicio/agregarProductoRequest" message="tns:agregarProducto"/>
+<output wsam:Action="http://WebService/ProductoServicio/agregarProductoResponse" message="tns:agregarProductoResponse"/>
+<fault message="tns:Exception" name="Exception" wsam:Action="http://WebService/ProductoServicio/agregarProducto/Fault/Exception"/>
+</operation>
+<operation name="listarProductos">
+<input wsam:Action="http://WebService/ProductoServicio/listarProductosRequest" message="tns:listarProductos"/>
+<output wsam:Action="http://WebService/ProductoServicio/listarProductosResponse" message="tns:listarProductosResponse"/>
+<fault message="tns:Exception" name="Exception" wsam:Action="http://WebService/ProductoServicio/listarProductos/Fault/Exception"/>
 </operation>
 <operation name="buscarProducto">
 <input wsam:Action="http://WebService/ProductoServicio/buscarProductoRequest" message="tns:buscarProducto"/>
@@ -96,16 +106,6 @@
 <input wsam:Action="http://WebService/ProductoServicio/listarMonedaRequest" message="tns:listarMoneda"/>
 <output wsam:Action="http://WebService/ProductoServicio/listarMonedaResponse" message="tns:listarMonedaResponse"/>
 <fault message="tns:Exception" name="Exception" wsam:Action="http://WebService/ProductoServicio/listarMoneda/Fault/Exception"/>
-</operation>
-<operation name="listarProductos">
-<input wsam:Action="http://WebService/ProductoServicio/listarProductosRequest" message="tns:listarProductos"/>
-<output wsam:Action="http://WebService/ProductoServicio/listarProductosResponse" message="tns:listarProductosResponse"/>
-<fault message="tns:Exception" name="Exception" wsam:Action="http://WebService/ProductoServicio/listarProductos/Fault/Exception"/>
-</operation>
-<operation name="agregarProducto">
-<input wsam:Action="http://WebService/ProductoServicio/agregarProductoRequest" message="tns:agregarProducto"/>
-<output wsam:Action="http://WebService/ProductoServicio/agregarProductoResponse" message="tns:agregarProductoResponse"/>
-<fault message="tns:Exception" name="Exception" wsam:Action="http://WebService/ProductoServicio/agregarProducto/Fault/Exception"/>
 </operation>
 </portType>
 <binding name="ProductoServicioPortBinding" type="tns:ProductoServicio">
@@ -134,6 +134,30 @@
 <soap:fault name="Exception" use="literal"/>
 </fault>
 </operation>
+<operation name="agregarProducto">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Exception">
+<soap:fault name="Exception" use="literal"/>
+</fault>
+</operation>
+<operation name="listarProductos">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Exception">
+<soap:fault name="Exception" use="literal"/>
+</fault>
+</operation>
 <operation name="buscarProducto">
 <soap:operation soapAction=""/>
 <input>
@@ -183,30 +207,6 @@
 </fault>
 </operation>
 <operation name="listarMoneda">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-<fault name="Exception">
-<soap:fault name="Exception" use="literal"/>
-</fault>
-</operation>
-<operation name="listarProductos">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-<fault name="Exception">
-<soap:fault name="Exception" use="literal"/>
-</fault>
-</operation>
-<operation name="agregarProducto">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

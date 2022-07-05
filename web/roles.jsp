@@ -87,7 +87,7 @@
                                     <%
                                         int idx = 0;
                                         RolService r = new RolService();
-                                        List<Rol> listRol = r.listarRol();
+                                        List<Rol> listRol = r.listarRoles();
                                         for (Rol rol : listRol) {
                                     %>
                                 <tr>

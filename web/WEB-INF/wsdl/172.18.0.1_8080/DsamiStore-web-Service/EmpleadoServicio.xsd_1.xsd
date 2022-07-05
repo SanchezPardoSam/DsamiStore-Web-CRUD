@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.2-b608 (trunk-7979; 2015-01-21T12:50:19+0000) JAXWS-RI/2.2.11-b150120.1832 JAXWS-API/2.2.12 JAXB-RI/2.2.12-b141219.1637 JAXB-API/2.2.13-b141020.1521 svn-revision#unknown. --><xs:schema xmlns:tns="http://WebService/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://WebService/">
+
+<xs:element name="Exception" type="tns:Exception"/>
+
+<xs:element name="obtenerEmpleados" type="tns:obtenerEmpleados"/>
+
+<xs:element name="obtenerEmpleadosResponse" type="tns:obtenerEmpleadosResponse"/>
+
+<xs:complexType name="obtenerEmpleados">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="obtenerEmpleadosResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:empleado" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="empleado">
+<xs:complexContent>
+<xs:extension base="tns:persona">
+<xs:sequence>
+<xs:element name="codigoEmpleado" type="xs:string" minOccurs="0"/>
+<xs:element name="direccion" type="xs:string" minOccurs="0"/>
+<xs:element name="distrito" type="tns:distrito" minOccurs="0"/>
+<xs:element name="documento" type="tns:documento" minOccurs="0"/>
+<xs:element name="empresa" type="tns:empresa" minOccurs="0"/>
+<xs:element name="idDistrito" type="xs:string" minOccurs="0"/>
+<xs:element name="idEmpresa" type="xs:string" minOccurs="0"/>
+<xs:element name="idProvincia" type="xs:string" minOccurs="0"/>
+<xs:element name="idRegion" type="xs:string" minOccurs="0"/>
+<xs:element name="numDocum" type="xs:string" minOccurs="0"/>
+<xs:element name="provincia" type="tns:provincia" minOccurs="0"/>
+<xs:element name="region" type="tns:region" minOccurs="0"/>
+<xs:element name="tipDocumento" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="persona">
+<xs:sequence>
+<xs:element name="apellidoMaterno" type="xs:string" minOccurs="0"/>
+<xs:element name="apellidoPaterno" type="xs:string" minOccurs="0"/>
+<xs:element name="codigoDocumento" type="xs:string" minOccurs="0"/>
+<xs:element name="codigoPais" type="xs:string" minOccurs="0"/>
+<xs:element name="codigoPersona" type="xs:string" minOccurs="0"/>
+<xs:element name="codigoUbicacion" type="xs:string" minOccurs="0"/>
+<xs:element name="fechaNacimiento" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+<xs:element name="pais" type="tns:pais" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="distrito">
+<xs:sequence>
+<xs:element name="id" type="xs:string" minOccurs="0"/>
+<xs:element name="idProvincia" type="xs:string" minOccurs="0"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+<xs:element name="provincia" type="tns:provincia" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="provincia">
+<xs:sequence>
+<xs:element name="id" type="xs:string" minOccurs="0"/>
+<xs:element name="idRegion" type="xs:string" minOccurs="0"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="documento">
+<xs:sequence>
+<xs:element name="id" type="xs:string" minOccurs="0"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="empresa">
+<xs:sequence>
+<xs:element name="idEmpresa" type="xs:string" minOccurs="0"/>
+<xs:element name="idUbicacion" type="xs:string" minOccurs="0"/>
+<xs:element name="razonSocial" type="xs:string" minOccurs="0"/>
+<xs:element name="rucEmpresa" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="region">
+<xs:sequence>
+<xs:element name="id" type="xs:string" minOccurs="0"/>
+<xs:element name="idPais" type="xs:string" minOccurs="0"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+<xs:element name="pais" type="tns:pais" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="pais">
+<xs:sequence>
+<xs:element name="id" type="xs:string" minOccurs="0"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="Exception">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

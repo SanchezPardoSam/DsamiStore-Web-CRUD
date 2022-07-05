@@ -17,10 +17,10 @@ public class CategoriaService {
     public CategoriaService() {
     }
 
-    public java.util.List<webservice.Categoria> listar() throws Exception_Exception {
+    public java.util.List<webservice.Categoria> listarCategorias() throws Exception_Exception {
         webservice.Servicios_Service service = new webservice.Servicios_Service();
         webservice.Servicios port = service.getServiciosPort();
-        return port.listar();
+        return port.listarCategorias();
     }
     
 
@@ -36,10 +36,10 @@ public class CategoriaService {
         return port.agregarCategoria(nombre, descripcion);
     }
 
-    public Categoria eliminar(java.lang.String id) {
+    public Categoria eliminarCategoria(java.lang.String id) {
         webservice.Servicios_Service service = new webservice.Servicios_Service();
         webservice.Servicios port = service.getServiciosPort();
-        return port.eliminar(id);
+        return port.eliminarCategoria(id);
     }
 
        

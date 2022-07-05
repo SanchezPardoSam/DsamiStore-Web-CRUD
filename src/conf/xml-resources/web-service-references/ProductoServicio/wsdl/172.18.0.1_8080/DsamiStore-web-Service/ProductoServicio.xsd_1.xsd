@@ -36,8 +36,6 @@
 
 <xs:element name="listarProductosResponse" type="tns:listarProductosResponse"/>
 
-<xs:element name="marca" type="tns:marca"/>
-
 <xs:element name="modificarProducto" type="tns:modificarProducto"/>
 
 <xs:element name="modificarProductoResponse" type="tns:modificarProductoResponse"/>
