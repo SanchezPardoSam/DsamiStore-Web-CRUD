@@ -2,15 +2,51 @@
 
 <xs:element name="Exception" type="tns:Exception"/>
 
-<xs:element name="obtenerEmpleados" type="tns:obtenerEmpleados"/>
+<xs:element name="agregarEmpleado" type="tns:agregarEmpleado"/>
 
-<xs:element name="obtenerEmpleadosResponse" type="tns:obtenerEmpleadosResponse"/>
+<xs:element name="agregarEmpleadoResponse" type="tns:agregarEmpleadoResponse"/>
 
-<xs:complexType name="obtenerEmpleados">
+<xs:element name="eliminarEmpleado" type="tns:eliminarEmpleado"/>
+
+<xs:element name="eliminarEmpleadoResponse" type="tns:eliminarEmpleadoResponse"/>
+
+<xs:element name="listarDistritos" type="tns:listarDistritos"/>
+
+<xs:element name="listarDistritosResponse" type="tns:listarDistritosResponse"/>
+
+<xs:element name="listarDocumentos" type="tns:listarDocumentos"/>
+
+<xs:element name="listarDocumentosResponse" type="tns:listarDocumentosResponse"/>
+
+<xs:element name="listarEmpleado" type="tns:listarEmpleado"/>
+
+<xs:element name="listarEmpleadoResponse" type="tns:listarEmpleadoResponse"/>
+
+<xs:element name="listarEmpresas" type="tns:listarEmpresas"/>
+
+<xs:element name="listarEmpresasResponse" type="tns:listarEmpresasResponse"/>
+
+<xs:element name="listarPaises" type="tns:listarPaises"/>
+
+<xs:element name="listarPaisesResponse" type="tns:listarPaisesResponse"/>
+
+<xs:element name="listarProvincias" type="tns:listarProvincias"/>
+
+<xs:element name="listarProvinciasResponse" type="tns:listarProvinciasResponse"/>
+
+<xs:element name="listarRegiones" type="tns:listarRegiones"/>
+
+<xs:element name="listarRegionesResponse" type="tns:listarRegionesResponse"/>
+
+<xs:element name="modificarEmpleado" type="tns:modificarEmpleado"/>
+
+<xs:element name="modificarEmpleadoResponse" type="tns:modificarEmpleadoResponse"/>
+
+<xs:complexType name="listarEmpleado">
 <xs:sequence/>
 </xs:complexType>
 
-<xs:complexType name="obtenerEmpleadosResponse">
+<xs:complexType name="listarEmpleadoResponse">
 <xs:sequence>
 <xs:element name="return" type="tns:empleado" minOccurs="0" maxOccurs="unbounded"/>
 </xs:sequence>
@@ -27,6 +63,7 @@
 <xs:element name="empresa" type="tns:empresa" minOccurs="0"/>
 <xs:element name="idDistrito" type="xs:string" minOccurs="0"/>
 <xs:element name="idEmpresa" type="xs:string" minOccurs="0"/>
+<xs:element name="idPais" type="xs:string" minOccurs="0"/>
 <xs:element name="idProvincia" type="xs:string" minOccurs="0"/>
 <xs:element name="idRegion" type="xs:string" minOccurs="0"/>
 <xs:element name="numDocum" type="xs:string" minOccurs="0"/>
@@ -104,6 +141,130 @@
 <xs:complexType name="Exception">
 <xs:sequence>
 <xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarPaises">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="listarPaisesResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:pais" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eliminarEmpleado">
+<xs:sequence>
+<xs:element name="id" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eliminarEmpleadoResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:empleado" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="modificarEmpleado">
+<xs:sequence>
+<xs:element name="idPro" type="xs:string" minOccurs="0"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+<xs:element name="apellidoPaterno" type="xs:string" minOccurs="0"/>
+<xs:element name="apellidoMaterno" type="xs:string" minOccurs="0"/>
+<xs:element name="tipoDocumento" type="xs:string" minOccurs="0"/>
+<xs:element name="numDocumento" type="xs:string" minOccurs="0"/>
+<xs:element name="fechaNac" type="xs:string" minOccurs="0"/>
+<xs:element name="pais" type="xs:string" minOccurs="0"/>
+<xs:element name="region" type="xs:string" minOccurs="0"/>
+<xs:element name="provincia" type="xs:string" minOccurs="0"/>
+<xs:element name="distrito" type="xs:string" minOccurs="0"/>
+<xs:element name="direccion" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="modificarEmpleadoResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarProvincias">
+<xs:sequence>
+<xs:element name="region" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarProvinciasResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:provincia" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarRegiones">
+<xs:sequence>
+<xs:element name="pais" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarRegionesResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:region" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarEmpresas">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="listarEmpresasResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:empresa" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarDocumentos">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="listarDocumentosResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:documento" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarDistritos">
+<xs:sequence>
+<xs:element name="provincia" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarDistritosResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:distrito" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="agregarEmpleado">
+<xs:sequence>
+<xs:element name="empresa" type="xs:string" minOccurs="0"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+<xs:element name="apellidoPaterno" type="xs:string" minOccurs="0"/>
+<xs:element name="apellidoMaterno" type="xs:string" minOccurs="0"/>
+<xs:element name="tipoDocumento" type="xs:string" minOccurs="0"/>
+<xs:element name="numDocumento" type="xs:string" minOccurs="0"/>
+<xs:element name="fechaNac" type="xs:string" minOccurs="0"/>
+<xs:element name="pais" type="xs:string" minOccurs="0"/>
+<xs:element name="region" type="xs:string" minOccurs="0"/>
+<xs:element name="provincia" type="xs:string" minOccurs="0"/>
+<xs:element name="distrito" type="xs:string" minOccurs="0"/>
+<xs:element name="direccion" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="agregarEmpleadoResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 </xs:schema>

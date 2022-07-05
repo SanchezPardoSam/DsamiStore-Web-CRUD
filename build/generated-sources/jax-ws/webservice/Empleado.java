@@ -7,9 +7,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Clase Java para empleado complex type.
+ * <p>Java class for empleado complex type.
  * 
- * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType name="empleado"&gt;
@@ -23,6 +23,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="empresa" type="{http://WebService/}empresa" minOccurs="0"/&gt;
  *         &lt;element name="idDistrito" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="idEmpresa" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="idPais" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="idProvincia" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="idRegion" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="numDocum" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
@@ -46,6 +47,7 @@ import javax.xml.bind.annotation.XmlType;
     "empresa",
     "idDistrito",
     "idEmpresa",
+    "idPais",
     "idProvincia",
     "idRegion",
     "numDocum",
@@ -64,6 +66,7 @@ public class Empleado
     protected Empresa empresa;
     protected String idDistrito;
     protected String idEmpresa;
+    protected String idPais;
     protected String idProvincia;
     protected String idRegion;
     protected String numDocum;
@@ -72,7 +75,7 @@ public class Empleado
     protected String tipDocumento;
 
     /**
-     * Obtiene el valor de la propiedad codigoEmpleado.
+     * Gets the value of the codigoEmpleado property.
      * 
      * @return
      *     possible object is
@@ -84,7 +87,7 @@ public class Empleado
     }
 
     /**
-     * Define el valor de la propiedad codigoEmpleado.
+     * Sets the value of the codigoEmpleado property.
      * 
      * @param value
      *     allowed object is
@@ -96,7 +99,7 @@ public class Empleado
     }
 
     /**
-     * Obtiene el valor de la propiedad direccion.
+     * Gets the value of the direccion property.
      * 
      * @return
      *     possible object is
@@ -108,7 +111,7 @@ public class Empleado
     }
 
     /**
-     * Define el valor de la propiedad direccion.
+     * Sets the value of the direccion property.
      * 
      * @param value
      *     allowed object is
@@ -120,7 +123,7 @@ public class Empleado
     }
 
     /**
-     * Obtiene el valor de la propiedad distrito.
+     * Gets the value of the distrito property.
      * 
      * @return
      *     possible object is
@@ -132,7 +135,7 @@ public class Empleado
     }
 
     /**
-     * Define el valor de la propiedad distrito.
+     * Sets the value of the distrito property.
      * 
      * @param value
      *     allowed object is
@@ -144,7 +147,7 @@ public class Empleado
     }
 
     /**
-     * Obtiene el valor de la propiedad documento.
+     * Gets the value of the documento property.
      * 
      * @return
      *     possible object is
@@ -156,7 +159,7 @@ public class Empleado
     }
 
     /**
-     * Define el valor de la propiedad documento.
+     * Sets the value of the documento property.
      * 
      * @param value
      *     allowed object is
@@ -168,7 +171,7 @@ public class Empleado
     }
 
     /**
-     * Obtiene el valor de la propiedad empresa.
+     * Gets the value of the empresa property.
      * 
      * @return
      *     possible object is
@@ -180,7 +183,7 @@ public class Empleado
     }
 
     /**
-     * Define el valor de la propiedad empresa.
+     * Sets the value of the empresa property.
      * 
      * @param value
      *     allowed object is
@@ -192,7 +195,7 @@ public class Empleado
     }
 
     /**
-     * Obtiene el valor de la propiedad idDistrito.
+     * Gets the value of the idDistrito property.
      * 
      * @return
      *     possible object is
@@ -204,7 +207,7 @@ public class Empleado
     }
 
     /**
-     * Define el valor de la propiedad idDistrito.
+     * Sets the value of the idDistrito property.
      * 
      * @param value
      *     allowed object is
@@ -216,7 +219,7 @@ public class Empleado
     }
 
     /**
-     * Obtiene el valor de la propiedad idEmpresa.
+     * Gets the value of the idEmpresa property.
      * 
      * @return
      *     possible object is
@@ -228,7 +231,7 @@ public class Empleado
     }
 
     /**
-     * Define el valor de la propiedad idEmpresa.
+     * Sets the value of the idEmpresa property.
      * 
      * @param value
      *     allowed object is
@@ -240,7 +243,31 @@ public class Empleado
     }
 
     /**
-     * Obtiene el valor de la propiedad idProvincia.
+     * Gets the value of the idPais property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getIdPais() {
+        return idPais;
+    }
+
+    /**
+     * Sets the value of the idPais property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setIdPais(String value) {
+        this.idPais = value;
+    }
+
+    /**
+     * Gets the value of the idProvincia property.
      * 
      * @return
      *     possible object is
@@ -252,7 +279,7 @@ public class Empleado
     }
 
     /**
-     * Define el valor de la propiedad idProvincia.
+     * Sets the value of the idProvincia property.
      * 
      * @param value
      *     allowed object is
@@ -264,7 +291,7 @@ public class Empleado
     }
 
     /**
-     * Obtiene el valor de la propiedad idRegion.
+     * Gets the value of the idRegion property.
      * 
      * @return
      *     possible object is
@@ -276,7 +303,7 @@ public class Empleado
     }
 
     /**
-     * Define el valor de la propiedad idRegion.
+     * Sets the value of the idRegion property.
      * 
      * @param value
      *     allowed object is
@@ -288,7 +315,7 @@ public class Empleado
     }
 
     /**
-     * Obtiene el valor de la propiedad numDocum.
+     * Gets the value of the numDocum property.
      * 
      * @return
      *     possible object is
@@ -300,7 +327,7 @@ public class Empleado
     }
 
     /**
-     * Define el valor de la propiedad numDocum.
+     * Sets the value of the numDocum property.
      * 
      * @param value
      *     allowed object is
@@ -312,7 +339,7 @@ public class Empleado
     }
 
     /**
-     * Obtiene el valor de la propiedad provincia.
+     * Gets the value of the provincia property.
      * 
      * @return
      *     possible object is
@@ -324,7 +351,7 @@ public class Empleado
     }
 
     /**
-     * Define el valor de la propiedad provincia.
+     * Sets the value of the provincia property.
      * 
      * @param value
      *     allowed object is
@@ -336,7 +363,7 @@ public class Empleado
     }
 
     /**
-     * Obtiene el valor de la propiedad region.
+     * Gets the value of the region property.
      * 
      * @return
      *     possible object is
@@ -348,7 +375,7 @@ public class Empleado
     }
 
     /**
-     * Define el valor de la propiedad region.
+     * Sets the value of the region property.
      * 
      * @param value
      *     allowed object is
@@ -360,7 +387,7 @@ public class Empleado
     }
 
     /**
-     * Obtiene el valor de la propiedad tipDocumento.
+     * Gets the value of the tipDocumento property.
      * 
      * @return
      *     possible object is
@@ -372,7 +399,7 @@ public class Empleado
     }
 
     /**
-     * Define el valor de la propiedad tipDocumento.
+     * Sets the value of the tipDocumento property.
      * 
      * @param value
      *     allowed object is

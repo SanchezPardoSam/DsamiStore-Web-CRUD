@@ -7,9 +7,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Clase Java para empresa complex type.
+ * <p>Java class for empresa complex type.
  * 
- * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType name="empresa"&gt;
@@ -43,7 +43,7 @@ public class Empresa {
     protected String rucEmpresa;
 
     /**
-     * Obtiene el valor de la propiedad idEmpresa.
+     * Gets the value of the idEmpresa property.
      * 
      * @return
      *     possible object is
@@ -55,7 +55,7 @@ public class Empresa {
     }
 
     /**
-     * Define el valor de la propiedad idEmpresa.
+     * Sets the value of the idEmpresa property.
      * 
      * @param value
      *     allowed object is
@@ -67,7 +67,7 @@ public class Empresa {
     }
 
     /**
-     * Obtiene el valor de la propiedad idUbicacion.
+     * Gets the value of the idUbicacion property.
      * 
      * @return
      *     possible object is
@@ -79,7 +79,7 @@ public class Empresa {
     }
 
     /**
-     * Define el valor de la propiedad idUbicacion.
+     * Sets the value of the idUbicacion property.
      * 
      * @param value
      *     allowed object is
@@ -91,7 +91,7 @@ public class Empresa {
     }
 
     /**
-     * Obtiene el valor de la propiedad razonSocial.
+     * Gets the value of the razonSocial property.
      * 
      * @return
      *     possible object is
@@ -103,7 +103,7 @@ public class Empresa {
     }
 
     /**
-     * Define el valor de la propiedad razonSocial.
+     * Sets the value of the razonSocial property.
      * 
      * @param value
      *     allowed object is
@@ -115,7 +115,7 @@ public class Empresa {
     }
 
     /**
-     * Obtiene el valor de la propiedad rucEmpresa.
+     * Gets the value of the rucEmpresa property.
      * 
      * @return
      *     possible object is
@@ -127,7 +127,7 @@ public class Empresa {
     }
 
     /**
-     * Define el valor de la propiedad rucEmpresa.
+     * Sets the value of the rucEmpresa property.
      * 
      * @param value
      *     allowed object is
