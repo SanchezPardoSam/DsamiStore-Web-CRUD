@@ -3,8 +3,8 @@
   <services/>
   <clients>
     <client name="Servicios">
-      <wsdl-url>http://172.18.0.1:8080/DsamiStore-web-Service/Servicios?wsdl</wsdl-url>
-      <local-wsdl-file>172.18.0.1_8080/DsamiStore-web-Service/Servicios.wsdl</local-wsdl-file>
+      <wsdl-url>http://localhost:8080/DsamiStore-web-Service/Servicios?wsdl</wsdl-url>
+      <local-wsdl-file>localhost_8080/DsamiStore-web-Service/Servicios.wsdl</local-wsdl-file>
       <package-name>webservice</package-name>
       <catalog-file>catalog.xml</catalog-file>
       <wsimport-options>
@@ -22,7 +22,7 @@
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>wsdlLocation</wsimport-option-name>
-          <wsimport-option-value>http://172.18.0.1:8080/DsamiStore-web-Service/Servicios?wsdl</wsimport-option-value>
+          <wsimport-option-value>http://localhost:8080/DsamiStore-web-Service/Servicios?wsdl</wsimport-option-value>
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>xnocompile</wsimport-option-name>
@@ -35,8 +35,8 @@
       </wsimport-options>
     </client>
     <client name="EmpleadoServicio">
-      <wsdl-url>http://172.18.0.1:8080/DsamiStore-web-Service/EmpleadoServicio?wsdl</wsdl-url>
-      <local-wsdl-file>172.18.0.1_8080/DsamiStore-web-Service/EmpleadoServicio.wsdl</local-wsdl-file>
+      <wsdl-url>http://localhost:8080/DsamiStore-web-Service/EmpleadoServicio?wsdl</wsdl-url>
+      <local-wsdl-file>localhost_8080/DsamiStore-web-Service/EmpleadoServicio.wsdl</local-wsdl-file>
       <package-name>webservice</package-name>
       <catalog-file>catalog.xml</catalog-file>
       <wsimport-options>
@@ -54,7 +54,7 @@
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>wsdlLocation</wsimport-option-name>
-          <wsimport-option-value>http://172.18.0.1:8080/DsamiStore-web-Service/EmpleadoServicio?wsdl</wsimport-option-value>
+          <wsimport-option-value>http://localhost:8080/DsamiStore-web-Service/EmpleadoServicio?wsdl</wsimport-option-value>
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>xnocompile</wsimport-option-name>
@@ -67,8 +67,8 @@
       </wsimport-options>
     </client>
     <client name="UsuarioServicio">
-      <wsdl-url>http://172.18.0.1:8080/DsamiStore-web-Service/UsuarioServicio?wsdl</wsdl-url>
-      <local-wsdl-file>172.18.0.1_8080/DsamiStore-web-Service/UsuarioServicio.wsdl</local-wsdl-file>
+      <wsdl-url>http://localhost:8080/DsamiStore-web-Service/UsuarioServicio?wsdl</wsdl-url>
+      <local-wsdl-file>localhost_8080/DsamiStore-web-Service/UsuarioServicio.wsdl</local-wsdl-file>
       <package-name>webservice</package-name>
       <catalog-file>catalog.xml</catalog-file>
       <wsimport-options>
@@ -86,7 +86,7 @@
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>wsdlLocation</wsimport-option-name>
-          <wsimport-option-value>http://172.18.0.1:8080/DsamiStore-web-Service/UsuarioServicio?wsdl</wsimport-option-value>
+          <wsimport-option-value>http://localhost:8080/DsamiStore-web-Service/UsuarioServicio?wsdl</wsimport-option-value>
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>xnocompile</wsimport-option-name>
@@ -99,8 +99,8 @@
       </wsimport-options>
     </client>
     <client name="ProductoServicio">
-      <wsdl-url>http://172.18.0.1:8080/DsamiStore-web-Service/ProductoServicio?wsdl</wsdl-url>
-      <local-wsdl-file>172.18.0.1_8080/DsamiStore-web-Service/ProductoServicio.wsdl</local-wsdl-file>
+      <wsdl-url>http://localhost:8080/DsamiStore-web-Service/ProductoServicio?wsdl</wsdl-url>
+      <local-wsdl-file>localhost_8080/DsamiStore-web-Service/ProductoServicio.wsdl</local-wsdl-file>
       <package-name>webservice</package-name>
       <catalog-file>catalog.xml</catalog-file>
       <wsimport-options>
@@ -118,7 +118,7 @@
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>wsdlLocation</wsimport-option-name>
-          <wsimport-option-value>http://172.18.0.1:8080/DsamiStore-web-Service/ProductoServicio?wsdl</wsimport-option-value>
+          <wsimport-option-value>http://localhost:8080/DsamiStore-web-Service/ProductoServicio?wsdl</wsimport-option-value>
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>xnocompile</wsimport-option-name>
@@ -131,8 +131,8 @@
       </wsimport-options>
     </client>
     <client name="ProveedorServicio">
-      <wsdl-url>http://172.18.0.1:8080/DsamiStore-web-Service/ProveedorServicio?wsdl</wsdl-url>
-      <local-wsdl-file>172.18.0.1_8080/DsamiStore-web-Service/ProveedorServicio.wsdl</local-wsdl-file>
+      <wsdl-url>http://localhost:8080/DsamiStore-web-Service/ProveedorServicio?wsdl</wsdl-url>
+      <local-wsdl-file>localhost_8080/DsamiStore-web-Service/ProveedorServicio.wsdl</local-wsdl-file>
       <package-name>webservice</package-name>
       <catalog-file>catalog.xml</catalog-file>
       <wsimport-options>
@@ -150,7 +150,7 @@
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>wsdlLocation</wsimport-option-name>
-          <wsimport-option-value>http://172.18.0.1:8080/DsamiStore-web-Service/ProveedorServicio?wsdl</wsimport-option-value>
+          <wsimport-option-value>http://localhost:8080/DsamiStore-web-Service/ProveedorServicio?wsdl</wsimport-option-value>
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>xnocompile</wsimport-option-name>

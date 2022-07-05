@@ -1,0 +1,211 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.2-b608 (trunk-7979; 2015-01-21T12:50:19+0000) JAXWS-RI/2.2.11-b150120.1832 JAXWS-API/2.2.12 JAXB-RI/2.2.12-b141219.1637 JAXB-API/2.2.13-b141020.1521 svn-revision#unknown. --><xs:schema xmlns:tns="http://WebService/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://WebService/">
+
+<xs:element name="Exception" type="tns:Exception"/>
+
+<xs:element name="agregarProducto" type="tns:agregarProducto"/>
+
+<xs:element name="agregarProductoResponse" type="tns:agregarProductoResponse"/>
+
+<xs:element name="almacen" type="tns:almacen"/>
+
+<xs:element name="buscarProducto" type="tns:buscarProducto"/>
+
+<xs:element name="buscarProductoResponse" type="tns:buscarProductoResponse"/>
+
+<xs:element name="eliminarProducto" type="tns:eliminarProducto"/>
+
+<xs:element name="eliminarProductoResponse" type="tns:eliminarProductoResponse"/>
+
+<xs:element name="listarAlmacen" type="tns:listarAlmacen"/>
+
+<xs:element name="listarAlmacenResponse" type="tns:listarAlmacenResponse"/>
+
+<xs:element name="listarCategoria" type="tns:listarCategoria"/>
+
+<xs:element name="listarCategoriaResponse" type="tns:listarCategoriaResponse"/>
+
+<xs:element name="listarMarca" type="tns:listarMarca"/>
+
+<xs:element name="listarMarcaResponse" type="tns:listarMarcaResponse"/>
+
+<xs:element name="listarMoneda" type="tns:listarMoneda"/>
+
+<xs:element name="listarMonedaResponse" type="tns:listarMonedaResponse"/>
+
+<xs:element name="listarProductos" type="tns:listarProductos"/>
+
+<xs:element name="listarProductosResponse" type="tns:listarProductosResponse"/>
+
+<xs:element name="modificarProducto" type="tns:modificarProducto"/>
+
+<xs:element name="modificarProductoResponse" type="tns:modificarProductoResponse"/>
+
+<xs:element name="moneda" type="tns:moneda"/>
+
+<xs:element name="producto" type="tns:producto"/>
+
+<xs:complexType name="listarMoneda">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="listarMonedaResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:moneda" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="moneda">
+<xs:sequence>
+<xs:element name="idMoneda" type="xs:string" minOccurs="0"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="Exception">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarProductos">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="listarProductosResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:producto" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="producto">
+<xs:sequence>
+<xs:element name="productoID" type="xs:string" minOccurs="0"/>
+<xs:element name="marcaID" type="xs:string" minOccurs="0"/>
+<xs:element name="categoriaID" type="xs:string" minOccurs="0"/>
+<xs:element name="imagenID" type="xs:string" minOccurs="0"/>
+<xs:element name="almacenID" type="xs:string" minOccurs="0"/>
+<xs:element name="monedaID" type="xs:string" minOccurs="0"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+<xs:element name="descripcion" type="xs:string" minOccurs="0"/>
+<xs:element name="codBarras" type="xs:string" minOccurs="0"/>
+<xs:element name="precio" type="xs:double"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="agregarProducto">
+<xs:sequence>
+<xs:element name="marcaID" type="xs:string" minOccurs="0"/>
+<xs:element name="categoriaID" type="xs:string" minOccurs="0"/>
+<xs:element name="imagenID" type="xs:string" minOccurs="0"/>
+<xs:element name="almacenID" type="xs:string" minOccurs="0"/>
+<xs:element name="monedaID" type="xs:string" minOccurs="0"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+<xs:element name="descripcion" type="xs:string" minOccurs="0"/>
+<xs:element name="codBarras" type="xs:string" minOccurs="0"/>
+<xs:element name="precio" type="xs:double"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="agregarProductoResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarMarca">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="listarMarcaResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:marca" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="marca">
+<xs:sequence>
+<xs:element name="id" type="xs:string" minOccurs="0"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="buscarProducto">
+<xs:sequence>
+<xs:element name="productoID" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="buscarProductoResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:producto" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="modificarProducto">
+<xs:sequence>
+<xs:element name="productoID" type="xs:string" minOccurs="0"/>
+<xs:element name="marcaID" type="xs:string" minOccurs="0"/>
+<xs:element name="categoriaID" type="xs:string" minOccurs="0"/>
+<xs:element name="imagenID" type="xs:string" minOccurs="0"/>
+<xs:element name="almacenID" type="xs:string" minOccurs="0"/>
+<xs:element name="monedaID" type="xs:string" minOccurs="0"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+<xs:element name="descripcion" type="xs:string" minOccurs="0"/>
+<xs:element name="codBarras" type="xs:string" minOccurs="0"/>
+<xs:element name="precio" type="xs:double"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="modificarProductoResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eliminarProducto">
+<xs:sequence>
+<xs:element name="productoID" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eliminarProductoResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarCategoria">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="listarCategoriaResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:categoria" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="categoria">
+<xs:sequence>
+<xs:element name="descripcion" type="xs:string" minOccurs="0"/>
+<xs:element name="id" type="xs:string" minOccurs="0"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarAlmacen">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="listarAlmacenResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:almacen" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="almacen">
+<xs:sequence>
+<xs:element name="idAlmacen" type="xs:string" minOccurs="0"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

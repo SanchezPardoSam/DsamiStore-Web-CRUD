@@ -18,4 +18,8 @@
     <system systemId="http://172.18.0.1:8080/DsamiStore-web-Service/EmpleadoServicio?xsd=1" uri="wsdl/172.18.0.1_8080/DsamiStore-web-Service/EmpleadoServicio.xsd_1.xsd"/>
     <system systemId="http://172.18.0.1:8080/DsamiStore-web-Service/UsuarioServicio?wsdl" uri="wsdl/172.18.0.1_8080/DsamiStore-web-Service/UsuarioServicio.wsdl"/>
     <system systemId="http://172.18.0.1:8080/DsamiStore-web-Service/UsuarioServicio?xsd=1" uri="wsdl/172.18.0.1_8080/DsamiStore-web-Service/UsuarioServicio.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/DsamiStore-web-Service/ProductoServicio?wsdl" uri="wsdl/localhost_8080/DsamiStore-web-Service/ProductoServicio.wsdl"/>
+    <system systemId="http://localhost:8080/DsamiStore-web-Service/ProductoServicio?xsd=1" uri="wsdl/localhost_8080/DsamiStore-web-Service/ProductoServicio.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/DsamiStore-web-Service/ProveedorServicio?wsdl" uri="wsdl/localhost_8080/DsamiStore-web-Service/ProveedorServicio.wsdl"/>
+    <system systemId="http://localhost:8080/DsamiStore-web-Service/ProveedorServicio?xsd=1" uri="wsdl/localhost_8080/DsamiStore-web-Service/ProveedorServicio.xsd_1.xsd"/>
 </catalog>

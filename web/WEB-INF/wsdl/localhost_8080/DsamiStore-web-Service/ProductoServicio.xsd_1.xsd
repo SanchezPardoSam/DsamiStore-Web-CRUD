@@ -129,6 +129,18 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="buscarProducto">
+<xs:sequence>
+<xs:element name="productoID" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="buscarProductoResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:producto" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="modificarProducto">
 <xs:sequence>
 <xs:element name="productoID" type="xs:string" minOccurs="0"/>
@@ -147,18 +159,6 @@
 <xs:complexType name="modificarProductoResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="buscarProducto">
-<xs:sequence>
-<xs:element name="productoID" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="buscarProductoResponse">
-<xs:sequence>
-<xs:element name="return" type="tns:producto" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 

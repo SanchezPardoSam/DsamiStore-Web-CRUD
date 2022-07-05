@@ -28,27 +28,18 @@ public interface Servicios {
 
     /**
      * 
-     * @param descripcion
-     * @param id
-     * @param nombre
      * @return
-     *     returns java.lang.String
+     *     returns java.util.List<webservice.Categoria>
      * @throws Exception_Exception
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "modificarCategoria", targetNamespace = "http://WebService/", className = "webservice.ModificarCategoria")
-    @ResponseWrapper(localName = "modificarCategoriaResponse", targetNamespace = "http://WebService/", className = "webservice.ModificarCategoriaResponse")
-    @Action(input = "http://WebService/Servicios/modificarCategoriaRequest", output = "http://WebService/Servicios/modificarCategoriaResponse", fault = {
-        @FaultAction(className = Exception_Exception.class, value = "http://WebService/Servicios/modificarCategoria/Fault/Exception")
+    @RequestWrapper(localName = "listarCategorias", targetNamespace = "http://WebService/", className = "webservice.ListarCategorias")
+    @ResponseWrapper(localName = "listarCategoriasResponse", targetNamespace = "http://WebService/", className = "webservice.ListarCategoriasResponse")
+    @Action(input = "http://WebService/Servicios/listarCategoriasRequest", output = "http://WebService/Servicios/listarCategoriasResponse", fault = {
+        @FaultAction(className = Exception_Exception.class, value = "http://WebService/Servicios/listarCategorias/Fault/Exception")
     })
-    public String modificarCategoria(
-        @WebParam(name = "id", targetNamespace = "")
-        String id,
-        @WebParam(name = "nombre", targetNamespace = "")
-        String nombre,
-        @WebParam(name = "descripcion", targetNamespace = "")
-        String descripcion)
+    public List<Categoria> listarCategorias()
         throws Exception_Exception
     ;
 
@@ -72,23 +63,6 @@ public interface Servicios {
         String nombre,
         @WebParam(name = "descripcion", targetNamespace = "")
         String descripcion)
-        throws Exception_Exception
-    ;
-
-    /**
-     * 
-     * @return
-     *     returns java.util.List<webservice.Categoria>
-     * @throws Exception_Exception
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "listarCategorias", targetNamespace = "http://WebService/", className = "webservice.ListarCategorias")
-    @ResponseWrapper(localName = "listarCategoriasResponse", targetNamespace = "http://WebService/", className = "webservice.ListarCategoriasResponse")
-    @Action(input = "http://WebService/Servicios/listarCategoriasRequest", output = "http://WebService/Servicios/listarCategoriasResponse", fault = {
-        @FaultAction(className = Exception_Exception.class, value = "http://WebService/Servicios/listarCategorias/Fault/Exception")
-    })
-    public List<Categoria> listarCategorias()
         throws Exception_Exception
     ;
 
@@ -123,5 +97,31 @@ public interface Servicios {
     public Categoria eliminarCategoria(
         @WebParam(name = "id", targetNamespace = "")
         String id);
+
+    /**
+     * 
+     * @param descripcion
+     * @param id
+     * @param nombre
+     * @return
+     *     returns java.lang.String
+     * @throws Exception_Exception
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "modificarCategoria", targetNamespace = "http://WebService/", className = "webservice.ModificarCategoria")
+    @ResponseWrapper(localName = "modificarCategoriaResponse", targetNamespace = "http://WebService/", className = "webservice.ModificarCategoriaResponse")
+    @Action(input = "http://WebService/Servicios/modificarCategoriaRequest", output = "http://WebService/Servicios/modificarCategoriaResponse", fault = {
+        @FaultAction(className = Exception_Exception.class, value = "http://WebService/Servicios/modificarCategoria/Fault/Exception")
+    })
+    public String modificarCategoria(
+        @WebParam(name = "id", targetNamespace = "")
+        String id,
+        @WebParam(name = "nombre", targetNamespace = "")
+        String nombre,
+        @WebParam(name = "descripcion", targetNamespace = "")
+        String descripcion)
+        throws Exception_Exception
+    ;
 
 }

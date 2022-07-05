@@ -6,21 +6,17 @@
 
 <xs:element name="agregarCategoriaResponse" type="tns:agregarCategoriaResponse"/>
 
-<xs:element name="eliminar" type="tns:eliminar"/>
+<xs:element name="eliminarCategoria" type="tns:eliminarCategoria"/>
 
-<xs:element name="eliminarResponse" type="tns:eliminarResponse"/>
+<xs:element name="eliminarCategoriaResponse" type="tns:eliminarCategoriaResponse"/>
 
-<xs:element name="listar" type="tns:listar"/>
+<xs:element name="listarCategorias" type="tns:listarCategorias"/>
 
-<xs:element name="listarResponse" type="tns:listarResponse"/>
+<xs:element name="listarCategoriasResponse" type="tns:listarCategoriasResponse"/>
 
-<xs:element name="listarRol" type="tns:listarRol"/>
+<xs:element name="listarRoles" type="tns:listarRoles"/>
 
-<xs:element name="listarRolResponse" type="tns:listarRolResponse"/>
-
-<xs:element name="listarUsuario" type="tns:listarUsuario"/>
-
-<xs:element name="listarUsuarioResponse" type="tns:listarUsuarioResponse"/>
+<xs:element name="listarRolesResponse" type="tns:listarRolesResponse"/>
 
 <xs:element name="modificarCategoria" type="tns:modificarCategoria"/>
 
@@ -46,15 +42,13 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="eliminar">
-<xs:sequence>
-<xs:element name="id" type="xs:string" minOccurs="0"/>
-</xs:sequence>
+<xs:complexType name="listarCategorias">
+<xs:sequence/>
 </xs:complexType>
 
-<xs:complexType name="eliminarResponse">
+<xs:complexType name="listarCategoriasResponse">
 <xs:sequence>
-<xs:element name="return" type="tns:categoria" minOccurs="0"/>
+<xs:element name="return" type="tns:categoria" minOccurs="0" maxOccurs="unbounded"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -66,11 +60,11 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="listarRol">
+<xs:complexType name="listarRoles">
 <xs:sequence/>
 </xs:complexType>
 
-<xs:complexType name="listarRolResponse">
+<xs:complexType name="listarRolesResponse">
 <xs:sequence>
 <xs:element name="return" type="tns:rol" minOccurs="0" maxOccurs="unbounded"/>
 </xs:sequence>
@@ -83,102 +77,15 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="listarUsuario">
-<xs:sequence/>
-</xs:complexType>
-
-<xs:complexType name="listarUsuarioResponse">
-<xs:sequence>
-<xs:element name="return" type="tns:usuario" minOccurs="0" maxOccurs="unbounded"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="usuario">
-<xs:sequence>
-<xs:element name="clave" type="xs:string" minOccurs="0"/>
-<xs:element name="codigoEmpleado" type="xs:string" minOccurs="0"/>
-<xs:element name="codigoRol" type="xs:string" minOccurs="0"/>
-<xs:element name="codigoUsuario" type="xs:string" minOccurs="0"/>
-<xs:element name="empleado" type="tns:empleado" minOccurs="0"/>
-<xs:element name="nombreUsuario" type="xs:string" minOccurs="0"/>
-<xs:element name="rol" type="tns:rol" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="empleado">
-<xs:complexContent>
-<xs:extension base="tns:persona">
-<xs:sequence>
-<xs:element name="codigoEmpleado" type="xs:string" minOccurs="0"/>
-<xs:element name="direccion" type="xs:string" minOccurs="0"/>
-<xs:element name="distrito" type="tns:distrito" minOccurs="0"/>
-<xs:element name="documento" type="tns:documento" minOccurs="0"/>
-<xs:element name="empresa" type="tns:empresa" minOccurs="0"/>
-<xs:element name="idDistrito" type="xs:string" minOccurs="0"/>
-<xs:element name="idEmpresa" type="xs:string" minOccurs="0"/>
-<xs:element name="idProvincia" type="xs:string" minOccurs="0"/>
-<xs:element name="idRegion" type="xs:string" minOccurs="0"/>
-<xs:element name="numDocum" type="xs:string" minOccurs="0"/>
-<xs:element name="provincia" type="tns:provincia" minOccurs="0"/>
-<xs:element name="region" type="tns:region" minOccurs="0"/>
-<xs:element name="tipDocumento" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
-
-<xs:complexType name="persona">
-<xs:sequence>
-<xs:element name="apellidoMaterno" type="xs:string" minOccurs="0"/>
-<xs:element name="apellidoPaterno" type="xs:string" minOccurs="0"/>
-<xs:element name="codigoDocumento" type="xs:string" minOccurs="0"/>
-<xs:element name="codigoPais" type="xs:string" minOccurs="0"/>
-<xs:element name="codigoPersona" type="xs:string" minOccurs="0"/>
-<xs:element name="codigoUbicacion" type="xs:string" minOccurs="0"/>
-<xs:element name="fechaNacimiento" type="xs:dateTime" minOccurs="0"/>
-<xs:element name="nombre" type="xs:string" minOccurs="0"/>
-<xs:element name="pais" type="tns:pais" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="distrito">
-<xs:sequence>
-<xs:element name="provincia" type="tns:provincia" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="provincia">
-<xs:sequence/>
-</xs:complexType>
-
-<xs:complexType name="documento">
-<xs:sequence/>
-</xs:complexType>
-
-<xs:complexType name="empresa">
-<xs:sequence/>
-</xs:complexType>
-
-<xs:complexType name="region">
-<xs:sequence>
-<xs:element name="pais" type="tns:pais" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="pais">
+<xs:complexType name="eliminarCategoria">
 <xs:sequence>
 <xs:element name="id" type="xs:string" minOccurs="0"/>
-<xs:element name="nombre" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="listar">
-<xs:sequence/>
-</xs:complexType>
-
-<xs:complexType name="listarResponse">
+<xs:complexType name="eliminarCategoriaResponse">
 <xs:sequence>
-<xs:element name="return" type="tns:categoria" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="return" type="tns:categoria" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 

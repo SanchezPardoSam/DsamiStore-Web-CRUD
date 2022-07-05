@@ -7,9 +7,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for empleado complex type.
+ * <p>Clase Java para empleado complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
  * &lt;complexType name="empleado"&gt;
@@ -72,7 +72,7 @@ public class Empleado
     protected String tipDocumento;
 
     /**
-     * Gets the value of the codigoEmpleado property.
+     * Obtiene el valor de la propiedad codigoEmpleado.
      * 
      * @return
      *     possible object is
@@ -84,7 +84,7 @@ public class Empleado
     }
 
     /**
-     * Sets the value of the codigoEmpleado property.
+     * Define el valor de la propiedad codigoEmpleado.
      * 
      * @param value
      *     allowed object is
@@ -96,7 +96,7 @@ public class Empleado
     }
 
     /**
-     * Gets the value of the direccion property.
+     * Obtiene el valor de la propiedad direccion.
      * 
      * @return
      *     possible object is
@@ -108,7 +108,7 @@ public class Empleado
     }
 
     /**
-     * Sets the value of the direccion property.
+     * Define el valor de la propiedad direccion.
      * 
      * @param value
      *     allowed object is
@@ -120,7 +120,7 @@ public class Empleado
     }
 
     /**
-     * Gets the value of the distrito property.
+     * Obtiene el valor de la propiedad distrito.
      * 
      * @return
      *     possible object is
@@ -132,7 +132,7 @@ public class Empleado
     }
 
     /**
-     * Sets the value of the distrito property.
+     * Define el valor de la propiedad distrito.
      * 
      * @param value
      *     allowed object is
@@ -144,7 +144,7 @@ public class Empleado
     }
 
     /**
-     * Gets the value of the documento property.
+     * Obtiene el valor de la propiedad documento.
      * 
      * @return
      *     possible object is
@@ -156,7 +156,7 @@ public class Empleado
     }
 
     /**
-     * Sets the value of the documento property.
+     * Define el valor de la propiedad documento.
      * 
      * @param value
      *     allowed object is
@@ -168,7 +168,7 @@ public class Empleado
     }
 
     /**
-     * Gets the value of the empresa property.
+     * Obtiene el valor de la propiedad empresa.
      * 
      * @return
      *     possible object is
@@ -180,7 +180,7 @@ public class Empleado
     }
 
     /**
-     * Sets the value of the empresa property.
+     * Define el valor de la propiedad empresa.
      * 
      * @param value
      *     allowed object is
@@ -192,7 +192,7 @@ public class Empleado
     }
 
     /**
-     * Gets the value of the idDistrito property.
+     * Obtiene el valor de la propiedad idDistrito.
      * 
      * @return
      *     possible object is
@@ -204,7 +204,7 @@ public class Empleado
     }
 
     /**
-     * Sets the value of the idDistrito property.
+     * Define el valor de la propiedad idDistrito.
      * 
      * @param value
      *     allowed object is
@@ -216,7 +216,7 @@ public class Empleado
     }
 
     /**
-     * Gets the value of the idEmpresa property.
+     * Obtiene el valor de la propiedad idEmpresa.
      * 
      * @return
      *     possible object is
@@ -228,7 +228,7 @@ public class Empleado
     }
 
     /**
-     * Sets the value of the idEmpresa property.
+     * Define el valor de la propiedad idEmpresa.
      * 
      * @param value
      *     allowed object is
@@ -240,7 +240,7 @@ public class Empleado
     }
 
     /**
-     * Gets the value of the idProvincia property.
+     * Obtiene el valor de la propiedad idProvincia.
      * 
      * @return
      *     possible object is
@@ -252,7 +252,7 @@ public class Empleado
     }
 
     /**
-     * Sets the value of the idProvincia property.
+     * Define el valor de la propiedad idProvincia.
      * 
      * @param value
      *     allowed object is
@@ -264,7 +264,7 @@ public class Empleado
     }
 
     /**
-     * Gets the value of the idRegion property.
+     * Obtiene el valor de la propiedad idRegion.
      * 
      * @return
      *     possible object is
@@ -276,7 +276,7 @@ public class Empleado
     }
 
     /**
-     * Sets the value of the idRegion property.
+     * Define el valor de la propiedad idRegion.
      * 
      * @param value
      *     allowed object is
@@ -288,7 +288,7 @@ public class Empleado
     }
 
     /**
-     * Gets the value of the numDocum property.
+     * Obtiene el valor de la propiedad numDocum.
      * 
      * @return
      *     possible object is
@@ -300,7 +300,7 @@ public class Empleado
     }
 
     /**
-     * Sets the value of the numDocum property.
+     * Define el valor de la propiedad numDocum.
      * 
      * @param value
      *     allowed object is
@@ -312,7 +312,7 @@ public class Empleado
     }
 
     /**
-     * Gets the value of the provincia property.
+     * Obtiene el valor de la propiedad provincia.
      * 
      * @return
      *     possible object is
@@ -324,7 +324,7 @@ public class Empleado
     }
 
     /**
-     * Sets the value of the provincia property.
+     * Define el valor de la propiedad provincia.
      * 
      * @param value
      *     allowed object is
@@ -336,7 +336,7 @@ public class Empleado
     }
 
     /**
-     * Gets the value of the region property.
+     * Obtiene el valor de la propiedad region.
      * 
      * @return
      *     possible object is
@@ -348,7 +348,7 @@ public class Empleado
     }
 
     /**
-     * Sets the value of the region property.
+     * Define el valor de la propiedad region.
      * 
      * @param value
      *     allowed object is
@@ -360,7 +360,7 @@ public class Empleado
     }
 
     /**
-     * Gets the value of the tipDocumento property.
+     * Obtiene el valor de la propiedad tipDocumento.
      * 
      * @return
      *     possible object is
@@ -372,7 +372,7 @@ public class Empleado
     }
 
     /**
-     * Sets the value of the tipDocumento property.
+     * Define el valor de la propiedad tipDocumento.
      * 
      * @param value
      *     allowed object is

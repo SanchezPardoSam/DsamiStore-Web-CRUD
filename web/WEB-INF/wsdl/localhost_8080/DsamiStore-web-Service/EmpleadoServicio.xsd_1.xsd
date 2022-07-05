@@ -54,24 +54,42 @@
 
 <xs:complexType name="distrito">
 <xs:sequence>
+<xs:element name="id" type="xs:string" minOccurs="0"/>
+<xs:element name="idProvincia" type="xs:string" minOccurs="0"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
 <xs:element name="provincia" type="tns:provincia" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
 <xs:complexType name="provincia">
-<xs:sequence/>
+<xs:sequence>
+<xs:element name="id" type="xs:string" minOccurs="0"/>
+<xs:element name="idRegion" type="xs:string" minOccurs="0"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+</xs:sequence>
 </xs:complexType>
 
 <xs:complexType name="documento">
-<xs:sequence/>
+<xs:sequence>
+<xs:element name="id" type="xs:string" minOccurs="0"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+</xs:sequence>
 </xs:complexType>
 
 <xs:complexType name="empresa">
-<xs:sequence/>
+<xs:sequence>
+<xs:element name="idEmpresa" type="xs:string" minOccurs="0"/>
+<xs:element name="idUbicacion" type="xs:string" minOccurs="0"/>
+<xs:element name="razonSocial" type="xs:string" minOccurs="0"/>
+<xs:element name="rucEmpresa" type="xs:string" minOccurs="0"/>
+</xs:sequence>
 </xs:complexType>
 
 <xs:complexType name="region">
 <xs:sequence>
+<xs:element name="id" type="xs:string" minOccurs="0"/>
+<xs:element name="idPais" type="xs:string" minOccurs="0"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
 <xs:element name="pais" type="tns:pais" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>

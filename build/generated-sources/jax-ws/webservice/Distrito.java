@@ -7,9 +7,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for distrito complex type.
+ * <p>Clase Java para distrito complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
  * &lt;complexType name="distrito"&gt;
@@ -43,7 +43,7 @@ public class Distrito {
     protected Provincia provincia;
 
     /**
-     * Gets the value of the id property.
+     * Obtiene el valor de la propiedad id.
      * 
      * @return
      *     possible object is
@@ -55,7 +55,7 @@ public class Distrito {
     }
 
     /**
-     * Sets the value of the id property.
+     * Define el valor de la propiedad id.
      * 
      * @param value
      *     allowed object is
@@ -67,7 +67,7 @@ public class Distrito {
     }
 
     /**
-     * Gets the value of the idProvincia property.
+     * Obtiene el valor de la propiedad idProvincia.
      * 
      * @return
      *     possible object is
@@ -79,7 +79,7 @@ public class Distrito {
     }
 
     /**
-     * Sets the value of the idProvincia property.
+     * Define el valor de la propiedad idProvincia.
      * 
      * @param value
      *     allowed object is
@@ -91,7 +91,7 @@ public class Distrito {
     }
 
     /**
-     * Gets the value of the nombre property.
+     * Obtiene el valor de la propiedad nombre.
      * 
      * @return
      *     possible object is
@@ -103,7 +103,7 @@ public class Distrito {
     }
 
     /**
-     * Sets the value of the nombre property.
+     * Define el valor de la propiedad nombre.
      * 
      * @param value
      *     allowed object is
@@ -115,7 +115,7 @@ public class Distrito {
     }
 
     /**
-     * Gets the value of the provincia property.
+     * Obtiene el valor de la propiedad provincia.
      * 
      * @return
      *     possible object is
@@ -127,7 +127,7 @@ public class Distrito {
     }
 
     /**
-     * Sets the value of the provincia property.
+     * Define el valor de la propiedad provincia.
      * 
      * @param value
      *     allowed object is
