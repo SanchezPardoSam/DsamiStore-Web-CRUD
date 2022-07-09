@@ -206,10 +206,10 @@
                                                             </div>
                                                             <div class="modal-body text-center" id="content-barras">
                                                                 <p><%=pro.getNombre()%></p>
+                                                                <svg id="barcode<%= pro.getCodBarras()%>"></svg>
                                                                 <script>
-                                                                    JsBarcode('#barcode', "<%= pro.getCodBarras()%>");
+                                                                    JsBarcode('#barcode<%= pro.getCodBarras()%>', "<%= pro.getCodBarras()%>");
                                                                 </script>
-                                                                <svg id="barcode"></svg>
                                                             </div>
                                                         </div>
                                                     </div>
