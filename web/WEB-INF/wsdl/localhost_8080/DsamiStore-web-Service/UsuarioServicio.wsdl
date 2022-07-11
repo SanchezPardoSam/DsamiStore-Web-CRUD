@@ -4,32 +4,14 @@
 <xsd:import namespace="http://WebService/" schemaLocation="http://localhost:8080/DsamiStore-web-Service/UsuarioServicio?xsd=1"/>
 </xsd:schema>
 </types>
-<message name="buscarUsuariosPaginacion">
-<part name="parameters" element="tns:buscarUsuariosPaginacion"/>
-</message>
-<message name="buscarUsuariosPaginacionResponse">
-<part name="parameters" element="tns:buscarUsuariosPaginacionResponse"/>
-</message>
-<message name="Exception">
-<part name="fault" element="tns:Exception"/>
-</message>
-<message name="buscarUsuariosPaginacionCount">
-<part name="parameters" element="tns:buscarUsuariosPaginacionCount"/>
-</message>
-<message name="buscarUsuariosPaginacionCountResponse">
-<part name="parameters" element="tns:buscarUsuariosPaginacionCountResponse"/>
-</message>
-<message name="ingresarUsuario">
-<part name="parameters" element="tns:ingresarUsuario"/>
-</message>
-<message name="ingresarUsuarioResponse">
-<part name="parameters" element="tns:ingresarUsuarioResponse"/>
-</message>
 <message name="listarUsuarios">
 <part name="parameters" element="tns:listarUsuarios"/>
 </message>
 <message name="listarUsuariosResponse">
 <part name="parameters" element="tns:listarUsuariosResponse"/>
+</message>
+<message name="Exception">
+<part name="fault" element="tns:Exception"/>
 </message>
 <message name="listarUsuariosPaginacion">
 <part name="parameters" element="tns:listarUsuariosPaginacion"/>
@@ -67,22 +49,25 @@
 <message name="buscarUsuariosResponse">
 <part name="parameters" element="tns:buscarUsuariosResponse"/>
 </message>
+<message name="buscarUsuariosPaginacion">
+<part name="parameters" element="tns:buscarUsuariosPaginacion"/>
+</message>
+<message name="buscarUsuariosPaginacionResponse">
+<part name="parameters" element="tns:buscarUsuariosPaginacionResponse"/>
+</message>
+<message name="buscarUsuariosPaginacionCount">
+<part name="parameters" element="tns:buscarUsuariosPaginacionCount"/>
+</message>
+<message name="buscarUsuariosPaginacionCountResponse">
+<part name="parameters" element="tns:buscarUsuariosPaginacionCountResponse"/>
+</message>
+<message name="ingresarUsuario">
+<part name="parameters" element="tns:ingresarUsuario"/>
+</message>
+<message name="ingresarUsuarioResponse">
+<part name="parameters" element="tns:ingresarUsuarioResponse"/>
+</message>
 <portType name="UsuarioServicio">
-<operation name="buscarUsuariosPaginacion">
-<input wsam:Action="http://WebService/UsuarioServicio/buscarUsuariosPaginacionRequest" message="tns:buscarUsuariosPaginacion"/>
-<output wsam:Action="http://WebService/UsuarioServicio/buscarUsuariosPaginacionResponse" message="tns:buscarUsuariosPaginacionResponse"/>
-<fault message="tns:Exception" name="Exception" wsam:Action="http://WebService/UsuarioServicio/buscarUsuariosPaginacion/Fault/Exception"/>
-</operation>
-<operation name="buscarUsuariosPaginacionCount">
-<input wsam:Action="http://WebService/UsuarioServicio/buscarUsuariosPaginacionCountRequest" message="tns:buscarUsuariosPaginacionCount"/>
-<output wsam:Action="http://WebService/UsuarioServicio/buscarUsuariosPaginacionCountResponse" message="tns:buscarUsuariosPaginacionCountResponse"/>
-<fault message="tns:Exception" name="Exception" wsam:Action="http://WebService/UsuarioServicio/buscarUsuariosPaginacionCount/Fault/Exception"/>
-</operation>
-<operation name="ingresarUsuario">
-<input wsam:Action="http://WebService/UsuarioServicio/ingresarUsuarioRequest" message="tns:ingresarUsuario"/>
-<output wsam:Action="http://WebService/UsuarioServicio/ingresarUsuarioResponse" message="tns:ingresarUsuarioResponse"/>
-<fault message="tns:Exception" name="Exception" wsam:Action="http://WebService/UsuarioServicio/ingresarUsuario/Fault/Exception"/>
-</operation>
 <operation name="listarUsuarios">
 <input wsam:Action="http://WebService/UsuarioServicio/listarUsuariosRequest" message="tns:listarUsuarios"/>
 <output wsam:Action="http://WebService/UsuarioServicio/listarUsuariosResponse" message="tns:listarUsuariosResponse"/>
@@ -118,45 +103,24 @@
 <output wsam:Action="http://WebService/UsuarioServicio/buscarUsuariosResponse" message="tns:buscarUsuariosResponse"/>
 <fault message="tns:Exception" name="Exception" wsam:Action="http://WebService/UsuarioServicio/buscarUsuarios/Fault/Exception"/>
 </operation>
+<operation name="buscarUsuariosPaginacion">
+<input wsam:Action="http://WebService/UsuarioServicio/buscarUsuariosPaginacionRequest" message="tns:buscarUsuariosPaginacion"/>
+<output wsam:Action="http://WebService/UsuarioServicio/buscarUsuariosPaginacionResponse" message="tns:buscarUsuariosPaginacionResponse"/>
+<fault message="tns:Exception" name="Exception" wsam:Action="http://WebService/UsuarioServicio/buscarUsuariosPaginacion/Fault/Exception"/>
+</operation>
+<operation name="buscarUsuariosPaginacionCount">
+<input wsam:Action="http://WebService/UsuarioServicio/buscarUsuariosPaginacionCountRequest" message="tns:buscarUsuariosPaginacionCount"/>
+<output wsam:Action="http://WebService/UsuarioServicio/buscarUsuariosPaginacionCountResponse" message="tns:buscarUsuariosPaginacionCountResponse"/>
+<fault message="tns:Exception" name="Exception" wsam:Action="http://WebService/UsuarioServicio/buscarUsuariosPaginacionCount/Fault/Exception"/>
+</operation>
+<operation name="ingresarUsuario">
+<input wsam:Action="http://WebService/UsuarioServicio/ingresarUsuarioRequest" message="tns:ingresarUsuario"/>
+<output wsam:Action="http://WebService/UsuarioServicio/ingresarUsuarioResponse" message="tns:ingresarUsuarioResponse"/>
+<fault message="tns:Exception" name="Exception" wsam:Action="http://WebService/UsuarioServicio/ingresarUsuario/Fault/Exception"/>
+</operation>
 </portType>
 <binding name="UsuarioServicioPortBinding" type="tns:UsuarioServicio">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="buscarUsuariosPaginacion">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-<fault name="Exception">
-<soap:fault name="Exception" use="literal"/>
-</fault>
-</operation>
-<operation name="buscarUsuariosPaginacionCount">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-<fault name="Exception">
-<soap:fault name="Exception" use="literal"/>
-</fault>
-</operation>
-<operation name="ingresarUsuario">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-<fault name="Exception">
-<soap:fault name="Exception" use="literal"/>
-</fault>
-</operation>
 <operation name="listarUsuarios">
 <soap:operation soapAction=""/>
 <input>
@@ -230,6 +194,42 @@
 </fault>
 </operation>
 <operation name="buscarUsuarios">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Exception">
+<soap:fault name="Exception" use="literal"/>
+</fault>
+</operation>
+<operation name="buscarUsuariosPaginacion">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Exception">
+<soap:fault name="Exception" use="literal"/>
+</fault>
+</operation>
+<operation name="buscarUsuariosPaginacionCount">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Exception">
+<soap:fault name="Exception" use="literal"/>
+</fault>
+</operation>
+<operation name="ingresarUsuario">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

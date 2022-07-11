@@ -166,6 +166,18 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="listarProvincias">
+<xs:sequence>
+<xs:element name="region" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarProvinciasResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:provincia" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="modificarEmpleado">
 <xs:sequence>
 <xs:element name="idPro" type="xs:string" minOccurs="0"/>
@@ -186,18 +198,6 @@
 <xs:complexType name="modificarEmpleadoResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="listarProvincias">
-<xs:sequence>
-<xs:element name="region" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="listarProvinciasResponse">
-<xs:sequence>
-<xs:element name="return" type="tns:provincia" minOccurs="0" maxOccurs="unbounded"/>
 </xs:sequence>
 </xs:complexType>
 

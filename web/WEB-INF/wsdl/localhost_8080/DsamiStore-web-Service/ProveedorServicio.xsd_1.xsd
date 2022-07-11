@@ -225,16 +225,6 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="listarPaises">
-<xs:sequence/>
-</xs:complexType>
-
-<xs:complexType name="listarPaisesResponse">
-<xs:sequence>
-<xs:element name="return" type="tns:pais" minOccurs="0" maxOccurs="unbounded"/>
-</xs:sequence>
-</xs:complexType>
-
 <xs:complexType name="modificarProveedor">
 <xs:sequence>
 <xs:element name="idPro" type="xs:string" minOccurs="0"/>
@@ -255,6 +245,16 @@
 <xs:complexType name="modificarProveedorResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarPaises">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="listarPaisesResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:pais" minOccurs="0" maxOccurs="unbounded"/>
 </xs:sequence>
 </xs:complexType>
 

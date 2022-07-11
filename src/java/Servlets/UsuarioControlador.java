@@ -54,7 +54,7 @@ public class UsuarioControlador extends HttpServlet {
             int paginas = usuarioServicio.buscarUsuariosPaginacionCount(consulta, cantidad);
             List<Usuario> usuarios = usuarioServicio.buscarUsuariosPaginacion(consulta, pagina, cantidad);
             List<Rol> roles = rolServicio.listarRoles();
-            List<Empleado> empleados = empleadoServicio.obtenerEmpleados();
+            List<Empleado> empleados = empleadoServicio.listarEmpleado();
 
             request.setAttribute("pagina", pagina);
             request.setAttribute("cantidad", cantidad);

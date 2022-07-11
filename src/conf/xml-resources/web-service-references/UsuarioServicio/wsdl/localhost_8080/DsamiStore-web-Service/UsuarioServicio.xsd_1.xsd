@@ -77,6 +77,7 @@
 <xs:element name="empresa" type="tns:empresa" minOccurs="0"/>
 <xs:element name="idDistrito" type="xs:string" minOccurs="0"/>
 <xs:element name="idEmpresa" type="xs:string" minOccurs="0"/>
+<xs:element name="idPais" type="xs:string" minOccurs="0"/>
 <xs:element name="idProvincia" type="xs:string" minOccurs="0"/>
 <xs:element name="idRegion" type="xs:string" minOccurs="0"/>
 <xs:element name="numDocum" type="xs:string" minOccurs="0"/>
@@ -164,21 +165,6 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="crearUsuario">
-<xs:sequence>
-<xs:element name="nombreUsuario" type="xs:string" minOccurs="0"/>
-<xs:element name="clave" type="xs:string" minOccurs="0"/>
-<xs:element name="codigoEmpleado" type="xs:string" minOccurs="0"/>
-<xs:element name="codigoRol" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="crearUsuarioResponse">
-<xs:sequence>
-<xs:element name="return" type="tns:usuario" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
 <xs:complexType name="listarUsuariosPaginacionCount">
 <xs:sequence>
 <xs:element name="cantidad" type="xs:int"/>
@@ -191,14 +177,16 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="ingresarUsuario">
+<xs:complexType name="crearUsuario">
 <xs:sequence>
 <xs:element name="nombreUsuario" type="xs:string" minOccurs="0"/>
 <xs:element name="clave" type="xs:string" minOccurs="0"/>
+<xs:element name="codigoEmpleado" type="xs:string" minOccurs="0"/>
+<xs:element name="codigoRol" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="ingresarUsuarioResponse">
+<xs:complexType name="crearUsuarioResponse">
 <xs:sequence>
 <xs:element name="return" type="tns:usuario" minOccurs="0"/>
 </xs:sequence>
@@ -228,6 +216,19 @@
 <xs:complexType name="buscarUsuariosPaginacionResponse">
 <xs:sequence>
 <xs:element name="return" type="tns:usuario" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ingresarUsuario">
+<xs:sequence>
+<xs:element name="nombreUsuario" type="xs:string" minOccurs="0"/>
+<xs:element name="clave" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ingresarUsuarioResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:usuario" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
