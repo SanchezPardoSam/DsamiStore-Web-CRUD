@@ -2,25 +2,17 @@
 
 <xs:element name="Exception" type="tns:Exception"/>
 
+<xs:element name="actualizarUsuario" type="tns:actualizarUsuario"/>
+
+<xs:element name="actualizarUsuarioResponse" type="tns:actualizarUsuarioResponse"/>
+
+<xs:element name="agregarUsuario" type="tns:agregarUsuario"/>
+
+<xs:element name="agregarUsuarioResponse" type="tns:agregarUsuarioResponse"/>
+
 <xs:element name="buscarUsuarios" type="tns:buscarUsuarios"/>
 
-<xs:element name="buscarUsuariosPaginacion" type="tns:buscarUsuariosPaginacion"/>
-
-<xs:element name="buscarUsuariosPaginacionCount" type="tns:buscarUsuariosPaginacionCount"/>
-
-<xs:element name="buscarUsuariosPaginacionCountResponse" type="tns:buscarUsuariosPaginacionCountResponse"/>
-
-<xs:element name="buscarUsuariosPaginacionResponse" type="tns:buscarUsuariosPaginacionResponse"/>
-
 <xs:element name="buscarUsuariosResponse" type="tns:buscarUsuariosResponse"/>
-
-<xs:element name="crearUsuario" type="tns:crearUsuario"/>
-
-<xs:element name="crearUsuarioResponse" type="tns:crearUsuarioResponse"/>
-
-<xs:element name="editarUsuario" type="tns:editarUsuario"/>
-
-<xs:element name="editarUsuarioResponse" type="tns:editarUsuarioResponse"/>
 
 <xs:element name="eliminarUsuario" type="tns:eliminarUsuario"/>
 
@@ -167,6 +159,7 @@
 
 <xs:complexType name="listarUsuariosPaginacionCount">
 <xs:sequence>
+<xs:element name="consulta" type="xs:string" minOccurs="0"/>
 <xs:element name="cantidad" type="xs:int"/>
 </xs:sequence>
 </xs:complexType>
@@ -177,35 +170,7 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="crearUsuario">
-<xs:sequence>
-<xs:element name="nombreUsuario" type="xs:string" minOccurs="0"/>
-<xs:element name="clave" type="xs:string" minOccurs="0"/>
-<xs:element name="codigoEmpleado" type="xs:string" minOccurs="0"/>
-<xs:element name="codigoRol" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="crearUsuarioResponse">
-<xs:sequence>
-<xs:element name="return" type="tns:usuario" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
 <xs:complexType name="listarUsuariosPaginacion">
-<xs:sequence>
-<xs:element name="pagina" type="xs:int"/>
-<xs:element name="cantidad" type="xs:int"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="listarUsuariosPaginacionResponse">
-<xs:sequence>
-<xs:element name="return" type="tns:usuario" minOccurs="0" maxOccurs="unbounded"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="buscarUsuariosPaginacion">
 <xs:sequence>
 <xs:element name="consulta" type="xs:string" minOccurs="0"/>
 <xs:element name="pagina" type="xs:int"/>
@@ -213,7 +178,7 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="buscarUsuariosPaginacionResponse">
+<xs:complexType name="listarUsuariosPaginacionResponse">
 <xs:sequence>
 <xs:element name="return" type="tns:usuario" minOccurs="0" maxOccurs="unbounded"/>
 </xs:sequence>
@@ -232,6 +197,36 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="actualizarUsuario">
+<xs:sequence>
+<xs:element name="codigoUsuario" type="xs:string" minOccurs="0"/>
+<xs:element name="nombreUsuario" type="xs:string" minOccurs="0"/>
+<xs:element name="clave" type="xs:string" minOccurs="0"/>
+<xs:element name="codigoRol" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="actualizarUsuarioResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:usuario" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="agregarUsuario">
+<xs:sequence>
+<xs:element name="nombreUsuario" type="xs:string" minOccurs="0"/>
+<xs:element name="clave" type="xs:string" minOccurs="0"/>
+<xs:element name="codigoEmpleado" type="xs:string" minOccurs="0"/>
+<xs:element name="codigoRol" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="agregarUsuarioResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:usuario" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="listarUsuarios">
 <xs:sequence/>
 </xs:complexType>
@@ -239,19 +234,6 @@
 <xs:complexType name="listarUsuariosResponse">
 <xs:sequence>
 <xs:element name="return" type="tns:usuario" minOccurs="0" maxOccurs="unbounded"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="buscarUsuariosPaginacionCount">
-<xs:sequence>
-<xs:element name="consulta" type="xs:string" minOccurs="0"/>
-<xs:element name="cantidad" type="xs:int"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="buscarUsuariosPaginacionCountResponse">
-<xs:sequence>
-<xs:element name="return" type="xs:int"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -263,20 +245,5 @@
 
 <xs:complexType name="eliminarUsuarioResponse">
 <xs:sequence/>
-</xs:complexType>
-
-<xs:complexType name="editarUsuario">
-<xs:sequence>
-<xs:element name="codigoUsuario" type="xs:string" minOccurs="0"/>
-<xs:element name="nombreUsuario" type="xs:string" minOccurs="0"/>
-<xs:element name="clave" type="xs:string" minOccurs="0"/>
-<xs:element name="codigoRol" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="editarUsuarioResponse">
-<xs:sequence>
-<xs:element name="return" type="tns:usuario" minOccurs="0"/>
-</xs:sequence>
 </xs:complexType>
 </xs:schema>

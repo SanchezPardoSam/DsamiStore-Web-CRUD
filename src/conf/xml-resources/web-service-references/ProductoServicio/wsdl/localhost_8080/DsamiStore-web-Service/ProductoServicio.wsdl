@@ -4,26 +4,14 @@
 <xsd:import namespace="http://WebService/" schemaLocation="http://localhost:8080/DsamiStore-web-Service/ProductoServicio?xsd=1"/>
 </xsd:schema>
 </types>
-<message name="listarAlmacen">
-<part name="parameters" element="tns:listarAlmacen"/>
-</message>
-<message name="listarAlmacenResponse">
-<part name="parameters" element="tns:listarAlmacenResponse"/>
-</message>
-<message name="Exception">
-<part name="fault" element="tns:Exception"/>
-</message>
-<message name="listarMoneda">
-<part name="parameters" element="tns:listarMoneda"/>
-</message>
-<message name="listarMonedaResponse">
-<part name="parameters" element="tns:listarMonedaResponse"/>
-</message>
 <message name="agregarProducto">
 <part name="parameters" element="tns:agregarProducto"/>
 </message>
 <message name="agregarProductoResponse">
 <part name="parameters" element="tns:agregarProductoResponse"/>
+</message>
+<message name="Exception">
+<part name="fault" element="tns:Exception"/>
 </message>
 <message name="listarProductos">
 <part name="parameters" element="tns:listarProductos"/>
@@ -61,17 +49,19 @@
 <message name="listarMarcaResponse">
 <part name="parameters" element="tns:listarMarcaResponse"/>
 </message>
+<message name="listarAlmacen">
+<part name="parameters" element="tns:listarAlmacen"/>
+</message>
+<message name="listarAlmacenResponse">
+<part name="parameters" element="tns:listarAlmacenResponse"/>
+</message>
+<message name="listarMoneda">
+<part name="parameters" element="tns:listarMoneda"/>
+</message>
+<message name="listarMonedaResponse">
+<part name="parameters" element="tns:listarMonedaResponse"/>
+</message>
 <portType name="ProductoServicio">
-<operation name="listarAlmacen">
-<input wsam:Action="http://WebService/ProductoServicio/listarAlmacenRequest" message="tns:listarAlmacen"/>
-<output wsam:Action="http://WebService/ProductoServicio/listarAlmacenResponse" message="tns:listarAlmacenResponse"/>
-<fault message="tns:Exception" name="Exception" wsam:Action="http://WebService/ProductoServicio/listarAlmacen/Fault/Exception"/>
-</operation>
-<operation name="listarMoneda">
-<input wsam:Action="http://WebService/ProductoServicio/listarMonedaRequest" message="tns:listarMoneda"/>
-<output wsam:Action="http://WebService/ProductoServicio/listarMonedaResponse" message="tns:listarMonedaResponse"/>
-<fault message="tns:Exception" name="Exception" wsam:Action="http://WebService/ProductoServicio/listarMoneda/Fault/Exception"/>
-</operation>
 <operation name="agregarProducto">
 <input wsam:Action="http://WebService/ProductoServicio/agregarProductoRequest" message="tns:agregarProducto"/>
 <output wsam:Action="http://WebService/ProductoServicio/agregarProductoResponse" message="tns:agregarProductoResponse"/>
@@ -107,33 +97,19 @@
 <output wsam:Action="http://WebService/ProductoServicio/listarMarcaResponse" message="tns:listarMarcaResponse"/>
 <fault message="tns:Exception" name="Exception" wsam:Action="http://WebService/ProductoServicio/listarMarca/Fault/Exception"/>
 </operation>
+<operation name="listarAlmacen">
+<input wsam:Action="http://WebService/ProductoServicio/listarAlmacenRequest" message="tns:listarAlmacen"/>
+<output wsam:Action="http://WebService/ProductoServicio/listarAlmacenResponse" message="tns:listarAlmacenResponse"/>
+<fault message="tns:Exception" name="Exception" wsam:Action="http://WebService/ProductoServicio/listarAlmacen/Fault/Exception"/>
+</operation>
+<operation name="listarMoneda">
+<input wsam:Action="http://WebService/ProductoServicio/listarMonedaRequest" message="tns:listarMoneda"/>
+<output wsam:Action="http://WebService/ProductoServicio/listarMonedaResponse" message="tns:listarMonedaResponse"/>
+<fault message="tns:Exception" name="Exception" wsam:Action="http://WebService/ProductoServicio/listarMoneda/Fault/Exception"/>
+</operation>
 </portType>
 <binding name="ProductoServicioPortBinding" type="tns:ProductoServicio">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="listarAlmacen">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-<fault name="Exception">
-<soap:fault name="Exception" use="literal"/>
-</fault>
-</operation>
-<operation name="listarMoneda">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-<fault name="Exception">
-<soap:fault name="Exception" use="literal"/>
-</fault>
-</operation>
 <operation name="agregarProducto">
 <soap:operation soapAction=""/>
 <input>
@@ -207,6 +183,30 @@
 </fault>
 </operation>
 <operation name="listarMarca">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Exception">
+<soap:fault name="Exception" use="literal"/>
+</fault>
+</operation>
+<operation name="listarAlmacen">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Exception">
+<soap:fault name="Exception" use="literal"/>
+</fault>
+</operation>
+<operation name="listarMoneda">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

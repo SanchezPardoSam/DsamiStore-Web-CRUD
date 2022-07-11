@@ -19,7 +19,7 @@
             <a href="${pageContext.request.contextPath}/usuarios" class="nav-link ${pageContext.request.requestURI.endsWith('/usuarios.jsp') ? 'active' : 'link-dark'}">Usuarios</a>
         </li>
         <li class='nav-item' >
-            <a href="${pageContext.request.contextPath}/roles.jsp"  class="nav-link ${pageContext.request.requestURI.endsWith('/roles.jsp') ? 'active' : 'link-dark'}">Roles</a>
+            <a href="${pageContext.request.contextPath}/roles"  class="nav-link ${pageContext.request.requestURI.endsWith('/roles.jsp') ? 'active' : 'link-dark'}">Roles</a>
         </li>
         <li class='nav-item' >
             <a href="${pageContext.request.contextPath}/recepcion.jsp" class="nav-link ${pageContext.request.requestURI.endsWith('/recepcion.jsp') ? 'active' : 'link-dark'}">Recepcion</a>

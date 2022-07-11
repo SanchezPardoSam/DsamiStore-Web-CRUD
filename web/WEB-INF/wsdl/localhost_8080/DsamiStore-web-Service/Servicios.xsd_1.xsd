@@ -14,10 +14,6 @@
 
 <xs:element name="listarCategoriasResponse" type="tns:listarCategoriasResponse"/>
 
-<xs:element name="listarRoles" type="tns:listarRoles"/>
-
-<xs:element name="listarRolesResponse" type="tns:listarRolesResponse"/>
-
 <xs:element name="modificarCategoria" type="tns:modificarCategoria"/>
 
 <xs:element name="modificarCategoriaResponse" type="tns:modificarCategoriaResponse"/>
@@ -56,23 +52,6 @@
 <xs:sequence>
 <xs:element name="descripcion" type="xs:string" minOccurs="0"/>
 <xs:element name="id" type="xs:string" minOccurs="0"/>
-<xs:element name="nombre" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="listarRoles">
-<xs:sequence/>
-</xs:complexType>
-
-<xs:complexType name="listarRolesResponse">
-<xs:sequence>
-<xs:element name="return" type="tns:rol" minOccurs="0" maxOccurs="unbounded"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="rol">
-<xs:sequence>
-<xs:element name="codigoRol" type="xs:string" minOccurs="0"/>
 <xs:element name="nombre" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>

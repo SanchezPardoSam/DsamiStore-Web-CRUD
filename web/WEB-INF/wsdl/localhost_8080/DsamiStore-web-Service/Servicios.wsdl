@@ -13,23 +13,17 @@
 <message name="Exception">
 <part name="fault" element="tns:Exception"/>
 </message>
-<message name="listarRoles">
-<part name="parameters" element="tns:listarRoles"/>
+<message name="modificarCategoria">
+<part name="parameters" element="tns:modificarCategoria"/>
 </message>
-<message name="listarRolesResponse">
-<part name="parameters" element="tns:listarRolesResponse"/>
+<message name="modificarCategoriaResponse">
+<part name="parameters" element="tns:modificarCategoriaResponse"/>
 </message>
 <message name="agregarCategoria">
 <part name="parameters" element="tns:agregarCategoria"/>
 </message>
 <message name="agregarCategoriaResponse">
 <part name="parameters" element="tns:agregarCategoriaResponse"/>
-</message>
-<message name="modificarCategoria">
-<part name="parameters" element="tns:modificarCategoria"/>
-</message>
-<message name="modificarCategoriaResponse">
-<part name="parameters" element="tns:modificarCategoriaResponse"/>
 </message>
 <message name="eliminarCategoria">
 <part name="parameters" element="tns:eliminarCategoria"/>
@@ -43,20 +37,15 @@
 <output wsam:Action="http://WebService/Servicios/listarCategoriasResponse" message="tns:listarCategoriasResponse"/>
 <fault message="tns:Exception" name="Exception" wsam:Action="http://WebService/Servicios/listarCategorias/Fault/Exception"/>
 </operation>
-<operation name="listarRoles">
-<input wsam:Action="http://WebService/Servicios/listarRolesRequest" message="tns:listarRoles"/>
-<output wsam:Action="http://WebService/Servicios/listarRolesResponse" message="tns:listarRolesResponse"/>
-<fault message="tns:Exception" name="Exception" wsam:Action="http://WebService/Servicios/listarRoles/Fault/Exception"/>
+<operation name="modificarCategoria">
+<input wsam:Action="http://WebService/Servicios/modificarCategoriaRequest" message="tns:modificarCategoria"/>
+<output wsam:Action="http://WebService/Servicios/modificarCategoriaResponse" message="tns:modificarCategoriaResponse"/>
+<fault message="tns:Exception" name="Exception" wsam:Action="http://WebService/Servicios/modificarCategoria/Fault/Exception"/>
 </operation>
 <operation name="agregarCategoria">
 <input wsam:Action="http://WebService/Servicios/agregarCategoriaRequest" message="tns:agregarCategoria"/>
 <output wsam:Action="http://WebService/Servicios/agregarCategoriaResponse" message="tns:agregarCategoriaResponse"/>
 <fault message="tns:Exception" name="Exception" wsam:Action="http://WebService/Servicios/agregarCategoria/Fault/Exception"/>
-</operation>
-<operation name="modificarCategoria">
-<input wsam:Action="http://WebService/Servicios/modificarCategoriaRequest" message="tns:modificarCategoria"/>
-<output wsam:Action="http://WebService/Servicios/modificarCategoriaResponse" message="tns:modificarCategoriaResponse"/>
-<fault message="tns:Exception" name="Exception" wsam:Action="http://WebService/Servicios/modificarCategoria/Fault/Exception"/>
 </operation>
 <operation name="eliminarCategoria">
 <input wsam:Action="http://WebService/Servicios/eliminarCategoriaRequest" message="tns:eliminarCategoria"/>
@@ -77,7 +66,7 @@
 <soap:fault name="Exception" use="literal"/>
 </fault>
 </operation>
-<operation name="listarRoles">
+<operation name="modificarCategoria">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -90,18 +79,6 @@
 </fault>
 </operation>
 <operation name="agregarCategoria">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-<fault name="Exception">
-<soap:fault name="Exception" use="literal"/>
-</fault>
-</operation>
-<operation name="modificarCategoria">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

@@ -106,5 +106,21 @@
         <delete dir="${build.generated.sources.dir}/jax-ws/webservice"/>
         <delete dir="${build.generated.dir}/jax-wsCache/ProveedorServicio"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-Servicios, wsimport-client-EmpleadoServicio, wsimport-client-UsuarioServicio, wsimport-client-ProductoServicio, wsimport-client-ProveedorServicio"/>
+    <target name="wsimport-client-RolServicio" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/RolServicio"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/RolServicio" destdir="${build.generated.dir}/jax-wsCache/RolServicio" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/RolServicio/wsdl/localhost_8080/DsamiStore-web-Service/RolServicio.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/DsamiStore-web-Service/RolServicio?wsdl" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/RolServicio/wsdl/localhost_8080/DsamiStore-web-Service/RolServicio.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/RolServicio"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/RolServicio">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-RolServicio" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/webservice"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/RolServicio"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-Servicios, wsimport-client-EmpleadoServicio, wsimport-client-UsuarioServicio, wsimport-client-ProductoServicio, wsimport-client-ProveedorServicio, wsimport-client-RolServicio"/>
 </project>

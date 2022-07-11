@@ -26,15 +26,17 @@
                         <div class="title-proveedores py-2">
                             <h2>Usuarios</h2>
                         </div>
+                        
                         <div class="d-flex justify-content-between align-items-center">
                             <div>
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregar-modal">Agregar</button>
                             </div>
+                            
                             <form action="usuarios" class="d-flex">
                                 <input type="hidden" name="pagina" value="${pagina}" />
                                 <input type="hidden" name="cantidad" value="${cantidad}" />
                                 <input type="search" name="q" value="${q}" placeholder="Buscar un usuario" class="form-control me-2">
-                                <button  type="submit" class="btn btn-primary">Buscar</button>
+                                <button type="submit" class="btn btn-primary">Buscar</button>
                             </form>
                         </div>
                     </div>
@@ -182,17 +184,17 @@
 
                                                     <script>
                                                         (() => {
-                                                            // Agregar modal
+                                                            // Editar modal
                                                             const editarModalEl = document.getElementById('editar-modal-${usuario.getCodigoUsuario()}');
 
-                                                            // Agregar form
+                                                            // Editar form
                                                             const editarNombreUsuarioInputEl = document.getElementById('editar-nombre-usuario-input-${usuario.getCodigoUsuario()}');
                                                             const editarClaveInputEl = document.getElementById('editar-clave-input-${usuario.getCodigoUsuario()}');
                                                             const editarCodigoRolSelectEl = document.getElementById('editar-codigo-rol-select-${usuario.getCodigoUsuario()}');
                                                             const editarCodigoEmpleadoSelectEl = document.getElementById('editar-codigo-empleado-select-${usuario.getCodigoUsuario()}');
 
 
-                                                            // Agregar alert
+                                                            // Editar alert
                                                             const editarAlertDangerEl = document.getElementById('editar-alert-danger-${usuario.getCodigoUsuario()}');
                                                             const editarAlertDangerMensajeEl = document.getElementById('editar-alert-danger-mensaje-${usuario.getCodigoUsuario()}');
 
@@ -267,7 +269,7 @@
                                                                     </div>
                                                                     <div class="modal-footer">
                                                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                                                        <button type="submit" class="btn btn-danger btnBorrar btn-block" data-bs-dismiss="modal" id="${usuario.getCodigoUsuario()}" name="accion" value="eliminar" >Borrar</button>
+                                                                        <button type="submit" class="btn btn-danger btnBorrar btn-block" data-bs-dismiss="modal" id="${usuario.getCodigoUsuario()}" name="accion" value="eliminar">Borrar</button>
                                                                     </div>
                                                                 </form>
                                                             </div>
@@ -287,8 +289,8 @@
                         <div>
                             <span>Cantidad</span>
                             <select class="form-select" onchange="cambiarCantidad(this)">
-                                <option value="5" ${cantidad == 5 ? "selected" : ""}>5</option>
                                 <option value="10" ${cantidad == 10 ? "selected" : ""}>10</option>
+                                <option value="25" ${cantidad == 25 ? "selected" : ""}>25</option>
                                 <option value="50" ${cantidad == 50 ? "selected" : ""}>50</option>
                             </select> 
                         </div>

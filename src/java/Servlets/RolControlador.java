@@ -5,9 +5,7 @@
  */
 package Servlets;
 
-import Modelo.EmpleadoServicio;
 import Modelo.RolServicio;
-import Modelo.UsuarioServicio;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
@@ -16,22 +14,27 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import webservice.Empleado;
 import webservice.Exception_Exception;
 import webservice.Rol;
-import webservice.Usuario;
 
 /**
  *
  * @author fernandomonjav
  */
-@WebServlet("/usuarios")
-public class UsuarioControlador extends HttpServlet {
+@WebServlet("/roles")
+public class RolControlador extends HttpServlet {
 
-    UsuarioServicio usuarioServicio = new UsuarioServicio();
     RolServicio rolServicio = new RolServicio();
-    EmpleadoServicio empleadoServicio = new EmpleadoServicio();
 
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -46,15 +49,13 @@ public class UsuarioControlador extends HttpServlet {
             return;
         }
          */
+        int pagina = request.getParameter("pagina") != null ? Integer.parseInt(request.getParameter("pagina")) : 1;
+        int cantidad = request.getParameter("cantidad") != null ? Integer.parseInt(request.getParameter("cantidad")) : 10;
+        String consulta = request.getParameter("q") != null ? request.getParameter("q") : "";
         try {
-            int pagina = request.getParameter("pagina") != null ? Integer.parseInt(request.getParameter("pagina")) : 1;
-            int cantidad = request.getParameter("cantidad") != null ? Integer.parseInt(request.getParameter("cantidad")) : 10;
-            String consulta = request.getParameter("q") != null ? request.getParameter("q") : "";
 
-            int paginas = usuarioServicio.listarUsuariosPaginacionCount(consulta, cantidad);
-            List<Usuario> usuarios = usuarioServicio.listarUsuariosPaginacion(consulta, pagina, cantidad);
-            List<Rol> roles = rolServicio.listarRoles();
-            List<Empleado> empleados = empleadoServicio.listarEmpleado();
+            int paginas = rolServicio.listarRolesPaginacionCount(consulta, cantidad);
+            List<Rol> roles = rolServicio.listarRolesPaginacion(consulta, pagina, cantidad);
 
             request.setAttribute("pagina", pagina);
             request.setAttribute("cantidad", cantidad);
@@ -62,9 +63,7 @@ public class UsuarioControlador extends HttpServlet {
 
             request.setAttribute("q", consulta);
 
-            request.setAttribute("usuarios", usuarios);
             request.setAttribute("roles", roles);
-            request.setAttribute("empleados", empleados);
         } catch (Exception_Exception ex) {
 
         }
@@ -90,76 +89,66 @@ public class UsuarioControlador extends HttpServlet {
     }
 
     public void listar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("usuarios.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("roles.jsp");
         dispatcher.forward(request, response);
     }
 
     public void agregar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String nombreUsuario = request.getParameter("nombreUsuario");
-        String clave = request.getParameter("clave");
-        String codigoRol = request.getParameter("codigoRol");
-        String codigoEmpleado = request.getParameter("codigoEmpleado");
+        String nombre = request.getParameter("nombre");
 
         try {
-            usuarioServicio.agregarUsuario(nombreUsuario, clave, codigoEmpleado, codigoRol);
+            rolServicio.agregarRol(nombre);
 
-            response.sendRedirect(request.getContextPath() + "/usuarios");
+            response.sendRedirect(request.getContextPath() + "/roles");
 
         } catch (Exception_Exception ex) {
             request.setAttribute("agregarAlertDanger", true);
 
-            request.setAttribute("nombreUsuario", nombreUsuario);
-            request.setAttribute("codigoRol", codigoRol);
-            request.setAttribute("codigoEmpleado", codigoEmpleado);
+            request.setAttribute("nombre", nombre);
 
             request.setAttribute("errorMensaje", ex.getMessage());
 
-            RequestDispatcher dispatcher = request.getRequestDispatcher("usuarios.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("roles.jsp");
             dispatcher.forward(request, response);
         }
 
     }
 
     public void editar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String codigoUsuario = request.getParameter("codigoUsuario");
-        String nombreUsuario = request.getParameter("nombreUsuario");
-        String clave = request.getParameter("clave");
         String codigoRol = request.getParameter("codigoRol");
-        String codigoEmpleado = request.getParameter("codigoEmpleado");
+        String nombre = request.getParameter("nombre");
 
         try {
-            usuarioServicio.actualizarUsuario(codigoUsuario, nombreUsuario, clave, codigoRol);
+            rolServicio.actualizarRol(codigoRol, nombre);
 
-            response.sendRedirect(request.getContextPath() + "/usuarios");
+            response.sendRedirect(request.getContextPath() + "/roles");
 
         } catch (Exception_Exception ex) {
             request.setAttribute("editarAlertDanger", true);
 
-            request.setAttribute("codigoUsuario", codigoUsuario);
-            request.setAttribute("nombreUsuario", nombreUsuario);
             request.setAttribute("codigoRol", codigoRol);
-            request.setAttribute("codigoEmpleado", codigoEmpleado);
+            request.setAttribute("nombre", nombre);
 
             request.setAttribute("errorMensaje", ex.getMessage());
 
-            RequestDispatcher dispatcher = request.getRequestDispatcher("usuarios.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("roles.jsp");
             dispatcher.forward(request, response);
         }
 
     }
 
     public void eliminar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String codigoUsuario = request.getParameter("codigoUsuario");
+        String codigoRol = request.getParameter("codigoRol");
 
         try {
-            usuarioServicio.eliminarUsuario(codigoUsuario);
+            rolServicio.eliminarRol(codigoRol);
 
-            response.sendRedirect(request.getContextPath() + "/usuarios");
+            response.sendRedirect(request.getContextPath() + "/roles");
 
         } catch (Exception_Exception ex) {
             request.setAttribute("errorMensaje", ex.getMessage());
 
-            RequestDispatcher dispatcher = request.getRequestDispatcher("usuarios.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("roles.jsp");
             dispatcher.forward(request, response);
         }
 
