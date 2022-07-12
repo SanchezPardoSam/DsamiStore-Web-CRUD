@@ -203,7 +203,7 @@
                                                                             
                                                                             <div class="mb-3">
                                                                                 <label for="agregar-nombre" class="col-form-label">Nombre</label>
-                                                                                <input type="text" class="form-control" id="editar-nombre" name="crearNombre" value="<${producto.getNombre()}" placeholder="Agregar nombre" required autofocus>
+                                                                                <input type="text" class="form-control" id="editar-nombre" name="crearNombre" value="${producto.getNombre()}" placeholder="Agregar nombre" required autofocus>
                                                                             </div>
                                                                             <div class="mb-3">
                                                                                 <label for="agregar-descripcion" class="col-form-label">Descripcion</label>
