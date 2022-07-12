@@ -68,22 +68,23 @@
                                                 <input type="text" class="form-control" id="agregar-nombre" name="crearNombre" placeholder="Agregar nombre" required autofocus>
                                             </div>
                                             <div>
-                                                <label for="agregar-descripcion" class="col-form-label">DescripciÃ³n</label>
-                                                <input type="text" class="form-control" id="agregar-descripcion" name="crearDescripcion" placeholder="Agregar descripciÃ³n" required>
+                                                <label for="agregar-descripcion" class="col-form-label">Descripción</label>
+                                                <input type="text" class="form-control" id="agregar-descripcion" name="crearDescripcion" placeholder="Agregar descripción" required>
                                             </div>
                                             <div class="mb-3">
-                                                <label for="agregar-codigo" class="col-form-label">CÃ³digo de barras</label>
-                                                <input type="text" class="form-control" id="agregar-codigo" name="crearCodigo" placeholder="Agregar codigo de barras" required autofocus>
+                                                <label for="agregar-codigo" class="col-form-label">Código de barras</label>
+                                                <input type="number" class="form-control" id="agregar-codigo" name="crearCodigo" placeholder="Agregar codigo de barras" required autofocus
+                                                        onKeyPress="if(!this.value.length===12) return false;" >
                                             </div>
                                             <div class="mb-3">
                                                 <label for="agregar-precio" class="col-form-label">Precio</label>
-                                                <input type="number" class="form-control" id="agregar-precio" name="crearPrecio" placeholder="Precio" required autofocus>
+                                                <input type="number" class="form-control" id="agregar-precio" name="crearPrecio" placeholder="Precio" required autofocus  min="0">
                                             </div>
                                             <div class="mb-3">
                                                 <label for="agregar-marca" class="col-form-label">Marca</label>
 
                                                 <select type="text"  class="form-select" id="agregar-marca" name="crearMarca" placeholder="Marca" required autofocus>
-                                                    <option hidden>Selecciona una marca</option>
+                                                    <option selected value="">Selecciona una marca</option>
                                                     <%
                                                         ProductoServicio r = new ProductoServicio();
                                                         List<Marca> listMarca = r.listarMarca();
@@ -101,7 +102,7 @@
                                             <div class="mb-3">
                                                 <label for="agregar-categoria" class="col-form-label">Categoria</label>
                                                 <select class="form-select" id="agregar-categoria" name="crearCategoria" required autofocus>
-                                                    <option hidden>Seleccionar categoria</option>
+                                                    <option hidden value="">Seleccionar categoria</option>
                                                     <%
                                                         List<Categoria> listCat = r.listarCategoria();
 
@@ -240,16 +241,16 @@
                                                                             <input type="text" class="form-control" id="editar-nombre" name="crearNombre" value="<%= pro.getNombre()%>" placeholder="Agregar nombre" required autofocus>
                                                                         </div>
                                                                         <div>
-                                                                            <label for="agregar-descripcion" class="col-form-label">DescripciÃ³n</label>
-                                                                            <input type="text" class="form-control" id="agregar-descripcion" name="crearDescripcion" value="<%= pro.getDescripcion()%>" placeholder="Agregar descripciÃ³n" required>
+                                                                            <label for="agregar-descripcion" class="col-form-label">Descripción</label>
+                                                                            <input type="text" class="form-control" id="agregar-descripcion" name="crearDescripcion" value="<%= pro.getDescripcion()%>" placeholder="Agregar descripción" required>
                                                                         </div>
                                                                         <div class="mb-3">
-                                                                            <label for="agregar-codigo" class="col-form-label">CÃ³digo de barras</label>
-                                                                            <input type="text" class="form-control" id="agregar-codigo" name="crearCodigo" value="<%= pro.getCodBarras()%>" placeholder="Agregar codigo de barras" required autofocus>
+                                                                            <label for="agregar-codigo" class="col-form-label">Código de barras</label>
+                                                                            <input type="number" class="form-control" id="agregar-codigo" name="crearCodigo" value="<%= pro.getCodBarras()%>" placeholder="Agregar codigo de barras" required autofocus onKeyPress="if(!this.value.length===12) return false;">
                                                                         </div>
                                                                         <div class="mb-3">
                                                                             <label for="agregar-precio" class="col-form-label">Precio</label>
-                                                                            <input type="number" class="form-control" id="agregar-precio" name="crearPrecio" value="<%= pro.getPrecio()%>" placeholder="Precio" required autofocus>
+                                                                            <input type="number" class="form-control" id="agregar-precio" name="crearPrecio" value="<%= pro.getPrecio()%>" placeholder="Precio" required autofocus min="0">
                                                                         </div>
                                                                         <div class="mb-3">
                                                                             <label for="agregar-marca" class="col-form-label">Marca</label>
@@ -266,7 +267,7 @@
                                                                         </div>
                                                                         <div class="mb-3">
                                                                             <label for="agregar-categoria" class="col-form-label">Categoria</label>
-                                                                            <select class="form-select" id="agregar-categoria" name="crearCategoria" required autofocus>
+                                                                            <select class="form-select" id="agregar-categoria" name="crearCategoria" required autofocus >
                                                                                 <option hidden>Seleccionar categoria</option>
                                                                                 <%
                                                                                     listCat = r.listarCategoria();

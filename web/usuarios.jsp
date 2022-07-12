@@ -45,13 +45,14 @@
                     <div class="modal fade" id="agregar-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
-                                <form action="usuarios" method="POST">
+                                <form action="usuarios" method="POST"  name="crearUsuario" onsubmit="return validateFormCreate();">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="staticBackdropLabel">Agregar usuario</h5>
                                         <button type="button" class="btn-close p-2" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
 
                                     <div class="modal-body">
+                                        <div id="createAlert"></div>
                                         <div id="agregar-alert-danger" class="alert alert-danger alert-dismissible fade show" role="alert" style="display: none;">
                                             <span id="agregar-alert-danger-mensaje"></span>
                                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -378,5 +379,6 @@
             ${agregarAlertDanger? 'agregarModal.show();' : ''}
             })();
         </script>
+        <script src="./public/js/validacion/usuario.js"></script>
     </body>
 </html>
