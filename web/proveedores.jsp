@@ -396,26 +396,26 @@
 
 
                                                                                         for (const pais of paises) {
-                                                                                            paisesHTML += "<option selected='" + (pais.id === paisIdSeleccionada ? "true" : "false") + "' value='" + pais.id + "'>" + pais.nombre + "</option>";
+                                                                                            paisesHTML += "<option " + (pais.id === paisIdSeleccionada ? "selected" : "") + " value='" + pais.id + "'>" + pais.nombre + "</option>";
                                                                                         }
 
                                                                                         const regiones = await obtenerRegiones(paisIdSeleccionada);
 
 
                                                                                         for (const region of regiones) {
-                                                                                            regionesHTML += "<option selected='" + (region.id === regionIdSeleccionada ? "true" : "false") + "' value='" + region.id + "'>" + region.nombre + "</option>";
+                                                                                            regionesHTML += "<option " + (region.id === regionIdSeleccionada ? "selected" : "") + " value='" + region.id + "'>" + region.nombre + "</option>";
                                                                                         }
 
                                                                                         const provincias = await obtenerProvincias(regionIdSeleccionada);
 
                                                                                         for (const provincia of provincias) {
-                                                                                            provinciasHTML += "<option selected='" + (provincia.id === provinciaIdSeleccionada ? "true" : "false") + "' value='" + provincia.id + "'>" + provincia.nombre + "</option>";
+                                                                                            provinciasHTML += "<option " + (provincia.id === provinciaIdSeleccionada ? "selected" : "") + " value='" + provincia.id + "'>" + provincia.nombre + "</option>";
                                                                                         }
 
                                                                                         const distritos = await obtenerDistritos(provinciaIdSeleccionada);
 
                                                                                         for (const distrito of distritos) {
-                                                                                            distritosHTML += "<option selected='" + (distrito.id === distritoIdSeleccionada ? "true" : "false") + "' value='" + distrito.id + "'>" + distrito.nombre + "</option>";
+                                                                                            distritosHTML += "<option " + (distrito.id === distritoIdSeleccionada ? "selected" : "") + " value='" + distrito.id + "'>" + distrito.nombre + "</option>";
                                                                                         }
 
                                                                                         paisSelectEl.innerHTML = paisesHTML;
