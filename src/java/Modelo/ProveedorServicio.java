@@ -20,6 +20,18 @@ public class ProveedorServicio {
         return port.listarProveedor();
     }
 
+    public java.util.List<webservice.Proveedor> listarProveedoresPaginacion(java.lang.String consulta, int pagina, int cantidad) throws Exception_Exception {
+        webservice.ProveedorServicio_Service service = new webservice.ProveedorServicio_Service();
+        webservice.ProveedorServicio port = service.getProveedorServicioPort();
+        return port.listarProveedoresPaginacion(consulta, pagina, cantidad);
+    }
+
+    public int listarProveedoresPaginacionCount(java.lang.String consulta, int cantidad) throws Exception_Exception {
+        webservice.ProveedorServicio_Service service = new webservice.ProveedorServicio_Service();
+        webservice.ProveedorServicio port = service.getProveedorServicioPort();
+        return port.listarProveedoresPaginacionCount(consulta, cantidad);
+    }
+
     public String agregarProveedor(java.lang.String empresa, java.lang.String nombre, java.lang.String apellidoPaterno, java.lang.String apellidoMaterno, java.lang.String tipoDocumento, java.lang.String numDocumento, java.lang.String fechaNac, java.lang.String pais, java.lang.String region, java.lang.String provincia, java.lang.String distrito, java.lang.String direccion) throws Exception_Exception {
         webservice.ProveedorServicio_Service service = new webservice.ProveedorServicio_Service();
         webservice.ProveedorServicio port = service.getProveedorServicioPort();

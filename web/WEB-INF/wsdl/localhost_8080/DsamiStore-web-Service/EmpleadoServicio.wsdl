@@ -4,11 +4,11 @@
 <xsd:import namespace="http://WebService/" schemaLocation="http://localhost:8080/DsamiStore-web-Service/EmpleadoServicio?xsd=1"/>
 </xsd:schema>
 </types>
-<message name="eliminarEmpleado">
-<part name="parameters" element="tns:eliminarEmpleado"/>
+<message name="listarDistritos">
+<part name="parameters" element="tns:listarDistritos"/>
 </message>
-<message name="eliminarEmpleadoResponse">
-<part name="parameters" element="tns:eliminarEmpleadoResponse"/>
+<message name="listarDistritosResponse">
+<part name="parameters" element="tns:listarDistritosResponse"/>
 </message>
 <message name="Exception">
 <part name="fault" element="tns:Exception"/>
@@ -24,6 +24,18 @@
 </message>
 <message name="agregarEmpleadoResponse">
 <part name="parameters" element="tns:agregarEmpleadoResponse"/>
+</message>
+<message name="eliminarEmpleado">
+<part name="parameters" element="tns:eliminarEmpleado"/>
+</message>
+<message name="eliminarEmpleadoResponse">
+<part name="parameters" element="tns:eliminarEmpleadoResponse"/>
+</message>
+<message name="listarProvincias">
+<part name="parameters" element="tns:listarProvincias"/>
+</message>
+<message name="listarProvinciasResponse">
+<part name="parameters" element="tns:listarProvinciasResponse"/>
 </message>
 <message name="modificarEmpleado">
 <part name="parameters" element="tns:modificarEmpleado"/>
@@ -55,23 +67,11 @@
 <message name="listarRegionesResponse">
 <part name="parameters" element="tns:listarRegionesResponse"/>
 </message>
-<message name="listarProvincias">
-<part name="parameters" element="tns:listarProvincias"/>
-</message>
-<message name="listarProvinciasResponse">
-<part name="parameters" element="tns:listarProvinciasResponse"/>
-</message>
-<message name="listarDistritos">
-<part name="parameters" element="tns:listarDistritos"/>
-</message>
-<message name="listarDistritosResponse">
-<part name="parameters" element="tns:listarDistritosResponse"/>
-</message>
 <portType name="EmpleadoServicio">
-<operation name="eliminarEmpleado">
-<input wsam:Action="http://WebService/EmpleadoServicio/eliminarEmpleadoRequest" message="tns:eliminarEmpleado"/>
-<output wsam:Action="http://WebService/EmpleadoServicio/eliminarEmpleadoResponse" message="tns:eliminarEmpleadoResponse"/>
-<fault message="tns:Exception" name="Exception" wsam:Action="http://WebService/EmpleadoServicio/eliminarEmpleado/Fault/Exception"/>
+<operation name="listarDistritos">
+<input wsam:Action="http://WebService/EmpleadoServicio/listarDistritosRequest" message="tns:listarDistritos"/>
+<output wsam:Action="http://WebService/EmpleadoServicio/listarDistritosResponse" message="tns:listarDistritosResponse"/>
+<fault message="tns:Exception" name="Exception" wsam:Action="http://WebService/EmpleadoServicio/listarDistritos/Fault/Exception"/>
 </operation>
 <operation name="listarEmpleado">
 <input wsam:Action="http://WebService/EmpleadoServicio/listarEmpleadoRequest" message="tns:listarEmpleado"/>
@@ -82,6 +82,16 @@
 <input wsam:Action="http://WebService/EmpleadoServicio/agregarEmpleadoRequest" message="tns:agregarEmpleado"/>
 <output wsam:Action="http://WebService/EmpleadoServicio/agregarEmpleadoResponse" message="tns:agregarEmpleadoResponse"/>
 <fault message="tns:Exception" name="Exception" wsam:Action="http://WebService/EmpleadoServicio/agregarEmpleado/Fault/Exception"/>
+</operation>
+<operation name="eliminarEmpleado">
+<input wsam:Action="http://WebService/EmpleadoServicio/eliminarEmpleadoRequest" message="tns:eliminarEmpleado"/>
+<output wsam:Action="http://WebService/EmpleadoServicio/eliminarEmpleadoResponse" message="tns:eliminarEmpleadoResponse"/>
+<fault message="tns:Exception" name="Exception" wsam:Action="http://WebService/EmpleadoServicio/eliminarEmpleado/Fault/Exception"/>
+</operation>
+<operation name="listarProvincias">
+<input wsam:Action="http://WebService/EmpleadoServicio/listarProvinciasRequest" message="tns:listarProvincias"/>
+<output wsam:Action="http://WebService/EmpleadoServicio/listarProvinciasResponse" message="tns:listarProvinciasResponse"/>
+<fault message="tns:Exception" name="Exception" wsam:Action="http://WebService/EmpleadoServicio/listarProvincias/Fault/Exception"/>
 </operation>
 <operation name="modificarEmpleado">
 <input wsam:Action="http://WebService/EmpleadoServicio/modificarEmpleadoRequest" message="tns:modificarEmpleado"/>
@@ -108,20 +118,10 @@
 <output wsam:Action="http://WebService/EmpleadoServicio/listarRegionesResponse" message="tns:listarRegionesResponse"/>
 <fault message="tns:Exception" name="Exception" wsam:Action="http://WebService/EmpleadoServicio/listarRegiones/Fault/Exception"/>
 </operation>
-<operation name="listarProvincias">
-<input wsam:Action="http://WebService/EmpleadoServicio/listarProvinciasRequest" message="tns:listarProvincias"/>
-<output wsam:Action="http://WebService/EmpleadoServicio/listarProvinciasResponse" message="tns:listarProvinciasResponse"/>
-<fault message="tns:Exception" name="Exception" wsam:Action="http://WebService/EmpleadoServicio/listarProvincias/Fault/Exception"/>
-</operation>
-<operation name="listarDistritos">
-<input wsam:Action="http://WebService/EmpleadoServicio/listarDistritosRequest" message="tns:listarDistritos"/>
-<output wsam:Action="http://WebService/EmpleadoServicio/listarDistritosResponse" message="tns:listarDistritosResponse"/>
-<fault message="tns:Exception" name="Exception" wsam:Action="http://WebService/EmpleadoServicio/listarDistritos/Fault/Exception"/>
-</operation>
 </portType>
 <binding name="EmpleadoServicioPortBinding" type="tns:EmpleadoServicio">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="eliminarEmpleado">
+<operation name="listarDistritos">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -146,6 +146,30 @@
 </fault>
 </operation>
 <operation name="agregarEmpleado">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Exception">
+<soap:fault name="Exception" use="literal"/>
+</fault>
+</operation>
+<operation name="eliminarEmpleado">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Exception">
+<soap:fault name="Exception" use="literal"/>
+</fault>
+</operation>
+<operation name="listarProvincias">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -206,30 +230,6 @@
 </fault>
 </operation>
 <operation name="listarRegiones">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-<fault name="Exception">
-<soap:fault name="Exception" use="literal"/>
-</fault>
-</operation>
-<operation name="listarProvincias">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-<fault name="Exception">
-<soap:fault name="Exception" use="literal"/>
-</fault>
-</operation>
-<operation name="listarDistritos">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

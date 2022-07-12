@@ -84,6 +84,7 @@
 <xs:element name="codigoPersona" type="xs:string" minOccurs="0"/>
 <xs:element name="codigoUbicacion" type="xs:string" minOccurs="0"/>
 <xs:element name="fechaNacimiento" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="fechaNacimientoStr" type="xs:string" minOccurs="0"/>
 <xs:element name="nombre" type="xs:string" minOccurs="0"/>
 <xs:element name="pais" type="tns:pais" minOccurs="0"/>
 </xs:sequence>
@@ -166,6 +167,18 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="listarProvincias">
+<xs:sequence>
+<xs:element name="region" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarProvinciasResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:provincia" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="modificarEmpleado">
 <xs:sequence>
 <xs:element name="idPro" type="xs:string" minOccurs="0"/>
@@ -186,18 +199,6 @@
 <xs:complexType name="modificarEmpleadoResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="listarProvincias">
-<xs:sequence>
-<xs:element name="region" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="listarProvinciasResponse">
-<xs:sequence>
-<xs:element name="return" type="tns:provincia" minOccurs="0" maxOccurs="unbounded"/>
 </xs:sequence>
 </xs:complexType>
 
