@@ -47,33 +47,33 @@
                     <div class="modal fade modal-lg" id="agregar" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
-                                <form name="form-data" action="proveedores" method="POST">
+                                <form action="proveedores" method="POST"  name="createProveedor" onsubmit="return validateFormCreate();" >
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="staticBackdropLabel">Agregar proveedor</h5>
                                         <button type="button" class="btn-close p-2" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
-
+                                    <div id="alertCreate"></div>
                                     <div class="modal-body row">
                                         <div class="form-group col-md-6">
                                             <div>
                                                 <label for="agregar-nombre" class="col-form-label">Nombre</label>
-                                                <input type="text" class="form-control" id="agregar-nombre" name="crearNombre" placeholder="Agregar nombre" required autofocus>
+                                                <input type="text" class="form-control" id="agregar-nombre" name="crearNombre" placeholder="Nombre(s)" required autofocus>
                                             </div>
 
                                             <div>
                                                 <label for="agregar-apellidoPaterno" class="col-form-label">Apellido Paterno</label>
-                                                <input type="text" class="form-control" id="agregar-apellidoPaterno" name="crearApellidoPaterno" placeholder="Agregar apellidoPaterno" required>
+                                                <input type="text" class="form-control" id="agregar-apellidoPaterno" name="crearApellidoPaterno" placeholder="Apellido Paterno" required>
                                             </div>
 
                                             <div>
                                                 <label for="agregar-apellidoMaterno" class="col-form-label">Apellido Materno</label>
-                                                <input type="text" class="form-control" id="agregar-apellidoMaterno" name="crearApellidoMaterno" placeholder="Agregar apellidoMaterno" required>
+                                                <input type="text" class="form-control" id="agregar-apellidoMaterno" name="crearApellidoMaterno" placeholder="Apellido Materno" required>
                                             </div>
 
                                             <div>
                                                 <label for="agregar-idTipoDocumento" class="col-form-label">Tipo de documento</label>
                                                 <select class="form-select" id="agregar-idTipoDocumento" name="idTipoDocumento" aria-label=".form-select-sm example">
-                                                    <option selected>Seleccionar Tipo de documento</option>
+                                                    <option selected value="">Seleccionar Tipo de documento</option>
                                                     <c:forEach var="documento" items="${documentos}">
                                                         <option value="${documento.getId()}">${documento.getNombre()}</option>
                                                     </c:forEach>
@@ -82,7 +82,7 @@
 
                                             <div>
                                                 <label for="agregar-numDocumento" class="col-form-label">Nº de documento</label>
-                                                <input type="text" class="form-control" id="agregar-numDocumento" name="crearNumDocumento" placeholder="Agregar numDocumento" required>
+                                                <input type="number" class="form-control" id="agregar-numDocumento" name="crearNumDocumento" placeholder="Agregar numero de documento" required  onKeyPress="if(this.value.length==10) return false;">
                                             </div>
 
                                             <div>
@@ -95,7 +95,7 @@
                                             <div>
                                                 <label for="agregar-idEmpresa" class="col-form-label">Empresa</label>
                                                 <select class="form-select" id="agregar-idEmpresa" name="idEmpresa" aria-label=".form-select-sm example">
-                                                    <option selected>Seleccionar Empresa</option>
+                                                    <option selected value="">Seleccionar Empresa</option>
                                                     <c:forEach var="empresa" items="${empresas}">
                                                         <option value="${empresa.getIdEmpresa()}">${empresa.getRazonSocial()}</option>
                                                     </c:forEach>
@@ -163,9 +163,9 @@
                                                         let regionesHTML = "";
                                                         let provinciasHTML = "";
                                                         let distritosHTML = "";
-                                                        regionesHTML += "<option>Seleccionar Region</option>";
-                                                        provinciasHTML += "<option>Seleccionar Provincia</option>";
-                                                        distritosHTML += "<option>Seleccionar Distrito</option>";
+                                                        regionesHTML += "<option value=''>Seleccionar Region</option>";
+                                                        provinciasHTML += "<option value=''>Seleccionar Provincia</option>";
+                                                        distritosHTML += "<option value=''>Seleccionar Distrito</option>";
                                                         for (const region of regiones) {
                                                             regionesHTML += "<option value='" + region.id + "'>" + region.nombre + "</option>";
                                                         }
@@ -194,8 +194,8 @@
                                                         const provincias = await obtenerProvincias(regionId);
                                                         let provinciasHTML = "";
                                                         let distritosHTML = "";
-                                                        provinciasHTML += "<option>Seleccionar Provincia</option>";
-                                                        distritosHTML += "<option>Seleccionar Distrito</option>";
+                                                        provinciasHTML += "<option value=''>Seleccionar Provincia</option>";
+                                                        distritosHTML += "<option value=''>Seleccionar Distrito</option>";
                                                         for (const provincia of provincias) {
                                                             provinciasHTML += "<option value='" + provincia.id + "'>" + provincia.nombre + "</option>";
                                                         }
@@ -215,7 +215,7 @@
                                                         const provinciaId = event.target.value;
                                                         const distritos = await obtenerDistritos(provinciaId);
                                                         let distritosHTML = "";
-                                                        distritosHTML += "<option>Seleccionar Distrito</option>";
+                                                        distritosHTML += "<option value=''>Seleccionar Distrito</option>";
                                                         for (const distrito of distritos) {
                                                             distritosHTML += "<option value='" + distrito.id + "'>" + distrito.nombre + "</option>";
                                                         }
@@ -614,5 +614,6 @@
                 window.location.search = params.toString();
             }
         </script>
+        <script src="./public/js/validacion/proveedor.js"></script>
     </body>
 </html>
