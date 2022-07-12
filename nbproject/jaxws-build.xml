@@ -122,5 +122,21 @@
         <delete dir="${build.generated.sources.dir}/jax-ws/webservice"/>
         <delete dir="${build.generated.dir}/jax-wsCache/EmpleadoServicio"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-Servicios, wsimport-client-UsuarioServicio, wsimport-client-ProveedorServicio, wsimport-client-ProductoServicio, wsimport-client-RolServicio, wsimport-client-EmpleadoServicio"/>
+    <target name="wsimport-client-DespachoServicio" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/DespachoServicio"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/DespachoServicio" destdir="${build.generated.dir}/jax-wsCache/DespachoServicio" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/DespachoServicio/wsdl/localhost_8080/DsamiStore-web-Service/DespachoServicio.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/DsamiStore-web-Service/DespachoServicio?wsdl" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/DespachoServicio/wsdl/localhost_8080/DsamiStore-web-Service/DespachoServicio.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/DespachoServicio"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/DespachoServicio">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-DespachoServicio" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/webservice"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/DespachoServicio"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-Servicios, wsimport-client-UsuarioServicio, wsimport-client-ProveedorServicio, wsimport-client-ProductoServicio, wsimport-client-RolServicio, wsimport-client-EmpleadoServicio, wsimport-client-DespachoServicio"/>
 </project>

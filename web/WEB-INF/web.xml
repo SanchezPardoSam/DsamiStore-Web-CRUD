@@ -24,6 +24,10 @@
         <servlet-name>RolControlador</servlet-name>
         <servlet-class>Servlets.RolControlador</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DespachoControlador</servlet-name>
+        <servlet-class>Servlets.DespachoControlador</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Controlador</servlet-name>
         <url-pattern>/Controlador</url-pattern>
@@ -47,6 +51,10 @@
     <servlet-mapping>
         <servlet-name>RolControlador</servlet-name>
         <url-pattern>/RolControlador</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DespachoControlador</servlet-name>
+        <url-pattern>/DespachoControlador</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
