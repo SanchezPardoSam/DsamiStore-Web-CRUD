@@ -1,10 +1,12 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <div class="app-sidebar p-3 border-end ">
     <a class="d-flex text-decoration-none mb-4 " href="${pageContext.request.contextPath}/categoria.jsp">
         <h4 class="fs-4 fw-bold text-primary">D' Sami Store</h4>
     </a>
     <div class="nav nav-pills flex-column mb-auto">
         <li class='nav-item'>
-            <a href="${pageContext.request.contextPath}/categorias.jsp"  class="nav-link ${pageContext.request.requestURI.endsWith('/categorias.jsp') ? 'active' : 'link-dark'}">Categorias</a>
+            <a href="${pageContext.request.contextPath}/categorias"  class="nav-link ${pageContext.request.requestURI.endsWith('/categorias.jsp') ? 'active' : 'link-dark'}">Categorias</a>
         </li>
         <li class='nav-item' >
             <a href="${pageContext.request.contextPath}/productos.jsp"  class="nav-link ${pageContext.request.requestURI.endsWith('/productos.jsp') ? 'active' : 'link-dark'}">Productos</a>

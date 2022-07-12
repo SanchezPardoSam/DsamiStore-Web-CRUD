@@ -12,37 +12,29 @@
 
 <xs:element name="listarCategorias" type="tns:listarCategorias"/>
 
+<xs:element name="listarCategoriasPaginacion" type="tns:listarCategoriasPaginacion"/>
+
+<xs:element name="listarCategoriasPaginacionCount" type="tns:listarCategoriasPaginacionCount"/>
+
+<xs:element name="listarCategoriasPaginacionCountResponse" type="tns:listarCategoriasPaginacionCountResponse"/>
+
+<xs:element name="listarCategoriasPaginacionResponse" type="tns:listarCategoriasPaginacionResponse"/>
+
 <xs:element name="listarCategoriasResponse" type="tns:listarCategoriasResponse"/>
 
 <xs:element name="modificarCategoria" type="tns:modificarCategoria"/>
 
 <xs:element name="modificarCategoriaResponse" type="tns:modificarCategoriaResponse"/>
 
-<xs:complexType name="modificarCategoria">
+<xs:complexType name="listarCategoriasPaginacion">
 <xs:sequence>
-<xs:element name="id" type="xs:string" minOccurs="0"/>
-<xs:element name="nombre" type="xs:string" minOccurs="0"/>
-<xs:element name="descripcion" type="xs:string" minOccurs="0"/>
+<xs:element name="consulta" type="xs:string" minOccurs="0"/>
+<xs:element name="pagina" type="xs:int"/>
+<xs:element name="cantidad" type="xs:int"/>
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="modificarCategoriaResponse">
-<xs:sequence>
-<xs:element name="return" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="Exception">
-<xs:sequence>
-<xs:element name="message" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="listarCategorias">
-<xs:sequence/>
-</xs:complexType>
-
-<xs:complexType name="listarCategoriasResponse">
+<xs:complexType name="listarCategoriasPaginacionResponse">
 <xs:sequence>
 <xs:element name="return" type="tns:categoria" minOccurs="0" maxOccurs="unbounded"/>
 </xs:sequence>
@@ -56,6 +48,47 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="Exception">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarCategoriasPaginacionCount">
+<xs:sequence>
+<xs:element name="consulta" type="xs:string" minOccurs="0"/>
+<xs:element name="cantidad" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarCategoriasPaginacionCountResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="modificarCategoria">
+<xs:sequence>
+<xs:element name="id" type="xs:string" minOccurs="0"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+<xs:element name="descripcion" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="modificarCategoriaResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="listarCategorias">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="listarCategoriasResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:categoria" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="eliminarCategoria">
 <xs:sequence>
 <xs:element name="id" type="xs:string" minOccurs="0"/>
@@ -63,9 +96,7 @@
 </xs:complexType>
 
 <xs:complexType name="eliminarCategoriaResponse">
-<xs:sequence>
-<xs:element name="return" type="tns:categoria" minOccurs="0"/>
-</xs:sequence>
+<xs:sequence/>
 </xs:complexType>
 
 <xs:complexType name="agregarCategoria">
@@ -76,8 +107,6 @@
 </xs:complexType>
 
 <xs:complexType name="agregarCategoriaResponse">
-<xs:sequence>
-<xs:element name="return" type="xs:string" minOccurs="0"/>
-</xs:sequence>
+<xs:sequence/>
 </xs:complexType>
 </xs:schema>

@@ -46,6 +46,15 @@ public class UsuarioControlador extends HttpServlet {
             return;
         }
          */
+ /*
+        List<String> roles = new ArrayList<>();
+        roles.add("Administrador");
+        
+        if (!roles.contains(usuario.getRol().getNombre())) {
+            response.sendRedirect(request.getContextPath() + "/");
+            return;
+        }
+         */
         try {
             int pagina = request.getParameter("pagina") != null ? Integer.parseInt(request.getParameter("pagina")) : 1;
             int cantidad = request.getParameter("cantidad") != null ? Integer.parseInt(request.getParameter("cantidad")) : 10;
