@@ -30,6 +30,14 @@
 
 <xs:element name="listarProveedorResponse" type="tns:listarProveedorResponse"/>
 
+<xs:element name="listarProveedoresPaginacion" type="tns:listarProveedoresPaginacion"/>
+
+<xs:element name="listarProveedoresPaginacionCount" type="tns:listarProveedoresPaginacionCount"/>
+
+<xs:element name="listarProveedoresPaginacionCountResponse" type="tns:listarProveedoresPaginacionCountResponse"/>
+
+<xs:element name="listarProveedoresPaginacionResponse" type="tns:listarProveedoresPaginacionResponse"/>
+
 <xs:element name="listarProvincias" type="tns:listarProvincias"/>
 
 <xs:element name="listarProvinciasResponse" type="tns:listarProvinciasResponse"/>
@@ -145,6 +153,19 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="listarProveedoresPaginacionCount">
+<xs:sequence>
+<xs:element name="consulta" type="xs:string" minOccurs="0"/>
+<xs:element name="cantidad" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarProveedoresPaginacionCountResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="listarEmpresas">
 <xs:sequence/>
 </xs:complexType>
@@ -220,6 +241,7 @@
 <xs:element name="codigoPersona" type="xs:string" minOccurs="0"/>
 <xs:element name="codigoUbicacion" type="xs:string" minOccurs="0"/>
 <xs:element name="fechaNacimiento" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="fechaNacimientoStr" type="xs:string" minOccurs="0"/>
 <xs:element name="nombre" type="xs:string" minOccurs="0"/>
 <xs:element name="pais" type="tns:pais" minOccurs="0"/>
 </xs:sequence>
@@ -255,6 +277,20 @@
 <xs:complexType name="listarPaisesResponse">
 <xs:sequence>
 <xs:element name="return" type="tns:pais" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarProveedoresPaginacion">
+<xs:sequence>
+<xs:element name="consulta" type="xs:string" minOccurs="0"/>
+<xs:element name="pagina" type="xs:int"/>
+<xs:element name="cantidad" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarProveedoresPaginacionResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:proveedor" minOccurs="0" maxOccurs="unbounded"/>
 </xs:sequence>
 </xs:complexType>
 

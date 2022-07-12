@@ -61,10 +61,16 @@ public class UsuarioControlador extends HttpServlet {
             String consulta = request.getParameter("q") != null ? request.getParameter("q") : "";
 
             int paginas = usuarioServicio.listarUsuariosPaginacionCount(consulta, cantidad);
+            System.out.println("1");
             List<Usuario> usuarios = usuarioServicio.listarUsuariosPaginacion(consulta, pagina, cantidad);
-            List<Rol> roles = rolServicio.listarRoles();
-            List<Empleado> empleados = empleadoServicio.listarEmpleado();
-
+                      System.out.println("2");
+  List<Rol> roles = rolServicio.listarRoles();
+                       System.out.println("3");
+ List<Empleado> empleados = empleadoServicio.listarEmpleado();
+                        System.out.println("4");
+ for (Usuario usuario : usuarios) {
+            System.out.println(usuario.getNombreUsuario());
+        }
             request.setAttribute("pagina", pagina);
             request.setAttribute("cantidad", cantidad);
             request.setAttribute("paginas", paginas);
@@ -75,7 +81,7 @@ public class UsuarioControlador extends HttpServlet {
             request.setAttribute("roles", roles);
             request.setAttribute("empleados", empleados);
         } catch (Exception_Exception ex) {
-
+            System.out.println(ex.getMessage());
         }
 
         switch (accion) {

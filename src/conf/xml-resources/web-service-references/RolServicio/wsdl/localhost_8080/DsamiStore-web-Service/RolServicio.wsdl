@@ -4,11 +4,11 @@
 <xsd:import namespace="http://WebService/" schemaLocation="http://localhost:8080/DsamiStore-web-Service/RolServicio?xsd=1"/>
 </xsd:schema>
 </types>
-<message name="listarRolesPaginacionCount">
-<part name="parameters" element="tns:listarRolesPaginacionCount"/>
+<message name="eliminarRol">
+<part name="parameters" element="tns:eliminarRol"/>
 </message>
-<message name="listarRolesPaginacionCountResponse">
-<part name="parameters" element="tns:listarRolesPaginacionCountResponse"/>
+<message name="eliminarRolResponse">
+<part name="parameters" element="tns:eliminarRolResponse"/>
 </message>
 <message name="Exception">
 <part name="fault" element="tns:Exception"/>
@@ -19,11 +19,11 @@
 <message name="actualizarRolResponse">
 <part name="parameters" element="tns:actualizarRolResponse"/>
 </message>
-<message name="eliminarRol">
-<part name="parameters" element="tns:eliminarRol"/>
+<message name="listarRolesPaginacion">
+<part name="parameters" element="tns:listarRolesPaginacion"/>
 </message>
-<message name="eliminarRolResponse">
-<part name="parameters" element="tns:eliminarRolResponse"/>
+<message name="listarRolesPaginacionResponse">
+<part name="parameters" element="tns:listarRolesPaginacionResponse"/>
 </message>
 <message name="agregarRol">
 <part name="parameters" element="tns:agregarRol"/>
@@ -31,53 +31,53 @@
 <message name="agregarRolResponse">
 <part name="parameters" element="tns:agregarRolResponse"/>
 </message>
-<message name="listarRolesPaginacion">
-<part name="parameters" element="tns:listarRolesPaginacion"/>
-</message>
-<message name="listarRolesPaginacionResponse">
-<part name="parameters" element="tns:listarRolesPaginacionResponse"/>
-</message>
 <message name="listarRoles">
 <part name="parameters" element="tns:listarRoles"/>
 </message>
 <message name="listarRolesResponse">
 <part name="parameters" element="tns:listarRolesResponse"/>
 </message>
+<message name="listarRolesPaginacionCount">
+<part name="parameters" element="tns:listarRolesPaginacionCount"/>
+</message>
+<message name="listarRolesPaginacionCountResponse">
+<part name="parameters" element="tns:listarRolesPaginacionCountResponse"/>
+</message>
 <portType name="RolServicio">
-<operation name="listarRolesPaginacionCount">
-<input wsam:Action="http://WebService/RolServicio/listarRolesPaginacionCountRequest" message="tns:listarRolesPaginacionCount"/>
-<output wsam:Action="http://WebService/RolServicio/listarRolesPaginacionCountResponse" message="tns:listarRolesPaginacionCountResponse"/>
-<fault message="tns:Exception" name="Exception" wsam:Action="http://WebService/RolServicio/listarRolesPaginacionCount/Fault/Exception"/>
+<operation name="eliminarRol">
+<input wsam:Action="http://WebService/RolServicio/eliminarRolRequest" message="tns:eliminarRol"/>
+<output wsam:Action="http://WebService/RolServicio/eliminarRolResponse" message="tns:eliminarRolResponse"/>
+<fault message="tns:Exception" name="Exception" wsam:Action="http://WebService/RolServicio/eliminarRol/Fault/Exception"/>
 </operation>
 <operation name="actualizarRol">
 <input wsam:Action="http://WebService/RolServicio/actualizarRolRequest" message="tns:actualizarRol"/>
 <output wsam:Action="http://WebService/RolServicio/actualizarRolResponse" message="tns:actualizarRolResponse"/>
 <fault message="tns:Exception" name="Exception" wsam:Action="http://WebService/RolServicio/actualizarRol/Fault/Exception"/>
 </operation>
-<operation name="eliminarRol">
-<input wsam:Action="http://WebService/RolServicio/eliminarRolRequest" message="tns:eliminarRol"/>
-<output wsam:Action="http://WebService/RolServicio/eliminarRolResponse" message="tns:eliminarRolResponse"/>
-<fault message="tns:Exception" name="Exception" wsam:Action="http://WebService/RolServicio/eliminarRol/Fault/Exception"/>
+<operation name="listarRolesPaginacion">
+<input wsam:Action="http://WebService/RolServicio/listarRolesPaginacionRequest" message="tns:listarRolesPaginacion"/>
+<output wsam:Action="http://WebService/RolServicio/listarRolesPaginacionResponse" message="tns:listarRolesPaginacionResponse"/>
+<fault message="tns:Exception" name="Exception" wsam:Action="http://WebService/RolServicio/listarRolesPaginacion/Fault/Exception"/>
 </operation>
 <operation name="agregarRol">
 <input wsam:Action="http://WebService/RolServicio/agregarRolRequest" message="tns:agregarRol"/>
 <output wsam:Action="http://WebService/RolServicio/agregarRolResponse" message="tns:agregarRolResponse"/>
 <fault message="tns:Exception" name="Exception" wsam:Action="http://WebService/RolServicio/agregarRol/Fault/Exception"/>
 </operation>
-<operation name="listarRolesPaginacion">
-<input wsam:Action="http://WebService/RolServicio/listarRolesPaginacionRequest" message="tns:listarRolesPaginacion"/>
-<output wsam:Action="http://WebService/RolServicio/listarRolesPaginacionResponse" message="tns:listarRolesPaginacionResponse"/>
-<fault message="tns:Exception" name="Exception" wsam:Action="http://WebService/RolServicio/listarRolesPaginacion/Fault/Exception"/>
-</operation>
 <operation name="listarRoles">
 <input wsam:Action="http://WebService/RolServicio/listarRolesRequest" message="tns:listarRoles"/>
 <output wsam:Action="http://WebService/RolServicio/listarRolesResponse" message="tns:listarRolesResponse"/>
 <fault message="tns:Exception" name="Exception" wsam:Action="http://WebService/RolServicio/listarRoles/Fault/Exception"/>
 </operation>
+<operation name="listarRolesPaginacionCount">
+<input wsam:Action="http://WebService/RolServicio/listarRolesPaginacionCountRequest" message="tns:listarRolesPaginacionCount"/>
+<output wsam:Action="http://WebService/RolServicio/listarRolesPaginacionCountResponse" message="tns:listarRolesPaginacionCountResponse"/>
+<fault message="tns:Exception" name="Exception" wsam:Action="http://WebService/RolServicio/listarRolesPaginacionCount/Fault/Exception"/>
+</operation>
 </portType>
 <binding name="RolServicioPortBinding" type="tns:RolServicio">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="listarRolesPaginacionCount">
+<operation name="eliminarRol">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -101,7 +101,7 @@
 <soap:fault name="Exception" use="literal"/>
 </fault>
 </operation>
-<operation name="eliminarRol">
+<operation name="listarRolesPaginacion">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -125,7 +125,7 @@
 <soap:fault name="Exception" use="literal"/>
 </fault>
 </operation>
-<operation name="listarRolesPaginacion">
+<operation name="listarRoles">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -137,7 +137,7 @@
 <soap:fault name="Exception" use="literal"/>
 </fault>
 </operation>
-<operation name="listarRoles">
+<operation name="listarRolesPaginacionCount">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

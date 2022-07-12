@@ -5,7 +5,6 @@
  */
 package Modelo;
 
-import webservice.Categoria;
 import webservice.Exception_Exception;
 
 /**

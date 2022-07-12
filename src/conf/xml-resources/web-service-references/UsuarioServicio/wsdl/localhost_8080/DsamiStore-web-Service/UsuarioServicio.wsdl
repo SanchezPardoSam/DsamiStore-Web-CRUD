@@ -4,20 +4,14 @@
 <xsd:import namespace="http://WebService/" schemaLocation="http://localhost:8080/DsamiStore-web-Service/UsuarioServicio?xsd=1"/>
 </xsd:schema>
 </types>
-<message name="actualizarUsuario">
-<part name="parameters" element="tns:actualizarUsuario"/>
+<message name="ingresarUsuario">
+<part name="parameters" element="tns:ingresarUsuario"/>
 </message>
-<message name="actualizarUsuarioResponse">
-<part name="parameters" element="tns:actualizarUsuarioResponse"/>
+<message name="ingresarUsuarioResponse">
+<part name="parameters" element="tns:ingresarUsuarioResponse"/>
 </message>
 <message name="Exception">
 <part name="fault" element="tns:Exception"/>
-</message>
-<message name="agregarUsuario">
-<part name="parameters" element="tns:agregarUsuario"/>
-</message>
-<message name="agregarUsuarioResponse">
-<part name="parameters" element="tns:agregarUsuarioResponse"/>
 </message>
 <message name="listarUsuarios">
 <part name="parameters" element="tns:listarUsuarios"/>
@@ -37,6 +31,18 @@
 <message name="listarUsuariosPaginacionCountResponse">
 <part name="parameters" element="tns:listarUsuariosPaginacionCountResponse"/>
 </message>
+<message name="agregarUsuario">
+<part name="parameters" element="tns:agregarUsuario"/>
+</message>
+<message name="agregarUsuarioResponse">
+<part name="parameters" element="tns:agregarUsuarioResponse"/>
+</message>
+<message name="actualizarUsuario">
+<part name="parameters" element="tns:actualizarUsuario"/>
+</message>
+<message name="actualizarUsuarioResponse">
+<part name="parameters" element="tns:actualizarUsuarioResponse"/>
+</message>
 <message name="eliminarUsuario">
 <part name="parameters" element="tns:eliminarUsuario"/>
 </message>
@@ -49,22 +55,11 @@
 <message name="buscarUsuariosResponse">
 <part name="parameters" element="tns:buscarUsuariosResponse"/>
 </message>
-<message name="ingresarUsuario">
-<part name="parameters" element="tns:ingresarUsuario"/>
-</message>
-<message name="ingresarUsuarioResponse">
-<part name="parameters" element="tns:ingresarUsuarioResponse"/>
-</message>
 <portType name="UsuarioServicio">
-<operation name="actualizarUsuario">
-<input wsam:Action="http://WebService/UsuarioServicio/actualizarUsuarioRequest" message="tns:actualizarUsuario"/>
-<output wsam:Action="http://WebService/UsuarioServicio/actualizarUsuarioResponse" message="tns:actualizarUsuarioResponse"/>
-<fault message="tns:Exception" name="Exception" wsam:Action="http://WebService/UsuarioServicio/actualizarUsuario/Fault/Exception"/>
-</operation>
-<operation name="agregarUsuario">
-<input wsam:Action="http://WebService/UsuarioServicio/agregarUsuarioRequest" message="tns:agregarUsuario"/>
-<output wsam:Action="http://WebService/UsuarioServicio/agregarUsuarioResponse" message="tns:agregarUsuarioResponse"/>
-<fault message="tns:Exception" name="Exception" wsam:Action="http://WebService/UsuarioServicio/agregarUsuario/Fault/Exception"/>
+<operation name="ingresarUsuario">
+<input wsam:Action="http://WebService/UsuarioServicio/ingresarUsuarioRequest" message="tns:ingresarUsuario"/>
+<output wsam:Action="http://WebService/UsuarioServicio/ingresarUsuarioResponse" message="tns:ingresarUsuarioResponse"/>
+<fault message="tns:Exception" name="Exception" wsam:Action="http://WebService/UsuarioServicio/ingresarUsuario/Fault/Exception"/>
 </operation>
 <operation name="listarUsuarios">
 <input wsam:Action="http://WebService/UsuarioServicio/listarUsuariosRequest" message="tns:listarUsuarios"/>
@@ -81,6 +76,16 @@
 <output wsam:Action="http://WebService/UsuarioServicio/listarUsuariosPaginacionCountResponse" message="tns:listarUsuariosPaginacionCountResponse"/>
 <fault message="tns:Exception" name="Exception" wsam:Action="http://WebService/UsuarioServicio/listarUsuariosPaginacionCount/Fault/Exception"/>
 </operation>
+<operation name="agregarUsuario">
+<input wsam:Action="http://WebService/UsuarioServicio/agregarUsuarioRequest" message="tns:agregarUsuario"/>
+<output wsam:Action="http://WebService/UsuarioServicio/agregarUsuarioResponse" message="tns:agregarUsuarioResponse"/>
+<fault message="tns:Exception" name="Exception" wsam:Action="http://WebService/UsuarioServicio/agregarUsuario/Fault/Exception"/>
+</operation>
+<operation name="actualizarUsuario">
+<input wsam:Action="http://WebService/UsuarioServicio/actualizarUsuarioRequest" message="tns:actualizarUsuario"/>
+<output wsam:Action="http://WebService/UsuarioServicio/actualizarUsuarioResponse" message="tns:actualizarUsuarioResponse"/>
+<fault message="tns:Exception" name="Exception" wsam:Action="http://WebService/UsuarioServicio/actualizarUsuario/Fault/Exception"/>
+</operation>
 <operation name="eliminarUsuario">
 <input wsam:Action="http://WebService/UsuarioServicio/eliminarUsuarioRequest" message="tns:eliminarUsuario"/>
 <output wsam:Action="http://WebService/UsuarioServicio/eliminarUsuarioResponse" message="tns:eliminarUsuarioResponse"/>
@@ -91,27 +96,10 @@
 <output wsam:Action="http://WebService/UsuarioServicio/buscarUsuariosResponse" message="tns:buscarUsuariosResponse"/>
 <fault message="tns:Exception" name="Exception" wsam:Action="http://WebService/UsuarioServicio/buscarUsuarios/Fault/Exception"/>
 </operation>
-<operation name="ingresarUsuario">
-<input wsam:Action="http://WebService/UsuarioServicio/ingresarUsuarioRequest" message="tns:ingresarUsuario"/>
-<output wsam:Action="http://WebService/UsuarioServicio/ingresarUsuarioResponse" message="tns:ingresarUsuarioResponse"/>
-<fault message="tns:Exception" name="Exception" wsam:Action="http://WebService/UsuarioServicio/ingresarUsuario/Fault/Exception"/>
-</operation>
 </portType>
 <binding name="UsuarioServicioPortBinding" type="tns:UsuarioServicio">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="actualizarUsuario">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-<fault name="Exception">
-<soap:fault name="Exception" use="literal"/>
-</fault>
-</operation>
-<operation name="agregarUsuario">
+<operation name="ingresarUsuario">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -159,6 +147,30 @@
 <soap:fault name="Exception" use="literal"/>
 </fault>
 </operation>
+<operation name="agregarUsuario">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Exception">
+<soap:fault name="Exception" use="literal"/>
+</fault>
+</operation>
+<operation name="actualizarUsuario">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Exception">
+<soap:fault name="Exception" use="literal"/>
+</fault>
+</operation>
 <operation name="eliminarUsuario">
 <soap:operation soapAction=""/>
 <input>
@@ -172,18 +184,6 @@
 </fault>
 </operation>
 <operation name="buscarUsuarios">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-<fault name="Exception">
-<soap:fault name="Exception" use="literal"/>
-</fault>
-</operation>
-<operation name="ingresarUsuario">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

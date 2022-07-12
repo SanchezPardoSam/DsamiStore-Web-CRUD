@@ -4,34 +4,8 @@
     Author     : FIORELLA
 --%>
 
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 
-<%@page import="java.util.List"%>
-<%@page import="webservice.Distrito"%>
-<%@page import="webservice.Provincia"%>
-<%@page import="webservice.Region"%>
-<%@page import="webservice.Pais"%>
-<%@page import="webservice.Documento"%>
-<%@page import="webservice.Empresa"%>
-<%@page import="java.util.ArrayList"%>
-<%@page import="webservice.Proveedor"%>
-<%@page import="Modelo.ProveedorServicio"%>
-<%@page import="java.text.SimpleDateFormat"%>
-<%@page import="java.util.Date"%>
-
-<%Proveedor provee = null;
-    ProveedorServicio proveeServi = new ProveedorServicio();
-
-    List<Distrito> Distritos = null;
-    List<Empresa> emp = null;
-    List<Documento> docu = null;
-    List<Pais> Paises = null;
-    List<Region> Regiones = null;
-    List<Provincia> Provincias = null;%>
-
-<%
-
-    String codigoPais = null, codigoRegion, codigoProvincia;
-%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -55,15 +29,16 @@
 
                         <div class="d-flex justify-content-between align-items-center">
                             <div>
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                        data-bs-target="#agregar">Agregar
-                                </button>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregar">Agregar</button>
                             </div>
 
-                            <div class="d-flex">
-                                <input type="text" class="form-control me-2" placeholder="Buscar un proveedor" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                                <button class="btn btn-primary" id="basic-addon2" type="button ">Buscar</button>
-                            </div>
+                            <form action="proveedores" class="d-flex">
+                                <input type="hidden" name="pagina" value="${pagina}" />
+                                <input type="hidden" name="cantidad" value="${cantidad}" />
+                                <input type="search" name="q" value="${q}" placeholder="Buscar un proveedor" class="form-control me-2">
+                                <button type="submit" class="btn btn-primary">Buscar</button>
+                            </form>
+
                         </div>
                     </div>
 
@@ -99,12 +74,9 @@
                                                 <label for="agregar-idTipoDocumento" class="col-form-label">Tipo de documento</label>
                                                 <select class="form-select" id="agregar-idTipoDocumento" name="idTipoDocumento" aria-label=".form-select-sm example">
                                                     <option selected>Seleccionar Tipo de documento</option>
-                                                    <%
-                                                        docu = proveeServi.listarDocumentos();
-                                                        for (Documento documento : docu) {
-                                                            out.print("<option value=\"" + documento.getId() + "\" " + (provee != null && documento.getId() == provee.getEmpresa().getIdEmpresa() ? "selected" : "") + ">" + documento.getNombre() + "</option>");
-                                                        }
-                                                    %>
+                                                    <c:forEach var="documento" items="${documentos}">
+                                                        <option value="${documento.getId()}">${documento.getNombre()}</option>
+                                                    </c:forEach>
                                                 </select>
                                             </div>
 
@@ -124,12 +96,9 @@
                                                 <label for="agregar-idEmpresa" class="col-form-label">Empresa</label>
                                                 <select class="form-select" id="agregar-idEmpresa" name="idEmpresa" aria-label=".form-select-sm example">
                                                     <option selected>Seleccionar Empresa</option>
-                                                    <%
-                                                        emp = proveeServi.listarEmpresas();
-                                                        for (Empresa empresa : emp) {
-                                                            out.print("<option value=\"" + empresa.getIdEmpresa() + "\" " + (provee != null && empresa.getIdEmpresa() == provee.getEmpresa().getIdEmpresa() ? "selected" : "") + ">" + empresa.getRazonSocial() + "</option>");
-                                                        }
-                                                    %>
+                                                    <c:forEach var="empresa" items="${empresas}">
+                                                        <option value="${empresa.getIdEmpresa()}">${empresa.getRazonSocial()}</option>
+                                                    </c:forEach>
                                                 </select>
                                             </div>
 
@@ -137,12 +106,9 @@
                                                 <label for="agregar-idPais" class="col-form-label">Pais</label>
                                                 <select class="form-select" id="agregar-idPais" accion="idPais" name="idPais" aria-label=".form-select-sm example">
                                                     <option selected>Seleccionar Pais</option>
-                                                    <%
-                                                        Paises = proveeServi.listarPaises();
-                                                        for (Pais pais : Paises) {
-                                                            out.print("<option value=\"" + pais.getId() + "\" " + (provee != null && pais.getId() == provee.getPais().getId() ? "selected" : "") + ">" + pais.getNombre() + "</option>");
-                                                        }
-                                                    %>
+                                                    <c:forEach var="pais" items="${paises}">
+                                                        <option value="${pais.getId()}">${pais.getNombre()}</option>
+                                                    </c:forEach>
                                                 </select>
                                             </div>
 
@@ -173,7 +139,6 @@
                                                     const regionSelectEl = document.getElementById("agregar-idRegion");
                                                     const provinciaSelectEl = document.getElementById("agregar-idProvincia");
                                                     const distritoSelectEl = document.getElementById("agregar-idDistrito");
-
                                                     async function obtenerRegiones(paisId) {
                                                         const res = await fetch("proveedores?accion=regiones&paisId=" + paisId);
                                                         const regiones = await res.json();
@@ -195,14 +160,12 @@
                                                     paisSelectEl.addEventListener("change", async (event) => {
                                                         const paisId = event.target.value;
                                                         const regiones = await obtenerRegiones(paisId);
-
                                                         let regionesHTML = "";
                                                         let provinciasHTML = "";
                                                         let distritosHTML = "";
                                                         regionesHTML += "<option>Seleccionar Region</option>";
                                                         provinciasHTML += "<option>Seleccionar Provincia</option>";
                                                         distritosHTML += "<option>Seleccionar Distrito</option>";
-
                                                         for (const region of regiones) {
                                                             regionesHTML += "<option value='" + region.id + "'>" + region.nombre + "</option>";
                                                         }
@@ -210,7 +173,6 @@
                                                         if (regiones.length > 0) {
                                                             const regionId = regiones[0].id;
                                                             const provincias = await obtenerProvincias(regionId);
-
                                                             for (const provincia of provincias) {
                                                                 provinciasHTML += "<option value='" + provincia.id + "'>" + provincia.nombre + "</option>";
                                                             }
@@ -218,7 +180,6 @@
                                                             if (provincias.length > 0) {
                                                                 const provinciaId = provincias[0].id;
                                                                 const distritos = await obtenerDistritos(provinciaId);
-
                                                                 for (const distrito of distritos) {
                                                                     distritosHTML += "<option value='" + distrito.id + "'>" + distrito.nombre + "</option>";
                                                                 }
@@ -228,17 +189,13 @@
                                                         provinciaSelectEl.innerHTML = provinciasHTML;
                                                         distritoSelectEl.innerHTML = distritosHTML;
                                                     });
-
                                                     regionSelectEl.addEventListener("change", async (event) => {
                                                         const regionId = event.target.value;
                                                         const provincias = await obtenerProvincias(regionId);
-
                                                         let provinciasHTML = "";
                                                         let distritosHTML = "";
-
                                                         provinciasHTML += "<option>Seleccionar Provincia</option>";
                                                         distritosHTML += "<option>Seleccionar Distrito</option>";
-
                                                         for (const provincia of provincias) {
                                                             provinciasHTML += "<option value='" + provincia.id + "'>" + provincia.nombre + "</option>";
                                                         }
@@ -246,7 +203,6 @@
                                                         if (provincias.length > 0) {
                                                             const provinciaId = provincias[0].id;
                                                             const distritos = await obtenerDistritos(provinciaId);
-
                                                             for (const distrito of distritos) {
                                                                 distritosHTML += "<option value='" + distrito.id + "'>" + distrito.nombre + "</option>";
                                                             }
@@ -255,14 +211,11 @@
                                                         provinciaSelectEl.innerHTML = provinciasHTML;
                                                         distritoSelectEl.innerHTML = distritosHTML;
                                                     });
-
                                                     provinciaSelectEl.addEventListener("change", async (event) => {
                                                         const provinciaId = event.target.value;
                                                         const distritos = await obtenerDistritos(provinciaId);
-
                                                         let distritosHTML = "";
                                                         distritosHTML += "<option>Seleccionar Distrito</option>";
-
                                                         for (const distrito of distritos) {
                                                             distritosHTML += "<option value='" + distrito.id + "'>" + distrito.nombre + "</option>";
                                                         }
@@ -281,7 +234,7 @@
 
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                        <input type="submit" class="btn btn-primary"  name="accion" value="Crear" />
+                                        <input type="submit" class="btn btn-primary"  name="accion" value="agregar" />
                                     </div>
                                 </form>
                             </div>
@@ -296,201 +249,251 @@
                                     <tr>
                                         <th scope="col">N</th>
                                         <th scope="col">Nombre</th>
-                                        <th scope="col">Nº Documento</th>
+                                        <th scope="col">N Documento</th>
                                         <th scope="col">Empresa</th> 
                                         <th scope="col">Direccion</th>
                                         <th scope="col" class="text-center">Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <%
-                                        int idx = 0;
-                                        ProveedorServicio p = new ProveedorServicio();
-                                        List<Proveedor> listPro = p.listarProveedor();
-                                        for (Proveedor pro : listPro) {
-                                    %>
-                                    <tr>
-                                        <td> <%= idx + 1%></td>
-                                        <td> <%= pro.getNombre()%></td>
-                                        <td> <%= pro.getNumDocum()%></td>
-                                        <td> <%= pro.getEmpresa().getRazonSocial()%></td>
-                                        <td> <%= pro.getDireccion()%></td>
-                                        <td>
-                                            <div class="d-flex justify-content-center">
-                                                <button class="btn btn-secondary me-2" type="button" data-bs-toggle="modal" data-bs-target="#editarProvee<%= pro.getCodigoProveedor()%>">Editar</button>
+                                    <c:forEach var="proveedor" items="${proveedores}" varStatus="loop">
+                                        <tr>
+                                            <td>${((pagina * cantidad) - cantidad + 1)  + loop.index}</td>
+                                            <td>${proveedor.getNombre()}</td>
+                                            <td>${proveedor.getNumDocum()}</td>
+                                            <td>${proveedor.getEmpresa().getRazonSocial()}</td>
+                                            <td>${proveedor.getDireccion()}</td>
+                                            <td>
+                                                <div class="d-flex justify-content-center">
+                                                    <button class="btn btn-secondary me-2" type="button" data-bs-toggle="modal" data-bs-target="#editarProvee${proveedor.getCodigoProveedor()}">Editar</button>
 
-                                                <!--ventana para Editar--->
-                                                <div class="modal fade modal-lg" id="editarProvee<%= pro.getCodigoProveedor()%>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-hidden="true" aria-labelledby="editaCat">
-                                                    <div class="modal-dialog modal-dialog-centered">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="staticBackdropLabel">Editar proveedor</h5>
-                                                                <button type="button" class="btn-close p-2" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                            </div>
+                                                    <!--ventana para Editar--->
+                                                    <div class="modal fade modal-lg" id="editarProvee${proveedor.getCodigoProveedor()}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-hidden="true" aria-labelledby="editaCat">
+                                                        <div class="modal-dialog modal-dialog-centered">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="staticBackdropLabel">Editar proveedor</h5>
+                                                                    <button type="button" class="btn-close p-2" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                </div>
 
-                                                            <form name="form-data" action="proveedores" method="POST">
-                                                                <input type="hidden" name="idProveedor" value="<%= pro.getCodigoProveedor()%>">
+                                                                <form name="form-data" action="proveedores" method="POST">
+                                                                    <input type="hidden" name="idProveedor" value="${proveedor.getCodigoProveedor()}">
 
-                                                                <div class="modal-body row" id="cont_modal">
-                                                                    <div class="form-group col-md-6">
-                                                                        <div>
-                                                                            <label for="editar-nombre" class="col-form-label">Nombre</label>
-                                                                            <input type="text" class="form-control" id="editar-nombre" name="nombre" placeholder="Editar nombre" value="<%= pro.getNombre()%>" required="true">
+                                                                    <div class="modal-body row" id="cont_modal">
+                                                                        <div class="form-group col-md-6">
+                                                                            <div>
+                                                                                <label class="col-form-label">Codigo</label>
+                                                                                <input type="text" class="form-control" value="${proveedor.getCodigoProveedor()}" disabled>
+                                                                            </div>
+
+                                                                            <div>
+                                                                                <label for="editar-nombre" class="col-form-label">Nombre</label>
+                                                                                <input type="text" class="form-control" id="editar-nombre" name="nombre" placeholder="Editar nombre" value="${proveedor.getNombre()}" required="true">
+                                                                            </div>
+
+                                                                            <div>
+                                                                                <label for="editar-apellidoPaterno" class="col-form-label">Apellido Paterno</label>
+                                                                                <input type="text" class="form-control" id="editar-apellidoPaterno" name="editarApellidoPaterno" value="${proveedor.getApellidoPaterno()}" placeholder="Editar apellidoPaterno" required>
+                                                                            </div>
+
+                                                                            <div>
+                                                                                <label for="editar-apellidoMaterno" class="col-form-label">Apellido Materno</label>
+                                                                                <input type="text" class="form-control" id="editar-apellidoMaterno" name="editarApellidoMaterno" value="${proveedor.getApellidoMaterno()}" placeholder="Editar apellidoMaterno" required>
+                                                                            </div>
+
+                                                                            <div>
+                                                                                <label for="editar-idTipoDocumento" class="col-form-label">Tipo de documento</label>
+                                                                                <select class="form-select" id="editar-idTipoDocumento" name="idTipoDocumento" value="${proveedor.getDocumento().getId()}" aria-label=".form-select-sm example">
+                                                                                    <c:forEach var="documento" items="${documentos}">
+                                                                                        <option ${proveedor.getDocumento().getId().equals(documento.getId()) ? "selected" : ""} value="${documento.getId()}">${documento.getNombre()}</option>
+                                                                                    </c:forEach>
+                                                                                </select>
+                                                                            </div>
+
+                                                                            <div>
+                                                                                <label for="editar-numDocumento" class="col-form-label">Nº de documento</label>
+                                                                                <input type="text" class="form-control" id="editar-numDocumento" value="${proveedor.getNumDocum()}" name="editarNumDocumento" placeholder="Editar numDocumento" required>
+                                                                            </div>
+
+                                                                            <div>
+                                                                                <label for="editar-fechaNac" class="col-form-label">Fecha de nacimiento</label>
+                                                                                <input type="date" class="form-control" id="editar-fechaNac" name="editarFechaNac" value="${proveedor.getFechaNacimiento().toString().substring(0, 10)}" >
+                                                                            </div>
                                                                         </div>
 
-                                                                        <div>
-                                                                            <label for="editar-apellidoPaterno" class="col-form-label">Apellido Paterno</label>
-                                                                            <input type="text" class="form-control" id="editar-apellidoPaterno" name="editarApellidoPaterno" value="<%= pro.getApellidoPaterno()%>" placeholder="Editar apellidoPaterno" required>
-                                                                        </div>
+                                                                        <div class="form-group col-md-6">
+                                                                            <div>
+                                                                                <label for="editar-idEmpresa" class="col-form-label">Empresa</label>
+                                                                                <select class="form-select" id="editar-idEmpresa" name="idEmpresa" value="${proveedor.getEmpresa().getIdEmpresa()}"aria-label=".form-select-sm example">
+                                                                                    <c:forEach var="empresa" items="${empresas}">
+                                                                                        <option ${proveedor.getEmpresa().getIdEmpresa().equals(empresa.getIdEmpresa()) ? "selected" : ""} value="${empresa.getIdEmpresa()}">${empresa.getRazonSocial()}</option>
+                                                                                    </c:forEach>
+                                                                                </select>
+                                                                            </div>
 
-                                                                        <div>
-                                                                            <label for="editar-apellidoMaterno" class="col-form-label">Apellido Materno</label>
-                                                                            <input type="text" class="form-control" id="editar-apellidoMaterno" name="editarApellidoMaterno" value="<%= pro.getApellidoMaterno()%>" placeholder="Editar apellidoMaterno" required>
-                                                                        </div>
+                                                                            <div>
+                                                                                <label for="editar-idPais" class="col-form-label">Pais</label>
+                                                                                <select class="form-select" id="editar-idPais-${proveedor.getCodigoProveedor()}" accion="idPais" name="idPais" value="${proveedor.getPais().getId()}" aria-label=".form-select-sm example">
+                                                                                    <option>Cargando...</option>
+                                                                                </select>
+                                                                            </div>
 
-                                                                        <div>
-                                                                            <label for="editar-idTipoDocumento" class="col-form-label">Tipo de documento</label>
-                                                                            <select class="form-select" id="editar-idTipoDocumento" name="idTipoDocumento" value="<%= pro.getDocumento().getId()%>" aria-label=".form-select-sm example">
-                                                                                <%
-                                                                                    List<Documento> listDoc = proveeServi.listarDocumentos();
-                                                                                    for (Documento document : listDoc) {
-                                                                                %>
-                                                                                <option <%= pro.getDocumento().getId().equals(document.getId()) ? "selected" : ""%> value="<%= document.getId()%>"><%= document.getNombre()%></option>
-                                                                                <%
-                                                                                    }
-                                                                                %>
-                                                                            </select>
-                                                                        </div>
+                                                                            <div>
+                                                                                <label for="editar-idRegion" class="col-form-label">Region</label>
+                                                                                <select class="form-select" id="editar-idRegion-${proveedor.getCodigoProveedor()}" accion="idRegion" name="idRegion" aria-label=".form-select-sm example">
+                                                                                    <option>Cargando...</option>
+                                                                                </select>
+                                                                            </div>
 
-                                                                        <div>
-                                                                            <label for="editar-numDocumento" class="col-form-label">Nº de documento</label>
-                                                                            <input type="text" class="form-control" id="editar-numDocumento" value="<%= pro.getNumDocum()%>" name="editarNumDocumento" placeholder="Editar numDocumento" required>
-                                                                        </div>
+                                                                            <div>
+                                                                                <label for="editar-idProvincia" class="col-form-label">Provincia</label>
+                                                                                <select class="form-select" id="editar-idProvincia-${proveedor.getCodigoProveedor()}" accion="idProvincia" name="idProvincia" aria-label=".form-select-sm example">
+                                                                                    <option>Cargando...</option>
+                                                                                </select>
+                                                                            </div>
 
-                                                                        <div>
-                                                                            <label for="editar-fechaNac" class="col-form-label">Fecha de nacimiento</label>
-                                                                            <input type="date" class="form-control" id="editar-fechaNac" name="editarFechaNac" value="<%=  new SimpleDateFormat("yyyy-MM-dd").format(pro.getFechaNacimiento().toGregorianCalendar().getTime())/*new SimpleDateFormat("yyyy-MM-dd").format(pro.getFechaNacimiento().toGregorianCalendar().getTime())  */%>" >
-                                                                        </div>
-                                                                    </div>
-                                                                            
-                                                                    <div class="form-group col-md-6">
-                                                                        <div>
-                                                                            <label for="editar-idEmpresa" class="col-form-label">Empresa</label>
-                                                                            <select class="form-select" id="editar-idEmpresa" name="idEmpresa" value="<%= pro.getEmpresa().getIdEmpresa()%>"aria-label=".form-select-sm example">
-                                                                                <%
-                                                                                    ProveedorServicio empre2 = new ProveedorServicio();
-                                                                                    List<Empresa> listEmp = empre2.listarEmpresas();
-                                                                                    for (Empresa empresa : listEmp) {
-                                                                                %>
-                                                                                <option <%= pro.getEmpresa().getIdEmpresa().equals(empresa.getIdEmpresa()) ? "selected" : ""%> value="<%= empresa.getIdEmpresa()%>"><%= empresa.getRazonSocial()%></option>
-                                                                                <%
-                                                                                    }
-                                                                                %>
-                                                                            </select>
-                                                                        </div>
-                                                                            
-                                                                        <div>
-                                                                            <label for="editar-idPais" class="col-form-label">Pais</label>
-                                                                            <select class="form-select" id="editar-idPais-<%= pro.getCodigoProveedor()%>" accion="idPais" name="idPais" value="<%= pro.getPais().getId()%>" aria-label=".form-select-sm example">
-                                                                                <option>Seleccionar Pais</option>;
-                                                                                <%
-                                                                                    List<Pais> listPa = proveeServi.listarPaises();
-                                                                                    for (Pais pais : listPa) {
-                                                                                %>
-                                                                                <option <%= pro.getPais().getId().equals(pais.getId()) ? "selected" : ""%> name="idPais" value="<%= pais.getId()%>"><%= pais.getNombre()%></option>
-                                                                                <%
-                                                                                    }
-                                                                                %>
-                                                                            </select>
-                                                                        </div>
-                                                                            
-                                                                        <div>
-                                                                            <label for="editar-idRegion" class="col-form-label">Region</label>
-                                                                            <select class="form-select" id="editar-idRegion-<%= pro.getCodigoProveedor()%>" accion="idRegion" name="idRegion" aria-label=".form-select-sm example">
-                                                                                <%
-                                                                                    List<Region> listRe = proveeServi.listarRegiones(pro.getPais().getId());
-                                                                                    System.out.println();
-                                                                                    for (Region region : listRe) {
-                                                                                %>
-                                                                                <option <%= pro.getRegion().getId().equals(region.getId()) ? "selected" : ""%> value="<%= region.getId()%>"><%= region.getNombre()%></option>
-                                                                                <%
-                                                                                    }
-                                                                                %>
-                                                                            </select>
-                                                                        </div>
+                                                                            <div>
+                                                                                <label for="editar-idDistrito" class="col-form-label">Distrito</label>
+                                                                                <select class="form-select" id="editar-idDistrito-${proveedor.getCodigoProveedor()}" accion="idDistrito" name="idDistrito" aria-label=".form-select-sm example">
+                                                                                    <option>Cargando...</option>
+                                                                                </select>
+                                                                            </div>
+                                                                            <script>
+                                                                                (() => {
+                                                                                    // Editar modal
+                                                                                    const editarModalEl = document.getElementById('editarProvee${proveedor.getCodigoProveedor()}');
 
-                                                                        <div>
-                                                                            <label for="editar-idProvincia" class="col-form-label">Provincia</label>
-                                                                            <select class="form-select" id="editar-idProvincia-<%= pro.getCodigoProveedor()%>" accion="idProvincia" name="idProvincia" aria-label=".form-select-sm example">
-                                                                                <%
-                                                                                    List<Provincia> listPrvc = proveeServi.listarProvincias(pro.getIdRegion());
-                                                                                    for (Provincia provincia : listPrvc) {
-                                                                                %>
-                                                                                <option <%= pro.getProvincia().getId().equals(provincia.getId()) ? "selected" : ""%> value="<%= provincia.getId()%>"><%= provincia.getNombre()%></option>
-                                                                                <%
-                                                                                    }
-                                                                                %>
-                                                                            </select>
-                                                                        </div>
+                                                                                    const paisSelectEl = document.getElementById("editar-idPais-${proveedor.getCodigoProveedor()}");
+                                                                                    const regionSelectEl = document.getElementById("editar-idRegion-${proveedor.getCodigoProveedor()}");
+                                                                                    const provinciaSelectEl = document.getElementById("editar-idProvincia-${proveedor.getCodigoProveedor()}");
+                                                                                    const distritoSelectEl = document.getElementById("editar-idDistrito-${proveedor.getCodigoProveedor()}");
+                                                                                    const editarModal = new bootstrap.Modal(editarModalEl);
 
-                                                                        <div>
-                                                                            <label for="editar-idDistrito" class="col-form-label">Distrito</label>
-                                                                            <select class="form-select" id="editar-idDistrito-<%= pro.getCodigoProveedor()%>" accion="idDistrito" name="idDistrito" aria-label=".form-select-sm example">
-                                                                                <%
-                                                                                    List<Distrito> listDis = proveeServi.listarDistritos(pro.getIdProvincia());
-                                                                                    for (Distrito distrito : listDis) {
-                                                                                %>
-                                                                                <option <%= pro.getDistrito().getId().equals(distrito.getId()) ? "selected" : ""%> value="<%= distrito.getId()%>"><%= distrito.getNombre()%></option>
-                                                                                <%
-                                                                                    }
-                                                                                %>
-                                                                            </select>
-                                                                        </div>
-                                                                        <script>
-                                                                            (() => {
-                                                                                const paisSelectEl = document.getElementById("editar-idPais-<%= pro.getCodigoProveedor()%>");
-                                                                                const regionSelectEl = document.getElementById("editar-idRegion-<%= pro.getCodigoProveedor()%>");
-                                                                                const provinciaSelectEl = document.getElementById("editar-idProvincia-<%= pro.getCodigoProveedor()%>");
-                                                                                const distritoSelectEl = document.getElementById("editar-idDistrito-<%= pro.getCodigoProveedor()%>");
 
-                                                                                async function obtenerRegiones(paisId) {
-                                                                                    const res = await fetch("proveedores?accion=regiones&paisId=" + paisId);
-                                                                                    const regiones = await res.json();
-                                                                                    return regiones;
-                                                                                }
+                                                                                    paisSelectEl.disabled = true;
+                                                                                    regionSelectEl.disabled = true;
+                                                                                    provinciaSelectEl.disabled = true;
+                                                                                    distritoSelectEl.disabled = true;
 
-                                                                                async function obtenerProvincias(regionId) {
-                                                                                    const res = await fetch("proveedores?accion=provincias&regionId=" + regionId);
-                                                                                    const provincias = await res.json();
-                                                                                    return provincias;
-                                                                                }
+                                                                                    editarModalEl.addEventListener('shown.bs.modal', async () => {
+                                                                                        const paisIdSeleccionada = "${proveedor.getPais().getId()}";
+                                                                                        const regionIdSeleccionada = "${proveedor.getRegion().getId()}";
+                                                                                        const provinciaIdSeleccionada = "${proveedor.getProvincia().getId()}";
+                                                                                        const distritoIdSeleccionada = "${proveedor.getDistrito().getId()}";
 
-                                                                                async function obtenerDistritos(provinciaId) {
-                                                                                    const res = await fetch("proveedores?accion=distritos&provinciaId=" + provinciaId);
-                                                                                    const distritos = await res.json();
-                                                                                    return distritos;
-                                                                                }
 
-                                                                                paisSelectEl.addEventListener("change", async (event) => {
-                                                                                    const paisId = event.target.value;
-                                                                                    const regiones = await obtenerRegiones(paisId);
+                                                                                        let paisesHTML = "";
+                                                                                        let regionesHTML = "";
+                                                                                        let provinciasHTML = "";
+                                                                                        let distritosHTML = "";
 
-                                                                                    let regionesHTML = "";
-                                                                                    let provinciasHTML = "";
-                                                                                    let distritosHTML = "";
+                                                                                        paisesHTML += "<option>Seleccionar Pais</option>";
+                                                                                        regionesHTML += "<option>Seleccionar Region</option>";
+                                                                                        provinciasHTML += "<option>Seleccionar Provincia</option>";
+                                                                                        distritosHTML += "<option>Seleccionar Distrito</option>";
 
-                                                                                    regionesHTML += "<option>Seleccionar Region</option>";
-                                                                                    provinciasHTML += "<option>Seleccionar Provincia</option>";
-                                                                                    distritosHTML += "<option>Seleccionar Distrito</option>";
+                                                                                        const paises = await obtenerPaises();
 
-                                                                                    for (const region of regiones) {
-                                                                                        regionesHTML += "<option value='" + region.id + "'>" + region.nombre + "</option>";
+
+                                                                                        for (const pais of paises) {
+                                                                                            paisesHTML += "<option selected='" + (pais.id === paisIdSeleccionada ? "true" : "false") + "' value='" + pais.id + "'>" + pais.nombre + "</option>";
+                                                                                        }
+
+                                                                                        const regiones = await obtenerRegiones(paisIdSeleccionada);
+
+
+                                                                                        for (const region of regiones) {
+                                                                                            regionesHTML += "<option selected='" + (region.id === regionIdSeleccionada ? "true" : "false") + "' value='" + region.id + "'>" + region.nombre + "</option>";
+                                                                                        }
+
+                                                                                        const provincias = await obtenerProvincias(regionIdSeleccionada);
+
+                                                                                        for (const provincia of provincias) {
+                                                                                            provinciasHTML += "<option selected='" + (provincia.id === provinciaIdSeleccionada ? "true" : "false") + "' value='" + provincia.id + "'>" + provincia.nombre + "</option>";
+                                                                                        }
+
+                                                                                        const distritos = await obtenerDistritos(provinciaIdSeleccionada);
+
+                                                                                        for (const distrito of distritos) {
+                                                                                            distritosHTML += "<option selected='" + (distrito.id === distritoIdSeleccionada ? "true" : "false") + "' value='" + distrito.id + "'>" + distrito.nombre + "</option>";
+                                                                                        }
+
+                                                                                        paisSelectEl.innerHTML = paisesHTML;
+                                                                                        regionSelectEl.innerHTML = regionesHTML;
+                                                                                        provinciaSelectEl.innerHTML = provinciasHTML;
+                                                                                        distritoSelectEl.innerHTML = distritosHTML;
+
+                                                                                        paisSelectEl.disabled = false;
+                                                                                        regionSelectEl.disabled = false;
+                                                                                        provinciaSelectEl.disabled = false;
+                                                                                        distritoSelectEl.disabled = false;
+                                                                                    });
+
+
+                                                                                    async function obtenerPaises() {
+                                                                                        const res = await fetch("proveedores?accion=paises");
+                                                                                        const paises = await res.json();
+                                                                                        return paises;
                                                                                     }
 
-                                                                                    if (regiones.length > 0) {
-                                                                                        const regionId = regiones[0].id;
+                                                                                    async function obtenerRegiones(paisId) {
+                                                                                        const res = await fetch("proveedores?accion=regiones&paisId=" + paisId);
+                                                                                        const regiones = await res.json();
+                                                                                        return regiones;
+                                                                                    }
+
+                                                                                    async function obtenerProvincias(regionId) {
+                                                                                        const res = await fetch("proveedores?accion=provincias&regionId=" + regionId);
+                                                                                        const provincias = await res.json();
+                                                                                        return provincias;
+                                                                                    }
+
+                                                                                    async function obtenerDistritos(provinciaId) {
+                                                                                        const res = await fetch("proveedores?accion=distritos&provinciaId=" + provinciaId);
+                                                                                        const distritos = await res.json();
+                                                                                        return distritos;
+                                                                                    }
+
+                                                                                    paisSelectEl.addEventListener("change", async (event) => {
+                                                                                        const paisId = event.target.value;
+                                                                                        const regiones = await obtenerRegiones(paisId);
+                                                                                        let regionesHTML = "";
+                                                                                        let provinciasHTML = "";
+                                                                                        let distritosHTML = "";
+                                                                                        regionesHTML += "<option>Seleccionar Region</option>";
+                                                                                        provinciasHTML += "<option>Seleccionar Provincia</option>";
+                                                                                        distritosHTML += "<option>Seleccionar Distrito</option>";
+                                                                                        for (const region of regiones) {
+                                                                                            regionesHTML += "<option value='" + region.id + "'>" + region.nombre + "</option>";
+                                                                                        }
+
+                                                                                        if (regiones.length > 0) {
+                                                                                            const regionId = regiones[0].id;
+                                                                                            const provincias = await obtenerProvincias(regionId);
+                                                                                            for (const provincia of provincias) {
+                                                                                                provinciasHTML += "<option value='" + provincia.id + "'>" + provincia.nombre + "</option>";
+                                                                                            }
+
+                                                                                            if (provincias.length > 0) {
+                                                                                                const provinciaId = provincias[0].id;
+                                                                                                const distritos = await obtenerDistritos(provinciaId);
+                                                                                                for (const distrito of distritos) {
+                                                                                                    distritosHTML += "<option value='" + distrito.id + "'>" + distrito.nombre + "</option>";
+                                                                                                }
+                                                                                            }
+                                                                                        }
+
+                                                                                        regionSelectEl.innerHTML = regionesHTML;
+                                                                                        provinciaSelectEl.innerHTML = provinciasHTML;
+                                                                                        distritoSelectEl.innerHTML = distritosHTML;
+                                                                                    });
+                                                                                    regionSelectEl.addEventListener("change", async (event) => {
+                                                                                        const regionId = event.target.value;
                                                                                         const provincias = await obtenerProvincias(regionId);
-
+                                                                                        let provinciasHTML = "";
+                                                                                        let distritosHTML = "";
+                                                                                        provinciasHTML += "<option>Seleccionar Provincia</option>";
+                                                                                        distritosHTML += "<option>Seleccionar Distrito</option>";
                                                                                         for (const provincia of provincias) {
                                                                                             provinciasHTML += "<option value='" + provincia.id + "'>" + provincia.nombre + "</option>";
                                                                                         }
@@ -498,118 +501,118 @@
                                                                                         if (provincias.length > 0) {
                                                                                             const provinciaId = provincias[0].id;
                                                                                             const distritos = await obtenerDistritos(provinciaId);
-
                                                                                             for (const distrito of distritos) {
                                                                                                 distritosHTML += "<option value='" + distrito.id + "'>" + distrito.nombre + "</option>";
                                                                                             }
                                                                                         }
-                                                                                    }
 
-                                                                                    regionSelectEl.innerHTML = regionesHTML;
-                                                                                    provinciaSelectEl.innerHTML = provinciasHTML;
-                                                                                    distritoSelectEl.innerHTML = distritosHTML;
-                                                                                });
-
-                                                                                regionSelectEl.addEventListener("change", async (event) => {
-                                                                                    const regionId = event.target.value;
-                                                                                    const provincias = await obtenerProvincias(regionId);
-
-                                                                                    let provinciasHTML = "";
-                                                                                    let distritosHTML = "";
-
-                                                                                    provinciasHTML += "<option>Seleccionar Provincia</option>";
-                                                                                    distritosHTML += "<option>Seleccionar Distrito</option>";
-
-                                                                                    for (const provincia of provincias) {
-                                                                                        provinciasHTML += "<option value='" + provincia.id + "'>" + provincia.nombre + "</option>";
-                                                                                    }
-
-                                                                                    if (provincias.length > 0) {
-                                                                                        const provinciaId = provincias[0].id;
+                                                                                        provinciaSelectEl.innerHTML = provinciasHTML;
+                                                                                        distritoSelectEl.innerHTML = distritosHTML;
+                                                                                    });
+                                                                                    provinciaSelectEl.addEventListener("change", async (event) => {
+                                                                                        const provinciaId = event.target.value;
                                                                                         const distritos = await obtenerDistritos(provinciaId);
-
+                                                                                        let distritosHTML = "";
+                                                                                        distritosHTML += "<option>Seleccionar Distrito</option>";
                                                                                         for (const distrito of distritos) {
                                                                                             distritosHTML += "<option value='" + distrito.id + "'>" + distrito.nombre + "</option>";
                                                                                         }
-                                                                                    }
 
-                                                                                    provinciaSelectEl.innerHTML = provinciasHTML;
-                                                                                    distritoSelectEl.innerHTML = distritosHTML;
-                                                                                });
+                                                                                        distritoSelectEl.innerHTML = distritosHTML;
+                                                                                    });
+                                                                                })();
+                                                                            </script>
 
-                                                                                provinciaSelectEl.addEventListener("change", async (event) => {
-                                                                                    const provinciaId = event.target.value;
-                                                                                    const distritos = await obtenerDistritos(provinciaId);
-
-                                                                                    let distritosHTML = "";
-
-                                                                                    distritosHTML += "<option>Seleccionar Distrito</option>";
-
-                                                                                    for (const distrito of distritos) {
-                                                                                        distritosHTML += "<option value='" + distrito.id + "'>" + distrito.nombre + "</option>";
-                                                                                    }
-
-                                                                                    distritoSelectEl.innerHTML = distritosHTML;
-                                                                                });
-                                                                            })();
-                                                                        </script>
-
-                                                                        <div>
-                                                                            <label for="editar-Direccion" class="col-form-label">Direccion</label>
-                                                                            <input type="text" class="form-control" id="editar-Direccion" name="editarrDireccion" value="<%= pro.getDireccion()%>" placeholder="Editar Direccion" required>
+                                                                            <div>
+                                                                                <label for="editar-Direccion" class="col-form-label">Direccion</label>
+                                                                                <input type="text" class="form-control" id="editar-Direccion" name="editarrDireccion" value="${proveedor.getDireccion()}" placeholder="Editar Direccion" required>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
-                                                                </div>
 
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                                                    <input  type="submit" name="accion" value="Editar" class="btn btn-primary" />
-                                                                </div>
-                                                            </form>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                                                        <input  type="submit" name="accion" value="editar" class="btn btn-primary" />
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!---fin ventana para Editar --->
+
+                                                    <button class="btn btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#eliminarProvee${proveedor.getCodigoProveedor()}">Eliminar</button>
+
+                                                    <!-- Ventana modal para eliminar -->
+                                                    <div class="modal fade" id="eliminarProvee${proveedor.getCodigoProveedor()}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                                            <div class="modal-content">
+                                                                <form name="form-data" action="proveedores" method="POST">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title" id="myModalLabel">Deseas eliminar al proveedor</h5>
+                                                                        <button type="button" class="btn-close p-2" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                    </div>
+
+                                                                    <div class="modal-body">
+                                                                        <input type="hidden" name="idProveedor" value="${proveedor.getCodigoProveedor()}">
+                                                                        <strong style="text-align: center !important">${proveedor.getNombre()}</strong>
+                                                                    </div>
+
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                                                        <button type="submit" class="btn btn-primary btnBorrar btn-block" data-bs-dismiss="modal" id="${proveedor.getCodigoProveedor()}" name="accion" value="eliminar">Eliminar</button>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!---fin ventana para Editar --->
-
-                                                <button class="btn btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#eliminarProvee<%=pro.getCodigoProveedor()%>">Eliminar</button>
-
-                                                <!-- Ventana modal para eliminar -->
-                                                <div class="modal fade" id="eliminarProvee<%= pro.getCodigoProveedor()%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                                        <div class="modal-content">
-                                                            <form name="form-data" action="proveedores" method="DELETE">
-                                                                <div class="modal-header">
-                                                                    <h5 class="modal-title" id="myModalLabel">Deseas eliminar al proveedor</h5>
-                                                                    <button type="button" class="btn-close p-2" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                                </div>
-
-                                                                <div class="modal-body">
-                                                                    <input type="hidden" name="idProveedor" value="<%= pro.getCodigoProveedor()%>">
-                                                                    <strong style="text-align: center !important"><%= pro.getNombre()%></strong>
-                                                                </div>
-
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                                                    <button type="submit" class="btn btn-primary btnBorrar btn-block" data-bs-dismiss="modal" id="<%= pro.getCodigoProveedor()%>" name="accion" value="Borrar">Eliminar</button>
-                                                                </div>
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!---fin ventana eliminar--->
-                                        </td>
-                                    </tr>
-                                    <%
-                                            idx++;
-                                        }
-                                    %>
+                                                <!---fin ventana eliminar--->
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
                                 </tbody>
                             </table>
                         </div>
-                    </div>                        
+                    </div>      
+
+                    <nav class="mt-2 d-flex justify-content-between align-items-center">
+                        <div>
+                            <span>Cantidad</span>
+                            <select class="form-select" onchange="cambiarCantidad(this)">
+                                <option value="10" ${cantidad == 10 ? "selected" : ""}>10</option>
+                                <option value="25" ${cantidad == 25 ? "selected" : ""}>25</option>
+                                <option value="50" ${cantidad == 50 ? "selected" : ""}>50</option>
+                            </select> 
+                        </div>
+
+                        <div>
+                            <ul class="pagination mb-0">
+                                <li class="page-item ${pagina == 1 ? "disabled" : ""}">
+                                    <a class="page-link" href="proveedores?pagina=${pagina - 1}&cantidad=${cantidad}&q=${q}">Anterior</a>
+                                </li>
+
+                                <c:forEach var="i" begin="1" end="${paginas}">
+                                    <li class="page-item ${pagina == i ? "active" : ""}">
+                                        <a class="page-link" href="proveedores?pagina=${i}&cantidad=${cantidad}&q=${q}">${i}</a>
+                                    </li>
+                                </c:forEach>
+
+                                <li class="page-item ${pagina == paginas ? "disabled" : ""}">
+                                    <a class="page-link" href="proveedores?pagina=${pagina + 1}&cantidad=${cantidad}&q=${q}">Siguiente</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
                 </div>
             </div>
         </div>
+
+        <script>
+            function cambiarCantidad(event) {
+                const params = new URLSearchParams(window.location.search);
+                params.set("cantidad", event.value);
+                window.location.search = params.toString();
+            }
+        </script>
     </body>
 </html>
