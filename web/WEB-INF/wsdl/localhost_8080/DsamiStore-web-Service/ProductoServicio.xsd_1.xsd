@@ -34,6 +34,14 @@
 
 <xs:element name="listarProductos" type="tns:listarProductos"/>
 
+<xs:element name="listarProductosPaginacion" type="tns:listarProductosPaginacion"/>
+
+<xs:element name="listarProductosPaginacionCount" type="tns:listarProductosPaginacionCount"/>
+
+<xs:element name="listarProductosPaginacionCountResponse" type="tns:listarProductosPaginacionCountResponse"/>
+
+<xs:element name="listarProductosPaginacionResponse" type="tns:listarProductosPaginacionResponse"/>
+
 <xs:element name="listarProductosResponse" type="tns:listarProductosResponse"/>
 
 <xs:element name="modificarProducto" type="tns:modificarProducto"/>
@@ -129,6 +137,20 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="listarProductosPaginacion">
+<xs:sequence>
+<xs:element name="consulta" type="xs:string" minOccurs="0"/>
+<xs:element name="pagina" type="xs:int"/>
+<xs:element name="cantidad" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarProductosPaginacionResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:producto" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="modificarProducto">
 <xs:sequence>
 <xs:element name="productoID" type="xs:string" minOccurs="0"/>
@@ -159,6 +181,19 @@
 <xs:complexType name="buscarProductoResponse">
 <xs:sequence>
 <xs:element name="return" type="tns:producto" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarProductosPaginacionCount">
+<xs:sequence>
+<xs:element name="consulta" type="xs:string" minOccurs="0"/>
+<xs:element name="cantidad" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarProductosPaginacionCountResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
 </xs:sequence>
 </xs:complexType>
 

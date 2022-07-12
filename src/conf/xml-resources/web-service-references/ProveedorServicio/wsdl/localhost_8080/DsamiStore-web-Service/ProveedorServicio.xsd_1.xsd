@@ -241,7 +241,6 @@
 <xs:element name="codigoPersona" type="xs:string" minOccurs="0"/>
 <xs:element name="codigoUbicacion" type="xs:string" minOccurs="0"/>
 <xs:element name="fechaNacimiento" type="xs:dateTime" minOccurs="0"/>
-<xs:element name="fechaNacimientoStr" type="xs:string" minOccurs="0"/>
 <xs:element name="nombre" type="xs:string" minOccurs="0"/>
 <xs:element name="pais" type="tns:pais" minOccurs="0"/>
 </xs:sequence>

@@ -62,6 +62,18 @@ public class ProductoServicio {
         return port.listarProductos();
     }
 
+    public java.util.List<webservice.Producto> listarProductosPaginacion(java.lang.String consulta, int pagina, int cantidad) throws Exception_Exception {
+        webservice.ProductoServicio_Service service = new webservice.ProductoServicio_Service();
+        webservice.ProductoServicio port = service.getProductoServicioPort();
+        return port.listarProductosPaginacion(consulta, pagina, cantidad);
+    }
+
+    public int listarProductosPaginacionCount(java.lang.String consulta, int cantidad) throws Exception_Exception {
+        webservice.ProductoServicio_Service service = new webservice.ProductoServicio_Service();
+        webservice.ProductoServicio port = service.getProductoServicioPort();
+        return port.listarProductosPaginacionCount(consulta, cantidad);
+    }
+
     public String modificarProducto(java.lang.String productoID, java.lang.String marcaID, java.lang.String categoriaID, java.lang.String imagenID, java.lang.String almacenID, java.lang.String monedaID, java.lang.String nombre, java.lang.String descripcion, java.lang.String codBarras, double precio) throws Exception_Exception {
         webservice.ProductoServicio_Service service = new webservice.ProductoServicio_Service();
         webservice.ProductoServicio port = service.getProductoServicioPort();

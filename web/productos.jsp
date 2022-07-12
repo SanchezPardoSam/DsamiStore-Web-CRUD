@@ -4,15 +4,7 @@
     Author     : aries
 --%>
 
-
-<%@page import="webservice.Moneda"%>
-<%@page import="webservice.Almacen"%>
-<%@page import="webservice.Marca"%>
-<%@page import="webservice.Producto"%>
-<%@page import="Modelo.ProductoServicio"%>
-<%@page import="java.util.List"%>
-<%@page import="webservice.Categoria"%>
-<%@page import="Modelo.CategoriaService"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -41,12 +33,14 @@
                                         data-bs-target="#agregar">Agregar
                                 </button>
                             </div>
-                            <div class="d-flex">
-                                <input type="text" class="form-control me-2"
-                                       placeholder="Buscar una categoria" aria-label="Recipient's username"
-                                       aria-describedby="basic-addon2">
-                                <button class="btn btn-primary" id="basic-addon2" type="button ">Buscar</button>
-                            </div>
+
+
+                            <form action="productos" class="d-flex">
+                                <input type="hidden" name="pagina" value="${pagina}" />
+                                <input type="hidden" name="cantidad" value="${cantidad}" />
+                                <input type="search" name="q" value="${q}" placeholder="Buscar un producto" class="form-control me-2">
+                                <button type="submit" class="btn btn-primary">Buscar</button>
+                            </form>
                         </div>
                     </div>
 
@@ -54,11 +48,10 @@
                     <div class="modal fade" id="agregar" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
-                                <form action="ProductoControlador">
+                                <form action="productos" method="POST">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="staticBackdropLabel">Agregar producto</h5>
-                                        <button type="button" class="btn-close p-2" data-bs-dismiss="modal" aria-label="Close">
-                                        </button>
+                                        <button type="button" class="btn-close p-2" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
 
                                     <div class="modal-body">
@@ -67,80 +60,55 @@
                                                 <label for="agregar-nombre" class="col-form-label">Nombre</label>
                                                 <input type="text" class="form-control" id="agregar-nombre" name="crearNombre" placeholder="Agregar nombre" required autofocus>
                                             </div>
-                                            <div>
-                                                <label for="agregar-descripcion" class="col-form-label">DescripciÃ³n</label>
-                                                <input type="text" class="form-control" id="agregar-descripcion" name="crearDescripcion" placeholder="Agregar descripciÃ³n" required>
+                                            <div class="mb-3">
+                                                <label for="agregar-descripcion" class="col-form-label">Descripcion</label>
+                                                <input type="text" class="form-control" id="agregar-descripcion" name="crearDescripcion" placeholder="Agregar descripcion" required>
                                             </div>
                                             <div class="mb-3">
-                                                <label for="agregar-codigo" class="col-form-label">CÃ³digo de barras</label>
+                                                <label for="agregar-codigo" class="col-form-label">Codigo de barras</label>
                                                 <input type="text" class="form-control" id="agregar-codigo" name="crearCodigo" placeholder="Agregar codigo de barras" required autofocus>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="agregar-precio" class="col-form-label">Precio</label>
                                                 <input type="number" class="form-control" id="agregar-precio" name="crearPrecio" placeholder="Precio" required autofocus>
                                             </div>
+
                                             <div class="mb-3">
                                                 <label for="agregar-marca" class="col-form-label">Marca</label>
 
                                                 <select type="text"  class="form-select" id="agregar-marca" name="crearMarca" placeholder="Marca" required autofocus>
-                                                    <option hidden>Selecciona una marca</option>
-                                                    <%
-                                                        ProductoServicio r = new ProductoServicio();
-                                                        List<Marca> listMarca = r.listarMarca();
-
-                                                        for (Marca m : listMarca) {
-                                                    %>
-                                                    <option value="<%= m.getNombre()%>"><%= m.getNombre()%></option>
-                                                    <%
-                                                        }
-                                                    %>
-
+                                                    <option hidden>Seleccionar marca</option>
+                                                    <c:forEach var="marca" items="${marcas}">
+                                                        <option value="${marca.getId()}">${marca.getNombre()}</option>
+                                                    </c:forEach>
                                                 </select>
-
                                             </div>
+
                                             <div class="mb-3">
                                                 <label for="agregar-categoria" class="col-form-label">Categoria</label>
                                                 <select class="form-select" id="agregar-categoria" name="crearCategoria" required autofocus>
                                                     <option hidden>Seleccionar categoria</option>
-                                                    <%
-                                                        List<Categoria> listCat = r.listarCategoria();
-
-                                                        for (Categoria c : listCat) {
-                                                    %>
-                                                    <option value="<%= c.getNombre()%>"><%= c.getNombre()%></option>
-                                                    <%
-                                                        }
-                                                    %>
+                                                    <c:forEach var="categoria" items="${categorias}">
+                                                        <option value="${categoria.getId()}">${categoria.getNombre()}</option>
+                                                    </c:forEach>
                                                 </select>
                                             </div>
                                             <div class="mb-3">
-                                                <label for="agregar-almacen" class="col-form-label">AlmacÃ©n</label>
+                                                <label for="agregar-almacen" class="col-form-label">Almacen</label>
                                                 <select class="form-select" id="agregar-almacen" name="crearAlmacen" required autofocus>
-                                                    <option hidden>Seleccionar AlmacÃ©n</option>
-                                                    <%
-                                                        List<Almacen> listAlmacen = r.listarAlmacen();
-
-                                                        for (Almacen m : listAlmacen) {
-                                                    %>
-                                                    <option value="<%= m.getNombre()%>"><%= m.getNombre()%></option>
-                                                    <%
-                                                        }
-                                                    %>
+                                                    <option hidden>Seleccionar almacen</option>
+                                                    <c:forEach var="almacen" items="${almacenes}">
+                                                        <option value="${almacen.getIdAlmacen()}">${almacen.getNombre()}</option>
+                                                    </c:forEach>
                                                 </select>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="agregar-moneda" class="col-form-label">Moneda</label>
                                                 <select class="form-select" id="agregar-moneda" name="crearMoneda" required autofocus>
-                                                    <option hidden>Seleccionar Moneda</option>
-                                                    <%
-                                                        List<Moneda> listMoneda = r.listarMoneda();
-
-                                                        for (Moneda m : listMoneda) {
-                                                    %>
-                                                    <option value="<%= m.getNombre()%>"><%= m.getNombre()%></option>
-                                                    <%
-                                                        }
-                                                    %>
+                                                    <option hidden>Seleccionar moneda</option>
+                                                    <c:forEach var="moneda" items="${monedas}">
+                                                        <option value="${moneda.getIdMoneda()}">${moneda.getNombre()}</option>
+                                                    </c:forEach>
                                                 </select>
                                             </div>
                                         </div>
@@ -172,201 +140,202 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <%
-                                        int idx = 0;
-                                        ProductoServicio c = new ProductoServicio();
-                                        List<Producto> listPro = c.listarProductos();
-                                        for (Producto pro : listPro) {
+                                    <c:forEach var="producto" items="${productos}" varStatus="loop">
+                                        <tr>
+                                            <td>${((pagina * cantidad) - cantidad + 1)  + loop.index}</td>
+                                            <td>${producto.getNombre()}</td>
+                                            <td>${producto.getDescripcion()}</td>
+                                            <td>${producto.getPrecio()}</td>
+                                            <td>${producto.getMarcaID()}</td>
+                                            <td>${producto.getCategoriaID()}</td>
+                                            <td>${producto.getAlmacenID()}</td>
+                                            <td>${producto.getMonedaID()}</td>
 
-
-                                    %>
-                                    <tr>
-                                        <td> <%= idx + 1%></td>
-                                        <td> <%= pro.getNombre()%></td>
-                                        <td> <%= pro.getDescripcion()%></td>
-                                        <td> <%= pro.getPrecio()%></td>
-                                        <td> <%= pro.getMarcaID()%></td>
-                                        <td> <%= pro.getCategoriaID()%></td>
-                                        <td> <%= pro.getAlmacenID()%></td>
-                                        <td> <%= pro.getMonedaID()%></td>
-
-                                        <td>
-                                            <div class="d-flex justify-content-center">
-                                                <button class="btn btn-secondary me-2" type="button" data-bs-toggle="modal" data-bs-target="#codBarras<%= pro.getProductoID()%>">
-                                                    Ver código
-                                                </button>
-                                                <div class="modal fade" id="codBarras<%= pro.getProductoID()%>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-hidden="true"
-                                                     aria-labelledby="codBarras">
-                                                    <div class="modal-dialog modal-dialog-centered">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="staticBackdropLabel">Código de barras del producto</h5>
-                                                                <button type="button" class="btn-close p-2" data-bs-dismiss="modal" aria-label="Close">
-                                                                </button>
-                                                            </div>
-                                                            <div class="modal-body text-center" id="content-barras">
-                                                                <p><%=pro.getNombre()%></p>
-                                                                <svg id="barcode<%= pro.getCodBarras()%>"></svg>
-                                                                <script>
-                                                                    JsBarcode('#barcode<%= pro.getCodBarras()%>', "<%= pro.getCodBarras()%>");
-                                                                </script>
+                                            <td>
+                                                <div class="d-flex justify-content-center">
+                                                    <button class="btn btn-secondary me-2" type="button" data-bs-toggle="modal" data-bs-target="#codBarras${producto.getProductoID()}">
+                                                        Ver código
+                                                    </button>
+                                                    <div class="modal fade" id="codBarras${producto.getProductoID()}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-hidden="true"
+                                                         aria-labelledby="codBarras">
+                                                        <div class="modal-dialog modal-dialog-centered">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="staticBackdropLabel">Código de barras del producto</h5>
+                                                                    <button type="button" class="btn-close p-2" data-bs-dismiss="modal" aria-label="Close">
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body text-center" id="content-barras">
+                                                                    <p>${producto.getNombre()}</p>
+                                                                    <svg id="barcode${producto.getCodBarras()}"></svg>
+                                                                    <script>
+                                                                        JsBarcode('#barcode${producto.getCodBarras()}', "${producto.getCodBarras()}");
+                                                                    </script>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <button class="btn btn-secondary me-2" type="button" data-bs-toggle="modal" data-bs-target="#editarProducto<%= pro.getProductoID()%>">
-                                                    Editar
-                                                </button>
-                                                <!--ventana para Update--->
-                                                <div class="modal fade" id="editarProducto<%= pro.getProductoID()%>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-hidden="true"
-                                                     aria-labelledby="editarProducto">
-                                                    <div class="modal-dialog modal-dialog-centered">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="staticBackdropLabel">Editar producto</h5>
-                                                                <button type="button" class="btn-close p-2" data-bs-dismiss="modal" aria-label="Close">
-                                                                </button>
-                                                            </div>
+                                                    <button class="btn btn-secondary me-2" type="button" data-bs-toggle="modal" data-bs-target="#editarProducto${producto.getProductoID()}">
+                                                        Editar
+                                                    </button>
+                                                    <!--ventana para Update--->
+                                                    <div class="modal fade" id="editarProducto${producto.getProductoID()}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-hidden="true"
+                                                         aria-labelledby="editarProducto">
+                                                        <div class="modal-dialog modal-dialog-centered">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="staticBackdropLabel">Editar producto</h5>
+                                                                    <button type="button" class="btn-close p-2" data-bs-dismiss="modal" aria-label="Close">
+                                                                    </button>
+                                                                </div>
 
-                                                            <form action="ProductoControlador">
-                                                                <input type="hidden" name="productoID" value="<%= pro.getProductoID()%>">
+                                                                <form action="productos" method="POST">
+                                                                    <input type="hidden" name="productoID" value="${producto.getProductoID()}">
 
-                                                                <div class="modal-body" id="cont_modal">
-                                                                    <div class="row">
-                                                                        <input type="hidden" name="crearProducto" value="<%= pro.getProductoID()%>">
+                                                                    <div class="modal-body" id="cont_modal">
+                                                                        <div class="row">
+                                                                            <input type="hidden" name="crearProducto" value="${producto.getProductoID()}">
 
-                                                                        <div class="mb-3">
-                                                                            <label for="agregar-nombre" class="col-form-label">Nombre</label>
-                                                                            <input type="text" class="form-control" id="editar-nombre" name="crearNombre" value="<%= pro.getNombre()%>" placeholder="Agregar nombre" required autofocus>
-                                                                        </div>
-                                                                        <div>
-                                                                            <label for="agregar-descripcion" class="col-form-label">DescripciÃ³n</label>
-                                                                            <input type="text" class="form-control" id="agregar-descripcion" name="crearDescripcion" value="<%= pro.getDescripcion()%>" placeholder="Agregar descripciÃ³n" required>
-                                                                        </div>
-                                                                        <div class="mb-3">
-                                                                            <label for="agregar-codigo" class="col-form-label">CÃ³digo de barras</label>
-                                                                            <input type="text" class="form-control" id="agregar-codigo" name="crearCodigo" value="<%= pro.getCodBarras()%>" placeholder="Agregar codigo de barras" required autofocus>
-                                                                        </div>
-                                                                        <div class="mb-3">
-                                                                            <label for="agregar-precio" class="col-form-label">Precio</label>
-                                                                            <input type="number" class="form-control" id="agregar-precio" name="crearPrecio" value="<%= pro.getPrecio()%>" placeholder="Precio" required autofocus>
-                                                                        </div>
-                                                                        <div class="mb-3">
-                                                                            <label for="agregar-marca" class="col-form-label">Marca</label>
-                                                                            <select type="text"  class="form-select" id="agregar-marca" name="crearMarca" placeholder="Marca" required autofocus>
-                                                                                <option hidden>Selecciona una marca</option>
-                                                                                <%
-                                                                                    for (Marca m : listMarca) {
-                                                                                %>
-                                                                                <option <%= pro.getMarcaID().equals(m.getNombre()) ? "selected" : ""%> value="<%= m.getNombre()%>"><%= m.getNombre()%></option>
-                                                                                <%
-                                                                                    }
-                                                                                %>
-                                                                            </select>
-                                                                        </div>
-                                                                        <div class="mb-3">
-                                                                            <label for="agregar-categoria" class="col-form-label">Categoria</label>
-                                                                            <select class="form-select" id="agregar-categoria" name="crearCategoria" required autofocus>
-                                                                                <option hidden>Seleccionar categoria</option>
-                                                                                <%
-                                                                                    listCat = r.listarCategoria();
+                                                                            <div class="mb-3">
+                                                                                <label class="col-form-label">Codigo</label>
+                                                                                <input type="text" class="form-control" value="${producto.getProductoID()}" disabled>
+                                                                            </div>
+                                                                            
+                                                                            <div class="mb-3">
+                                                                                <label for="agregar-nombre" class="col-form-label">Nombre</label>
+                                                                                <input type="text" class="form-control" id="editar-nombre" name="crearNombre" value="<${producto.getNombre()}" placeholder="Agregar nombre" required autofocus>
+                                                                            </div>
+                                                                            <div class="mb-3">
+                                                                                <label for="agregar-descripcion" class="col-form-label">Descripcion</label>
+                                                                                <input type="text" class="form-control" id="agregar-descripcion" name="crearDescripcion" value="${producto.getDescripcion()}" placeholder="Agregar descripcion" required>
+                                                                            </div>
+                                                                            <div class="mb-3">
+                                                                                <label for="agregar-codigo" class="col-form-label">Codigo de barras</label>
+                                                                                <input type="text" class="form-control" id="agregar-codigo" name="crearCodigo" value="${producto.getCodBarras()}" placeholder="Agregar codigo de barras" required autofocus>
+                                                                            </div>
+                                                                            <div class="mb-3">
+                                                                                <label for="agregar-precio" class="col-form-label">Precio</label>
+                                                                                <input type="number" class="form-control" id="agregar-precio" name="crearPrecio" value="${producto.getPrecio()}" placeholder="Precio" required autofocus>
+                                                                            </div>
 
-                                                                                    for (Categoria cat : listCat) {
-                                                                                %>
-                                                                                <option <%= pro.getCategoriaID().equals(cat.getNombre()) ? "selected" : ""%> value="<%= cat.getNombre()%>"><%= cat.getNombre()%></option>
-                                                                                <%
-                                                                                    }
-                                                                                %>
-                                                                            </select>
-                                                                        </div>
-                                                                        <div class="mb-3">
-                                                                            <label for="agregar-almacen" class="col-form-label">AlmacÃ©n</label>
-                                                                            <select class="form-select" id="agregar-almacen" name="crearAlmacen" required autofocus>
-                                                                                <option hidden>Seleccionar AlmacÃ©n</option>
-                                                                                <%
-                                                                                    listAlmacen = r.listarAlmacen();
+                                                                            <div class="mb-3">
+                                                                                <label for="agregar-marca" class="col-form-label">Marca</label>
+                                                                                <select type="text"  class="form-select" id="agregar-marca" name="crearMarca" placeholder="Marca" required autofocus>
+                                                                                    <option hidden>Selecciona una marca</option>
+                                                                                    <c:forEach var="marca" items="${marcas}">
+                                                                                        <option ${producto.getMarcaID().equals(marca.getNombre()) ? "selected" : ""} value="${marca.getId()}">${marca.getNombre()}</option>
+                                                                                    </c:forEach>
+                                                                                </select>
+                                                                            </div>
 
-                                                                                    for (Almacen al : listAlmacen) {
-                                                                                %>
-                                                                                <option <%= pro.getAlmacenID().equals(al.getNombre()) ? "selected" : ""%> value="<%= al.getNombre()%>"><%= al.getNombre()%></option>
-                                                                                <%
-                                                                                    }
-                                                                                %>
-                                                                            </select>
-                                                                        </div>
-                                                                        <div class="mb-3">
-                                                                            <label for="agregar-moneda" class="col-form-label">Moneda</label>
-                                                                            <select class="form-select" id="agregar-moneda" name="crearMoneda" required autofocus>
-                                                                                <option hidden>Seleccionar Moneda</option>
-                                                                                <%
-                                                                                    listMoneda = r.listarMoneda();
-
-                                                                                    for (Moneda m : listMoneda) {
-                                                                                %>
-                                                                                <option <%= pro.getMonedaID().equals(m.getNombre()) ? "selected" : ""%> value="<%= m.getNombre()%>"><%= m.getNombre()%></option>
-                                                                                <%
-                                                                                    }
-                                                                                %>
-                                                                            </select>
+                                                                            <div class="mb-3">
+                                                                                <label for="agregar-categoria" class="col-form-label">Categoria</label>
+                                                                                <select class="form-select" id="agregar-categoria" name="crearCategoria" required autofocus>
+                                                                                    <option hidden>Seleccionar categoria</option>
+                                                                                    <c:forEach var="categoria" items="${categorias}">
+                                                                                        <option ${producto.getCategoriaID().equals(categoria.getNombre()) ? "selected" : ""} value="${categoria.getId()}">${categoria.getNombre()}</option>
+                                                                                    </c:forEach>
+                                                                                </select>
+                                                                            </div>
+                                                                            <div class="mb-3">
+                                                                                <label for="agregar-almacen" class="col-form-label">Almacen</label>
+                                                                                <select class="form-select" id="agregar-almacen" name="crearAlmacen" required autofocus>
+                                                                                    <option hidden>Seleccionar Almacen</option>
+                                                                                    <c:forEach var="almacen" items="${almacenes}">
+                                                                                        <option ${producto.getAlmacenID().equals(almacen.getNombre()) ? "selected" : ""} value="${almacen.getIdAlmacen()}">${almacen.getNombre()}</option>
+                                                                                    </c:forEach>
+                                                                                </select>
+                                                                            </div>
+                                                                            <div class="mb-3">
+                                                                                <label for="agregar-moneda" class="col-form-label">Moneda</label>
+                                                                                <select class="form-select" id="agregar-moneda" name="crearMoneda" required autofocus>
+                                                                                    <option hidden>Seleccionar Moneda</option>
+                                                                                    <c:forEach var="moneda" items="${monedas}">
+                                                                                        <option ${producto.getMonedaID().equals(moneda.getNombre()) ? "selected" : ""} value="${moneda.getIdMoneda()}">${moneda.getNombre()}</option>
+                                                                                    </c:forEach>
+                                                                                </select>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
-                                                                </div>
 
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                                                    <input  type="submit" name="accion" value="editar" class="btn btn-primary" />
-                                                                </div>
-                                                            </form>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                                                        <input  type="submit" name="accion" value="editar" class="btn btn-primary" />
+                                                                    </div>
+                                                                </form>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <!---fin ventana Update --->
+                                                    <!---fin ventana Update --->
 
-                                                <button class="btn btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#eliminarPro<%= pro.getProductoID()%>">Eliminar</button>
+                                                    <button class="btn btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#eliminarPro${producto.getProductoID()}">Eliminar</button>
 
-                                                <!-- Ventana modal para eliminar -->
-                                                <div class="modal fade" id="eliminarPro<%= pro.getProductoID()%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                                        <div class="modal-content">
+                                                    <!-- Ventana modal para eliminar -->
+                                                    <div class="modal fade" id="eliminarPro${producto.getProductoID()}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                                            <div class="modal-content">
+                                                                <form  name="form-data" action="productos" method="POST" >
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title" id="myModalLabel">Deseas eliminar el producto</h5>
+                                                                        <button type="button" class="btn-close p-2" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                    </div>
 
-                                                            <form  name="form-data" action="ProductoControlador" method="DELETE"/>
+                                                                    <div class="modal-body">
+                                                                        <input type="hidden" name="productoID" value="${producto.getProductoID()}">
+                                                                        <strong style="text-align: center !important">
+                                                                            ${producto.getNombre()}
+                                                                        </strong>
+                                                                    </div>
 
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="myModalLabel">Deseas eliminar el producto</h5>
-                                                                <button type="button" class="btn-close p-2" data-bs-dismiss="modal" aria-label="Close">
-                                                                </button>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                                                        <button type="submit" class="btn btn-primary btnBorrar btn-block" data-bs-dismiss="modal" id="${producto.getProductoID()}" name="accion" value="eliminar">Borrar</button>
+                                                                    </div>
+
+                                                                </form>
                                                             </div>
-
-                                                            <div class="modal-body">
-                                                                <input type="hidden" name="productoID" value="<%=pro.getProductoID()%>">
-                                                                <strong style="text-align: center !important">
-                                                                    <%= pro.getNombre()%>
-                                                                </strong>
-                                                            </div>
-
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                                                <button type="submit" class="btn btn-primary btnBorrar btn-block" data-bs-dismiss="modal" id="<%= pro.getProductoID()%>"
-                                                                        name="accion" value="eliminar">Borrar</button>
-                                                            </div>
-
-                                                            </form>
                                                         </div>
                                                     </div>
+                                                    <!---fin ventana eliminar--->
                                                 </div>
-                                                <!---fin ventana eliminar--->
-                                            </div>
 
-                                        </td>
+                                            </td>
 
-                                    </tr>
-                                    <%
-                                            idx++;
-                                        }%>
+                                        </tr>
+                                    </c:forEach>
                                 </tbody>
                             </table>
                         </div>
                     </div>
+
+                    <nav class="mt-2 d-flex justify-content-between align-items-center">
+                        <div>
+                            <span>Cantidad</span>
+                            <select class="form-select" onchange="cambiarCantidad(this)">
+                                <option value="10" ${cantidad == 10 ? "selected" : ""}>10</option>
+                                <option value="25" ${cantidad == 25 ? "selected" : ""}>25</option>
+                                <option value="50" ${cantidad == 50 ? "selected" : ""}>50</option>
+                            </select> 
+                        </div>
+
+                        <div>
+                            <ul class="pagination mb-0">
+                                <li class="page-item ${pagina == 1 ? "disabled" : ""}">
+                                    <a class="page-link" href="productos?pagina=${pagina - 1}&cantidad=${cantidad}&q=${q}">Anterior</a>
+                                </li>
+
+                                <c:forEach var="i" begin="1" end="${paginas}">
+                                    <li class="page-item ${pagina == i ? "active" : ""}">
+                                        <a class="page-link" href="productos?pagina=${i}&cantidad=${cantidad}&q=${q}">${i}</a>
+                                    </li>
+                                </c:forEach>
+
+                                <li class="page-item ${pagina == paginas ? "disabled" : ""}">
+                                    <a class="page-link" href="productos?pagina=${pagina + 1}&cantidad=${cantidad}&q=${q}">Siguiente</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
                 </div>
             </div>
         </div>
