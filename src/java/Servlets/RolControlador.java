@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import webservice.Exception_Exception;
 import webservice.Rol;
+import webservice.Usuario;
 
 /**
  *
@@ -42,17 +43,17 @@ public class RolControlador extends HttpServlet {
         String accion = request.getParameter("accion") != null ? request.getParameter("accion") : "listar";
 
         /*
-        Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+   Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
 
         if (usuario == null) {
             response.sendRedirect(request.getContextPath() + "/auth");
             return;
         }
          */
-        int pagina = request.getParameter("pagina") != null ? Integer.parseInt(request.getParameter("pagina")) : 1;
-        int cantidad = request.getParameter("cantidad") != null ? Integer.parseInt(request.getParameter("cantidad")) : 10;
-        String consulta = request.getParameter("q") != null ? request.getParameter("q") : "";
         try {
+            int pagina = request.getParameter("pagina") != null ? Integer.parseInt(request.getParameter("pagina")) : 1;
+            int cantidad = request.getParameter("cantidad") != null ? Integer.parseInt(request.getParameter("cantidad")) : 10;
+            String consulta = request.getParameter("q") != null ? request.getParameter("q") : "";
 
             int paginas = rolServicio.listarRolesPaginacionCount(consulta, cantidad);
             List<Rol> roles = rolServicio.listarRolesPaginacion(consulta, pagina, cantidad);

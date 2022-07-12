@@ -4,14 +4,26 @@
 <xsd:import namespace="http://WebService/" schemaLocation="http://localhost:8080/DsamiStore-web-Service/Servicios?xsd=1"/>
 </xsd:schema>
 </types>
+<message name="listarCategoriasPaginacion">
+<part name="parameters" element="tns:listarCategoriasPaginacion"/>
+</message>
+<message name="listarCategoriasPaginacionResponse">
+<part name="parameters" element="tns:listarCategoriasPaginacionResponse"/>
+</message>
+<message name="Exception">
+<part name="fault" element="tns:Exception"/>
+</message>
+<message name="listarCategoriasPaginacionCount">
+<part name="parameters" element="tns:listarCategoriasPaginacionCount"/>
+</message>
+<message name="listarCategoriasPaginacionCountResponse">
+<part name="parameters" element="tns:listarCategoriasPaginacionCountResponse"/>
+</message>
 <message name="listarCategorias">
 <part name="parameters" element="tns:listarCategorias"/>
 </message>
 <message name="listarCategoriasResponse">
 <part name="parameters" element="tns:listarCategoriasResponse"/>
-</message>
-<message name="Exception">
-<part name="fault" element="tns:Exception"/>
 </message>
 <message name="modificarCategoria">
 <part name="parameters" element="tns:modificarCategoria"/>
@@ -32,6 +44,16 @@
 <part name="parameters" element="tns:eliminarCategoriaResponse"/>
 </message>
 <portType name="Servicios">
+<operation name="listarCategoriasPaginacion">
+<input wsam:Action="http://WebService/Servicios/listarCategoriasPaginacionRequest" message="tns:listarCategoriasPaginacion"/>
+<output wsam:Action="http://WebService/Servicios/listarCategoriasPaginacionResponse" message="tns:listarCategoriasPaginacionResponse"/>
+<fault message="tns:Exception" name="Exception" wsam:Action="http://WebService/Servicios/listarCategoriasPaginacion/Fault/Exception"/>
+</operation>
+<operation name="listarCategoriasPaginacionCount">
+<input wsam:Action="http://WebService/Servicios/listarCategoriasPaginacionCountRequest" message="tns:listarCategoriasPaginacionCount"/>
+<output wsam:Action="http://WebService/Servicios/listarCategoriasPaginacionCountResponse" message="tns:listarCategoriasPaginacionCountResponse"/>
+<fault message="tns:Exception" name="Exception" wsam:Action="http://WebService/Servicios/listarCategoriasPaginacionCount/Fault/Exception"/>
+</operation>
 <operation name="listarCategorias">
 <input wsam:Action="http://WebService/Servicios/listarCategoriasRequest" message="tns:listarCategorias"/>
 <output wsam:Action="http://WebService/Servicios/listarCategoriasResponse" message="tns:listarCategoriasResponse"/>
@@ -50,10 +72,35 @@
 <operation name="eliminarCategoria">
 <input wsam:Action="http://WebService/Servicios/eliminarCategoriaRequest" message="tns:eliminarCategoria"/>
 <output wsam:Action="http://WebService/Servicios/eliminarCategoriaResponse" message="tns:eliminarCategoriaResponse"/>
+<fault message="tns:Exception" name="Exception" wsam:Action="http://WebService/Servicios/eliminarCategoria/Fault/Exception"/>
 </operation>
 </portType>
 <binding name="ServiciosPortBinding" type="tns:Servicios">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+<operation name="listarCategoriasPaginacion">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Exception">
+<soap:fault name="Exception" use="literal"/>
+</fault>
+</operation>
+<operation name="listarCategoriasPaginacionCount">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Exception">
+<soap:fault name="Exception" use="literal"/>
+</fault>
+</operation>
 <operation name="listarCategorias">
 <soap:operation soapAction=""/>
 <input>
@@ -98,6 +145,9 @@
 <output>
 <soap:body use="literal"/>
 </output>
+<fault name="Exception">
+<soap:fault name="Exception" use="literal"/>
+</fault>
 </operation>
 </binding>
 <service name="Servicios">

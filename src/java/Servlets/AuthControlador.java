@@ -7,8 +7,6 @@ package Servlets;
 
 import Modelo.UsuarioServicio;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -46,7 +44,7 @@ public class AuthControlador extends HttpServlet {
                 ingresar(request, response);
                 break;
             case "salir":
-                ingresar(request, response);
+                salir(request, response);
                 break;
 
         }

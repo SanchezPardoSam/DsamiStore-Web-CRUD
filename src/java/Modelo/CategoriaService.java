@@ -22,25 +22,35 @@ public class CategoriaService {
         webservice.Servicios port = service.getServiciosPort();
         return port.listarCategorias();
     }
-    
 
-    public String modificarCategoria(java.lang.String id, java.lang.String nombre, java.lang.String descripcion) throws Exception_Exception {
+    public java.util.List<webservice.Categoria> listarCategoriasPaginacion(java.lang.String consulta, int pagina, int cantidad) throws Exception_Exception {
         webservice.Servicios_Service service = new webservice.Servicios_Service();
         webservice.Servicios port = service.getServiciosPort();
-        return port.modificarCategoria(id, nombre, descripcion);
+        return port.listarCategoriasPaginacion(consulta, pagina, cantidad);
     }
 
-    public String agregarCategoria(java.lang.String nombre, java.lang.String descripcion) throws Exception_Exception {
+    public int listarCategoriasPaginacionCount(java.lang.String consulta, int cantidad) throws Exception_Exception {
         webservice.Servicios_Service service = new webservice.Servicios_Service();
         webservice.Servicios port = service.getServiciosPort();
-        return port.agregarCategoria(nombre, descripcion);
+        return port.listarCategoriasPaginacionCount(consulta, cantidad);
     }
 
-    public Categoria eliminarCategoria(java.lang.String id) {
+    public void agregarCategoria(java.lang.String nombre, java.lang.String descripcion) throws Exception_Exception {
         webservice.Servicios_Service service = new webservice.Servicios_Service();
         webservice.Servicios port = service.getServiciosPort();
-        return port.eliminarCategoria(id);
+        port.agregarCategoria(nombre, descripcion);
     }
 
-       
+    public void modificarCategoria(java.lang.String id, java.lang.String nombre, java.lang.String descripcion) throws Exception_Exception {
+        webservice.Servicios_Service service = new webservice.Servicios_Service();
+        webservice.Servicios port = service.getServiciosPort();
+        port.modificarCategoria(id, nombre, descripcion);
+    }
+
+    public void eliminarCategoria(java.lang.String id) throws Exception_Exception {
+        webservice.Servicios_Service service = new webservice.Servicios_Service();
+        webservice.Servicios port = service.getServiciosPort();
+        port.eliminarCategoria(id);
+    }
+
 }
