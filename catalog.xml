@@ -26,4 +26,6 @@
     <system systemId="http://localhost:8080/DsamiStore-web-Service/ProveedorServicio?xsd=1" uri="src/conf/xml-resources/web-service-references/ProveedorServicio/wsdl/localhost_8080/DsamiStore-web-Service/ProveedorServicio.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/DsamiStore-web-Service/ProductoServicio?wsdl" uri="src/conf/xml-resources/web-service-references/ProductoServicio/wsdl/localhost_8080/DsamiStore-web-Service/ProductoServicio.wsdl"/>
     <system systemId="http://localhost:8080/DsamiStore-web-Service/ProductoServicio?xsd=1" uri="src/conf/xml-resources/web-service-references/ProductoServicio/wsdl/localhost_8080/DsamiStore-web-Service/ProductoServicio.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/DsamiStore-web-Service/RecepcionServicio?wsdl" uri="src/conf/xml-resources/web-service-references/RecepcionServicio/wsdl/localhost_8080/DsamiStore-web-Service/RecepcionServicio.wsdl"/>
+    <system systemId="http://localhost:8080/DsamiStore-web-Service/RecepcionServicio?xsd=1" uri="src/conf/xml-resources/web-service-references/RecepcionServicio/wsdl/localhost_8080/DsamiStore-web-Service/RecepcionServicio.xsd_1.xsd"/>
 </catalog>

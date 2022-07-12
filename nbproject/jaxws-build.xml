@@ -138,5 +138,21 @@
         <delete dir="${build.generated.sources.dir}/jax-ws/webservice"/>
         <delete dir="${build.generated.dir}/jax-wsCache/DespachoServicio"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-Servicios, wsimport-client-UsuarioServicio, wsimport-client-ProveedorServicio, wsimport-client-ProductoServicio, wsimport-client-RolServicio, wsimport-client-EmpleadoServicio, wsimport-client-DespachoServicio"/>
+    <target name="wsimport-client-RecepcionServicio" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/RecepcionServicio"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/RecepcionServicio" destdir="${build.generated.dir}/jax-wsCache/RecepcionServicio" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/RecepcionServicio/wsdl/localhost_8080/DsamiStore-web-Service/RecepcionServicio.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/DsamiStore-web-Service/RecepcionServicio?wsdl" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/RecepcionServicio/wsdl/localhost_8080/DsamiStore-web-Service/RecepcionServicio.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/RecepcionServicio"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/RecepcionServicio">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-RecepcionServicio" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/webservice"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/RecepcionServicio"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-Servicios, wsimport-client-UsuarioServicio, wsimport-client-ProveedorServicio, wsimport-client-ProductoServicio, wsimport-client-RolServicio, wsimport-client-EmpleadoServicio, wsimport-client-DespachoServicio, wsimport-client-RecepcionServicio"/>
 </project>
