@@ -44,12 +44,12 @@
                     <div class="modal fade" id="agregar" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
-                                <form action="categorias">
+                                <form action="categorias" name="crearCategoria" onsubmit="return validateFormCreate();">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="staticBackdropLabel">Agregar categoria</h5>
                                         <button type="button" class="btn-close p-2" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
-
+                                    <div id="alertCreate"></div>
                                     <div class="modal-body">
                                         <div class="row">
                                             <div class="mb-3">
@@ -197,7 +197,7 @@
                 </div>                        
             </div>
         </div>
-
+       
         <script>
             function cambiarCantidad(event) {
                 const params = new URLSearchParams(window.location.search);
@@ -205,5 +205,6 @@
                 window.location.search = params.toString();
             }
         </script>
+         <script src="./public/js/validacion/categoria.js" ></script>
     </body>
 </html>

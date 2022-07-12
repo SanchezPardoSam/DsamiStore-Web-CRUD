@@ -22,6 +22,14 @@
 
 <xs:element name="listarEmpleadoResponse" type="tns:listarEmpleadoResponse"/>
 
+<xs:element name="listarEmpleadosPaginacion" type="tns:listarEmpleadosPaginacion"/>
+
+<xs:element name="listarEmpleadosPaginacionCount" type="tns:listarEmpleadosPaginacionCount"/>
+
+<xs:element name="listarEmpleadosPaginacionCountResponse" type="tns:listarEmpleadosPaginacionCountResponse"/>
+
+<xs:element name="listarEmpleadosPaginacionResponse" type="tns:listarEmpleadosPaginacionResponse"/>
+
 <xs:element name="listarEmpresas" type="tns:listarEmpresas"/>
 
 <xs:element name="listarEmpresasResponse" type="tns:listarEmpresasResponse"/>
@@ -84,7 +92,6 @@
 <xs:element name="codigoPersona" type="xs:string" minOccurs="0"/>
 <xs:element name="codigoUbicacion" type="xs:string" minOccurs="0"/>
 <xs:element name="fechaNacimiento" type="xs:dateTime" minOccurs="0"/>
-<xs:element name="fechaNacimientoStr" type="xs:string" minOccurs="0"/>
 <xs:element name="nombre" type="xs:string" minOccurs="0"/>
 <xs:element name="pais" type="tns:pais" minOccurs="0"/>
 </xs:sequence>
@@ -155,6 +162,20 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="listarEmpleadosPaginacion">
+<xs:sequence>
+<xs:element name="consulta" type="xs:string" minOccurs="0"/>
+<xs:element name="pagina" type="xs:int"/>
+<xs:element name="cantidad" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarEmpleadosPaginacionResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:empleado" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="eliminarEmpleado">
 <xs:sequence>
 <xs:element name="id" type="xs:string" minOccurs="0"/>
@@ -164,18 +185,6 @@
 <xs:complexType name="eliminarEmpleadoResponse">
 <xs:sequence>
 <xs:element name="return" type="tns:empleado" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="listarProvincias">
-<xs:sequence>
-<xs:element name="region" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="listarProvinciasResponse">
-<xs:sequence>
-<xs:element name="return" type="tns:provincia" minOccurs="0" maxOccurs="unbounded"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -202,6 +211,18 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="listarProvincias">
+<xs:sequence>
+<xs:element name="region" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarProvinciasResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:provincia" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="listarRegiones">
 <xs:sequence>
 <xs:element name="pais" type="xs:string" minOccurs="0"/>
@@ -211,6 +232,19 @@
 <xs:complexType name="listarRegionesResponse">
 <xs:sequence>
 <xs:element name="return" type="tns:region" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarEmpleadosPaginacionCount">
+<xs:sequence>
+<xs:element name="consulta" type="xs:string" minOccurs="0"/>
+<xs:element name="cantidad" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarEmpleadosPaginacionCountResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
 </xs:sequence>
 </xs:complexType>
 

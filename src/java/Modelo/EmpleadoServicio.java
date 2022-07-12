@@ -20,8 +20,6 @@ public class EmpleadoServicio {
         webservice.EmpleadoServicio port = service.getEmpleadoServicioPort();
         return port.agregarEmpleado(empresa, nombre, apellidoPaterno, apellidoMaterno, tipoDocumento, numDocumento, fechaNac, pais, region, provincia, distrito, direccion);
     }
-    
-    
 
     public java.util.List<webservice.Distrito> listarDistritos(java.lang.String provincia) throws Exception_Exception {
         webservice.EmpleadoServicio_Service service = new webservice.EmpleadoServicio_Service();
@@ -39,6 +37,18 @@ public class EmpleadoServicio {
         webservice.EmpleadoServicio_Service service = new webservice.EmpleadoServicio_Service();
         webservice.EmpleadoServicio port = service.getEmpleadoServicioPort();
         return port.listarEmpleado();
+    }
+
+    public java.util.List<webservice.Empleado> listarEmpleadosPaginacion(java.lang.String consulta, int pagina, int cantidad) throws Exception_Exception {
+        webservice.EmpleadoServicio_Service service = new webservice.EmpleadoServicio_Service();
+        webservice.EmpleadoServicio port = service.getEmpleadoServicioPort();
+        return port.listarEmpleadosPaginacion(consulta, pagina, cantidad);
+    }
+
+    public int listarEmpleadosPaginacionCount(java.lang.String consulta, int cantidad) throws Exception_Exception {
+        webservice.EmpleadoServicio_Service service = new webservice.EmpleadoServicio_Service();
+        webservice.EmpleadoServicio port = service.getEmpleadoServicioPort();
+        return port.listarEmpleadosPaginacionCount(consulta, cantidad);
     }
 
     public java.util.List<webservice.Empresa> listarEmpresas() throws Exception_Exception {

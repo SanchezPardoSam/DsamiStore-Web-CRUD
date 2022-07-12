@@ -18,14 +18,17 @@
     <system systemId="http://localhost:8080/DsamiStore-web-Service/UsuarioServicio?xsd=1" uri="src/conf/xml-resources/web-service-references/UsuarioServicio/wsdl/localhost_8080/DsamiStore-web-Service/UsuarioServicio.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/DsamiStore-web-Service/RolServicio?wsdl" uri="src/conf/xml-resources/web-service-references/RolServicio/wsdl/localhost_8080/DsamiStore-web-Service/RolServicio.wsdl"/>
     <system systemId="http://localhost:8080/DsamiStore-web-Service/RolServicio?xsd=1" uri="src/conf/xml-resources/web-service-references/RolServicio/wsdl/localhost_8080/DsamiStore-web-Service/RolServicio.xsd_1.xsd"/>
-    <system systemId="http://localhost:8080/DsamiStore-web-Service/EmpleadoServicio?wsdl" uri="src/conf/xml-resources/web-service-references/EmpleadoServicio/wsdl/localhost_8080/DsamiStore-web-Service/EmpleadoServicio.wsdl"/>
-    <system systemId="http://localhost:8080/DsamiStore-web-Service/EmpleadoServicio?xsd=1" uri="src/conf/xml-resources/web-service-references/EmpleadoServicio/wsdl/localhost_8080/DsamiStore-web-Service/EmpleadoServicio.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/DsamiStore-web-Service/DespachoServicio?wsdl" uri="src/conf/xml-resources/web-service-references/DespachoServicio/wsdl/localhost_8080/DsamiStore-web-Service/DespachoServicio.wsdl"/>
     <system systemId="http://localhost:8080/DsamiStore-web-Service/DespachoServicio?xsd=1" uri="src/conf/xml-resources/web-service-references/DespachoServicio/wsdl/localhost_8080/DsamiStore-web-Service/DespachoServicio.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/DsamiStore-web-Service/ProveedorServicio?wsdl" uri="src/conf/xml-resources/web-service-references/ProveedorServicio/wsdl/localhost_8080/DsamiStore-web-Service/ProveedorServicio.wsdl"/>
     <system systemId="http://localhost:8080/DsamiStore-web-Service/ProveedorServicio?xsd=1" uri="src/conf/xml-resources/web-service-references/ProveedorServicio/wsdl/localhost_8080/DsamiStore-web-Service/ProveedorServicio.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/DsamiStore-web-Service/ProductoServicio?wsdl" uri="src/conf/xml-resources/web-service-references/ProductoServicio/wsdl/localhost_8080/DsamiStore-web-Service/ProductoServicio.wsdl"/>
     <system systemId="http://localhost:8080/DsamiStore-web-Service/ProductoServicio?xsd=1" uri="src/conf/xml-resources/web-service-references/ProductoServicio/wsdl/localhost_8080/DsamiStore-web-Service/ProductoServicio.xsd_1.xsd"/>
+<<<<<<< HEAD
     <system systemId="http://localhost:8080/DsamiStore-web-Service/RecepcionServicio?wsdl" uri="src/conf/xml-resources/web-service-references/RecepcionServicio/wsdl/localhost_8080/DsamiStore-web-Service/RecepcionServicio.wsdl"/>
     <system systemId="http://localhost:8080/DsamiStore-web-Service/RecepcionServicio?xsd=1" uri="src/conf/xml-resources/web-service-references/RecepcionServicio/wsdl/localhost_8080/DsamiStore-web-Service/RecepcionServicio.xsd_1.xsd"/>
+=======
+    <system systemId="http://localhost:8080/DsamiStore-web-Service/EmpleadoServicio?wsdl" uri="src/conf/xml-resources/web-service-references/EmpleadoServicio/wsdl/localhost_8080/DsamiStore-web-Service/EmpleadoServicio.wsdl"/>
+    <system systemId="http://localhost:8080/DsamiStore-web-Service/EmpleadoServicio?xsd=1" uri="src/conf/xml-resources/web-service-references/EmpleadoServicio/wsdl/localhost_8080/DsamiStore-web-Service/EmpleadoServicio.xsd_1.xsd"/>
+>>>>>>> a01665132a3899e9c3ae0e14c6aafbc9d3b4069b
 </catalog>
